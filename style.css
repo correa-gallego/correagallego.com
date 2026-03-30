@@ -1,0 +1,406 @@
+/* ═══════════════════════════════════════════
+   Sebastian Correa-Gallego — Academic Site
+   Aesthetic: refined academic minimalism
+   ═══════════════════════════════════════════ */
+
+:root {
+    --ink: #1a1a1a;
+    --paper: #faf9f6;
+    --muted: #6b6b6b;
+    --accent: #2c5f2d;
+    --accent-hover: #1e4420;
+    --rule: #d4d0c8;
+    --rule-light: #e8e5df;
+    --serif: 'EB Garamond', 'Georgia', serif;
+    --sans: 'Source Sans 3', 'Helvetica Neue', sans-serif;
+    --max-width: 640px;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ── Navigation ── */
+
+nav {
+    width: 100%;
+    max-width: var(--max-width);
+    padding: 1.6rem 1.5rem 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.nav-name {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+}
+
+.nav-name:hover {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 20px;
+    height: 1.5px;
+    background: var(--ink);
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+/* ── Main ── */
+
+main {
+    max-width: var(--max-width);
+    width: 100%;
+    padding: 2.5rem 1.5rem 3rem;
+    flex: 1;
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Home hero ── */
+
+.page-home .hero {
+    margin-bottom: 2.8rem;
+}
+
+.page-home h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 2.6rem;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin-bottom: 0.3rem;
+}
+
+.affiliation {
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+}
+
+/* ── Page titles (inner pages) ── */
+
+.page-title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 2rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 2rem;
+}
+
+/* ── Sections ── */
+
+section {
+    margin-bottom: 2.4rem;
+}
+
+h2 {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--rule);
+}
+
+p {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.75;
+}
+
+p + p {
+    margin-top: 0.7rem;
+}
+
+/* ── Entries (research, publications) ── */
+
+.entry {
+    margin-bottom: 1.8rem;
+    padding-bottom: 1.6rem;
+    border-bottom: 1px solid var(--rule-light);
+}
+
+.entry:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.2rem;
+}
+
+.entry-header h3 {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--ink);
+}
+
+.entry-date {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--muted);
+    white-space: nowrap;
+}
+
+.entry-role {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+.entry-note {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent);
+    margin-top: 0.3rem;
+}
+
+/* ── Keywords / tags ── */
+
+.keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 0.2rem;
+}
+
+.keyword {
+    font-size: 0.78rem;
+    font-weight: 400;
+    padding: 0.25rem 0.7rem;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    color: var(--ink);
+    background: transparent;
+    letter-spacing: 0.01em;
+}
+
+/* ── Skills groups ── */
+
+.skills-group {
+    margin-bottom: 1.4rem;
+}
+
+.skills-group:last-child {
+    margin-bottom: 0;
+}
+
+.skills-group h3 {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+}
+
+/* ── Contact links ── */
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.4rem;
+    margin-top: 0.2rem;
+}
+
+.contact-links a {
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.contact-links a:hover {
+    border-bottom-color: var(--accent);
+}
+
+/* ── CV page ── */
+
+.cv-section {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.cv-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--paper);
+    background: var(--accent);
+    padding: 0.5rem 1.1rem;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.cv-download:hover {
+    background: var(--accent-hover);
+}
+
+.cv-embed {
+    margin-top: 1.8rem;
+}
+
+.cv-embed iframe {
+    width: 100%;
+    height: 80vh;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: #fff;
+}
+
+/* ── Publications note ── */
+
+.publications-note {
+    padding: 1.2rem 1.4rem;
+    background: var(--rule-light);
+    border-radius: 3px;
+}
+
+.publications-note p {
+    font-size: 0.88rem;
+    color: var(--muted);
+}
+
+/* ── Footer ── */
+
+footer {
+    width: 100%;
+    max-width: var(--max-width);
+    padding: 1.5rem;
+    margin-top: auto;
+}
+
+footer p {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-weight: 300;
+    border-top: 1px solid var(--rule);
+    padding-top: 1.2rem;
+}
+
+/* ── Mobile ── */
+
+@media (max-width: 540px) {
+    html { font-size: 16px; }
+    main { padding: 2rem 1.25rem 2.5rem; }
+
+    .page-home h1 { font-size: 2.1rem; }
+    .page-title { font-size: 1.7rem; }
+
+    .entry-header {
+        flex-direction: column;
+        gap: 0.1rem;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 3.2rem;
+        right: 1.25rem;
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        border-radius: 4px;
+        flex-direction: column;
+        padding: 0.6rem 1rem;
+        gap: 0.5rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        z-index: 100;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    nav {
+        position: relative;
+    }
+}
