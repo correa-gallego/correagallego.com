@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sebastian Correa-Gallego</title>
+    <meta name="description" content="Sebastian Correa-Gallego — Biology student and researcher in microbial ecology and extreme environments.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1a1a1a;
+            --paper: #faf9f6;
+            --muted: #6b6b6b;
+            --accent: #2c5f2d;
+            --rule: #d4d0c8;
+            --serif: 'EB Garamond', 'Georgia', serif;
+            --sans: 'Source Sans 3', 'Helvetica Neue', sans-serif;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 18px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        main {
+            max-width: 620px;
+            width: 100%;
+            padding: 4rem 1.5rem 3rem;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Name ── */
+        h1 {
+            font-family: var(--serif);
+            font-weight: 500;
+            font-size: 2.2rem;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+            margin-bottom: 0.15rem;
+        }
+
+        .affiliation {
+            font-size: 0.88rem;
+            font-weight: 400;
+            color: var(--muted);
+            letter-spacing: 0.02em;
+            margin-bottom: 2.4rem;
+        }
+
+        /* ── Sections ── */
+        section {
+            margin-bottom: 2.2rem;
+        }
+
+        h2 {
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--muted);
+            margin-bottom: 0.6rem;
+            padding-bottom: 0.35rem;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        p {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: var(--ink);
+            line-height: 1.75;
+        }
+
+        p + p {
+            margin-top: 0.8rem;
+        }
+
+        /* ── Keywords ── */
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            margin-top: 0.2rem;
+        }
+
+        .keyword {
+            font-size: 0.78rem;
+            font-weight: 400;
+            padding: 0.25rem 0.7rem;
+            border: 1px solid var(--rule);
+            border-radius: 2px;
+            color: var(--ink);
+            background: transparent;
+            letter-spacing: 0.01em;
+        }
+
+        /* ── Links ── */
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.4rem;
+            margin-top: 0.2rem;
+        }
+
+        .links a {
+            font-size: 0.88rem;
+            font-weight: 400;
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .links a:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        /* ── Footer ── */
+        footer {
+            margin-top: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--rule);
+            font-size: 0.75rem;
+            color: var(--muted);
+            font-weight: 300;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 480px) {
+            html { font-size: 16px; }
+            main { padding: 2.5rem 1.25rem 2rem; }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Sebastian Correa-Gallego</h1>
+        <p class="affiliation">Biology · Universidad EAFIT · Medellín, Colombia</p>
+
+        <section>
+            <h2>About</h2>
+            <p>
+                I am an undergraduate Biology student at Universidad EAFIT interested in
+                understanding microbial life in extreme environments. My research focuses on
+                microbial ecology, geomicrobiology, and the biogeochemical processes that
+                sustain life under harsh physicochemical conditions.
+            </p>
+            <p>
+                Previously, I worked as a Visiting Student Intern at the
+                <a href="https://www.purdue.edu/" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule);">ECSO Lab</a>,
+                Purdue University, where I gained hands-on experience in environmental
+                and computational microbiology.
+            </p>
+        </section>
+
+        <section>
+            <h2>Research Interests</h2>
+            <div class="keywords">
+                <span class="keyword">Microbial Ecology</span>
+                <span class="keyword">Extreme Environments</span>
+                <span class="keyword">Geomicrobiology</span>
+                <span class="keyword">Biogeochemistry</span>
+                <span class="keyword">Environmental Microbiology</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Contact</h2>
+            <div class="links">
+                <a href="mailto:scorreag6@eafit.edu.co">Email</a>
+                <a href="https://www.linkedin.com/in/s-correag" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://www.researchgate.net/profile/Sebastian-Correa-Gallego" target="_blank" rel="noopener">ResearchGate</a>
+                <a href="https://github.com/s-correag" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </section>
+
+        <footer>
+            &copy; 2026 Sebastian Correa-Gallego
+        </footer>
+    </main>
+</body>
+</html>
