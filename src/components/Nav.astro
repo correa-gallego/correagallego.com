@@ -1,0 +1,33 @@
+---
+const currentPath = Astro.url.pathname;
+const links = [
+  { href: '/research/', label: 'Research' },
+  { href: '/publications/', label: 'Publications' },
+  { href: '/cv/', label: 'CV' },
+];
+---
+
+<nav>
+  <a href="/" class="nav-name">S. Correa-Gallego</a>
+  <div class="nav-links">
+    {links.map(link => (
+      <a href={link.href} aria-current={currentPath === link.href || currentPath === link.href.slice(0, -1) ? 'page' : undefined}>
+        {link.label}
+      </a>
+    ))}
+  </div>
+  <button class="nav-toggle" aria-label="Menu">
+    <span></span><span></span>
+  </button>
+</nav>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => links.classList.remove('open'))
+    );
+  }
+</script>

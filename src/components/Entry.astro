@@ -1,0 +1,19 @@
+---
+interface Props {
+  title: string;
+  date: string;
+  role?: string;
+  note?: string;
+}
+const { title, date, role, note } = Astro.props;
+---
+
+<div class="entry reveal">
+  <div class="entry-header">
+    <h3>{title}</h3>
+    <span class="entry-date">{date}</span>
+  </div>
+  {role && <p class="entry-role">{role}</p>}
+  <slot />
+  {note && <span class="entry-note">{note}</span>}
+</div>
