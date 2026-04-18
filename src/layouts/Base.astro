@@ -6,9 +6,46 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  ogType?: 'website' | 'profile' | 'article';
 }
 
-const { title, description = 'Sebastian Correa-Gallego — Biology researcher studying microbial ecology and extreme environments.' } = Astro.props;
+const {
+  title,
+  description = 'Sebastian Correa-Gallego — Biology researcher studying microbial ecology, extreme environments, and geomicrobiology at Universidad EAFIT.',
+  ogType = 'website',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+const ogImage = new URL('/assets/profile.jpg', Astro.site).toString();
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Sebastian Correa-Gallego',
+  givenName: 'Sebastian',
+  familyName: 'Correa-Gallego',
+  url: 'https://correagallego.com',
+  image: ogImage,
+  email: 'mailto:scorreag6@eafit.edu.co',
+  jobTitle: 'Undergraduate Biology Researcher',
+  affiliation: [
+    { '@type': 'CollegeOrUniversity', name: 'Universidad EAFIT', address: 'Medellín, Colombia' },
+    { '@type': 'CollegeOrUniversity', name: 'Purdue University', address: 'West Lafayette, IN, USA' },
+  ],
+  knowsAbout: [
+    'Microbial Ecology',
+    'Extreme Environments',
+    'Subterranean Biology',
+    'Geomicrobiology',
+    'Biogeochemistry',
+    'Environmental Microbiology',
+    'Microbial Evolution',
+  ],
+  sameAs: [
+    'https://www.linkedin.com/in/s-correag',
+    'https://github.com/correa-gallego',
+  ],
+};
 ---
 
 <!DOCTYPE html>
@@ -16,13 +53,38 @@ const { title, description = 'Sebastian Correa-Gallego — Biology researcher st
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content={Astro.generator}>
   <title>{title}</title>
   <meta name="description" content={description}>
+  <meta name="author" content="Sebastian Correa-Gallego">
+  <meta name="theme-color" content="#2d4a3e">
+  <link rel="canonical" href={canonicalURL}>
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/favicon.svg">
+  <link rel="sitemap" href="/sitemap-index.xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <meta property="og:type" content={ogType}>
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content={canonicalURL}>
+  <meta property="og:site_name" content="Sebastian Correa-Gallego">
+  <meta property="og:image" content={ogImage}>
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={ogImage}>
+
+  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to content</a>
   <Nav />
-  <main>
+  <main id="main">
     <slot />
   </main>
   <Footer />
@@ -39,7 +101,12 @@ const { title, description = 'Sebastian Correa-Gallego — Biology researcher st
       },
       { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
     );
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) {
+      document.querySelectorAll('.reveal').forEach((el) => el.classList.add('visible'));
+    } else {
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    }
   </script>
 </body>
 </html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://correagallego.com/sitemap-index.xml
