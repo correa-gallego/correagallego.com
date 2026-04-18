@@ -2,13 +2,17 @@
 import Base from '../layouts/Base.astro';
 ---
 
-<Base title="Sebastian Correa-Gallego">
+<Base title="Sebastian Correa-Gallego" ogType="profile">
   <div class="page-home">
     <div class="hero">
-      <img src="/assets/profile.jpg" alt="Sebastian Correa-Gallego" class="hero-photo" />
+      <img src="/assets/profile.jpg" alt="Portrait of Sebastian Correa-Gallego" class="hero-photo" width="130" height="130" loading="eager" decoding="async" />
       <div class="hero-text">
         <h1>Sebastian Correa-Gallego</h1>
-        <p class="affiliation">Biology · Universidad EAFIT<br>Medellín, Colombia</p>
+        <p class="affiliation">Biology &middot; Universidad EAFIT<br>Medellín, Colombia</p>
+        <p class="status" aria-label="Current status">
+          <span class="status-dot" aria-hidden="true"></span>
+          Visiting Student Intern, <span class="status-where">Purdue University</span>
+        </p>
       </div>
     </div>
 
@@ -22,13 +26,13 @@ import Base from '../layouts/Base.astro';
       </p>
       <p>
         I investigate how microbial communities organize, persist, and evolve under
-        ecological and energetic constraint — particularly in subterranean and
+        ecological and energetic constraint &mdash; particularly in subterranean and
         oligotrophic systems. I am also drawn to quantitative and computational
         approaches that connect fieldwork with analytical rigor.
       </p>
       <p>
         Previously, I worked as a Visiting Student Intern at the
-        ECSO Lab, Purdue University, where I gained experience in evolutionary
+        <em>ECSO Lab</em>, Purdue University, where I gained experience in evolutionary
         and cellular biology using yeast as a model system.
       </p>
     </section>
@@ -47,11 +51,35 @@ import Base from '../layouts/Base.astro';
     </section>
 
     <section class="reveal">
+      <h2>Selected</h2>
+      <ul class="selected-list">
+        <li>
+          <a href="/research/#thesis">
+            <span class="selected-title">Cultivable microbial communities of a tropical volcanic cave</span>
+            <span class="selected-meta">Undergraduate thesis · Organal San Antonio, Antioquia</span>
+          </a>
+        </li>
+        <li>
+          <a href="/research/">
+            <span class="selected-title">Yeast proteome allocation across physiological conditions</span>
+            <span class="selected-meta">ECSO Lab · Purdue University</span>
+          </a>
+        </li>
+        <li>
+          <a href="/publications/">
+            <span class="selected-title">Research proposal, 2nd Symposium of Biology</span>
+            <span class="selected-meta">Awarded Second Place · Universidad EAFIT, 2024</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="reveal">
       <h2>Contact</h2>
       <div class="contact-links">
-        <a href="mailto:scorreag6@eafit.edu.co">scorreag6@eafit.edu.co</a>
-        <a href="https://www.linkedin.com/in/s-correag" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/correa-gallego" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:scorreag6@eafit.edu.co" aria-label="Email Sebastian Correa-Gallego">scorreag6@eafit.edu.co</a>
+        <a href="https://www.linkedin.com/in/s-correag" target="_blank" rel="noopener" aria-label="LinkedIn profile (opens in new tab)">LinkedIn</a>
+        <a href="https://github.com/correa-gallego" target="_blank" rel="noopener" aria-label="GitHub profile (opens in new tab)">GitHub</a>
       </div>
     </section>
   </div>
