@@ -12,7 +12,7 @@ interface Props {
 
 const {
   title,
-  description = 'Sebastian Correa-Gallego — undergraduate researcher in microbial ecology and evolutionary cell biology at Universidad EAFIT and Purdue University.',
+  description = 'Sebastian Correa-Gallego — Biology undergraduate researcher exploring microbial ecology, evolutionary cell biology, and natural systems across field and laboratory scales.',
   ogType = 'website',
   variant = 'default',
 } = Astro.props;
@@ -83,7 +83,7 @@ const personSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 </head>
 <body class:list={[`variant-${variant}`]}>
-  <a href="#main-content" class="skip-link">Skip to content</a>
+  <a href={variant === 'full' ? '#content-start' : '#main-content'} class="skip-link">Skip to content</a>
   <Nav />
   <main id="main-content">
     <slot />

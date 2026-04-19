@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" fill="none">
+  <rect width="1200" height="700" rx="28" fill="#F7F2EA"/>
+  <path d="M110 515C235 468 308 391 395 320C486 245 586 199 698 208C820 217 926 293 1091 160" stroke="#2D4A3E" stroke-width="6" stroke-linecap="round" stroke-dasharray="12 14"/>
+  <circle cx="192" cy="486" r="18" fill="#2D4A3E"/>
+  <circle cx="395" cy="320" r="18" fill="#2D4A3E"/>
+  <circle cx="698" cy="208" r="18" fill="#2D4A3E"/>
+  <circle cx="944" cy="279" r="18" fill="#2D4A3E"/>
+  <rect x="88" y="530" width="204" height="92" rx="16" fill="#FFFDF9" stroke="#D6D0C4"/>
+  <rect x="292" y="355" width="222" height="92" rx="16" fill="#FFFDF9" stroke="#D6D0C4"/>
+  <rect x="594" y="92" width="206" height="92" rx="16" fill="#FFFDF9" stroke="#D6D0C4"/>
+  <rect x="840" y="325" width="238" height="92" rx="16" fill="#FFFDF9" stroke="#D6D0C4"/>
+  <text x="117" y="566" fill="#1C1917" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18" letter-spacing=".14em">FOUNDATION</text>
+  <text x="117" y="596" fill="#6B6257" font-family="IBM Plex Sans, Arial, sans-serif" font-size="19">undergraduate biology</text>
+  <text x="320" y="391" fill="#1C1917" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18" letter-spacing=".14em">FIELD DIRECTION</text>
+  <text x="320" y="421" fill="#6B6257" font-family="IBM Plex Sans, Arial, sans-serif" font-size="19">microbial ecology and caves</text>
+  <text x="622" y="128" fill="#1C1917" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18" letter-spacing=".14em">SECOND SCALE</text>
+  <text x="622" y="158" fill="#6B6257" font-family="IBM Plex Sans, Arial, sans-serif" font-size="19">cell physiology and yeast</text>
+  <text x="869" y="361" fill="#1C1917" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18" letter-spacing=".14em">NEXT STEP</text>
+  <text x="869" y="391" fill="#6B6257" font-family="IBM Plex Sans, Arial, sans-serif" font-size="19">graduate training with range</text>
+</svg>

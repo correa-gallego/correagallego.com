@@ -1,41 +1,101 @@
 ---
-import Media from './Media.astro';
-
 interface Props {
+  eyebrow?: string;
   title: string;
   tagline: string;
-  image?: string;
-  alt?: string;
+  video?: string;
+  poster?: string;
+  actions?: { href: string; label: string; variant?: 'primary' | 'ghost' }[];
+  facts?: { label: string; value: string }[];
+  credit?: { label: string; href: string };
 }
+
 const {
+  eyebrow = 'Biology · Universidad EAFIT · Medellín, Colombia',
   title,
   tagline,
-  image = '/assets/hero-cave.jpg',
-  alt = '',
+  video,
+  poster = '/assets/images/earth-poster.jpg',
+  actions = [],
+  facts = [],
+  credit,
 } = Astro.props;
 ---
 
 <section class="hero-full" aria-label="Introduction">
-  <div class="hero-full__media">
-    <Media
-      src={image}
-      alt={alt}
-      placeholder="cave-deep"
-      aspectRatio="auto"
-      label=""
-      eager={true}
-      className="media--fill"
-    />
+  <div class="hero-full__media" style={`background-image: url('${poster}')`}>
+    {video && (
+      <video
+        class="hero-full__video"
+        muted
+        loop
+        playsinline
+        preload="none"
+        poster={poster}
+        aria-hidden="true"
+        data-hero-video-src={video}
+      >
+      </video>
+    )}
   </div>
   <div class="hero-full__overlay" aria-hidden="true"></div>
   <div class="hero-full__inner">
     <div class="container hero-full__content">
+      <p class="hero-full__eyebrow">{eyebrow}</p>
       <h1 class="hero-full__title">{title}</h1>
       <p class="hero-full__tagline">{tagline}</p>
+
+      {actions.length > 0 && (
+        <div class="hero-full__actions">
+          {actions.map((action) => (
+            <a
+              href={action.href}
+              class:list={['button-link', `button-link--${action.variant ?? 'primary'}`]}
+            >
+              {action.label}
+            </a>
+          ))}
+        </div>
+      )}
+
+      {facts.length > 0 && (
+        <ul class="hero-full__facts" aria-label="Profile highlights">
+          {facts.map((fact) => (
+            <li class="hero-full__fact">
+              <span class="hero-full__fact-label">{fact.label}</span>
+              <strong class="hero-full__fact-value">{fact.value}</strong>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   </div>
-  <a href="#main-content" class="hero-full__scroll" aria-label="Scroll to content">
+  {credit && (
+    <p class="hero-full__credit">
+      <a href={credit.href} target="_blank" rel="noopener">{credit.label}</a>
+    </p>
+  )}
+  <a href="#content-start" class="hero-full__scroll" aria-label="Scroll to content">
     <span class="hero-full__scroll-line" aria-hidden="true"></span>
     <span class="hero-full__scroll-label">Scroll</span>
   </a>
 </section>
+
+<script>
+  const heroVideo = document.querySelector('[data-hero-video-src]');
+  if (heroVideo instanceof HTMLVideoElement) {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const largeViewport = window.matchMedia('(min-width: 900px)').matches;
+    const connection = navigator.connection;
+    const saveData = connection && 'saveData' in connection ? connection.saveData : false;
+
+    if (!reduceMotion && !saveData && largeViewport) {
+      const source = document.createElement('source');
+      source.src = heroVideo.dataset.heroVideoSrc ?? '';
+      source.type = 'video/mp4';
+      heroVideo.appendChild(source);
+      heroVideo.load();
+      void heroVideo.play().catch(() => {});
+    }
+  }
+</script>

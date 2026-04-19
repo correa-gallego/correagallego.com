@@ -1,100 +1,91 @@
 ---
 import Base from '../layouts/Base.astro';
-import Entry from '../components/Entry.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import SectionDivider from '../components/SectionDivider.astro';
+import { getCollection, render } from 'astro:content';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const renderedProjects = await Promise.all(
+  projects.map(async (project) => ({
+    project,
+    Content: (await render(project)).Content,
+  }))
+);
 ---
 
-<Base title="Research — Sebastian Correa-Gallego" description="Current research projects, academic trajectory, and technical skills.">
+<Base title="Research — Sebastian Correa-Gallego" description="Research projects, scientific questions, and methods guiding the current stage of my academic work.">
   <header class="page-intro">
     <div class="container">
       <span class="page-intro__eyebrow">Research</span>
-      <h1>Two scales of life under constraint</h1>
+      <h1>Research organized around life under constraint</h1>
       <p class="page-intro__lede">
-        From the community structure of microorganisms in tropical volcanic caves
-        to the cellular economics of yeast under varying carbon regimes &mdash;
-        current work across field, laboratory, and quantitative approaches.
+        My current projects live at different biological scales, but they are connected by one
+        persistent question: how living systems reorganize when light, nutrients, and energy
+        become limiting.
       </p>
     </div>
   </header>
 
   <section class="section section--tight">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="section-head__eyebrow">Current projects</p>
+        <span class="section-head__line"></span>
+      </div>
+      <h2 class="section-title reveal">Two systems, two biological scales, one recurring scientific question.</h2>
+      <p class="section-lede reveal">
+        These projects are not identical in method or setting, but they belong together in my
+        portfolio because both ask how life reorganizes when resources, energy, or environmental
+        conditions become restrictive.
+      </p>
+    </div>
     <div class="container container--wide">
-      <ProjectCard
-        id="cave"
-        title="Cultivable Microbial Community Structure along a Light Gradient in a Tropical Volcaniclastic Cave"
-        role="Undergraduate Thesis · Universidad EAFIT"
-        advisor="Prof. Nicolás Pinel Peláez"
-        description="Investigating the structure, diversity, and distributional patterns of cultivable microbial communities across a light-to-dark gradient in the Organal San Antonio, a volcaniclastic cave system in the Northwestern Andes of Colombia. The work integrates ecological field methods — including environmental characterization, zonation, and microclimatic measurement — with laboratory-based microbial cultivation, morphotype assessment, and quantitative community analysis. The cave represents an oligotrophic subterranean environment shaped by strong energetic and nutritional constraint, offering a natural gradient for studying how community assembly responds to resource limitation."
-        image="/assets/project-cave.jpg"
-        placeholder="cave"
-        status="In preparation"
-      />
-
-      <ProjectCard
-        id="yeast"
-        title="Yeast Mitochondrial Proteome Allocation across Carbon Regimes"
-        role="Visiting Student Intern · ECSO Lab, Purdue University"
-        advisor="Dr. Shahed U. A. Shazib"
-        pi="Dr. Sergio A. Muñoz-Gómez"
-        description="Contributed to research on how eukaryotic cells allocate proteomic resources to mitochondria under different carbon regimes. The project investigates the relationship between mitochondrial function, proteome composition, and cellular organization across physiological conditions using Saccharomyces cerevisiae as a model system. Work involved organization, interpretation, and downstream analysis of biological datasets derived from proteomics-based workflows, including annotation-linked and comparative data exploration."
-        image="/assets/project-yeast.jpg"
-        placeholder="yeast"
-        status="In preparation"
-        reversed={true}
-      />
+      {renderedProjects.map(({ project, Content }, index) => (
+        <ProjectCard
+          id={project.id}
+          title={project.data.title}
+          role={project.data.role}
+          advisor={project.data.advisor}
+          pi={project.data.pi}
+          image={project.data.image}
+          imageAlt={project.data.imageAlt}
+          status={project.data.status}
+          reversed={index % 2 === 1}
+          aspectRatio={project.data.aspectRatio}
+          tags={project.data.tags}
+        >
+          <Content />
+        </ProjectCard>
+      ))}
     </div>
   </section>
 
-  <SectionDivider label="Academic Trajectory" />
+  <SectionDivider label="Scientific Questions" />
 
   <section class="section section--tight">
     <div class="container">
       <div class="section-head reveal">
-        <span class="section-head__eyebrow">Education</span>
+        <p class="section-head__eyebrow">Questions</p>
         <span class="section-head__line"></span>
       </div>
-      <Entry title="Universidad EAFIT" date="2022 – 2026 (expected)" role="B.Sc. in Biology">
-        <p>Undergraduate researcher in microbial ecology. Thesis: cultivable microbial communities in a tropical volcaniclastic cave system from the Northwestern Andes, Colombia.</p>
-      </Entry>
-    </div>
-  </section>
-
-  <section class="section section--tight">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="section-head__eyebrow">Academic Service</span>
-        <span class="section-head__line"></span>
+      <h2 class="section-title reveal">Three threads that keep reappearing in my work.</h2>
+      <div class="focus-grid reveal-stagger">
+        <article class="focus-card reveal">
+          <p class="focus-card__eyebrow">Community structure</p>
+          <h3 class="focus-card__title">How do microbial communities assemble along environmental gradients?</h3>
+          <p class="focus-card__text">Especially in caves and other systems where energy inputs are low, spatial structure is sharp, and ecological change is compressed into a readable gradient.</p>
+        </article>
+        <article class="focus-card reveal">
+          <p class="focus-card__eyebrow">Physiology</p>
+          <h3 class="focus-card__title">How do cells redistribute effort under changing metabolic conditions?</h3>
+          <p class="focus-card__text">The yeast mitochondria project made this question tangible by linking carbon regime, proteome allocation, and cellular organization.</p>
+        </article>
+        <article class="focus-card reveal">
+          <p class="focus-card__eyebrow">Integration</p>
+          <h3 class="focus-card__title">How can field biology and quantitative reasoning remain connected?</h3>
+          <p class="focus-card__text">I want my work to keep moving between natural systems, analytical methods, and the theoretical framing that makes results biologically meaningful.</p>
+        </article>
       </div>
-      <Entry title="Student Director" date="Oct 2023 – Present" role="Research Group on Microbiology and Astrobiology · Universidad EAFIT">
-        <p>
-          Coordinate a student-led research group focused on microbiology, astrobiology, scientific
-          discussion, and undergraduate research initiatives. Affiliated with the Research Group on
-          Geosciences and Biodiversity (GEBI).
-        </p>
-      </Entry>
-      <Entry title="Research Monitor" date="Jul 2024 – Dec 2024" role="Universidad EAFIT">
-        <p>
-          Contributed to the project <em>Positioning of Microorganisms as Fundamental Actors for
-          the Maintenance of Andean Forests</em>, supporting project development through scientific
-          systematization, written reporting, and research communication.
-        </p>
-      </Entry>
-    </div>
-  </section>
-
-  <section class="section section--tight">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="section-head__eyebrow">Early Research</span>
-        <span class="section-head__line"></span>
-      </div>
-      <Entry title="Exploratory Projects" date="2022 – 2024" role="Environmental &amp; Extreme Microbiology · Universidad EAFIT">
-        <p>
-          Exploratory work on volcanic cave ecosystems, thermophilic-acidophilic microorganisms from
-          thermal springs, and environmental halophilic isolates.
-        </p>
-      </Entry>
     </div>
   </section>
 
@@ -103,9 +94,10 @@ import SectionDivider from '../components/SectionDivider.astro';
   <section class="section section--tight">
     <div class="container">
       <div class="section-head reveal">
-        <span class="section-head__eyebrow">Methods &amp; Tools</span>
+        <p class="section-head__eyebrow">Methods &amp; tools</p>
         <span class="section-head__line"></span>
       </div>
+      <h2 class="section-title reveal">The practical toolkit I’m building around these questions.</h2>
 
       <div class="reveal">
         <div class="skills-group">
@@ -141,6 +133,7 @@ import SectionDivider from '../components/SectionDivider.astro';
             <span class="keyword">Research Communication</span>
             <span class="keyword">Literature Synthesis</span>
             <span class="keyword">Figure Preparation</span>
+            <span class="keyword">Data Organization</span>
           </div>
         </div>
 

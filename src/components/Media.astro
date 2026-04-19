@@ -23,7 +23,7 @@ const {
   class:list={['media', `media--${placeholder}`, className]}
   style={`aspect-ratio: ${aspectRatio};`}
   data-media
->
+  >
   <img
     src={src}
     alt={alt}
@@ -31,6 +31,6 @@ const {
     decoding="async"
     onload="this.parentElement?.setAttribute('data-loaded','true')"
   />
-  <span class="media__label" aria-hidden="true">{label}</span>
+  {label && <span class="media__label" aria-hidden="true">{label}</span>}
   <span class="media__grain" aria-hidden="true"></span>
 </div>

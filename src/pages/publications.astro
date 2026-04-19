@@ -1,16 +1,24 @@
 ---
 import Base from '../layouts/Base.astro';
-import Entry from '../components/Entry.astro';
+import { getCollection } from 'astro:content';
+
+const outputs = (await getCollection('outputs')).sort((a, b) => a.data.order - b.data.order);
+const manuscripts = outputs.filter((item) => item.data.kind === 'manuscript');
+const presentations = outputs.filter((item) => item.data.kind === 'presentation');
+const awards = outputs.filter((item) => item.data.kind === 'award');
+const formatAuthors = (authors: string[]) =>
+  authors.map((author) => (author === 'Sebastian Correa-Gallego' ? `<strong>${author}</strong>` : author)).join(', ');
 ---
 
-<Base title="Publications — Sebastian Correa-Gallego" description="Publications, conference presentations, and honors.">
+<Base title="Publications — Sebastian Correa-Gallego" description="Manuscripts in preparation, presentations, and recognitions in the current stage of my academic profile.">
   <header class="page-intro">
     <div class="container">
       <span class="page-intro__eyebrow">Publications</span>
-      <h1>Papers, presentations &amp; recognition</h1>
+      <h1>Manuscripts, presentations, and early academic recognition</h1>
       <p class="page-intro__lede">
-        Manuscripts in preparation, conference work, and honors received during my undergraduate
-        training.
+        At this stage of my career, this page is intentionally modest. It captures work in
+        preparation, presentations already delivered, and the recognitions that have marked my
+        undergraduate development.
       </p>
     </div>
   </header>
@@ -18,21 +26,19 @@ import Entry from '../components/Entry.astro';
   <section class="section section--tight">
     <div class="container">
       <div class="section-head reveal">
-        <span class="section-head__eyebrow">Manuscripts in Preparation</span>
+        <p class="section-head__eyebrow">Manuscripts in preparation</p>
         <span class="section-head__line"></span>
       </div>
+      <h2 class="section-title reveal">Current writing projects</h2>
 
       <ul class="pub-list reveal">
-        <li>
-          <p class="pub-authors"><strong>Correa-Gallego, S.</strong> &amp; Pinel Peláez, N.</p>
-          <p class="pub-title">Cultivable microbial community structure along a light gradient in a tropical volcaniclastic cave.</p>
-          <p class="pub-venue">In preparation.</p>
-        </li>
-        <li>
-          <p class="pub-authors">Authors TBD, including <strong>Correa-Gallego, S.</strong>, Shazib, S. U. A., &amp; Muñoz-Gómez, S. A.</p>
-          <p class="pub-title">Mitochondrial proteome allocation in yeast under varying carbon regimes.</p>
-          <p class="pub-venue">In preparation.</p>
-        </li>
+        {manuscripts.map((item) => (
+          <li>
+            <p class="pub-authors" set:html={formatAuthors(item.data.authors)} />
+            <p class="pub-title">{item.data.title}</p>
+            <p class="pub-venue">{item.data.status ?? 'In preparation.'}</p>
+          </li>
+        ))}
       </ul>
     </div>
   </section>
@@ -40,27 +46,47 @@ import Entry from '../components/Entry.astro';
   <section class="section section--tight">
     <div class="container">
       <div class="section-head reveal">
-        <span class="section-head__eyebrow">Conferences &amp; Presentations</span>
+        <p class="section-head__eyebrow">Conferences &amp; presentations</p>
         <span class="section-head__line"></span>
       </div>
-      <Entry title="Research Proposal Presentation" date="2024" note="Awarded Second Place">
-        <p>2nd Symposium of Biology, Universidad EAFIT.</p>
-      </Entry>
+      <h2 class="section-title reveal">Academic communication</h2>
+      <ul class="pub-list reveal">
+        {presentations.map((item) => (
+          <li>
+            <p class="pub-authors">{item.data.year}</p>
+            <p class="pub-title">{item.data.title}</p>
+            <p class="pub-venue">
+              {item.data.venue}
+              {item.data.status && ` · ${item.data.status}`}
+            </p>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 
   <section class="section section--tight">
     <div class="container">
       <div class="section-head reveal">
-        <span class="section-head__eyebrow">Honors &amp; Recognition</span>
+        <p class="section-head__eyebrow">Honors &amp; recognition</p>
         <span class="section-head__line"></span>
       </div>
-      <Entry title="Visiting Student Intern — UREP-C Program" date="2025 – 2026">
-        <p>Purdue University, West Lafayette, Indiana.</p>
-      </Entry>
-      <Entry title="Undergraduate Scholarship" date="2022">
-        <p>Comfama and Fundación Fraternidad Medellín.</p>
-      </Entry>
+      <h2 class="section-title reveal">Markers of the path so far</h2>
+      <ul class="pub-list reveal">
+        {awards.map((item) => (
+          <li>
+            <p class="pub-authors">{item.data.year}</p>
+            <p class="pub-title">{item.data.title}</p>
+            <p class="pub-venue">{item.data.venue}</p>
+          </li>
+        ))}
+      </ul>
+      <div class="publications-note reveal">
+        <p>
+          This page will grow as manuscripts move into submission and my academic output expands.
+          For now, it aims to be accurate rather than inflated.
+        </p>
+      </div>
     </div>
   </section>
 </Base>
