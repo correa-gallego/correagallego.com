@@ -1,7 +1,7 @@
 ---
 interface Props {
-  src: string;
-  alt: string;
+  src?: string;
+  alt?: string;
   placeholder?: 'cave' | 'cave-deep' | 'yeast' | 'field';
   aspectRatio?: string;
   label?: string;
@@ -19,18 +19,20 @@ const {
 } = Astro.props;
 ---
 
-<div
+  <div
   class:list={['media', `media--${placeholder}`, className]}
   style={`aspect-ratio: ${aspectRatio};`}
   data-media
   >
-  <img
-    src={src}
-    alt={alt}
-    loading={eager ? 'eager' : 'lazy'}
-    decoding="async"
-    onload="this.parentElement?.setAttribute('data-loaded','true')"
-  />
+  {src && (
+    <img
+      src={src}
+      alt={alt ?? ''}
+      loading={eager ? 'eager' : 'lazy'}
+      decoding="async"
+      onload="this.parentElement?.setAttribute('data-loaded','true')"
+    />
+  )}
   {label && <span class="media__label" aria-hidden="true">{label}</span>}
   <span class="media__grain" aria-hidden="true"></span>
 </div>

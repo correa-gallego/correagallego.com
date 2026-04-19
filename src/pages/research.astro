@@ -17,11 +17,11 @@ const renderedProjects = await Promise.all(
   <header class="page-intro">
     <div class="container">
       <span class="page-intro__eyebrow">Research</span>
-      <h1>Research organized around life under constraint</h1>
+      <h1>Research across microbial communities, physiology, and natural systems</h1>
       <p class="page-intro__lede">
-        My current projects live at different biological scales, but they are connected by one
-        persistent question: how living systems reorganize when light, nutrients, and energy
-        become limiting.
+        My current projects live at different biological scales, but they remain connected by a
+        recurring question: how living systems reorganize when light, nutrients, or energy become
+        limiting.
       </p>
     </div>
   </header>
@@ -32,11 +32,11 @@ const renderedProjects = await Promise.all(
         <p class="section-head__eyebrow">Current projects</p>
         <span class="section-head__line"></span>
       </div>
-      <h2 class="section-title reveal">Two systems, two biological scales, one recurring scientific question.</h2>
+      <h2 class="section-title reveal">Two systems, two scales, one broader line of inquiry.</h2>
       <p class="section-lede reveal">
-        These projects are not identical in method or setting, but they belong together in my
-        portfolio because both ask how life reorganizes when resources, energy, or environmental
-        conditions become restrictive.
+        These projects differ in method, setting, and organism, but they belong together because
+        both return me to the same problem: how structure appears when biological systems face
+        environmental or energetic constraint.
       </p>
     </div>
     <div class="container container--wide">
@@ -49,6 +49,7 @@ const renderedProjects = await Promise.all(
           pi={project.data.pi}
           image={project.data.image}
           imageAlt={project.data.imageAlt}
+          placeholder={project.data.placeholder}
           status={project.data.status}
           reversed={index % 2 === 1}
           aspectRatio={project.data.aspectRatio}
@@ -97,7 +98,7 @@ const renderedProjects = await Promise.all(
         <p class="section-head__eyebrow">Methods &amp; tools</p>
         <span class="section-head__line"></span>
       </div>
-      <h2 class="section-title reveal">The practical toolkit I’m building around these questions.</h2>
+      <h2 class="section-title reveal">Methods and tools that support the current stage of the work.</h2>
 
       <div class="reveal">
         <div class="skills-group">

@@ -6,7 +6,7 @@ This site is already visually strong enough to publish, but these real images wo
 
 1. `public/assets/images/hero-cave.jpg`
    A wide horizontal photograph from the cave system or a strong field environment.
-   Ideal use: future alternative to the NASA hero poster if you want the landing page to feel more personally grounded.
+   Ideal use: future alternative to the current NASA `Perpetual Ocean` hero if you want the landing page to feel more personally grounded.
    Suggested format: JPG, at least 2400px wide.
 
 2. `public/assets/images/project-cave.jpg`
@@ -45,10 +45,9 @@ This site is already visually strong enough to publish, but these real images wo
 
 - The current site uses:
   - `public/assets/profile.jpg`
-  - `public/assets/images/earth-poster.jpg`
-  - `public/assets/video/earth-moon-loop.mp4`
-  - `public/assets/illustrations/cave-gradient.svg`
-  - `public/assets/illustrations/yeast-mitochondria.svg`
+  - `public/assets/images/perpetual-ocean-poster.jpg`
+  - `public/assets/video/perpetual-ocean.webm`
+  - CSS-based placeholders for project imagery until you replace them with real photos
 
 - If you later add the real project photos above, I can switch the pages from illustration mode to documentary-scientific photography very quickly.
 

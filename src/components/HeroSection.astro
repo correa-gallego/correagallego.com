@@ -4,6 +4,7 @@ interface Props {
   title: string;
   tagline: string;
   video?: string;
+  videoType?: string;
   poster?: string;
   actions?: { href: string; label: string; variant?: 'primary' | 'ghost' }[];
   facts?: { label: string; value: string }[];
@@ -15,6 +16,7 @@ const {
   title,
   tagline,
   video,
+  videoType = video?.endsWith('.webm') ? 'video/webm' : 'video/mp4',
   poster = '/assets/images/earth-poster.jpg',
   actions = [],
   facts = [],
@@ -34,6 +36,7 @@ const {
         poster={poster}
         aria-hidden="true"
         data-hero-video-src={video}
+        data-hero-video-type={videoType}
       >
       </video>
     )}
@@ -92,7 +95,7 @@ const {
     if (!reduceMotion && !saveData && largeViewport) {
       const source = document.createElement('source');
       source.src = heroVideo.dataset.heroVideoSrc ?? '';
-      source.type = 'video/mp4';
+      source.type = heroVideo.dataset.heroVideoType ?? 'video/mp4';
       heroVideo.appendChild(source);
       heroVideo.load();
       void heroVideo.play().catch(() => {});

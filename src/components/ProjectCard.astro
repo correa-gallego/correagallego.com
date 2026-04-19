@@ -6,8 +6,9 @@ interface Props {
   role: string;
   advisor?: string;
   pi?: string;
-  image: string;
-  imageAlt: string;
+  image?: string;
+  imageAlt?: string;
+  placeholder?: 'cave' | 'cave-deep' | 'yeast' | 'field';
   status?: string;
   reversed?: boolean;
   aspectRatio?: string;
@@ -21,7 +22,8 @@ const {
   advisor,
   pi,
   image,
-  imageAlt,
+  imageAlt = '',
+  placeholder = 'field',
   status,
   reversed = false,
   aspectRatio = '3 / 2',
@@ -35,7 +37,7 @@ const {
     <Media
       src={image}
       alt={imageAlt}
-      placeholder="field"
+      placeholder={placeholder}
       aspectRatio={aspectRatio}
       label=""
     />
