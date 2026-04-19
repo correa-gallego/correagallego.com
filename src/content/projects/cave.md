@@ -5,7 +5,9 @@ role: Undergraduate thesis · Universidad EAFIT
 advisor: Prof. Nicolás Pinel Peláez
 status: Thesis in progress
 lede: A field-to-lab study of how cultivable microbial communities change across a light gradient in the Organal San Antonio cave system in Antioquia, Colombia.
-placeholder: cave-deep
+image: /assets/images/field.jpeg
+imageAlt: Sebastian Correa-Gallego collecting samples inside a cave in Antioquia, Colombia.
+placeholder: field
 aspectRatio: 4 / 3
 tags:
   - microbial ecology
@@ -14,6 +16,6 @@ tags:
   - cultivable microbiology
   - field ecology
 ---
-This project asks how cultivable microbial communities change as illumination, microclimate, and substrate conditions shift across a confined subterranean system. The Organal San Antonio cave provides a natural ecological gradient that can be followed from illuminated entrances toward darker, more energetically constrained zones.
+This project examines how cultivable microbial communities change as illumination, microclimate, and substrate conditions shift across a confined subterranean system. The Organal San Antonio cave provides a clear environmental gradient that can be followed from illuminated entrances toward darker zones.
 
-My work combines field characterization, zonation, microclimatic measurements, cultivation workflows, and morphotype-based community assessment. More broadly, I am interested in how cave systems can function as natural laboratories for ecological reasoning: places where community structure, environmental limitation, and the logic of low-energy life become more legible.
+My work combines field characterization, zonation, microclimatic measurements, cultivation workflows, and morphotype-based community assessment. At this stage, the focus is descriptive and ecological: documenting how cultivable community structure changes along the gradient and how that pattern can be interpreted within the cave environment.

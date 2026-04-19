@@ -10,15 +10,14 @@ const formatAuthors = (authors: string[]) =>
   authors.map((author) => (author === 'Sebastian Correa-Gallego' ? `<strong>${author}</strong>` : author)).join(', ');
 ---
 
-<Base title="Publications — Sebastian Correa-Gallego" description="Manuscripts in preparation, presentations, and recognitions in the current stage of my academic profile.">
+<Base title="Publications — Sebastian Correa-Gallego" description="Current manuscripts, presentations, and recognitions from the current stage of my academic profile.">
   <header class="page-intro">
     <div class="container">
       <span class="page-intro__eyebrow">Publications</span>
-      <h1>Writing in progress, presentations, and current academic output</h1>
+      <h1>Current academic output</h1>
       <p class="page-intro__lede">
-        This page is intentionally compact. It tracks the writing projects now in preparation,
-        talks already delivered, and the small but real outputs that mark the current stage of my
-        undergraduate development.
+        This page is intentionally compact and limited to work currently in preparation or
+        already presented.
       </p>
     </div>
   </header>
@@ -26,10 +25,10 @@ const formatAuthors = (authors: string[]) =>
   <section class="section section--tight">
     <div class="container">
       <div class="section-head reveal">
-        <p class="section-head__eyebrow">Manuscripts in preparation</p>
+        <p class="section-head__eyebrow">Manuscripts</p>
         <span class="section-head__line"></span>
       </div>
-      <h2 class="section-title reveal">Current writing projects</h2>
+      <h2 class="section-title reveal">Current manuscripts</h2>
 
       <ul class="pub-list reveal">
         {manuscripts.map((item) => (
@@ -46,10 +45,10 @@ const formatAuthors = (authors: string[]) =>
   <section class="section section--tight">
     <div class="container">
       <div class="section-head reveal">
-        <p class="section-head__eyebrow">Conferences &amp; presentations</p>
+        <p class="section-head__eyebrow">Presentations</p>
         <span class="section-head__line"></span>
       </div>
-      <h2 class="section-title reveal">Talks and presentations</h2>
+      <h2 class="section-title reveal">Presentations and talks</h2>
       <ul class="pub-list reveal">
         {presentations.map((item) => (
           <li>
@@ -68,10 +67,10 @@ const formatAuthors = (authors: string[]) =>
   <section class="section section--tight">
     <div class="container">
       <div class="section-head reveal">
-        <p class="section-head__eyebrow">Honors &amp; recognition</p>
+        <p class="section-head__eyebrow">Recognition</p>
         <span class="section-head__line"></span>
       </div>
-      <h2 class="section-title reveal">Support and distinction</h2>
+      <h2 class="section-title reveal">Recognition and support</h2>
       <ul class="pub-list reveal">
         {awards.map((item) => (
           <li>
@@ -82,10 +81,7 @@ const formatAuthors = (authors: string[]) =>
         ))}
       </ul>
       <div class="publications-note reveal">
-        <p>
-          This page will expand as manuscripts move toward submission. For now, the goal is
-          accuracy, not inflation.
-        </p>
+        <p>This list is kept intentionally short and limited to current work.</p>
       </div>
     </div>
   </section>

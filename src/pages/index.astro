@@ -8,41 +8,41 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 ---
 
 <Base
-  title="Sebastian Correa-Gallego — microbial ecology, evolution, and natural systems"
-  description="Early-career academic portfolio of Sebastian Correa-Gallego, Biology undergraduate at Universidad EAFIT working across microbial ecology, evolutionary cell biology, and natural systems."
+  title="Sebastian Correa-Gallego — microbial ecology and natural systems"
+  description="Academic website of Sebastian Correa-Gallego, a Biology undergraduate in Colombia working on cultivable cave microbiology and mitochondrial physiology in yeast."
   ogType="profile"
   variant="full"
 >
   <HeroSection
+    eyebrow="B.Sc. Biology · Colombia"
     title="Sebastian Correa-Gallego"
-    tagline="Biology undergraduate at Universidad EAFIT studying microbial ecology, evolution, and natural systems, from cultivable cave communities to mitochondrial resource allocation in yeast."
-    video="/assets/video/perpetual-ocean.webm"
-    poster="/assets/images/perpetual-ocean-poster.jpg"
+    tagline="Biology undergraduate in Colombia working on cultivable microbial communities in caves and on mitochondrial resource allocation in yeast."
+    poster="/assets/images/perpetual-ocean2-temperature.jpg"
+    posterAlt="NASA Scientific Visualization Studio rendering of Earth and ocean-temperature currents."
     actions={[
       { href: '/research/', label: 'Explore research' },
       { href: '/cv/', label: 'Open CV', variant: 'ghost' },
     ]}
     facts={[
-      { label: 'Current stage', value: 'Biology undergraduate at Universidad EAFIT' },
-      { label: 'Main project', value: 'Thesis on cultivable cave microbial communities' },
-      { label: 'Ongoing collaboration', value: 'Yeast mitochondria project with Purdue' },
+      { label: 'Current stage', value: 'B.Sc. Biology at Universidad EAFIT' },
+      { label: 'Main project', value: 'Cultivable cave microbiology along a light gradient' },
+      { label: 'Ongoing work', value: 'Yeast mitochondria collaboration with Purdue' },
     ]}
     credit={{
-      label: 'Hero motion uses NASA Scientific Visualization Studio: Perpetual Ocean',
-      href: 'https://svs.gsfc.nasa.gov/3827',
+      label: 'Visual reference: NASA Scientific Visualization Studio, Perpetual Ocean 2',
+      href: 'https://svs.gsfc.nasa.gov/5425',
     }}
   />
 
   <section id="content-start" class="section section--first">
     <div class="container container--wide">
       <div class="section-head reveal">
-        <p class="section-head__eyebrow">Profile</p>
+        <p class="section-head__eyebrow">About</p>
         <span class="section-head__line"></span>
       </div>
-      <h2 class="section-title reveal">An early academic profile shaped by microbial life, natural systems, and environmental gradients.</h2>
+      <h2 class="section-title reveal">Training so far</h2>
       <p class="section-lede reveal">
-        This is not a claim to a finished identity. It is a working account of the questions,
-        projects, and methods that have begun to give my scientific trajectory a clearer form.
+        A concise account of the route that currently defines the portfolio.
       </p>
 
       <div class="about about--split reveal">
@@ -57,38 +57,39 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
         />
         <div class="about-body">
           <p>
-            I am interested in microbial ecology and evolution in natural systems. The main
-            through-line in my work is how life organizes under constraint: across light
-            gradients, low-energy habitats, and changing physiological regimes.
+            My interest in natural systems began before university. During childhood, I
+            participated in a local group focused on atmospheric observation and weather
+            monitoring, which gave me an early habit of paying attention to environmental
+            variation and to the disciplined recording of natural phenomena.
           </p>
           <p>
-            My undergraduate thesis examines cultivable microbial community structure along a
-            light gradient in the Organal San Antonio cave system, a tropical volcaniclastic
-            cave in Antioquia, Colombia. It is a field-to-lab project grounded in ecological
-            observation, cultivation work, and environmental characterization.
+            At Universidad EAFIT, that orientation moved into biology and microbiology. My
+            undergraduate thesis examines cultivable microbial community structure along a light
+            gradient in a tropical volcaniclastic cave in Antioquia, Colombia, using
+            environmental characterization, cultivation workflows, and morphotype-based
+            assessment.
           </p>
           <p>
-            Through the ECSO Lab at Purdue University, I also contributed to the Yeast
-            Mitochondria Project on proteomic resource allocation under different carbon
-            regimes. Together, these projects have pushed me toward a route that connects
-            ecology, physiology, and evolutionary reasoning rather than separating them.
+            As a Visiting Student Intern in the ECSO Lab at Purdue University, I worked on the
+            Yeast Mitochondria Project, which studies proteomic resource allocation under
+            different carbon regimes in eukaryotes using yeast as a model system. The work
+            continues through collaborative manuscript preparation.
           </p>
           <p>
-            In the longer term, I want to keep a naturalist orientation while building stronger
-            quantitative and computational discipline. What matters to me is not abandoning the
-            biological story for abstraction, but learning how to study natural systems with
-            greater precision.
+            At this stage, the route is still being narrowed with care. The common thread is an
+            attempt to connect microbial ecology, evolution, and physiology without forcing
+            those areas into separate tracks too early.
           </p>
         </div>
         <aside class="profile-panel reveal">
-          <p class="profile-panel__eyebrow">Current route</p>
+          <p class="profile-panel__eyebrow">Current stage</p>
           <ul class="profile-panel__list">
-            <li>Finishing a Biology degree at Universidad EAFIT.</li>
-            <li>Writing a thesis on cultivable microbial communities in a tropical cave system.</li>
-            <li>Maintaining an ongoing collaboration on mitochondrial resource allocation in yeast.</li>
-            <li>Trying to integrate ecology, evolution, physiology, and natural history into one coherent line of work.</li>
+            <li>Finishing the B.Sc. in Biology at Universidad EAFIT.</li>
+            <li>Writing a thesis on cultivable microbial communities along a cave light gradient.</li>
+            <li>Continuing manuscript work related to the Purdue yeast mitochondria project.</li>
+            <li>Building stronger quantitative and computational routines around ecological questions.</li>
           </ul>
-          <a href="/trajectory/" class="profile-panel__link">Read the trajectory page</a>
+          <a href="/trajectory/" class="profile-panel__link">See trajectory</a>
         </aside>
       </div>
     </div>
@@ -97,37 +98,10 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
   <section class="section section--tight">
     <div class="container container--wide">
       <div class="section-head reveal">
-        <p class="section-head__eyebrow">Scientific direction</p>
-        <span class="section-head__line"></span>
-      </div>
-      <h2 class="section-title reveal">The intellectual route I am trying to make more coherent.</h2>
-      <div class="focus-grid reveal-stagger">
-        <article class="focus-card reveal">
-          <p class="focus-card__eyebrow">Natural systems</p>
-          <h3 class="focus-card__title">Microbial life in gradients and low-energy environments</h3>
-          <p class="focus-card__text">Caves, environmental transitions, and ecological settings where limitation is strong enough to reveal structure clearly.</p>
-        </article>
-        <article class="focus-card reveal">
-          <p class="focus-card__eyebrow">Constraint</p>
-          <h3 class="focus-card__title">Physiology, resource allocation, and cellular organization</h3>
-          <p class="focus-card__text">Questions about how cells redistribute matter and effort when energy sources shift or environmental conditions become restrictive.</p>
-        </article>
-        <article class="focus-card reveal">
-          <p class="focus-card__eyebrow">Method</p>
-          <h3 class="focus-card__title">Natural history with stronger quantitative discipline</h3>
-          <p class="focus-card__text">A route that keeps ecological and naturalist reasoning intact while demanding more analytical and computational rigor over time.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container container--wide">
-      <div class="section-head reveal">
         <p class="section-head__eyebrow">Selected work</p>
         <span class="section-head__line"></span>
       </div>
-      <h2 class="section-title reveal">Two projects that currently anchor the portfolio.</h2>
+      <h2 class="section-title reveal">Projects that currently anchor the portfolio</h2>
 
       <div class="work-grid reveal-stagger">
         {projects.map((project) => (
@@ -151,20 +125,60 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
   <section class="section section--tight">
     <div class="container container--wide">
       <div class="section-head reveal">
-        <p class="section-head__eyebrow">Scientific profile</p>
+        <p class="section-head__eyebrow">Research interests</p>
         <span class="section-head__line"></span>
       </div>
-      <h2 class="section-title reveal">Current methods, themes, and working vocabulary.</h2>
-      <div class="keywords reveal">
-        <span class="keyword">Microbial Ecology</span>
-        <span class="keyword">Subterranean Biology</span>
-        <span class="keyword">Evolutionary Cell Biology</span>
-        <span class="keyword">Cultivation Workflows</span>
-        <span class="keyword">Environmental Sampling</span>
-        <span class="keyword">R</span>
-        <span class="keyword">Python</span>
-        <span class="keyword">Scientific Writing</span>
-        <span class="keyword">Data Interpretation</span>
+      <h2 class="section-title reveal">Current areas of interest</h2>
+      <div class="home-columns reveal">
+        <div class="home-columns__text">
+          <p>
+            My current interests are organized around microbial ecology in environmental
+            gradients, the relation between ecology and physiology, and the broader question of
+            how biological organization changes under constraint. Reading in evolution,
+            ecological theory, major evolutionary transitions, microbial interactions, and the
+            history of life has become part of the theoretical base from which I am trying to
+            narrow a more precise long-term question. The aim is not to claim a fixed program
+            too early, but to make the next steps in ecology, evolution, and molecular biology
+            more coherent.
+          </p>
+        </div>
+        <div class="home-columns__list">
+          <ul class="plain-list">
+            <li>Microbial ecology and community assembly in environmental gradients</li>
+            <li>Caves and other low-energy natural systems</li>
+            <li>Physiology and resource allocation under changing conditions</li>
+            <li>Evolutionary thinking across ecological and cellular scales</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container container--wide">
+      <div class="section-head reveal">
+        <p class="section-head__eyebrow">Working profile</p>
+        <span class="section-head__line"></span>
+      </div>
+      <h2 class="section-title reveal">Methods and working habits</h2>
+      <div class="home-columns reveal">
+        <div class="home-columns__text">
+          <p>
+            At the moment, my work combines cultivation-based microbiology, environmental
+            sampling, microscopy, literature synthesis, and basic analysis in R and Python. I
+            also care about figure design and scientific communication, and I use digital tools,
+            including AI-assisted workflows, carefully to organize information, accelerate
+            routine tasks, and improve clarity without replacing scientific judgment.
+          </p>
+        </div>
+        <div class="home-columns__list">
+          <ul class="plain-list">
+            <li>Cultivation workflows, field records, and microscopy</li>
+            <li>R, Python, LaTeX, Linux, and Bash</li>
+            <li>Figure preparation and visual communication</li>
+            <li>Structured use of AI for organization and drafting support</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -175,7 +189,10 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
         <p class="section-head__eyebrow">Contact</p>
         <span class="section-head__line"></span>
       </div>
-      <h2 class="section-title reveal">For scientific conversation, collaboration, or graduate-study contact.</h2>
+      <h2 class="section-title reveal">Academic contact</h2>
+      <p class="section-lede reveal">
+        Email is the best route for academic contact. Other links are included for reference.
+      </p>
       <div class="contact-links reveal">
         <a href="mailto:scorreag6@eafit.edu.co" aria-label="Email Sebastian Correa-Gallego">scorreag6@eafit.edu.co</a>
         <a href="https://www.linkedin.com/in/s-correag" target="_blank" rel="noopener" aria-label="LinkedIn profile (opens in new tab)">LinkedIn</a>

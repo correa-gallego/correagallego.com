@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import SectionDivider from '../components/SectionDivider.astro';
 import { getCollection, render } from 'astro:content';
 
 const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
@@ -13,15 +12,14 @@ const renderedProjects = await Promise.all(
 );
 ---
 
-<Base title="Research — Sebastian Correa-Gallego" description="Research projects, scientific questions, and methods guiding the current stage of my academic work.">
+<Base title="Research — Sebastian Correa-Gallego" description="Research projects, selected figures, and technical methods from the current stage of my academic work.">
   <header class="page-intro">
     <div class="container">
       <span class="page-intro__eyebrow">Research</span>
-      <h1>Research across microbial communities, physiology, and natural systems</h1>
+      <h1>Current research</h1>
       <p class="page-intro__lede">
-        My current projects live at different biological scales, but they remain connected by a
-        recurring question: how living systems reorganize when light, nutrients, or energy become
-        limiting.
+        The current portfolio is organized around two projects: an undergraduate thesis in cave
+        microbiology and an ongoing collaboration on mitochondrial physiology in yeast.
       </p>
     </div>
   </header>
@@ -32,11 +30,10 @@ const renderedProjects = await Promise.all(
         <p class="section-head__eyebrow">Current projects</p>
         <span class="section-head__line"></span>
       </div>
-      <h2 class="section-title reveal">Two systems, two scales, one broader line of inquiry.</h2>
+      <h2 class="section-title reveal">Projects</h2>
       <p class="section-lede reveal">
-        These projects differ in method, setting, and organism, but they belong together because
-        both return me to the same problem: how structure appears when biological systems face
-        environmental or energetic constraint.
+        These projects differ in setting, organism, and method, but together they define the
+        current range of my work across microbial ecology and cellular physiology.
       </p>
     </div>
     <div class="container container--wide">
@@ -61,36 +58,63 @@ const renderedProjects = await Promise.all(
     </div>
   </section>
 
-  <SectionDivider label="Scientific Questions" />
-
   <section class="section section--tight">
-    <div class="container">
+    <div class="container container--wide">
       <div class="section-head reveal">
-        <p class="section-head__eyebrow">Questions</p>
+        <p class="section-head__eyebrow">Selected figures</p>
         <span class="section-head__line"></span>
       </div>
-      <h2 class="section-title reveal">Three threads that keep reappearing in my work.</h2>
-      <div class="focus-grid reveal-stagger">
-        <article class="focus-card reveal">
-          <p class="focus-card__eyebrow">Community structure</p>
-          <h3 class="focus-card__title">How do microbial communities assemble along environmental gradients?</h3>
-          <p class="focus-card__text">Especially in caves and other systems where energy inputs are low, spatial structure is sharp, and ecological change is compressed into a readable gradient.</p>
-        </article>
-        <article class="focus-card reveal">
-          <p class="focus-card__eyebrow">Physiology</p>
-          <h3 class="focus-card__title">How do cells redistribute effort under changing metabolic conditions?</h3>
-          <p class="focus-card__text">The yeast mitochondria project made this question tangible by linking carbon regime, proteome allocation, and cellular organization.</p>
-        </article>
-        <article class="focus-card reveal">
-          <p class="focus-card__eyebrow">Integration</p>
-          <h3 class="focus-card__title">How can field biology and quantitative reasoning remain connected?</h3>
-          <p class="focus-card__text">I want my work to keep moving between natural systems, analytical methods, and the theoretical framing that makes results biologically meaningful.</p>
-        </article>
+      <h2 class="section-title reveal">Visual material from the cave project</h2>
+      <p class="section-lede reveal">
+        These figures are part of the working visual material used to explain the cave system,
+        the sampled gradient, and the cultivable communities under study.
+      </p>
+      <div class="figure-grid reveal-stagger">
+        <figure class="figure-card reveal">
+          <img
+            src="/assets/illustrations/cave_gradient.png"
+            alt="Working diagram of the cave light gradient used in the undergraduate thesis."
+            class="figure-card__image"
+            loading="lazy"
+            decoding="async"
+            width="4102"
+            height="2369"
+          />
+          <figcaption class="figure-card__caption">
+            Working cave-gradient diagram used in thesis development and presentation material.
+          </figcaption>
+        </figure>
+        <figure class="figure-card reveal">
+          <img
+            src="/assets/illustrations/morphotypes_gradient.png"
+            alt="Figure showing morphotypes distributed across the cave light gradient."
+            class="figure-card__image"
+            loading="lazy"
+            decoding="async"
+            width="4024"
+            height="2415"
+          />
+          <figcaption class="figure-card__caption">
+            Morphotype summary across the sampled cave gradient.
+          </figcaption>
+        </figure>
+        <figure class="figure-card reveal">
+          <img
+            src="/assets/images/plate.png"
+            alt="Petri dish image showing microbial colonies."
+            class="figure-card__image"
+            loading="lazy"
+            decoding="async"
+            width="679"
+            height="679"
+          />
+          <figcaption class="figure-card__caption">
+            Plate image used as visual material for cultivable community work.
+          </figcaption>
+        </figure>
       </div>
     </div>
   </section>
-
-  <SectionDivider label="Technical Skills" />
 
   <section class="section section--tight">
     <div class="container">
@@ -98,7 +122,7 @@ const renderedProjects = await Promise.all(
         <p class="section-head__eyebrow">Methods &amp; tools</p>
         <span class="section-head__line"></span>
       </div>
-      <h2 class="section-title reveal">Methods and tools that support the current stage of the work.</h2>
+      <h2 class="section-title reveal">Technical skills</h2>
 
       <div class="reveal">
         <div class="skills-group">

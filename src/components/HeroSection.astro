@@ -6,78 +6,94 @@ interface Props {
   video?: string;
   videoType?: string;
   poster?: string;
+  posterAlt?: string;
   actions?: { href: string; label: string; variant?: 'primary' | 'ghost' }[];
   facts?: { label: string; value: string }[];
   credit?: { label: string; href: string };
 }
 
 const {
-  eyebrow = 'Biology · Universidad EAFIT · Medellín, Colombia',
+  eyebrow = 'B.Sc. Biology · Colombia',
   title,
   tagline,
   video,
   videoType = video?.endsWith('.webm') ? 'video/webm' : 'video/mp4',
   poster = '/assets/images/earth-poster.jpg',
+  posterAlt = 'Scientific visualization used as a visual reference on the homepage.',
   actions = [],
   facts = [],
   credit,
 } = Astro.props;
 ---
 
-<section class="hero-full" aria-label="Introduction">
-  <div class="hero-full__media" style={`background-image: url('${poster}')`}>
-    {video && (
-      <video
-        class="hero-full__video"
-        muted
-        loop
-        playsinline
-        preload="none"
-        poster={poster}
-        aria-hidden="true"
-        data-hero-video-src={video}
-        data-hero-video-type={videoType}
-      >
-      </video>
-    )}
-  </div>
-  <div class="hero-full__overlay" aria-hidden="true"></div>
+<section class="hero-full" aria-labelledby="hero-title">
   <div class="hero-full__inner">
-    <div class="container hero-full__content">
-      <p class="hero-full__eyebrow">{eyebrow}</p>
-      <h1 class="hero-full__title">{title}</h1>
-      <p class="hero-full__tagline">{tagline}</p>
+    <div class="container container--wide hero-full__layout">
+      <div class="hero-full__content">
+        <p class="hero-full__eyebrow">{eyebrow}</p>
+        <h1 id="hero-title" class="hero-full__title">{title}</h1>
+        <p class="hero-full__tagline">{tagline}</p>
 
-      {actions.length > 0 && (
-        <div class="hero-full__actions">
-          {actions.map((action) => (
-            <a
-              href={action.href}
-              class:list={['button-link', `button-link--${action.variant ?? 'primary'}`]}
+        {actions.length > 0 && (
+          <div class="hero-full__actions">
+            {actions.map((action) => (
+              <a
+                href={action.href}
+                class:list={['button-link', `button-link--${action.variant ?? 'primary'}`]}
+              >
+                {action.label}
+              </a>
+            ))}
+          </div>
+        )}
+
+        {facts.length > 0 && (
+          <ul class="hero-full__facts" aria-label="Profile highlights">
+            {facts.map((fact) => (
+              <li class="hero-full__fact">
+                <span class="hero-full__fact-label">{fact.label}</span>
+                <strong class="hero-full__fact-value">{fact.value}</strong>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      <div class="hero-full__panel">
+        <figure class="hero-full__poster">
+          {video ? (
+            <video
+              class="hero-full__poster-media"
+              muted
+              loop
+              playsinline
+              preload="none"
+              poster={poster}
+              aria-label={posterAlt}
+              data-hero-video-src={video}
+              data-hero-video-type={videoType}
             >
-              {action.label}
-            </a>
-          ))}
-        </div>
-      )}
-
-      {facts.length > 0 && (
-        <ul class="hero-full__facts" aria-label="Profile highlights">
-          {facts.map((fact) => (
-            <li class="hero-full__fact">
-              <span class="hero-full__fact-label">{fact.label}</span>
-              <strong class="hero-full__fact-value">{fact.value}</strong>
-            </li>
-          ))}
-        </ul>
-      )}
+            </video>
+          ) : (
+            <img
+              src={poster}
+              alt={posterAlt}
+              class="hero-full__poster-media"
+              loading="eager"
+              decoding="async"
+              width="1024"
+              height="576"
+            />
+          )}
+        </figure>
+        {credit && (
+          <p class="hero-full__credit">
+            <a href={credit.href} target="_blank" rel="noopener">{credit.label}</a>
+          </p>
+        )}
+      </div>
     </div>
   </div>
-  {credit && (
-    <p class="hero-full__credit">
-      <a href={credit.href} target="_blank" rel="noopener">{credit.label}</a>
-    </p>
-  )}
   <a href="#content-start" class="hero-full__scroll" aria-label="Scroll to content">
     <span class="hero-full__scroll-line" aria-hidden="true"></span>
     <span class="hero-full__scroll-label">Scroll</span>

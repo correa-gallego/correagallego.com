@@ -12,7 +12,7 @@ interface Props {
 
 const {
   title,
-  description = 'Sebastian Correa-Gallego — Biology undergraduate researcher exploring microbial ecology, evolutionary cell biology, and natural systems across field and laboratory scales.',
+  description = 'Sebastian Correa-Gallego — Biology undergraduate researcher working across microbial ecology, cultivable cave microbiology, and mitochondrial physiology in yeast.',
   ogType = 'website',
   variant = 'default',
 } = Astro.props;
@@ -58,7 +58,7 @@ const personSchema = {
   <title>{title}</title>
   <meta name="description" content={description}>
   <meta name="author" content="Sebastian Correa-Gallego">
-  <meta name="theme-color" content="#2d4a3e">
+  <meta name="theme-color" content="#0b1014">
   <link rel="canonical" href={canonicalURL}>
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/favicon.svg">
@@ -109,22 +109,6 @@ const personSchema = {
         { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
       );
       revealEls.forEach((el) => io.observe(el));
-    }
-
-    // Subtle hero parallax
-    const heroMedia = document.querySelector('.hero-full__media');
-    if (heroMedia instanceof HTMLElement && !reduce) {
-      let ticking = false;
-      const onScroll = () => {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-          const y = Math.min(window.scrollY, 600);
-          heroMedia.style.transform = `translate3d(0, ${y * 0.18}px, 0) scale(${1 + y * 0.00012})`;
-          ticking = false;
-        });
-      };
-      window.addEventListener('scroll', onScroll, { passive: true });
     }
   </script>
 </body>
