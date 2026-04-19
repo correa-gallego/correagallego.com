@@ -1,0 +1,41 @@
+---
+import Media from './Media.astro';
+
+interface Props {
+  title: string;
+  tagline: string;
+  image?: string;
+  alt?: string;
+}
+const {
+  title,
+  tagline,
+  image = '/assets/hero-cave.jpg',
+  alt = '',
+} = Astro.props;
+---
+
+<section class="hero-full" aria-label="Introduction">
+  <div class="hero-full__media">
+    <Media
+      src={image}
+      alt={alt}
+      placeholder="cave-deep"
+      aspectRatio="auto"
+      label=""
+      eager={true}
+      className="media--fill"
+    />
+  </div>
+  <div class="hero-full__overlay" aria-hidden="true"></div>
+  <div class="hero-full__inner">
+    <div class="container hero-full__content">
+      <h1 class="hero-full__title">{title}</h1>
+      <p class="hero-full__tagline">{tagline}</p>
+    </div>
+  </div>
+  <a href="#main-content" class="hero-full__scroll" aria-label="Scroll to content">
+    <span class="hero-full__scroll-line" aria-hidden="true"></span>
+    <span class="hero-full__scroll-label">Scroll</span>
+  </a>
+</section>

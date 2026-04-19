@@ -4,28 +4,63 @@ import Entry from '../components/Entry.astro';
 ---
 
 <Base title="Publications — Sebastian Correa-Gallego" description="Publications, conference presentations, and honors.">
-  <h1 class="page-title">Publications &amp; Presentations</h1>
+  <header class="page-intro">
+    <div class="container">
+      <span class="page-intro__eyebrow">Publications</span>
+      <h1>Papers, presentations &amp; recognition</h1>
+      <p class="page-intro__lede">
+        Manuscripts in preparation, conference work, and honors received during my undergraduate
+        training.
+      </p>
+    </div>
+  </header>
 
-  <section class="reveal">
-    <h2>Conferences &amp; Presentations</h2>
-    <Entry title="Research Proposal Presentation" date="2024" note="Awarded Second Place">
-      <p>2nd Symposium of Biology, Universidad EAFIT.</p>
-    </Entry>
+  <section class="section section--tight">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-head__eyebrow">Manuscripts in Preparation</span>
+        <span class="section-head__line"></span>
+      </div>
+
+      <ul class="pub-list reveal">
+        <li>
+          <p class="pub-authors"><strong>Correa-Gallego, S.</strong> &amp; Pinel Peláez, N.</p>
+          <p class="pub-title">Cultivable microbial community structure along a light gradient in a tropical volcaniclastic cave.</p>
+          <p class="pub-venue">In preparation.</p>
+        </li>
+        <li>
+          <p class="pub-authors">Authors TBD, including <strong>Correa-Gallego, S.</strong>, Shazib, S. U. A., &amp; Muñoz-Gómez, S. A.</p>
+          <p class="pub-title">Mitochondrial proteome allocation in yeast under varying carbon regimes.</p>
+          <p class="pub-venue">In preparation.</p>
+        </li>
+      </ul>
+    </div>
   </section>
 
-  <section class="reveal">
-    <h2>Honors &amp; Recognition</h2>
-
-    <Entry title="Visiting Student Intern — UREP-C Program" date="2025 – 2026">
-      <p>Purdue University, West Lafayette, Indiana.</p>
-    </Entry>
-
-    <Entry title="Undergraduate Scholarship" date="2022">
-      <p>Comfama and Fundación Fraternidad Medellín.</p>
-    </Entry>
+  <section class="section section--tight">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-head__eyebrow">Conferences &amp; Presentations</span>
+        <span class="section-head__line"></span>
+      </div>
+      <Entry title="Research Proposal Presentation" date="2024" note="Awarded Second Place">
+        <p>2nd Symposium of Biology, Universidad EAFIT.</p>
+      </Entry>
+    </div>
   </section>
 
-  <section class="reveal publications-note">
-    <p><em>Papers in preparation — check back for updates.</em></p>
+  <section class="section section--tight">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-head__eyebrow">Honors &amp; Recognition</span>
+        <span class="section-head__line"></span>
+      </div>
+      <Entry title="Visiting Student Intern — UREP-C Program" date="2025 – 2026">
+        <p>Purdue University, West Lafayette, Indiana.</p>
+      </Entry>
+      <Entry title="Undergraduate Scholarship" date="2022">
+        <p>Comfama and Fundación Fraternidad Medellín.</p>
+      </Entry>
+    </div>
   </section>
 </Base>

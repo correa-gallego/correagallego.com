@@ -1,0 +1,53 @@
+---
+import Media from './Media.astro';
+
+interface Props {
+  title: string;
+  role: string;
+  advisor?: string;
+  pi?: string;
+  description: string;
+  image: string;
+  placeholder: 'cave' | 'yeast' | 'field';
+  status?: string;
+  reversed?: boolean;
+  aspectRatio?: string;
+  id?: string;
+}
+const {
+  title,
+  role,
+  advisor,
+  pi,
+  description,
+  image,
+  placeholder,
+  status,
+  reversed = false,
+  aspectRatio = '3 / 2',
+  id,
+} = Astro.props;
+---
+
+<article class:list={['project reveal', { 'project--reversed': reversed }]} id={id}>
+  <div class="project__media">
+    <Media
+      src={image}
+      alt={`Project image for ${title}`}
+      placeholder={placeholder}
+      aspectRatio={aspectRatio}
+    />
+  </div>
+  <div class="project__body">
+    <h3 class="project__title">{title}</h3>
+    <p class="project__role">{role}</p>
+    {(advisor || pi) && (
+      <ul class="project__meta">
+        {advisor && <li><span class="project__meta-label">Advisor</span> {advisor}</li>}
+        {pi && <li><span class="project__meta-label">PI</span> {pi}</li>}
+      </ul>
+    )}
+    <p class="project__description">{description}</p>
+    {status && <span class="entry-note">{status}</span>}
+  </div>
+</article>

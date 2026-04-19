@@ -7,12 +7,14 @@ interface Props {
   title: string;
   description?: string;
   ogType?: 'website' | 'profile' | 'article';
+  variant?: 'default' | 'full';
 }
 
 const {
   title,
-  description = 'Sebastian Correa-Gallego — Biology researcher studying microbial ecology, extreme environments, and geomicrobiology at Universidad EAFIT.',
+  description = 'Sebastian Correa-Gallego — undergraduate researcher in microbial ecology and evolutionary cell biology at Universidad EAFIT and Purdue University.',
   ogType = 'website',
+  variant = 'default',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
@@ -34,12 +36,11 @@ const personSchema = {
   ],
   knowsAbout: [
     'Microbial Ecology',
-    'Extreme Environments',
+    'Evolutionary Cell Biology',
     'Subterranean Biology',
     'Geomicrobiology',
     'Biogeochemistry',
-    'Environmental Microbiology',
-    'Microbial Evolution',
+    'Natural Systems',
   ],
   sameAs: [
     'https://www.linkedin.com/in/s-correag',
@@ -81,31 +82,49 @@ const personSchema = {
 
   <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 </head>
-<body>
-  <a href="#main" class="skip-link">Skip to content</a>
+<body class:list={[`variant-${variant}`]}>
+  <a href="#main-content" class="skip-link">Skip to content</a>
   <Nav />
-  <main id="main">
+  <main id="main-content">
     <slot />
   </main>
   <Footer />
 
   <script>
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-    );
+    // Scroll reveal
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealEls = document.querySelectorAll('.reveal');
     if (reduce) {
-      document.querySelectorAll('.reveal').forEach((el) => el.classList.add('visible'));
+      revealEls.forEach((el) => el.classList.add('visible'));
     } else {
-      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+      );
+      revealEls.forEach((el) => io.observe(el));
+    }
+
+    // Subtle hero parallax
+    const heroMedia = document.querySelector('.hero-full__media');
+    if (heroMedia instanceof HTMLElement && !reduce) {
+      let ticking = false;
+      const onScroll = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          const y = Math.min(window.scrollY, 600);
+          heroMedia.style.transform = `translate3d(0, ${y * 0.18}px, 0) scale(${1 + y * 0.00012})`;
+          ticking = false;
+        });
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
     }
   </script>
 </body>

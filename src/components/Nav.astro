@@ -7,7 +7,7 @@ const links = [
 ];
 ---
 
-<nav>
+<nav class="site-nav" aria-label="Primary">
   <a href="/" class="nav-name">S. Correa-Gallego</a>
   <div class="nav-links">
     {links.map(link => (
@@ -16,7 +16,7 @@ const links = [
       </a>
     ))}
   </div>
-  <button class="nav-toggle" aria-label="Menu">
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
     <span></span><span></span>
   </button>
 </nav>
@@ -24,10 +24,16 @@ const links = [
 <script>
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
-  if (toggle && links) {
-    toggle.addEventListener('click', () => links.classList.toggle('open'));
+  if (toggle instanceof HTMLButtonElement && links instanceof HTMLElement) {
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
     links.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', () => links.classList.remove('open'))
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      })
     );
   }
 </script>

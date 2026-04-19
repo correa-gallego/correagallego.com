@@ -1,86 +1,127 @@
 ---
 import Base from '../layouts/Base.astro';
+import HeroSection from '../components/HeroSection.astro';
+import Media from '../components/Media.astro';
 ---
 
-<Base title="Sebastian Correa-Gallego" ogType="profile">
-  <div class="page-home">
-    <div class="hero">
-      <img src="/assets/profile.jpg" alt="Portrait of Sebastian Correa-Gallego" class="hero-photo" width="130" height="130" loading="eager" decoding="async" />
-      <div class="hero-text">
-        <h1>Sebastian Correa-Gallego</h1>
-        <p class="affiliation">Biology &middot; Universidad EAFIT<br>Medellín, Colombia</p>
-        <p class="status" aria-label="Current status">
-          <span class="status-dot" aria-hidden="true"></span>
-          Visiting Student Intern, <span class="status-where">Purdue University</span>
-        </p>
+<Base title="Sebastian Correa-Gallego — Microbial ecology & evolutionary cell biology" ogType="profile" variant="full">
+  <HeroSection
+    title="Sebastian Correa-Gallego"
+    tagline="Microbial ecology · Evolutionary cell biology · Natural systems"
+  />
+
+  <section class="section section--first">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-head__eyebrow">About</span>
+        <span class="section-head__line"></span>
+      </div>
+
+      <div class="about reveal">
+        <img
+          src="/assets/profile.jpg"
+          alt="Portrait of Sebastian Correa-Gallego"
+          class="about-photo"
+          width="140"
+          height="140"
+          loading="eager"
+          decoding="async"
+        />
+        <div class="about-body">
+          <p>
+            I study how microbial life organizes under constraint. My work spans from the
+            community structure of cultivable microorganisms in tropical volcanic caves to the
+            cellular economics of resource allocation in yeast &mdash; two scales of a shared
+            question: how biological systems negotiate energy, nutrients, and environmental
+            limitation.
+          </p>
+          <p>
+            As an undergraduate researcher at Universidad EAFIT, I investigate microbial
+            community assembly along environmental gradients in the Organal San Antonio, a
+            volcaniclastic cave system in the Colombian Andes. At Purdue University, I
+            contributed to ongoing research on mitochondrial proteome allocation in eukaryotes
+            under varying carbon regimes.
+          </p>
+          <p>
+            I am broadly interested in microbial ecology, evolutionary cell biology, and the
+            integrative study of natural systems &mdash; particularly where fieldwork,
+            quantitative analysis, and biological theory converge.
+          </p>
+        </div>
       </div>
     </div>
+  </section>
 
-    <section class="reveal">
-      <h2>About</h2>
-      <p>
-        I am an undergraduate Biology student at Universidad EAFIT interested in
-        understanding microbial life in extreme environments. My research focuses on
-        microbial ecology, geomicrobiology, and the biogeochemical processes that
-        sustain life under harsh physicochemical conditions.
-      </p>
-      <p>
-        I investigate how microbial communities organize, persist, and evolve under
-        ecological and energetic constraint &mdash; particularly in subterranean and
-        oligotrophic systems. I am also drawn to quantitative and computational
-        approaches that connect fieldwork with analytical rigor.
-      </p>
-      <p>
-        Previously, I worked as a Visiting Student Intern at the
-        <em>ECSO Lab</em>, Purdue University, where I gained experience in evolutionary
-        and cellular biology using yeast as a model system.
-      </p>
-    </section>
-
-    <section class="reveal">
-      <h2>Research Interests</h2>
-      <div class="keywords">
+  <section class="section section--tight">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-head__eyebrow">Research Interests</span>
+        <span class="section-head__line"></span>
+      </div>
+      <div class="keywords reveal">
         <span class="keyword">Microbial Ecology</span>
-        <span class="keyword">Extreme Environments</span>
+        <span class="keyword">Evolutionary Cell Biology</span>
         <span class="keyword">Subterranean Biology</span>
         <span class="keyword">Geomicrobiology</span>
         <span class="keyword">Biogeochemistry</span>
         <span class="keyword">Environmental Microbiology</span>
-        <span class="keyword">Microbial Evolution</span>
+        <span class="keyword">Natural Systems</span>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="reveal">
-      <h2>Selected</h2>
-      <ul class="selected-list">
-        <li>
-          <a href="/research/#thesis">
-            <span class="selected-title">Cultivable microbial communities of a tropical volcanic cave</span>
-            <span class="selected-meta">Undergraduate thesis · Organal San Antonio, Antioquia</span>
-          </a>
-        </li>
-        <li>
-          <a href="/research/">
-            <span class="selected-title">Yeast proteome allocation across physiological conditions</span>
-            <span class="selected-meta">ECSO Lab · Purdue University</span>
-          </a>
-        </li>
-        <li>
-          <a href="/publications/">
-            <span class="selected-title">Research proposal, 2nd Symposium of Biology</span>
-            <span class="selected-meta">Awarded Second Place · Universidad EAFIT, 2024</span>
-          </a>
-        </li>
-      </ul>
-    </section>
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-head__eyebrow">Selected Work</span>
+        <span class="section-head__line"></span>
+      </div>
 
-    <section class="reveal">
-      <h2>Contact</h2>
-      <div class="contact-links">
+      <div class="work-grid reveal-stagger">
+        <a href="/research/#cave" class="work-card reveal">
+          <Media
+            src="/assets/project-cave.jpg"
+            alt="Cave microbial ecology"
+            placeholder="cave"
+            aspectRatio="3 / 2"
+          />
+          <h3 class="work-card__title">Cultivable communities in a tropical volcaniclastic cave</h3>
+          <p class="work-card__desc">
+            Microbial community structure and assembly along a light gradient in the Organal San Antonio,
+            Colombian Andes.
+          </p>
+          <span class="work-card__more">Read more</span>
+        </a>
+
+        <a href="/research/#yeast" class="work-card reveal">
+          <Media
+            src="/assets/project-yeast.jpg"
+            alt="Yeast proteome allocation"
+            placeholder="yeast"
+            aspectRatio="3 / 2"
+          />
+          <h3 class="work-card__title">Proteome allocation in yeast under carbon regimes</h3>
+          <p class="work-card__desc">
+            Mitochondrial resource allocation and cellular organization in <em>Saccharomyces cerevisiae</em>
+            across physiological conditions.
+          </p>
+          <span class="work-card__more">Read more</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-head__eyebrow">Contact</span>
+        <span class="section-head__line"></span>
+      </div>
+      <div class="contact-links reveal">
         <a href="mailto:scorreag6@eafit.edu.co" aria-label="Email Sebastian Correa-Gallego">scorreag6@eafit.edu.co</a>
         <a href="https://www.linkedin.com/in/s-correag" target="_blank" rel="noopener" aria-label="LinkedIn profile (opens in new tab)">LinkedIn</a>
         <a href="https://github.com/correa-gallego" target="_blank" rel="noopener" aria-label="GitHub profile (opens in new tab)">GitHub</a>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </Base>

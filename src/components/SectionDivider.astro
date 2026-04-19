@@ -1,0 +1,12 @@
+---
+interface Props {
+  label?: string;
+}
+const { label } = Astro.props;
+---
+
+<div class="section-divider" role="presentation">
+  <span class="section-divider__line"></span>
+  {label && <span class="section-divider__label">{label}</span>}
+  <span class="section-divider__line"></span>
+</div>

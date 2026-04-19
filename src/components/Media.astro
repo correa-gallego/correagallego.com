@@ -1,0 +1,36 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  placeholder?: 'cave' | 'cave-deep' | 'yeast' | 'field';
+  aspectRatio?: string;
+  label?: string;
+  eager?: boolean;
+  className?: string;
+}
+const {
+  src,
+  alt,
+  placeholder = 'cave',
+  aspectRatio = '3 / 2',
+  label = 'Photo coming soon',
+  eager = false,
+  className = '',
+} = Astro.props;
+---
+
+<div
+  class:list={['media', `media--${placeholder}`, className]}
+  style={`aspect-ratio: ${aspectRatio};`}
+  data-media
+>
+  <img
+    src={src}
+    alt={alt}
+    loading={eager ? 'eager' : 'lazy'}
+    decoding="async"
+    onload="this.parentElement?.setAttribute('data-loaded','true')"
+  />
+  <span class="media__label" aria-hidden="true">{label}</span>
+  <span class="media__grain" aria-hidden="true"></span>
+</div>
