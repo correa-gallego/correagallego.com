@@ -2,6 +2,7 @@
 interface Props {
   eyebrow?: string;
   title: string;
+  titleLines?: string[];
   tagline: string;
   video?: string;
   videoType?: string;
@@ -15,6 +16,7 @@ interface Props {
 const {
   eyebrow = 'Biology undergraduate · Colombia',
   title,
+  titleLines = [title],
   tagline,
   video,
   videoType = video?.endsWith('.webm') ? 'video/webm' : 'video/mp4',
@@ -57,7 +59,11 @@ const {
     <div class="container container--wide hero-full__layout">
       <div class="hero-full__content">
         <p class="hero-full__eyebrow">{eyebrow}</p>
-        <h1 id="hero-title" class="hero-full__title">{title}</h1>
+        <h1 id="hero-title" class="hero-full__title">
+          {titleLines.map((line) => (
+            <span class="hero-full__title-line">{line}</span>
+          ))}
+        </h1>
         <p class="hero-full__tagline">{tagline}</p>
 
         {actions.length > 0 && (
