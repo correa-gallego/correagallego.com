@@ -9,6 +9,8 @@ const projects = defineCollection({
     role: z.string(),
     advisor: z.string().optional(),
     pi: z.string().optional(),
+    institutionName: z.string().optional(),
+    institutionLogo: z.string().optional(),
     status: z.string(),
     lede: z.string(),
     image: z.string().optional(),

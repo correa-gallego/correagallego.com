@@ -15,8 +15,7 @@ const renderedProjects = await Promise.all(
 <Base title="Research — Sebastian Correa-Gallego" description="Research projects, selected figures, and technical methods from the current stage of my academic work.">
   <header class="page-intro">
     <div class="container">
-      <span class="page-intro__eyebrow">Research</span>
-      <h1>Current research</h1>
+      <h1>Research</h1>
       <p class="page-intro__lede">
         The current portfolio is organized around two projects: an undergraduate thesis in cave
         microbiology and an ongoing collaboration on mitochondrial physiology in yeast.
@@ -26,10 +25,6 @@ const renderedProjects = await Promise.all(
 
   <section class="section section--tight">
     <div class="container">
-      <div class="section-head reveal">
-        <p class="section-head__eyebrow">Current projects</p>
-        <span class="section-head__line"></span>
-      </div>
       <h2 class="section-title reveal">Projects</h2>
       <p class="section-lede reveal">
         These projects differ in setting, organism, and method, but together they define the
@@ -44,6 +39,8 @@ const renderedProjects = await Promise.all(
           role={project.data.role}
           advisor={project.data.advisor}
           pi={project.data.pi}
+          institutionName={project.data.institutionName}
+          institutionLogo={project.data.institutionLogo}
           image={project.data.image}
           imageAlt={project.data.imageAlt}
           placeholder={project.data.placeholder}
@@ -92,10 +89,6 @@ const renderedProjects = await Promise.all(
 
   <section class="section section--tight">
     <div class="container">
-      <div class="section-head reveal">
-        <p class="section-head__eyebrow">Methods &amp; tools</p>
-        <span class="section-head__line"></span>
-      </div>
       <h2 class="section-title reveal">Technical skills</h2>
 
       <div class="reveal">

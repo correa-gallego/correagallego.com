@@ -14,38 +14,31 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
   variant="full"
 >
   <HeroSection
-    eyebrow="B.Sc. Biology · Colombia"
+    eyebrow="Biology undergraduate · Colombia"
     title="Sebastian Correa-Gallego"
-    tagline="Biology undergraduate in Colombia studying cultivable cave microbiology and mitochondrial physiology in yeast."
-    video="https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005425/perpetual_ocean2_CLOSE_096_temperature_1080p30.mp4"
+    tagline="Biology undergraduate in Colombia working on cultivable cave microbiology and on mitochondrial physiology in yeast."
+    video="https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005425/perpetual_ocean2_CLOSE_103_salinity_1080p30.mp4"
     videoType="video/mp4"
-    poster="/assets/images/perpetual-ocean2-temperature.jpg"
-    posterAlt="NASA Scientific Visualization Studio rendering of Earth and ocean-temperature currents."
+    poster="/assets/images/perpetual-ocean-salinity.jpg"
+    posterAlt="NASA Scientific Visualization Studio rendering of Earth and ocean salinity currents."
     actions={[
       { href: '/research/', label: 'Explore research' },
       { href: '/cv/', label: 'Open CV', variant: 'ghost' },
     ]}
     facts={[
       { label: 'Current stage', value: 'B.Sc. Biology at Universidad EAFIT' },
-      { label: 'Main project', value: 'Cultivable cave microbiology along a light gradient' },
-      { label: 'Ongoing work', value: 'Yeast mitochondria collaboration with Purdue' },
+      { label: 'Thesis', value: 'Cultivable microbial communities along a cave light gradient' },
+      { label: 'Collaboration', value: 'Yeast mitochondria project with Purdue' },
     ]}
     credit={{
-      label: 'Visual reference: NASA Scientific Visualization Studio, Perpetual Ocean 2',
+      label: 'NASA Scientific Visualization Studio · Perpetual Ocean 2 (salinity version)',
       href: 'https://svs.gsfc.nasa.gov/5425',
     }}
   />
 
   <section id="content-start" class="section section--first">
     <div class="container container--wide">
-      <div class="section-head reveal">
-        <p class="section-head__eyebrow">About</p>
-        <span class="section-head__line"></span>
-      </div>
       <h2 class="section-title reveal">Current training</h2>
-      <p class="section-lede reveal">
-        A concise account of the route that currently defines the portfolio.
-      </p>
 
       <div class="about about--split reveal">
         <img
@@ -61,8 +54,8 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
           <p>
             My interest in natural systems began before university. During childhood, I
             participated in a local group focused on atmospheric observation and weather
-            monitoring, which gave me an early habit of paying attention to environmental
-            variation and to the disciplined recording of natural phenomena.
+            monitoring, which gave me an early habit of attending to environmental variation
+            and to the disciplined recording of natural phenomena.
           </p>
           <p>
             At Universidad EAFIT, that orientation moved into biology and microbiology. My
@@ -78,9 +71,9 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
             continues through collaborative manuscript preparation.
           </p>
           <p>
-            At this stage, the route is still being narrowed with care. The common thread is an
-            attempt to connect microbial ecology, evolution, and physiology without forcing
-            those areas into separate tracks too early.
+            The immediate focus is to finish the degree, complete the thesis, and continue the
+            Purdue manuscript work while narrowing a longer-term question at the intersection
+            of microbial ecology, evolution, and physiology.
           </p>
         </div>
         <aside class="profile-panel reveal">
@@ -103,11 +96,7 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 
   <section class="section section--tight">
     <div class="container container--wide">
-      <div class="section-head reveal">
-        <p class="section-head__eyebrow">Selected work</p>
-        <span class="section-head__line"></span>
-      </div>
-      <h2 class="section-title reveal">Projects that currently anchor the portfolio</h2>
+      <h2 class="section-title reveal">Selected projects</h2>
 
       <div class="work-grid reveal-stagger">
         {projects.map((project) => (
@@ -130,30 +119,25 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 
   <section class="section section--tight">
     <div class="container container--wide">
-      <div class="section-head reveal">
-        <p class="section-head__eyebrow">Research interests</p>
-        <span class="section-head__line"></span>
-      </div>
       <h2 class="section-title reveal">Current areas of interest</h2>
       <div class="home-columns reveal">
         <div class="home-columns__text">
           <p>
             My current interests are centered on microbial life in natural systems: how
-            environmental gradients, energetic limitation, and local physicochemical conditions
-            shape community structure; how microorganisms interact within those settings; and
-            how those processes connect to larger questions in ecology and evolution. I am also
-            interested in energy flow in the Earth system, the role of microorganisms in
-            planetary history, the origin of life, and the major transitions through which
-            biological complexity has emerged. These areas provide the theoretical frame from
-            which I am trying to define a more precise long-term research question.
+            environmental gradients and energetic limitation shape community structure, how
+            microorganisms interact within those settings, and how those processes connect to
+            larger questions in ecology and evolution. This includes microbial roles in
+            biogeochemical fluxes, the organization of natural systems, Earth-system history,
+            the origin of life, and the major evolutionary transitions through which biological
+            complexity has emerged.
           </p>
         </div>
         <div class="home-columns__list">
           <ul class="plain-list">
-            <li>Microbial ecology in environmental and energetic gradients</li>
-            <li>Interactions among microorganisms in natural systems</li>
-            <li>Energy flow, biogeochemical structure, and Earth-system history</li>
-            <li>Origin of life, evolutionary transitions, and biological complexity</li>
+            <li>Microbial ecology across environmental and energetic gradients</li>
+            <li>Community interactions and biogeochemical structure in natural systems</li>
+            <li>Microorganisms in Earth-system history and planetary processes</li>
+            <li>Evolutionary transitions, biological complexity, and the origin of life</li>
           </ul>
         </div>
       </div>
@@ -162,10 +146,6 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 
   <section class="section section--tight">
     <div class="container container--wide">
-      <div class="section-head reveal">
-        <p class="section-head__eyebrow">Working profile</p>
-        <span class="section-head__line"></span>
-      </div>
       <h2 class="section-title reveal">Methods and technical profile</h2>
       <div class="home-columns reveal">
         <div class="home-columns__text">
@@ -193,13 +173,9 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 
   <section class="section section--tight">
     <div class="container">
-      <div class="section-head reveal">
-        <p class="section-head__eyebrow">Contact</p>
-        <span class="section-head__line"></span>
-      </div>
-      <h2 class="section-title reveal">Academic contact</h2>
+      <h2 class="section-title reveal">Contact</h2>
       <p class="section-lede reveal">
-        Email is the best route for academic contact. Other links are included for reference.
+        Email is the best route for academic correspondence.
       </p>
       <div class="contact-links reveal">
         <a href="mailto:scorreag6@eafit.edu.co" aria-label="Email Sebastian Correa-Gallego">scorreag6@eafit.edu.co</a>

@@ -13,17 +13,16 @@ const formatAuthors = (authors: string[]) =>
 <Base title="Publications — Sebastian Correa-Gallego" description="Current manuscripts, presentations, and recognitions from the current stage of my academic profile.">
   <header class="page-intro">
     <div class="container">
-      <span class="page-intro__eyebrow">Publications</span>
-      <h1>Current academic output</h1>
+      <h1>Publications</h1>
+      <p class="page-intro__lede">
+        Current manuscripts, presentations, and formal recognition from the present stage of
+        my academic work.
+      </p>
     </div>
   </header>
 
   <section class="section section--tight">
     <div class="container">
-      <div class="section-head reveal">
-        <p class="section-head__eyebrow">Manuscripts</p>
-        <span class="section-head__line"></span>
-      </div>
       <h2 class="section-title reveal">Current manuscripts</h2>
 
       <ul class="pub-list reveal">
@@ -40,10 +39,6 @@ const formatAuthors = (authors: string[]) =>
 
   <section class="section section--tight">
     <div class="container">
-      <div class="section-head reveal">
-        <p class="section-head__eyebrow">Presentations</p>
-        <span class="section-head__line"></span>
-      </div>
       <h2 class="section-title reveal">Presentations and talks</h2>
       <ul class="pub-list reveal">
         {presentations.map((item) => (
@@ -62,10 +57,6 @@ const formatAuthors = (authors: string[]) =>
 
   <section class="section section--tight">
     <div class="container">
-      <div class="section-head reveal">
-        <p class="section-head__eyebrow">Recognition</p>
-        <span class="section-head__line"></span>
-      </div>
       <h2 class="section-title reveal">Recognition and support</h2>
       <ul class="pub-list reveal">
         {awards.map((item) => (

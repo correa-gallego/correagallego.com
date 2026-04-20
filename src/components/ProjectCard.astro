@@ -6,6 +6,8 @@ interface Props {
   role: string;
   advisor?: string;
   pi?: string;
+  institutionName?: string;
+  institutionLogo?: string;
   image?: string;
   imageAlt?: string;
   placeholder?: 'cave' | 'cave-deep' | 'yeast' | 'field';
@@ -21,6 +23,8 @@ const {
   role,
   advisor,
   pi,
+  institutionName,
+  institutionLogo,
   image,
   imageAlt = '',
   placeholder = 'field',
@@ -45,6 +49,18 @@ const {
   <div class="project__body">
     <h3 class="project__title">{title}</h3>
     <p class="project__role">{role}</p>
+    {institutionName && institutionLogo && (
+      <div class="project__institution" aria-label={`Institution: ${institutionName}`}>
+        <img
+          src={institutionLogo}
+          alt=""
+          class="project__institution-logo"
+          loading="lazy"
+          decoding="async"
+        />
+        <span>{institutionName}</span>
+      </div>
+    )}
     {(advisor || pi) && (
       <ul class="project__meta">
         {advisor && <li><span class="project__meta-label">Advisor</span> {advisor}</li>}
