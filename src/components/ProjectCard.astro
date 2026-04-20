@@ -60,5 +60,8 @@ const {
       </div>
     )}
     {status && <span class="entry-note">{status}</span>}
+    <div class="project__support">
+      <slot name="support" />
+    </div>
   </div>
 </article>

@@ -53,66 +53,40 @@ const renderedProjects = await Promise.all(
           tags={project.data.tags}
         >
           <Content />
+          {project.id === 'cave' && (
+            <div slot="support" class="figure-grid figure-grid--inline">
+              <figure class="figure-card">
+                <img
+                  src="/assets/illustrations/cave_gradient.png"
+                  alt="Working diagram of the cave light gradient used in the undergraduate thesis."
+                  class="figure-card__image"
+                  loading="lazy"
+                  decoding="async"
+                  width="4102"
+                  height="2369"
+                />
+                <figcaption class="figure-card__caption">
+                  Working cave-gradient diagram used in thesis development and presentation material.
+                </figcaption>
+              </figure>
+              <figure class="figure-card">
+                <img
+                  src="/assets/illustrations/morphotypes_gradient.png"
+                  alt="Figure showing morphotypes distributed across the cave light gradient."
+                  class="figure-card__image"
+                  loading="lazy"
+                  decoding="async"
+                  width="4024"
+                  height="2415"
+                />
+                <figcaption class="figure-card__caption">
+                  Morphotype summary across the sampled cave gradient.
+                </figcaption>
+              </figure>
+            </div>
+          )}
         </ProjectCard>
       ))}
-    </div>
-  </section>
-
-  <section class="section section--tight">
-    <div class="container container--wide">
-      <div class="section-head reveal">
-        <p class="section-head__eyebrow">Selected figures</p>
-        <span class="section-head__line"></span>
-      </div>
-      <h2 class="section-title reveal">Visual material from the cave project</h2>
-      <p class="section-lede reveal">
-        These figures are part of the working visual material used to explain the cave system,
-        the sampled gradient, and the cultivable communities under study.
-      </p>
-      <div class="figure-grid reveal-stagger">
-        <figure class="figure-card reveal">
-          <img
-            src="/assets/illustrations/cave_gradient.png"
-            alt="Working diagram of the cave light gradient used in the undergraduate thesis."
-            class="figure-card__image"
-            loading="lazy"
-            decoding="async"
-            width="4102"
-            height="2369"
-          />
-          <figcaption class="figure-card__caption">
-            Working cave-gradient diagram used in thesis development and presentation material.
-          </figcaption>
-        </figure>
-        <figure class="figure-card reveal">
-          <img
-            src="/assets/illustrations/morphotypes_gradient.png"
-            alt="Figure showing morphotypes distributed across the cave light gradient."
-            class="figure-card__image"
-            loading="lazy"
-            decoding="async"
-            width="4024"
-            height="2415"
-          />
-          <figcaption class="figure-card__caption">
-            Morphotype summary across the sampled cave gradient.
-          </figcaption>
-        </figure>
-        <figure class="figure-card reveal">
-          <img
-            src="/assets/images/plate.png"
-            alt="Petri dish image showing microbial colonies."
-            class="figure-card__image"
-            loading="lazy"
-            decoding="async"
-            width="679"
-            height="679"
-          />
-          <figcaption class="figure-card__caption">
-            Plate image used as visual material for cultivable community work.
-          </figcaption>
-        </figure>
-      </div>
     </div>
   </section>
 

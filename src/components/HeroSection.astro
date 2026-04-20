@@ -19,7 +19,7 @@ const {
   video,
   videoType = video?.endsWith('.webm') ? 'video/webm' : 'video/mp4',
   poster = '/assets/images/earth-poster.jpg',
-  posterAlt = 'Scientific visualization used as a visual reference on the homepage.',
+  posterAlt = '',
   actions = [],
   facts = [],
   credit,
@@ -27,6 +27,32 @@ const {
 ---
 
 <section class="hero-full" aria-labelledby="hero-title">
+  <div class="hero-full__visual" aria-hidden="true">
+    {video ? (
+      <video
+        class="hero-full__video"
+        muted
+        loop
+        playsinline
+        preload="none"
+        poster={poster}
+        data-hero-video-src={video}
+        data-hero-video-type={videoType}
+      >
+      </video>
+    ) : (
+      <img
+        src={poster}
+        alt={posterAlt}
+        class="hero-full__video hero-full__video--image"
+        loading="eager"
+        decoding="async"
+        width="1024"
+        height="576"
+      />
+    )}
+  </div>
+
   <div class="hero-full__inner">
     <div class="container container--wide hero-full__layout">
       <div class="hero-full__content">
@@ -58,42 +84,15 @@ const {
           </ul>
         )}
       </div>
-
-      <div class="hero-full__panel">
-        <figure class="hero-full__poster">
-          {video ? (
-            <video
-              class="hero-full__poster-media"
-              muted
-              loop
-              playsinline
-              preload="none"
-              poster={poster}
-              aria-label={posterAlt}
-              data-hero-video-src={video}
-              data-hero-video-type={videoType}
-            >
-            </video>
-          ) : (
-            <img
-              src={poster}
-              alt={posterAlt}
-              class="hero-full__poster-media"
-              loading="eager"
-              decoding="async"
-              width="1024"
-              height="576"
-            />
-          )}
-        </figure>
-        {credit && (
-          <p class="hero-full__credit">
-            <a href={credit.href} target="_blank" rel="noopener">{credit.label}</a>
-          </p>
-        )}
-      </div>
     </div>
   </div>
+
+  {credit && (
+    <p class="hero-full__credit">
+      <a href={credit.href} target="_blank" rel="noopener">{credit.label}</a>
+    </p>
+  )}
+
   <a href="#content-start" class="hero-full__scroll" aria-label="Scroll to content">
     <span class="hero-full__scroll-line" aria-hidden="true"></span>
     <span class="hero-full__scroll-label">Scroll</span>
@@ -104,7 +103,7 @@ const {
   const heroVideo = document.querySelector('[data-hero-video-src]');
   if (heroVideo instanceof HTMLVideoElement) {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const largeViewport = window.matchMedia('(min-width: 900px)').matches;
+    const largeViewport = window.matchMedia('(min-width: 960px)').matches;
     const connection = navigator.connection;
     const saveData = connection && 'saveData' in connection ? connection.saveData : false;
 
