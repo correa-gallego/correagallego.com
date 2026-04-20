@@ -639,6 +639,29 @@ body.variant-full nav.site-nav .nav-toggle span { background: var(--paper); }
     font-weight: 600;
 }
 
+.institution-strip {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-bottom: 1rem;
+    opacity: 0.82;
+}
+
+.institution-strip__logo {
+    display: block;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+}
+
+.institution-strip__logo--eafit {
+    width: 88px;
+}
+
+.institution-strip__logo--purdue {
+    width: 110px;
+}
+
 .home-columns {
     display: grid;
     grid-template-columns: minmax(0, 1.45fr) minmax(240px, 0.85fr);
@@ -871,21 +894,21 @@ body.variant-full nav.site-nav .nav-toggle span { background: var(--paper); }
 /* ========= SECTION HEADING ========= */
 
 .section-head {
-    margin-bottom: 0.9rem;
+    margin-bottom: 0.7rem;
     display: flex;
     align-items: baseline;
     gap: 0.75rem;
 }
 .section-head__eyebrow {
     font-family: var(--sans);
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     font-weight: 600;
-    color: var(--muted);
-    letter-spacing: 0.08em;
+    color: rgba(120, 113, 108, 0.82);
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     white-space: nowrap;
 }
-.section-head__line { flex: 1; height: 1px; background: rgba(214, 208, 196, 0.55); }
+.section-head__line { flex: 1; height: 1px; background: rgba(214, 208, 196, 0.34); }
 
 .section-title {
     font-family: var(--serif);
@@ -897,11 +920,11 @@ body.variant-full nav.site-nav .nav-toggle span { background: var(--paper); }
     margin-bottom: 0.55rem;
 }
 .section-lede {
-    font-size: 0.98rem;
+    font-size: 0.95rem;
     color: var(--muted);
-    line-height: 1.72;
+    line-height: 1.68;
     max-width: 62ch;
-    margin-bottom: 1.8rem;
+    margin-bottom: 1.45rem;
 }
 
 /* ========= SECTION DIVIDER ========= */
@@ -929,13 +952,13 @@ body.variant-full nav.site-nav .nav-toggle span { background: var(--paper); }
 }
 .page-intro__eyebrow {
     font-family: var(--sans);
-    font-size: 0.74rem;
+    font-size: 0.68rem;
     font-weight: 600;
-    color: var(--muted);
-    letter-spacing: 0.08em;
+    color: rgba(120, 113, 108, 0.84);
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     display: inline-block;
-    margin-bottom: 1rem;
+    margin-bottom: 0.85rem;
 }
 .page-intro h1 {
     font-family: var(--serif);
@@ -948,9 +971,9 @@ body.variant-full nav.site-nav .nav-toggle span { background: var(--paper); }
     text-wrap: balance;
 }
 .page-intro__lede {
-    font-size: 1.05rem;
+    font-size: 0.98rem;
     color: var(--muted);
-    line-height: 1.75;
+    line-height: 1.68;
     max-width: 64ch;
 }
 
@@ -1102,16 +1125,6 @@ section > h2.eyebrow {
 }
 .pub-venue { font-size: 0.82rem; color: var(--muted); font-style: italic; }
 
-.publications-note {
-    padding: 1.1rem 1.3rem;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 5px;
-    border-left: 3px solid var(--accent);
-    margin-top: 1rem;
-}
-.publications-note p { font-size: 0.85rem; color: var(--muted); }
-
 /* ========= FOOTER ========= */
 
 footer {
@@ -1201,6 +1214,9 @@ footer a:hover {
             linear-gradient(180deg, rgba(2, 4, 6, 0.38) 0%, rgba(2, 4, 6, 0.72) 44%, rgba(2, 4, 6, 0.92) 100%);
     }
     .figure-grid--inline { grid-template-columns: 1fr; }
+    .institution-strip {
+        flex-wrap: wrap;
+    }
 }
 
 @media (max-width: 540px) {
