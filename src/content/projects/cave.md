@@ -3,9 +3,10 @@ order: 1
 title: Cultivable Microbial Community Structure along a Light Gradient in a Tropical Volcaniclastic Cave
 role: Undergraduate thesis
 advisor: Prof. Nicolás Pinel Peláez
+group: GEBI — Research Group on Geosciences and Biodiversity, Universidad EAFIT
 institutionName: Universidad EAFIT
 institutionLogo: /assets/logo/EAFIT.svg
-status: Thesis in progress
+status: Thesis completed
 lede: A field-to-lab study of how cultivable microbial communities change across a light gradient in the Organal San Antonio cave system in Antioquia, Colombia.
 image: /assets/images/field.jpeg
 imageAlt: Sebastian Correa-Gallego collecting samples inside a cave in Antioquia, Colombia.

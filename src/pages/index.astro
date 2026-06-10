@@ -9,15 +9,15 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 
 <Base
   title="Sebastian Correa-Gallego — microbial ecology and natural systems"
-  description="Academic website of Sebastian Correa-Gallego, a Biology undergraduate in Colombia working on cultivable cave microbiology and mitochondrial physiology in yeast."
+  description="Academic website of Sebastian Correa-Gallego — biologist. Microbial ecology of cave systems, cellular physiology in yeast. B.Sc. Biology, Universidad EAFIT (2026)."
   ogType="profile"
   variant="full"
 >
   <HeroSection
-    eyebrow="Biology undergraduate · Colombia"
+    eyebrow="B.Sc. Biology · Microbial ecology · Colombia"
     title="Sebastian Correa-Gallego"
     titleLines={['Sebastian', 'Correa-Gallego']}
-    tagline="Biology undergraduate in Colombia working on cultivable cave microbiology and on mitochondrial physiology in yeast."
+    tagline="Biologist. Microbial ecology and cellular physiology, from cave systems to the yeast proteome."
     video="https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005425/perpetual_ocean2_CLOSE_103_salinity_1080p30.mp4"
     videoType="video/mp4"
     poster="/assets/images/perpetual-ocean-salinity.jpg"
@@ -27,9 +27,9 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
       { href: '/cv/', label: 'Open CV', variant: 'ghost' },
     ]}
     facts={[
-      { label: 'Current stage', value: 'B.Sc. Biology at Universidad EAFIT' },
       { label: 'Thesis', value: 'Cultivable microbial communities along a cave light gradient' },
       { label: 'Collaboration', value: 'Yeast mitochondria project with Purdue' },
+      { label: 'Next', value: 'Doctoral applications in microbial ecology and evolutionary biology — Fall 2027' },
     ]}
     credit={{
       label: 'NASA Scientific Visualization Studio · Perpetual Ocean 2 (salinity version)',
@@ -39,9 +39,9 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 
   <section id="content-start" class="section section--first">
     <div class="container container--wide">
-      <h2 class="section-title reveal">Current training</h2>
+      <h2 class="section-title reveal">Background</h2>
 
-      <div class="about about--split reveal">
+      <div class="about reveal">
         <img
           src="/assets/profile.jpg"
           alt="Portrait of Sebastian Correa-Gallego"
@@ -60,7 +60,7 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
           </p>
           <p>
             At Universidad EAFIT, that orientation moved into biology and microbiology. My
-            undergraduate thesis examines cultivable microbial community structure along a light
+            undergraduate thesis examined cultivable microbial community structure along a light
             gradient in a tropical volcaniclastic cave in Antioquia, Colombia, using
             environmental characterization, cultivation workflows, and morphotype-based
             assessment.
@@ -72,25 +72,11 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
             continues through collaborative manuscript preparation.
           </p>
           <p>
-            The immediate focus is to finish the degree, complete the thesis, and continue the
-            Purdue manuscript work while narrowing a longer-term question at the intersection
-            of microbial ecology, evolution, and physiology.
+            With the degree and thesis complete, the immediate focus is doctoral applications
+            in microbial ecology and evolutionary biology — target entry Fall 2027 — alongside
+            continued manuscript work from the thesis and the Purdue collaboration.
           </p>
         </div>
-        <aside class="profile-panel reveal">
-          <p class="profile-panel__eyebrow">Current stage</p>
-          <ul class="profile-panel__list">
-            <li>Finishing the B.Sc. in Biology at Universidad EAFIT.</li>
-            <li>Writing a thesis on cultivable microbial communities along a cave light gradient.</li>
-            <li>Continuing manuscript work related to the Purdue yeast mitochondria project.</li>
-            <li>Building stronger quantitative and computational routines around ecological questions.</li>
-          </ul>
-          <div class="institution-strip" aria-label="Institutional context">
-            <img src="/assets/logo/EAFIT.svg" alt="Universidad EAFIT" class="institution-strip__logo institution-strip__logo--eafit" loading="lazy" decoding="async" />
-            <img src="/assets/logo/Purdue.svg" alt="Purdue University" class="institution-strip__logo institution-strip__logo--purdue" loading="lazy" decoding="async" />
-          </div>
-          <a href="/trajectory/" class="profile-panel__link">See trajectory</a>
-        </aside>
       </div>
     </div>
   </section>
@@ -99,7 +85,7 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
     <div class="container container--wide">
       <h2 class="section-title reveal">Selected projects</h2>
 
-      <div class="work-grid reveal-stagger">
+      <div class="work-grid">
         {projects.map((project) => (
           <a href={`/research/#${project.id}`} class="work-card reveal">
             <Media

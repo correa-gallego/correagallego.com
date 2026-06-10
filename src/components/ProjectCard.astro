@@ -5,6 +5,7 @@ interface Props {
   title: string;
   role: string;
   advisor?: string;
+  group?: string;
   pi?: string;
   institutionName?: string;
   institutionLogo?: string;
@@ -22,6 +23,7 @@ const {
   title,
   role,
   advisor,
+  group,
   pi,
   institutionName,
   institutionLogo,
@@ -61,9 +63,10 @@ const {
         <span>{institutionName}</span>
       </div>
     )}
-    {(advisor || pi) && (
+    {(advisor || group || pi) && (
       <ul class="project__meta">
         {advisor && <li><span class="project__meta-label">Advisor</span> {advisor}</li>}
+        {group && <li><span class="project__meta-label">Group</span> {group}</li>}
         {pi && <li><span class="project__meta-label">PI</span> {pi}</li>}
       </ul>
     )}

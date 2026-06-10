@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
@@ -12,7 +13,7 @@ interface Props {
 
 const {
   title,
-  description = 'Sebastian Correa-Gallego — Biology undergraduate researcher working across microbial ecology, cultivable cave microbiology, and mitochondrial physiology in yeast.',
+  description = 'Sebastian Correa-Gallego — biologist. Microbial ecology of cave systems, cellular physiology in yeast. B.Sc. Biology, Universidad EAFIT (2026). Visiting researcher, Purdue University.',
   ogType = 'website',
   variant = 'default',
 } = Astro.props;
@@ -29,7 +30,7 @@ const personSchema = {
   url: 'https://correagallego.com',
   image: ogImage,
   email: 'mailto:scorreag6@eafit.edu.co',
-  jobTitle: 'Undergraduate Biology Researcher',
+  jobTitle: 'Biologist and Researcher',
   affiliation: [
     { '@type': 'CollegeOrUniversity', name: 'Universidad EAFIT', address: 'Medellín, Colombia' },
     { '@type': 'CollegeOrUniversity', name: 'Purdue University', address: 'West Lafayette, IN, USA' },
@@ -81,6 +82,7 @@ const personSchema = {
   <meta name="twitter:image" content={ogImage}>
 
   <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+  <ClientRouter />
 </head>
 <body class:list={[`variant-${variant}`]}>
   <a href={variant === 'full' ? '#content-start' : '#main-content'} class="skip-link">Skip to content</a>
@@ -89,27 +91,5 @@ const personSchema = {
     <slot />
   </main>
   <Footer />
-
-  <script>
-    // Scroll reveal
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const revealEls = document.querySelectorAll('.reveal');
-    if (reduce) {
-      revealEls.forEach((el) => el.classList.add('visible'));
-    } else {
-      const io = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              io.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
-      );
-      revealEls.forEach((el) => io.observe(el));
-    }
-  </script>
 </body>
 </html>

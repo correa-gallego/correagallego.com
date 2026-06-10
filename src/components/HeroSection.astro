@@ -14,7 +14,7 @@ interface Props {
 }
 
 const {
-  eyebrow = 'Biology undergraduate · Colombia',
+  eyebrow = 'B.Sc. Biology · Microbial ecology · Colombia',
   title,
   titleLines = [title],
   tagline,
@@ -106,20 +106,24 @@ const {
 </section>
 
 <script>
-  const heroVideo = document.querySelector('[data-hero-video-src]');
-  if (heroVideo instanceof HTMLVideoElement) {
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const largeViewport = window.matchMedia('(min-width: 960px)').matches;
-    const connection = navigator.connection;
-    const saveData = connection && 'saveData' in connection ? connection.saveData : false;
+  // Runs on initial load and after every client-router navigation,
+  // since the swapped DOM contains a fresh <video> element.
+  document.addEventListener('astro:page-load', () => {
+    const heroVideo = document.querySelector('[data-hero-video-src]');
+    if (heroVideo instanceof HTMLVideoElement && heroVideo.childElementCount === 0) {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const largeViewport = window.matchMedia('(min-width: 960px)').matches;
+      const connection = navigator.connection;
+      const saveData = connection && 'saveData' in connection ? connection.saveData : false;
 
-    if (!reduceMotion && !saveData && largeViewport) {
-      const source = document.createElement('source');
-      source.src = heroVideo.dataset.heroVideoSrc ?? '';
-      source.type = heroVideo.dataset.heroVideoType ?? 'video/mp4';
-      heroVideo.appendChild(source);
-      heroVideo.load();
-      void heroVideo.play().catch(() => {});
+      if (!reduceMotion && !saveData && largeViewport) {
+        const source = document.createElement('source');
+        source.src = heroVideo.dataset.heroVideoSrc ?? '';
+        source.type = heroVideo.dataset.heroVideoType ?? 'video/mp4';
+        heroVideo.appendChild(source);
+        heroVideo.load();
+        void heroVideo.play().catch(() => {});
+      }
     }
-  }
+  });
 </script>

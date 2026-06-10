@@ -12,16 +12,32 @@ const renderedProjects = await Promise.all(
 );
 ---
 
-<Base title="Research — Sebastian Correa-Gallego" description="Research projects, selected figures, and technical methods from the current stage of my academic work.">
+<Base title="Research — Sebastian Correa-Gallego" description="Research projects and technical methods — microbial ecology of cave systems and mitochondrial physiology in yeast. Sebastian Correa-Gallego, B.Sc. Biology, Universidad EAFIT (2026).">
   <header class="page-intro">
     <div class="container">
       <h1>Research</h1>
       <p class="page-intro__lede">
-        The current portfolio is organized around two projects: an undergraduate thesis in cave
-        microbiology and an ongoing collaboration on mitochondrial physiology in yeast.
+        The current portfolio is organized around two projects: a completed undergraduate
+        thesis in cave microbiology and an ongoing collaboration on mitochondrial physiology
+        in yeast.
       </p>
     </div>
   </header>
+
+  <div class="container">
+    <p class="research-interests reveal">
+      Evolution and ecology are not subfields of biology — they are its organizing logic,
+      present from the emergence of cellular complexity to the structure of communities in
+      extreme environments. My research interests sit at this intersection: I am drawn to
+      microbial systems as tractable windows into how life assembles, persists, and transforms
+      under ecological and energetic constraint. This includes questions about community
+      organization along environmental gradients, the physiological and molecular strategies
+      that underlie ecological success, and the eco-evolutionary dynamics that connect cellular
+      function to community-level patterns. I am also interested in the quantitative and
+      computational frameworks that make these questions formally tractable, and in connecting
+      field-based inquiry with analytical rigor across biological scales.
+    </p>
+  </div>
 
   <section class="section section--tight">
     <div class="container">
@@ -31,13 +47,14 @@ const renderedProjects = await Promise.all(
         current range of my work across microbial ecology and cellular physiology.
       </p>
     </div>
-    <div class="container container--wide">
+    <div class="container container--wide project-stack">
       {renderedProjects.map(({ project, Content }, index) => (
         <ProjectCard
           id={project.id}
           title={project.data.title}
           role={project.data.role}
           advisor={project.data.advisor}
+          group={project.data.group}
           pi={project.data.pi}
           institutionName={project.data.institutionName}
           institutionLogo={project.data.institutionLogo}
