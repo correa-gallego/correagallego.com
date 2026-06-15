@@ -1,5 +1,4 @@
 ---
-import { ClientRouter } from 'astro:transitions';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
@@ -82,10 +81,9 @@ const personSchema = {
   <meta name="twitter:image" content={ogImage}>
 
   <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
-  <ClientRouter />
 </head>
 <body class:list={[`variant-${variant}`]}>
-  <a href={variant === 'full' ? '#content-start' : '#main-content'} class="skip-link">Skip to content</a>
+  <a href={variant === 'full' ? '#about' : '#main-content'} class="skip-link">Skip to content</a>
   <Nav />
   <main id="main-content">
     <slot />

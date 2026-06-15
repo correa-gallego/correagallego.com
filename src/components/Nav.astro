@@ -1,20 +1,18 @@
 ---
-const currentPath = Astro.url.pathname;
 const links = [
-  { href: '/research/', label: 'Research' },
-  { href: '/trajectory/', label: 'Trajectory' },
-  { href: '/publications/', label: 'Publications' },
-  { href: '/cv/', label: 'CV' },
+  { href: '#about', label: 'About' },
+  { href: '#research', label: 'Research' },
+  { href: '#publications', label: 'Publications' },
+  { href: '#record', label: 'Record' },
+  { href: '#contact', label: 'Contact' },
 ];
 ---
 
-<nav class="site-nav" aria-label="Primary">
-  <a href="/" class="nav-name">Sebastian Correa-Gallego</a>
+<nav class="site-nav" aria-label="Primary" data-nav>
+  <a href="#top" class="nav-name">Sebastian Correa-Gallego</a>
   <div class="nav-links">
     {links.map(link => (
-      <a href={link.href} aria-current={currentPath === link.href || currentPath === link.href.slice(0, -1) ? 'page' : undefined}>
-        {link.label}
-      </a>
+      <a href={link.href} data-spy={link.href}>{link.label}</a>
     ))}
   </div>
   <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
@@ -23,22 +21,58 @@ const links = [
 </nav>
 
 <script>
-  // Re-bind after every client-router navigation: the DOM is swapped,
-  // but this module script only executes once.
-  document.addEventListener('astro:page-load', () => {
-    const toggle = document.querySelector('.nav-toggle');
-    const links = document.querySelector('.nav-links');
-    if (toggle instanceof HTMLButtonElement && links instanceof HTMLElement) {
-      toggle.addEventListener('click', () => {
-        const open = links.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', String(open));
-      });
-      links.querySelectorAll('a').forEach(a =>
-        a.addEventListener('click', () => {
-          links.classList.remove('open');
-          toggle.setAttribute('aria-expanded', 'false');
-        })
-      );
-    }
+  const nav = document.querySelector('[data-nav]');
+  const toggle = document.querySelector('.nav-toggle');
+  const linksWrap = document.querySelector('.nav-links');
+
+  // Mobile menu
+  if (toggle instanceof HTMLButtonElement && linksWrap instanceof HTMLElement) {
+    toggle.addEventListener('click', () => {
+      const open = linksWrap.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    linksWrap.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => {
+        linksWrap.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      })
+    );
+  }
+
+  // Solid background after the hero scrolls away
+  const heroSentinel = document.querySelector('[data-hero-end]');
+  if (nav instanceof HTMLElement && heroSentinel) {
+    const heroObserver = new IntersectionObserver(
+      ([entry]) => {
+        document.body.classList.toggle('nav-scrolled', !entry.isIntersecting);
+      },
+      { rootMargin: '-72px 0px 0px 0px', threshold: 0 }
+    );
+    heroObserver.observe(heroSentinel);
+  }
+
+  // Active section highlighting (scroll spy)
+  const spyLinks = new Map<string, HTMLElement>();
+  document.querySelectorAll('[data-spy]').forEach((a) => {
+    if (a instanceof HTMLElement) spyLinks.set(a.dataset.spy ?? '', a);
   });
+  const sections = Array.from(spyLinks.keys())
+    .map((id) => document.querySelector(id))
+    .filter((el): el is HTMLElement => el instanceof HTMLElement);
+
+  if (sections.length) {
+    const spyObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            spyLinks.forEach((link) => link.removeAttribute('aria-current'));
+            const active = spyLinks.get('#' + entry.target.id);
+            active?.setAttribute('aria-current', 'true');
+          }
+        });
+      },
+      { rootMargin: '-45% 0px -50% 0px', threshold: 0 }
+    );
+    sections.forEach((s) => spyObserver.observe(s));
+  }
 </script>

@@ -1,10 +1,10 @@
 ---
-order: 4
+order: 6
 kind: award
-title: Undergraduate scholarship
+title: Undergraduate Scholarship
 authors: []
 venue: Comfama and Fundación Fraternidad Medellín
 year: 2022
-status: Award
+status: "2022"
 ---
 Scholarship support received at the beginning of my undergraduate training.

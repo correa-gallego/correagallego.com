@@ -1,174 +1,279 @@
 ---
 import Base from '../layouts/Base.astro';
-import HeroSection from '../components/HeroSection.astro';
-import Media from '../components/Media.astro';
-import { getCollection } from 'astro:content';
+import ProjectCard from '../components/ProjectCard.astro';
+import Entry from '../components/Entry.astro';
+import { getCollection, render } from 'astro:content';
 
 const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const renderedProjects = await Promise.all(
+  projects.map(async (project) => ({ project, Content: (await render(project)).Content }))
+);
+
+const outputs = (await getCollection('outputs')).sort((a, b) => a.data.order - b.data.order);
+const manuscripts = outputs.filter((o) => o.data.kind === 'manuscript');
+const presentations = outputs.filter((o) => o.data.kind === 'presentation');
+const recognition = outputs.filter((o) => o.data.kind === 'award');
+
+const cvHref = '/assets/Curriculum_Vitae.pdf';
+
+const skills = [
+  {
+    title: 'Laboratory & biological methods',
+    items: [
+      'microbial cultivation (chemostat, turbidostat)',
+      'environmental sampling',
+      'ecological field records',
+      'morphotype characterization',
+      'cell physiology',
+      'proteomics sample preparation',
+      'microscopy',
+    ],
+  },
+  {
+    title: 'Quantitative & computational',
+    items: [
+      'R', 'Python', 'Linux/Bash', 'LaTeX', 'QGIS',
+      'biological data analysis', 'data visualization', 'introductory bioinformatics',
+    ],
+  },
+  {
+    title: 'Scientific workflows',
+    items: [
+      'scientific writing', 'research communication',
+      'literature synthesis', 'figure preparation',
+    ],
+  },
+  {
+    title: 'Languages',
+    items: ['Spanish (native)', 'English (professional proficiency)'],
+  },
+];
 ---
 
 <Base
-  title="Sebastian Correa-Gallego — microbial ecology and natural systems"
-  description="Academic website of Sebastian Correa-Gallego — biologist. Microbial ecology of cave systems, cellular physiology in yeast. B.Sc. Biology, Universidad EAFIT (2026)."
+  title="Sebastian Correa-Gallego — biologist · microbial ecology and cellular physiology"
+  description="Sebastian Correa-Gallego — biologist. Microbial ecology of a tropical volcaniclastic cave and proteome allocation in yeast. B.Sc. Biology, Universidad EAFIT (2026)."
   ogType="profile"
   variant="full"
 >
-  <HeroSection
-    eyebrow="B.Sc. Biology · Microbial ecology · Colombia"
-    title="Sebastian Correa-Gallego"
-    titleLines={['Sebastian', 'Correa-Gallego']}
-    tagline="Biologist. Microbial ecology and cellular physiology, from cave systems to the yeast proteome."
-    video="https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005425/perpetual_ocean2_CLOSE_103_salinity_1080p30.mp4"
-    videoType="video/mp4"
-    poster="/assets/images/perpetual-ocean-salinity.jpg"
-    posterAlt="NASA Scientific Visualization Studio rendering of Earth and ocean salinity currents."
-    actions={[
-      { href: '/research/', label: 'Explore research' },
-      { href: '/cv/', label: 'Open CV', variant: 'ghost' },
-    ]}
-    facts={[
-      { label: 'Thesis', value: 'Cultivable microbial communities along a cave light gradient' },
-      { label: 'Collaboration', value: 'Yeast mitochondria project with Purdue' },
-      { label: 'Next', value: 'Doctoral applications in microbial ecology and evolutionary biology — Fall 2027' },
-    ]}
-    credit={{
-      label: 'NASA Scientific Visualization Studio · Perpetual Ocean 2 (salinity version)',
-      href: 'https://svs.gsfc.nasa.gov/5425',
-    }}
-  />
-
-  <section id="content-start" class="section section--first">
-    <div class="container container--wide">
-      <h2 class="section-title reveal">Background</h2>
-
-      <div class="about reveal">
+  <header id="top" class="hero">
+    <div class="hero__grain" aria-hidden="true"></div>
+    <div class="hero__inner container">
+      <div class="hero__content">
         <img
           src="/assets/profile.jpg"
           alt="Portrait of Sebastian Correa-Gallego"
-          class="about-photo"
-          width="140"
-          height="140"
+          class="hero__photo"
+          width="130"
+          height="130"
           loading="eager"
           decoding="async"
         />
-        <div class="about-body">
-          <p>
-            My interest in natural systems began before university. During childhood, I
-            participated in a local group focused on atmospheric observation and weather
-            monitoring, which gave me an early habit of attending to environmental variation
-            and to the disciplined recording of natural phenomena.
-          </p>
-          <p>
-            At Universidad EAFIT, that orientation moved into biology and microbiology. My
-            undergraduate thesis examined cultivable microbial community structure along a light
-            gradient in a tropical volcaniclastic cave in Antioquia, Colombia, using
-            environmental characterization, cultivation workflows, and morphotype-based
-            assessment.
-          </p>
-          <p>
-            As a Visiting Student Intern in the ECSO Lab at Purdue University, I worked on the
-            Yeast Mitochondria Project, which studies proteomic resource allocation under
-            different carbon regimes in eukaryotes using yeast as a model system. The work
-            continues through collaborative manuscript preparation.
-          </p>
-          <p>
-            With the degree and thesis complete, the immediate focus is doctoral applications
-            in microbial ecology and evolutionary biology — target entry Fall 2027 — alongside
-            continued manuscript work from the thesis and the Purdue collaboration.
-          </p>
-        </div>
+        <h1 class="hero__name">Sebastian Correa-Gallego</h1>
+        <p class="hero__identity">Biologist · Universidad EAFIT · Medellín, Colombia</p>
+        <p class="hero__tagline">
+          Microbial ecology and cellular physiology, from subterranean systems to the yeast proteome.
+        </p>
+      </div>
+    </div>
+    <a href="#about" class="hero__scroll" aria-label="Scroll to content">
+      <span class="hero__scroll-line"></span>
+    </a>
+  </header>
+  <div data-hero-end aria-hidden="true"></div>
+
+  <section id="about" class="section section--first">
+    <div class="container">
+      <h2 class="section-title reveal">About</h2>
+      <div class="prose reveal">
+        <p>
+          I study how microbial life organizes under constraint. My work spans two systems: the
+          cultivable microbial communities of a tropical volcaniclastic cave, where community
+          structure shifts along a light gradient, and the proteomic allocation of cellular
+          resources in yeast under carbon limitation.
+        </p>
+        <p>
+          These are different scales of a shared question — how biological systems negotiate
+          energy, nutrients, and environmental restriction. I approach this through microbial
+          ecology, evolutionary cell biology, and the integrative study of natural systems, with
+          growing investment in quantitative and computational frameworks.
+        </p>
       </div>
     </div>
   </section>
 
-  <section class="section section--tight">
+  <section id="research" class="section section--tight">
     <div class="container container--wide">
-      <h2 class="section-title reveal">Selected projects</h2>
+      <h2 class="section-title reveal">Research</h2>
+      <p class="section-lede reveal">Two active projects define the current scope of my work.</p>
 
-      <div class="work-grid">
-        {projects.map((project) => (
-          <a href={`/research/#${project.id}`} class="work-card reveal">
-            <Media
-              src={project.data.image}
-              alt={project.data.imageAlt}
-              placeholder={project.data.placeholder}
-              aspectRatio={project.data.aspectRatio}
-              label=""
-            />
-            <h3 class="work-card__title">{project.data.title}</h3>
-            <p class="work-card__desc">{project.data.lede}</p>
-            <span class="work-card__more">Read more</span>
-          </a>
+      <div class="project-stack">
+        {renderedProjects.map(({ project, Content }, i) => (
+          <ProjectCard
+            id={project.id}
+            title={project.data.title}
+            role={project.data.role}
+            advisor={project.data.advisor}
+            group={project.data.group}
+            pi={project.data.pi}
+            institutionName={project.data.institutionName}
+            institutionLogo={project.data.institutionLogo}
+            image={project.data.image}
+            imageAlt={project.data.imageAlt}
+            placeholder={project.data.placeholder}
+            aspectRatio={project.data.aspectRatio}
+            status={project.data.status}
+            tags={project.data.tags}
+            reversed={i % 2 === 1}
+          >
+            <Content />
+            {project.id === 'cave' && (
+              <div class="figure-grid figure-grid--inline" slot="support">
+                <figure class="figure-card">
+                  <img
+                    src="/assets/illustrations/cave_gradient.png"
+                    alt="Schematic of the light gradient across the Organal San Antonio cave sectors."
+                    class="figure-card__image"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption class="figure-card__caption">
+                    Light gradient across the Entrance, Transition, and Dark sectors.
+                  </figcaption>
+                </figure>
+                <figure class="figure-card">
+                  <img
+                    src="/assets/illustrations/morphotypes_gradient.png"
+                    alt="Distribution of cultivable morphotypes along the cave light gradient."
+                    class="figure-card__image"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption class="figure-card__caption">
+                    Cultivable morphotypes recovered along the gradient.
+                  </figcaption>
+                </figure>
+              </div>
+            )}
+          </ProjectCard>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="section section--tight">
-    <div class="container container--wide">
-      <h2 class="section-title reveal">Current areas of interest</h2>
-      <div class="home-columns reveal">
-        <div class="home-columns__text">
-          <p>
-            My current interests are centered on microbial life in natural systems: how
-            environmental gradients and energetic limitation shape community structure, how
-            microorganisms interact within those settings, and how those processes connect to
-            larger questions in ecology and evolution. This includes microbial roles in
-            biogeochemical fluxes, the organization of natural systems, Earth-system history,
-            the origin of life, and the major evolutionary transitions through which biological
-            complexity has emerged.
-          </p>
-        </div>
-        <div class="home-columns__list">
-          <ul class="plain-list">
-            <li>Microbial ecology across environmental and energetic gradients</li>
-            <li>Community interactions and biogeochemical structure in natural systems</li>
-            <li>Microorganisms in Earth-system history and planetary processes</li>
-            <li>Evolutionary transitions, biological complexity, and the origin of life</li>
-          </ul>
-        </div>
+  <section id="publications" class="section section--tight">
+    <div class="container">
+      <h2 class="section-title reveal">Publications &amp; Presentations</h2>
+
+      <div class="pub-group reveal">
+        <h3 class="pub-group__heading">Manuscripts in preparation</h3>
+        <ul class="pub-list">
+          {manuscripts.map((m) => (
+            <li>
+              {m.data.authors.length > 0 && (
+                <p class="pub-authors">
+                  {m.data.authors.map((name, idx) => (
+                    <>
+                      {idx > 0 && ', '}
+                      {name === 'Sebastian Correa-Gallego' ? <strong>{name}</strong> : name}
+                    </>
+                  ))}
+                </p>
+              )}
+              <p class="pub-title">{m.data.title}</p>
+              {m.data.status && <p class="pub-venue">{m.data.status}</p>}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="pub-group reveal">
+        <h3 class="pub-group__heading">Presentations</h3>
+        <ul class="pub-list">
+          {presentations.map((p) => (
+            <li>
+              <p class="pub-title">{p.data.title}</p>
+              <p class="pub-venue">
+                {[p.data.venue, p.data.year, p.data.status].filter(Boolean).join(' · ')}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="pub-group reveal">
+        <h3 class="pub-group__heading">Recognition</h3>
+        <ul class="pub-list">
+          {recognition.map((r) => (
+            <li>
+              <p class="pub-title">{r.data.title}</p>
+              <p class="pub-venue">
+                {[r.data.venue, r.data.status].filter(Boolean).join(' · ')}
+              </p>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   </section>
 
-  <section class="section section--tight">
-    <div class="container container--wide">
-      <h2 class="section-title reveal">Methods and technical profile</h2>
-      <div class="home-columns reveal">
-        <div class="home-columns__text">
-          <p>
-            My current work combines cultivation-based microbiology, environmental sampling,
-            microscopy, literature synthesis, and quantitative workflows in R and Python. From
-            Purdue, I added training in cell physiology, cell harvesting, growth-curve work,
-            and the handling of laboratory workflows associated with yeast-based experimental
-            systems. I also use GitHub, LaTeX, and basic bioinformatic tools, and I maintain a
-            strong interest in figure design, vector-based graphics, and scientific
-            communication.
-          </p>
-        </div>
-        <div class="home-columns__list">
-          <ul class="plain-list">
-            <li>Cultivation workflows, field records, microscopy, and morphotype assessment</li>
-            <li>Cell harvesting, growth curves, and basic cell-physiology workflows</li>
-            <li>R, Python, GitHub, LaTeX, Linux, Bash, and basic bioinformatics</li>
-            <li>Vector graphics, figure preparation, and scientific communication</li>
-          </ul>
-        </div>
+  <section id="record" class="section section--tight">
+    <div class="container">
+      <h2 class="section-title reveal">Academic Record</h2>
+
+      <div class="record-group reveal">
+        <h3 class="record-group__heading">Education</h3>
+        <Entry title="B.Sc. in Biology, Universidad EAFIT" date="2022–2026" note="GPA: 4.44 / 5.00" />
+      </div>
+
+      <div class="record-group reveal">
+        <h3 class="record-group__heading">Research positions</h3>
+        <Entry title="Visiting Student Intern, ECSO Lab" date="Aug 2025 – Jan 2026" role="Purdue University" />
+        <Entry title="Undergraduate Thesis Researcher" date="2024–2026" role="Universidad EAFIT · Advisor: Prof. Nicolás Pinel Peláez" />
+        <Entry title="Research Monitor" date="Jul – Dec 2024" role="Universidad EAFIT" />
+      </div>
+
+      <div class="record-group reveal">
+        <h3 class="record-group__heading">Academic service</h3>
+        <Entry
+          title="Student Director, Research Group on Microbiology and Astrobiology (SIAB)"
+          date="Oct 2023 – May 2025"
+          role="Universidad EAFIT · Affiliated with GEBI"
+        />
+      </div>
+
+      <div class="record-group reveal">
+        <h3 class="record-group__heading">Certifications</h3>
+        <Entry title="Responsible Conduct of Research (RCR) Training" date="Aug 2025" role="CITI Program" />
       </div>
     </div>
   </section>
 
-  <section class="section section--tight">
+  <section id="skills" class="section section--tight">
+    <div class="container">
+      <h2 class="section-title reveal">Technical Skills</h2>
+      <div class="skills-grid reveal">
+        {skills.map((group) => (
+          <div class="skills-group">
+            <h3>{group.title}</h3>
+            <div class="keywords">
+              {group.items.map((item) => <span class="keyword">{item}</span>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section section--tight">
     <div class="container">
       <h2 class="section-title reveal">Contact</h2>
-      <p class="section-lede reveal">
-        Email is the best route for academic correspondence.
-      </p>
+      <p class="section-lede reveal">Email is the best route for academic correspondence.</p>
       <div class="contact-links reveal">
         <a href="mailto:scorreag6@eafit.edu.co" aria-label="Email Sebastian Correa-Gallego">scorreag6@eafit.edu.co</a>
         <a href="https://www.linkedin.com/in/s-correag" target="_blank" rel="noopener" aria-label="LinkedIn profile (opens in new tab)">LinkedIn</a>
         <a href="https://github.com/correa-gallego" target="_blank" rel="noopener" aria-label="GitHub profile (opens in new tab)">GitHub</a>
-        <a href="/cv/" aria-label="Curriculum Vitae">Curriculum Vitae</a>
+        <a href={cvHref} target="_blank" rel="noopener" aria-label="Download Curriculum Vitae (PDF)">Download CV</a>
       </div>
     </div>
   </section>
