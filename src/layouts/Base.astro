@@ -84,6 +84,7 @@ const personSchema = {
 </head>
 <body class:list={[`variant-${variant}`]}>
   <a href={variant === 'full' ? '#about' : '#main-content'} class="skip-link">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
   <Nav />
   <main id="main-content">
     <slot />
