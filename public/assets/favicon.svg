@@ -1,7 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="16" fill="#090d10"/>
-  <path d="M14 42C18.4 31.2 24.8 24.8 32 24.8C39.2 24.8 45.6 31.2 50 42" stroke="#F4F0E7" stroke-width="3.8" stroke-linecap="round"/>
-  <path d="M20 37.5C23.2 30.8 27.2 27.5 32 27.5C36.8 27.5 40.8 30.8 44 37.5" stroke="#78BFA3" stroke-width="3" stroke-linecap="round" opacity="0.92"/>
-  <path d="M24.5 33.5C26.6 30.2 29.1 28.7 32 28.7C34.9 28.7 37.4 30.2 39.5 33.5" stroke="#5C8FE8" stroke-width="2.3" stroke-linecap="round" opacity="0.95"/>
-  <circle cx="32" cy="42" r="4.2" fill="#F4F0E7"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0a0f16"/>
+      <stop offset="1" stop-color="#121a24"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="url(#bg)"/>
+  <text x="32" y="45.5" text-anchor="middle" font-family="Georgia, 'Libre Baskerville', 'Times New Roman', serif" font-size="38" font-weight="700" letter-spacing="-1.5" fill="#F4F0E7">SC</text>
 </svg>
