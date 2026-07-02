@@ -1,280 +1,167 @@
 ---
 import Base from '../layouts/Base.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import Entry from '../components/Entry.astro';
-import { getCollection, render } from 'astro:content';
-
-const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
-const renderedProjects = await Promise.all(
-  projects.map(async (project) => ({ project, Content: (await render(project)).Content }))
-);
-
-const outputs = (await getCollection('outputs')).sort((a, b) => a.data.order - b.data.order);
-const manuscripts = outputs.filter((o) => o.data.kind === 'manuscript');
-const presentations = outputs.filter((o) => o.data.kind === 'presentation');
-const recognition = outputs.filter((o) => o.data.kind === 'award');
-
-const cvHref = '/assets/Curriculum_Vitae.pdf';
-
-const skills = [
-  {
-    title: 'Laboratory & biological methods',
-    items: [
-      'microbial cultivation (chemostat, turbidostat)',
-      'environmental sampling',
-      'ecological field records',
-      'morphotype characterization',
-      'cell physiology',
-      'proteomics sample preparation',
-      'microscopy',
-    ],
-  },
-  {
-    title: 'Quantitative & computational',
-    items: [
-      'R', 'Python', 'Linux/Bash', 'LaTeX', 'QGIS',
-      'biological data analysis', 'data visualization', 'introductory bioinformatics',
-    ],
-  },
-  {
-    title: 'Scientific workflows',
-    items: [
-      'scientific writing', 'research communication',
-      'literature synthesis', 'figure preparation',
-    ],
-  },
-  {
-    title: 'Languages',
-    items: ['Spanish (native)', 'English (professional proficiency)'],
-  },
-];
 ---
 
 <Base
-  title="Sebastian Correa-Gallego — biologist · microbial ecology and cellular physiology"
-  description="Sebastian Correa-Gallego — biologist. Microbial ecology of a tropical volcaniclastic cave and proteome allocation in yeast. B.Sc. Biology, Universidad EAFIT (2026)."
+  title="Sebastian Correa-Gallego"
+  description="Sebastian Correa-Gallego — Bachelor of Science in Biology, Universidad EAFIT. Microbial ecology, community assembly along environmental gradients, and cellular resource allocation."
   ogType="profile"
-  variant="full"
 >
-  <header id="top" class="hero">
-    <div class="hero__grain" aria-hidden="true"></div>
-    <div class="hero__inner container">
-      <div class="hero__content">
-        <img
-          src="/assets/profile.jpg"
-          alt="Portrait of Sebastian Correa-Gallego"
-          class="hero__photo"
-          width="130"
-          height="130"
-          loading="eager"
-          decoding="async"
-        />
-        <h1 class="hero__name">Sebastian Correa-Gallego</h1>
-        <p class="hero__identity">Biologist · Universidad EAFIT · Medellín, Colombia</p>
-        <p class="hero__tagline">
-          Microbial ecology and cellular physiology, from subterranean systems to the yeast proteome.
-        </p>
-      </div>
-    </div>
-    <a href="#about" class="hero__scroll" aria-label="Scroll to content">
-      <span class="hero__scroll-line"></span>
-    </a>
-  </header>
-  <div data-hero-end aria-hidden="true"></div>
+  <div class="container">
 
-  <section id="about" class="section section--first">
-    <div class="container">
-      <h2 class="section-title reveal">About</h2>
+    <header class="intro">
+      <img
+        src="/assets/profile.jpg"
+        alt="Portrait of Sebastian Correa-Gallego"
+        class="intro__photo"
+        width="118"
+        height="118"
+        loading="eager"
+        decoding="async"
+      />
+      <h1 class="intro__name">Sebastian Correa-Gallego</h1>
+      <p class="intro__subtitle">Bachelor of Science in Biology</p>
+    </header>
+
+    <section id="about" class="block">
+      <h2 class="heading reveal">About</h2>
       <div class="prose reveal">
         <p>
-          I study how microbial life organizes under constraint. My work spans two systems: the
-          cultivable microbial communities of a tropical volcaniclastic cave, where community
-          structure shifts along a light gradient, and the proteomic allocation of cellular
-          resources in yeast under carbon limitation.
+          Evolution and ecology are not subfields of biology — they are its organizing logic,
+          present from the emergence of cellular complexity to the structure of communities in
+          extreme environments. My research interests sit at this intersection: I am drawn to
+          microbial systems as tractable windows into how life assembles, persists, and
+          transforms under ecological and energetic constraint. This includes questions about
+          community organization along environmental gradients, the physiological and molecular
+          strategies — including cellular resource allocation — that underlie ecological success,
+          and the eco-evolutionary dynamics that connect cellular function to community-level
+          patterns. I am also interested in the quantitative and computational frameworks that
+          make these questions formally tractable, and in connecting field-based inquiry with
+          analytical rigor across biological scales.
+        </p>
+      </div>
+    </section>
+
+    <section id="research" class="block">
+      <h2 class="heading reveal">Research</h2>
+
+      <article class="card reveal">
+        <span class="card__meta">Undergraduate thesis · Universidad EAFIT</span>
+        <h3 class="card__title card__title--italic">
+          Cultivable Microbial Community Structure Along a Light Gradient in a Tropical
+          Volcaniclastic Cave
+        </h3>
+        <p class="card__sub">Sole author · Advisor: Prof. Nicolás Pinel Peláez</p>
+        <p class="card__desc">
+          A field-to-lab study characterizing how cultivable microbial community structure
+          shifts across a light-defined environmental gradient in a subterranean system.
+        </p>
+        <a class="card__link" href="https://hdl.handle.net/10784/38213" target="_blank" rel="noopener">
+          Read the thesis — EAFIT institutional repository →
+        </a>
+      </article>
+
+      <article class="card reveal">
+        <span class="card__meta">Ongoing collaboration · Purdue University</span>
+        <h3 class="card__title">Proteome allocation in osmotrophic yeasts under carbon limitation</h3>
+        <p class="card__sub">ECSO Lab · Visiting Student Intern, 2025–2026</p>
+        <p class="card__desc">
+          Continuing work on how osmotrophic yeasts allocate proteomic resources under carbon
+          limitation, connecting cellular physiology to ecological strategy. A manuscript is in
+          preparation; details will appear here once published.
+        </p>
+      </article>
+    </section>
+
+    <section id="presentations" class="block">
+      <h2 class="heading reveal">Presentations</h2>
+      <div class="reveal">
+        <div class="entry">
+          <div class="entry__row">
+            <span class="entry__title">Research proposal presentation</span>
+            <span class="entry__date">2024</span>
+          </div>
+          <p class="entry__sub">2nd Symposium of Biology, Universidad EAFIT · <em>Awarded second place</em></p>
+        </div>
+        <div class="entry">
+          <div class="entry__row">
+            <span class="entry__title">Oral presentation</span>
+            <span class="entry__date">2024</span>
+          </div>
+          <p class="entry__sub">XXIII Encuentro Departamental de Semilleros de Investigación, RedCOLSI, Antioquia</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="honors" class="block">
+      <h2 class="heading reveal">Honors &amp; Recognition</h2>
+      <div class="reveal">
+        <div class="entry">
+          <div class="entry__row">
+            <span class="entry__title">Fully funded visiting internship</span>
+            <span class="entry__date">2025</span>
+          </div>
+          <p class="entry__sub">Fundación Fraternidad Medellín — UREP-C Program</p>
+        </div>
+        <div class="entry">
+          <div class="entry__row">
+            <span class="entry__title">Undergraduate scholarship</span>
+            <span class="entry__date">2022</span>
+          </div>
+          <p class="entry__sub">Comfama and Fundación Fraternidad Medellín</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="record" class="block">
+      <h2 class="heading reveal">Academic Record</h2>
+      <div class="reveal">
+        <div class="entry">
+          <div class="entry__row">
+            <span class="entry__title">B.Sc. in Biology</span>
+            <span class="entry__date">2022–2026</span>
+          </div>
+          <p class="entry__sub">Universidad EAFIT · GPA 4.44 / 5.00</p>
+        </div>
+        <div class="entry">
+          <div class="entry__row">
+            <span class="entry__title">Visiting Student Intern</span>
+            <span class="entry__date">Aug 2025 – Jan 2026</span>
+          </div>
+          <p class="entry__sub">ECSO Lab, Department of Biological Sciences, Purdue University</p>
+        </div>
+        <div class="entry">
+          <div class="entry__row">
+            <span class="entry__title">Undergraduate Thesis Researcher</span>
+            <span class="entry__date">2024–2026</span>
+          </div>
+          <p class="entry__sub">Universidad EAFIT · Advisor: Prof. Nicolás Pinel Peláez</p>
+        </div>
+        <div class="entry">
+          <div class="entry__row">
+            <span class="entry__title">Student Director, Microbiology &amp; Astrobiology Group (SIAB)</span>
+            <span class="entry__date">Oct 2023 – May 2025</span>
+          </div>
+          <p class="entry__sub">Universidad EAFIT · affiliated with GEBI</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="block">
+      <h2 class="heading reveal">Technical Profile</h2>
+      <div class="prose prose--muted reveal">
+        <p>
+          My training spans cultivation-based microbiology, environmental sampling, microscopy,
+          and morphotype characterization from fieldwork in subterranean systems, together with
+          cell physiology and continuous-culture workflows developed at Purdue.
         </p>
         <p>
-          These are different scales of a shared question — how biological systems negotiate
-          energy, nutrients, and environmental restriction. I approach this through microbial
-          ecology, evolutionary cell biology, and the integrative study of natural systems, with
-          growing investment in quantitative and computational frameworks.
+          I complement laboratory and field practice with quantitative analysis in R and Python,
+          data visualization, and reproducible, literate workflows — aiming to connect
+          field-based inquiry with analytical rigor across biological scales.
         </p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="research" class="section section--tight">
-    <div class="container container--wide">
-      <h2 class="section-title reveal">Research</h2>
-      <p class="section-lede reveal">Two active projects define the current scope of my work.</p>
-
-      <div class="project-stack">
-        {renderedProjects.map(({ project, Content }, i) => (
-          <ProjectCard
-            id={project.id}
-            title={project.data.title}
-            role={project.data.role}
-            advisor={project.data.advisor}
-            group={project.data.group}
-            pi={project.data.pi}
-            institutionName={project.data.institutionName}
-            institutionLogo={project.data.institutionLogo}
-            image={project.data.image}
-            imageAlt={project.data.imageAlt}
-            placeholder={project.data.placeholder}
-            aspectRatio={project.data.aspectRatio}
-            status={project.data.status}
-            tags={project.data.tags}
-            reversed={i % 2 === 1}
-          >
-            <Content />
-            {project.id === 'cave' && (
-              <div class="figure-grid figure-grid--inline" slot="support">
-                <figure class="figure-card">
-                  <img
-                    src="/assets/illustrations/cave_gradient.png"
-                    alt="Schematic of the light gradient across the Organal San Antonio cave sectors."
-                    class="figure-card__image"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <figcaption class="figure-card__caption">
-                    Light gradient across the Entrance, Transition, and Dark sectors.
-                  </figcaption>
-                </figure>
-                <figure class="figure-card">
-                  <img
-                    src="/assets/illustrations/morphotypes_gradient.png"
-                    alt="Distribution of cultivable morphotypes along the cave light gradient."
-                    class="figure-card__image"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <figcaption class="figure-card__caption">
-                    Cultivable morphotypes recovered along the gradient.
-                  </figcaption>
-                </figure>
-              </div>
-            )}
-          </ProjectCard>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section id="publications" class="section section--tight">
-    <div class="container">
-      <h2 class="section-title reveal">Publications &amp; Presentations</h2>
-
-      <div class="pub-group reveal">
-        <h3 class="pub-group__heading">Manuscripts in preparation</h3>
-        <ul class="pub-list">
-          {manuscripts.map((m) => (
-            <li>
-              {m.data.authors.length > 0 && (
-                <p class="pub-authors">
-                  {m.data.authors.map((name, idx) => (
-                    <>
-                      {idx > 0 && ', '}
-                      {name === 'Sebastian Correa-Gallego' ? <strong>{name}</strong> : name}
-                    </>
-                  ))}
-                </p>
-              )}
-              <p class="pub-title">{m.data.title}</p>
-              {m.data.status && <p class="pub-venue">{m.data.status}</p>}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div class="pub-group reveal">
-        <h3 class="pub-group__heading">Presentations</h3>
-        <ul class="pub-list">
-          {presentations.map((p) => (
-            <li>
-              <p class="pub-title">{p.data.title}</p>
-              <p class="pub-venue">
-                {[p.data.venue, p.data.year, p.data.status].filter(Boolean).join(' · ')}
-              </p>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div class="pub-group reveal">
-        <h3 class="pub-group__heading">Recognition</h3>
-        <ul class="pub-list">
-          {recognition.map((r) => (
-            <li>
-              <p class="pub-title">{r.data.title}</p>
-              <p class="pub-venue">
-                {[r.data.venue, r.data.status].filter(Boolean).join(' · ')}
-              </p>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="record" class="section section--tight">
-    <div class="container">
-      <h2 class="section-title reveal">Academic Record</h2>
-
-      <div class="record-group reveal">
-        <h3 class="record-group__heading">Education</h3>
-        <Entry title="B.Sc. in Biology, Universidad EAFIT" date="2022–2026" note="GPA: 4.44 / 5.00" />
-      </div>
-
-      <div class="record-group reveal">
-        <h3 class="record-group__heading">Research positions</h3>
-        <Entry title="Visiting Student Intern, ECSO Lab" date="Aug 2025 – Jan 2026" role="Purdue University" />
-        <Entry title="Undergraduate Thesis Researcher" date="2024–2026" role="Universidad EAFIT · Advisor: Prof. Nicolás Pinel Peláez" />
-        <Entry title="Research Monitor" date="Jul – Dec 2024" role="Universidad EAFIT" />
-      </div>
-
-      <div class="record-group reveal">
-        <h3 class="record-group__heading">Academic service</h3>
-        <Entry
-          title="Student Director, Research Group on Microbiology and Astrobiology (SIAB)"
-          date="Oct 2023 – May 2025"
-          role="Universidad EAFIT · Affiliated with GEBI"
-        />
-      </div>
-
-      <div class="record-group reveal">
-        <h3 class="record-group__heading">Certifications</h3>
-        <Entry title="Responsible Conduct of Research (RCR) Training" date="Aug 2025" role="CITI Program" />
-      </div>
-    </div>
-  </section>
-
-  <section id="skills" class="section section--tight">
-    <div class="container">
-      <h2 class="section-title reveal">Technical Skills</h2>
-      <div class="skills-grid reveal">
-        {skills.map((group) => (
-          <div class="skills-group">
-            <h3>{group.title}</h3>
-            <div class="keywords">
-              {group.items.map((item) => <span class="keyword">{item}</span>)}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="section section--tight">
-    <div class="container">
-      <h2 class="section-title reveal">Contact</h2>
-      <p class="section-lede reveal">Email is the best route for academic correspondence.</p>
-      <div class="contact-links reveal">
-        <a href="mailto:scorreag6@eafit.edu.co" aria-label="Email Sebastian Correa-Gallego">scorreag6@eafit.edu.co</a>
-        <a href="https://www.linkedin.com/in/s-correag" target="_blank" rel="noopener" aria-label="LinkedIn profile (opens in new tab)">LinkedIn</a>
-        <a href="https://github.com/correa-gallego" target="_blank" rel="noopener" aria-label="GitHub profile (opens in new tab)">GitHub</a>
-        <a href={cvHref} target="_blank" rel="noopener" aria-label="Download Curriculum Vitae (PDF)">Download CV</a>
-      </div>
-    </div>
-  </section>
+  </div>
 </Base>
