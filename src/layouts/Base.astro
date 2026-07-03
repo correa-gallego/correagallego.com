@@ -1,6 +1,7 @@
 ---
 import Footer from '../components/Footer.astro';
-import DnaHelix from '../components/DnaHelix.astro';
+import GradientAxis from '../components/GradientAxis.astro';
+import CommunityField from '../components/CommunityField.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -11,7 +12,7 @@ interface Props {
 
 const {
   title,
-  description = 'Sebastian Correa-Gallego — Bachelor of Science in Biology, Universidad EAFIT. Microbial ecology, community assembly along environmental gradients, and cellular resource allocation.',
+  description = 'Sebastian Correa-Gallego — biologist (B.Sc., Universidad EAFIT). I study how biological systems assemble, organize, and transform across time and environment — microbial community assembly along environmental gradients and cellular resource allocation under constraint.',
   ogType = 'website',
 } = Astro.props;
 
@@ -79,8 +80,8 @@ const personSchema = {
 <body>
   <a href="#main-content" class="skip-link">Skip to content</a>
   <div class="bg-glow" aria-hidden="true"></div>
-  <div class="dna dna--left" aria-hidden="true"><DnaHelix /></div>
-  <div class="dna dna--right" aria-hidden="true"><DnaHelix /></div>
+  <GradientAxis />
+  <CommunityField />
   <main id="main-content">
     <slot />
   </main>

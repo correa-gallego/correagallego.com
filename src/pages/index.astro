@@ -4,77 +4,93 @@ import Base from '../layouts/Base.astro';
 
 <Base
   title="Sebastian Correa-Gallego"
-  description="Sebastian Correa-Gallego — Bachelor of Science in Biology, Universidad EAFIT. Microbial ecology, community assembly along environmental gradients, and cellular resource allocation."
   ogType="profile"
 >
   <div class="container">
 
-    <header class="intro">
+    <header class="hero">
+      <p class="hero__eyebrow">Biologist · Universidad EAFIT · Medellín, Colombia</p>
       <img
         src="/assets/profile.jpg"
         alt="Portrait of Sebastian Correa-Gallego"
-        class="intro__photo"
-        width="118"
-        height="118"
+        class="hero__photo"
+        width="116"
+        height="116"
         loading="eager"
         decoding="async"
       />
-      <h1 class="intro__name">Sebastian Correa-Gallego</h1>
-      <p class="intro__subtitle">Bachelor of Science in Biology</p>
+      <h1 class="hero__name">Sebastian Correa-Gallego</h1>
+      <p class="hero__subtitle">Bachelor of Science in Biology</p>
+      <p class="hero__statement">
+        I study how biological systems <em>assemble, organize, and transform</em>
+        across time and environment — and whether the forms life takes are written
+        by rule, or by history and chance.
+      </p>
     </header>
 
-    <section id="about" class="block">
-      <h2 class="heading reveal">About</h2>
+    <section id="orientation" class="block">
+      <h2 class="heading reveal"><span class="heading__i">01</span><span class="heading__t">Orientation</span></h2>
       <div class="prose reveal">
         <p>
-          Evolution and ecology are not subfields of biology — they are its organizing logic,
-          present from the emergence of cellular complexity to the structure of communities in
-          extreme environments. My research interests sit at this intersection: I am drawn to
-          microbial systems as tractable windows into how life assembles, persists, and
-          transforms under ecological and energetic constraint. This includes questions about
-          community organization along environmental gradients, the physiological and molecular
-          strategies — including cellular resource allocation — that underlie ecological success,
-          and the eco-evolutionary dynamics that connect cellular function to community-level
-          patterns. I am also interested in the quantitative and computational frameworks that
-          make these questions formally tractable, and in connecting field-based inquiry with
-          analytical rigor across biological scales.
+          My work approaches a single question from two directions. The outward window
+          looks at microbial communities in natural systems — who is present, why, and what
+          changes when the environment shifts. The inward window looks at cellular physiology
+          and evolutionary transitions — how organisms reorganize their resources and functions
+          under constraint. The long-term aim is to work at the interface: ecological questions
+          given the analytical depth they require, without abandoning the natural history that
+          generated them.
         </p>
+        <p>
+          Microbial systems are the platform — tractable timescales, replicable experiments,
+          and environmental gradients that serve as natural laboratories for asking what
+          determines which forms of life emerge under which conditions.
+        </p>
+      </div>
+      <div class="pull reveal">
+        <span class="pull__label">Current direction</span>
+        <span class="pull__text">
+          Cellular resource allocation and the predictability of microbial community assembly.
+        </span>
       </div>
     </section>
 
     <section id="research" class="block">
-      <h2 class="heading reveal">Research</h2>
+      <h2 class="heading reveal"><span class="heading__i">02</span><span class="heading__t">Research</span></h2>
+      <p class="lede reveal">Two windows on one question.</p>
 
       <article class="card reveal">
-        <span class="card__meta">Undergraduate thesis · Universidad EAFIT</span>
+        <span class="card__meta">Outward · Microbial communities</span>
         <h3 class="card__title card__title--italic">
           Cultivable Microbial Community Structure Along a Light Gradient in a Tropical
           Volcaniclastic Cave
         </h3>
-        <p class="card__sub">Sole author · Advisor: Prof. Nicolás Pinel Peláez</p>
+        <p class="card__sub">Undergraduate thesis · Universidad EAFIT · Advisor: Prof. Nicolás Pinel Peláez</p>
         <p class="card__desc">
-          A field-to-lab study characterizing how cultivable microbial community structure
-          shifts across a light-defined environmental gradient in a subterranean system.
+          In a tropical volcaniclastic cave, a light gradient runs from the entrance to the
+          aphotic zone. Across it, the same cave — under different energetic conditions —
+          produced structurally different microbial communities. Environment as sculptor,
+          community as response; the gradient as the axis that makes the relationship visible.
         </p>
         <a class="card__link" href="https://hdl.handle.net/10784/38213" target="_blank" rel="noopener">
-          Read the thesis — EAFIT institutional repository →
+          Read the thesis · EAFIT repository →
         </a>
       </article>
 
       <article class="card reveal">
-        <span class="card__meta">Ongoing collaboration · Purdue University</span>
+        <span class="card__meta">Inward · Cellular constraint</span>
         <h3 class="card__title">Proteome allocation in osmotrophic yeasts under carbon limitation</h3>
-        <p class="card__sub">ECSO Lab · Visiting Student Intern, 2025–2026</p>
+        <p class="card__sub">ECSO Lab, Purdue University · Visiting Student Intern, 2025–2026</p>
         <p class="card__desc">
-          Continuing work on how osmotrophic yeasts allocate proteomic resources under carbon
-          limitation, connecting cellular physiology to ecological strategy. A manuscript is in
-          preparation; details will appear here once published.
+          How does a cell reorganize its own molecular machinery to survive a different energetic
+          regime? Working with yeast under carbon limitation, this project follows proteome
+          allocation as resources change — the same logic as the cave, at the scale of a single
+          organism. A manuscript is in preparation.
         </p>
       </article>
     </section>
 
     <section id="presentations" class="block">
-      <h2 class="heading reveal">Presentations</h2>
+      <h2 class="heading reveal"><span class="heading__i">03</span><span class="heading__t">Presentations</span></h2>
       <div class="reveal">
         <div class="entry">
           <div class="entry__row">
@@ -94,7 +110,7 @@ import Base from '../layouts/Base.astro';
     </section>
 
     <section id="honors" class="block">
-      <h2 class="heading reveal">Honors &amp; Recognition</h2>
+      <h2 class="heading reveal"><span class="heading__i">04</span><span class="heading__t">Honors &amp; Recognition</span></h2>
       <div class="reveal">
         <div class="entry">
           <div class="entry__row">
@@ -114,7 +130,7 @@ import Base from '../layouts/Base.astro';
     </section>
 
     <section id="record" class="block">
-      <h2 class="heading reveal">Academic Record</h2>
+      <h2 class="heading reveal"><span class="heading__i">05</span><span class="heading__t">Academic Record</span></h2>
       <div class="reveal">
         <div class="entry">
           <div class="entry__row">
@@ -147,9 +163,9 @@ import Base from '../layouts/Base.astro';
       </div>
     </section>
 
-    <section id="skills" class="block">
-      <h2 class="heading reveal">Technical Profile</h2>
-      <div class="prose prose--muted reveal">
+    <section id="profile" class="block">
+      <h2 class="heading reveal"><span class="heading__i">06</span><span class="heading__t">Technical Profile</span></h2>
+      <div class="prose reveal">
         <p>
           My training spans cultivation-based microbiology, environmental sampling, microscopy,
           and morphotype characterization from fieldwork in subterranean systems, together with
@@ -157,8 +173,8 @@ import Base from '../layouts/Base.astro';
         </p>
         <p>
           I complement laboratory and field practice with quantitative analysis in R and Python,
-          data visualization, and reproducible, literate workflows — aiming to connect
-          field-based inquiry with analytical rigor across biological scales.
+          data visualization, and reproducible, literate workflows — progressively integrating
+          formal methods with the natural history that motivates them.
         </p>
       </div>
     </section>

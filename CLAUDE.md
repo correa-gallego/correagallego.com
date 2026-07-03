@@ -31,38 +31,53 @@ multi-page routing, no analytics, no third-party scripts.
 
 Commands: `npm run dev`, `npm run build` (must pass, no console errors).
 
-## Design language (current)
+## Design language (current) — "Field notes on a gradient"
 
-Minimal, calm, editorial — the aesthetic of an early-career scientist's page: simple, ordered,
-nothing redundant.
+Editorial, scientific, calm — clean on the surface, with one signature idea that rewards a
+closer look. The concept: the page's **side margins are Sebastian's research made ambient**.
 
-- **One typeface only: Source Serif 4** (variable serif, screen/reading-optimized), from Google
-  Fonts. No sans-serif. Base size 18px; generous, "close to the reader" sizing.
-- **Muted deeper slate-blue background** sitewide (`--paper` ~oklch 88% / `--paper-deep`), deep
-  navy text — subtle, not a bright pastel. No dark hero, no top nav, no buttons, no name banner.
-- **Intro**: profile photo + name (modest size, not full-screen) + one line only,
-  "Bachelor of Science in Biology".
-- **Subtle boxes** (`.card`) for the Research items — the user likes these; keep them soft.
-- **DNA double helix in the side margins** (`src/components/DnaHelix.astro`), rendered on both
-  sides (right one mirrored), spinning as you scroll via `animation-timeline: scroll()`.
-  Geometry computed at build time; very low opacity; hidden below 1180px. This is the signature
-  "detail rarely seen on science pages" — keep it subtle.
-- **Dynamic background**: also a soft light bloom (`.bg-glow`) that descends on scroll, plus
-  section reveals (`.reveal`, `view()` timeline). All motion gated behind `prefers-reduced-motion`.
-- **Footer** icons are prominent circular chips (email, LinkedIn, GitHub, CV).
-- Contact lives **only in the footer**, as icon links. No contact section.
-- Print styles flatten to clean black-on-white.
+- **Two typefaces, deliberate**: `Source Serif 4` (variable) for all reading/voice; `IBM Plex
+  Mono` used *only* for "instrument" labels — section indices (01–06), the eyebrow, dates,
+  card meta tags. Base 18px.
+- **Cool paper with a subtle top→bottom gradient** (`--paper-top` → `--paper-bottom`), echoing a
+  descent from light to depth. Deep slate ink. One restrained **muted-teal accent** (`--accent`).
+- **The margin instruments** (hidden < 1180px, reduced-motion safe):
+  - Left = `GradientAxis.astro`: a vertical light→deep gradient scale with tick marks and a
+    reading-head (`.axis__marker`) that **descends on scroll** (`@property --marker-y` animated
+    via `animation-timeline: scroll()`). It is the *environmental gradient* + a scroll indicator.
+  - Right = `CommunityField.astro`: a build-time-computed scatter of "morphotypes/colonies"
+    whose size/spread peak through the penumbra — the *community response*, with gentle scroll
+    drift. Together they render "environment as sculptor, community as response."
+- **Hero**: eyebrow (mono) + photo + name + "Bachelor of Science in Biology" (mono) + the
+  **organizing statement** ("I study how biological systems *assemble, organize, and transform*
+  …") with the key phrase in accent.
+- **Cards** for Research (kept — Sebastian likes them). `.bg-glow` descends on scroll; `.reveal`
+  section entrances via `view()`. Contact is footer icon chips only. Print flattens to B/W.
 
-Section order: Intro → About → Research → Presentations → Honors & Recognition →
-Academic Record → Technical Profile → footer.
+Section order: Hero → 01 Orientation → 02 Research → 03 Presentations → 04 Honors →
+05 Academic Record → 06 Technical Profile → footer.
+
+## Who Sebastian is (for framing content — from his own field notebook, non-sensitive)
+
+Organizing question: **how biological systems assemble, organize, and transform across time and
+environment** — a *class of phenomenon*, not a field or organism. Intellectual frame: the tension
+between **contingency and convergence** (do the forms life takes follow discoverable rules, or
+history and chance?). Two windows: **outward** = microbial communities in natural systems;
+**inward** = cellular physiology / evolutionary transitions under constraint; aim = the interface.
+Microbial systems as the tractable platform; **gradients as the experimental axis**. The cave
+thesis and the Purdue yeast work are two scales of the same logic: life reorganizing under
+energetic constraint. Current direction phrase (safe to use): "cellular resource allocation and
+the predictability of microbial community assembly."
 
 ## Content rules (important)
 
 - **Do not invent.** The Purdue manuscript has no title and Sebastian would be at most second
   author — never fabricate a citation. Describe it as ongoing, manuscript in preparation.
 - The thesis is public: <https://hdl.handle.net/10784/38213> (EAFIT repository, sole author).
-- Keep prose compact; avoid duplicating the same facts across sections.
-- The "About" text is the Research Interests statement from the CV.
+- **Never surface sensitive material** from the Notion workspace: fellowship names/IDs, the
+  school shortlist, psychological/strategic notes, interim plans, finalist dates. Only the
+  committee-facing intellectual framing above is public.
+- Keep prose compact; avoid duplicating facts across sections.
 
 ## Deployment
 
