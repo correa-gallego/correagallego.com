@@ -1,8 +1,10 @@
 ---
-// Generative "field-notebook" backdrop: faint hand-drawn microbial specimens
-// and contour lines, scattered mostly to the periphery. Layers drift and
-// progressively emerge on scroll — a community assembling along the gradient.
-// Geometry is deterministic (seeded) and computed at build time.
+// Generative "field-notebook" backdrop.
+//   · right  = an organic tree of life (after Darwin's 1837 "I think" sketch)
+//              that draws itself on scroll, root → branches → tips
+//   · around = hand-drawn microbial specimens + faint contour lines
+// All geometry is deterministic (seeded) and computed at build time.
+// Coordinate space is a single ~viewport frame (no vertical cropping surprises).
 
 let s = 73_313;
 const rnd = () => {
@@ -10,62 +12,102 @@ const rnd = () => {
   return s / 0x7fffffff;
 };
 const rr = (a: number, b: number) => a + rnd() * (b - a);
+const f = (n: number) => n.toFixed(1);
 
-// --- Specimen glyphs (drawn in a local ~±20 box, uniform line weight) ---
+const VW = 1440;
+const VH = 920;
+
+/* ---------- Tree of life (self-drawing, three tiers) ---------- */
+const tree: string[][] = [[], [], []];
+const wobble = (x1: number, y1: number, x2: number, y2: number) => {
+  const dx = x2 - x1, dy = y2 - y1;
+  const len = Math.hypot(dx, dy) || 1;
+  const off = rr(-0.14, 0.14) * len;
+  const cx = (x1 + x2) / 2 - (dy / len) * off;
+  const cy = (y1 + y2) / 2 + (dx / len) * off;
+  return `M${f(x1)} ${f(y1)} Q ${f(cx)} ${f(cy)} ${f(x2)} ${f(y2)}`;
+};
+const grow = (x: number, y: number, ang: number, len: number, gen: number) => {
+  const x2 = x + Math.cos(ang) * len;
+  const y2 = y - Math.sin(ang) * len;
+  const tier = gen <= 1 ? 0 : gen === 2 ? 1 : 2;
+  tree[tier].push(wobble(x, y, x2, y2));
+  if (gen >= 4 || len < 15) {
+    const px = Math.cos(ang + Math.PI / 2), py = -Math.sin(ang + Math.PI / 2);
+    if (rnd() < 0.4) {
+      tree[2].push(`M${f(x2 - px * 5)} ${f(y2 - py * 5)} L ${f(x2 + px * 5)} ${f(y2 + py * 5)}`);
+    } else {
+      tree[2].push(`M${f(x2 - 2.3)} ${f(y2)} a 2.3 2.3 0 1 0 4.6 0 a 2.3 2.3 0 1 0 -4.6 0`);
+    }
+    return;
+  }
+  const n = 2 + (rnd() < 0.3 ? 1 : 0);
+  const spread = 0.36 + rr(-0.05, 0.07);
+  for (let k = 0; k < n; k++) {
+    const t = n === 1 ? 0 : k / (n - 1) - 0.5;
+    grow(x2, y2, ang + t * 2 * spread + rr(-0.08, 0.08), len * rr(0.64, 0.78), gen + 1);
+  }
+};
+grow(1155, 892, Math.PI / 2 + 0.16, 205, 0);
+
+/* ---------- Microbial specimens ---------- */
 const glyphs: (() => string)[] = [
-  // coccus cluster
-  () => `<circle cx="-6" cy="-5" r="5"/><circle cx="5" cy="-3" r="6.5"/><circle cx="-3" cy="6" r="4.5"/><circle cx="9" cy="8" r="3.6"/><circle cx="-11" cy="4" r="3"/>`,
-  // bacilli
-  () => `<rect x="-16" y="-5" width="22" height="9" rx="4.5"/><rect x="-3" y="7" width="17" height="7.5" rx="3.7"/><rect x="2" y="-13" width="14" height="6.5" rx="3.2"/>`,
-  // filament
-  () => `<path d="M-20 2 q6 -10 12 -2 t12 -2 t12 -2"/><circle cx="-20" cy="2" r="1.6"/><circle cx="16" cy="-4" r="1.6"/>`,
-  // diatom (pennate)
-  () => `<ellipse cx="0" cy="0" rx="18" ry="6.5"/><line x1="-11" y1="-4.4" x2="-11" y2="4.4"/><line x1="-5.5" y1="-5.6" x2="-5.5" y2="5.6"/><line x1="0" y1="-6" x2="0" y2="6"/><line x1="5.5" y1="-5.6" x2="5.5" y2="5.6"/><line x1="11" y1="-4.4" x2="11" y2="4.4"/>`,
-  // branching lineage (contingency / convergence)
-  () => `<path d="M0 17 L0 5 M0 5 L-9 -6 M0 5 L9 -6 M-9 -6 L-13 -15 M-9 -6 L-4 -14 M9 -6 L4 -14 M9 -6 L14 -15"/><circle cx="-13" cy="-15" r="1.5"/><circle cx="-4" cy="-14" r="1.5"/><circle cx="4" cy="-14" r="1.5"/><circle cx="14" cy="-15" r="1.5"/>`,
-  // spirillum
-  () => `<path d="M-16 6 C -10 -10, -2 -10, 2 0 S 12 10, 16 -6"/>`,
-  // budding cell (yeast — nod to the Purdue work)
-  () => `<circle cx="-3" cy="0" r="10"/><circle cx="11" cy="-6" r="5"/>`,
+  // coccus cluster, two cells dividing
+  () => `<circle cx="-6" cy="-5" r="5.2"/><circle cx="5" cy="-3" r="6.6"/><circle cx="-3" cy="6" r="4.6"/><circle cx="9" cy="8" r="3.6"/><path d="M-0.5 -8.4 A6.6 6.6 0 0 1 -0.5 2.4"/><path d="M-9.5 -6.8 A5.2 5.2 0 0 0 -1.6 -3.4"/>`,
+  // bacilli, one with a division septum
+  () => `<rect x="-17" y="-5" width="23" height="9.2" rx="4.6"/><line x1="-5.5" y1="-5" x2="-5.5" y2="4.2"/><rect x="-3" y="7" width="17" height="7.6" rx="3.8"/><rect x="3" y="-14" width="14" height="6.6" rx="3.3"/>`,
+  // filament with septa + terminal cell
+  () => `<path d="M-22 3 q6 -11 12 -3 t12 -3 t12 -3"/><line x1="-16.5" y1="-1.2" x2="-14.5" y2="2.6"/><line x1="-4.5" y1="-3.6" x2="-2.5" y2="0.2"/><line x1="7" y1="-5.6" x2="9" y2="-1.8"/><circle cx="16" cy="-6" r="2.4"/>`,
+  // pennate diatom with raphe + striae
+  () => `<path d="M-19 0 Q0 -8 19 0 Q0 8 -19 0 Z"/><line x1="-15" y1="0" x2="15" y2="0"/><line x1="-11" y1="-4.4" x2="-11" y2="4.4"/><line x1="-5.5" y1="-5.6" x2="-5.5" y2="5.6"/><line x1="0" y1="-6" x2="0" y2="6"/><line x1="5.5" y1="-5.6" x2="5.5" y2="5.6"/><line x1="11" y1="-4.4" x2="11" y2="4.4"/>`,
+  // small branching lineage (echoes the tree)
+  () => `<path d="M0 17 L0 5 M0 5 L-9 -6 M0 5 L9 -6 M-9 -6 L-13 -15 M-9 -6 L-4 -14 M9 -6 L4 -14 M9 -6 L14 -15"/><circle cx="-13" cy="-15" r="1.6"/><circle cx="-4" cy="-14" r="1.6"/><circle cx="4" cy="-14" r="1.6"/><circle cx="14" cy="-15" r="1.6"/>`,
+  // spirillum with flagellum
+  () => `<path d="M-16 6 C -10 -10, -2 -10, 2 0 S 12 10, 16 -6"/><path d="M16 -6 q5 -2 7 -6 t7 -4"/>`,
+  // budding yeast chain with bud scars
+  () => `<circle cx="-6" cy="1" r="10"/><circle cx="9" cy="-6" r="5.6"/><circle cx="18" cy="-11" r="3.2"/><path d="M2.5 -3 a2 2 0 0 1 3 0"/>`,
+  // radiolarian: shell + spokes
+  () => `<circle cx="0" cy="0" r="11"/><circle cx="0" cy="0" r="5.4"/><line x1="0" y1="-16" x2="0" y2="16"/><line x1="-16" y1="0" x2="16" y2="0"/><line x1="-11" y1="-11" x2="11" y2="11"/><line x1="-11" y1="11" x2="11" y2="-11"/>`,
 ];
 
 type Spec = { g: string; x: number; y: number; sc: number; rot: number };
 const layers: Spec[][] = [[], [], []];
-const N = 22;
+const N = 16;
 for (let i = 0; i < N; i++) {
-  const side = rnd() < 0.5 ? 0 : 1;
-  const x = side === 0 ? rr(28, 355) : rr(1085, 1412);
-  const y = rr(70, 1930);
+  const left = rnd() < 0.62;
+  const x = left ? rr(28, 335) : rr(1120, 1414);
+  const y = rr(48, 872);
   layers[i % 3].push({
     g: glyphs[Math.floor(rnd() * glyphs.length)](),
-    x,
-    y,
-    sc: rr(0.7, 1.85),
-    rot: rr(-28, 28),
+    x, y,
+    sc: rr(0.72, 1.7),
+    rot: rr(-26, 26),
   });
 }
 
-// --- Contour foci (topographic / fitness-landscape texture) ---
+/* ---------- Contour foci ---------- */
 const contour = (cx: number, cy: number, rings: number) => {
   let out = '';
   for (let k = 1; k <= rings; k++) {
     const rx = 15 * k * rr(0.85, 1.12);
     const ry = rx * rr(0.55, 0.72);
-    out += `<ellipse cx="${cx}" cy="${cy}" rx="${rx.toFixed(1)}" ry="${ry.toFixed(1)}" transform="rotate(${rr(-22, 22).toFixed(1)} ${cx} ${cy})"/>`;
+    out += `<ellipse cx="${cx}" cy="${cy}" rx="${f(rx)}" ry="${f(ry)}" transform="rotate(${f(rr(-22, 22))} ${cx} ${cy})"/>`;
   }
   return out;
 };
-const contours = contour(190, 340, 6) + contour(1230, 780, 7) + contour(150, 1500, 6) + contour(1280, 1720, 5);
+const contours = contour(165, 235, 5) + contour(300, 760, 5);
 
 const specGroup = (list: Spec[]) =>
-  list
-    .map((d) => `<g transform="translate(${d.x.toFixed(1)} ${d.y.toFixed(1)}) rotate(${d.rot.toFixed(1)}) scale(${d.sc.toFixed(2)})">${d.g}</g>`)
-    .join('');
+  list.map((d) => `<g transform="translate(${f(d.x)} ${f(d.y)}) rotate(${f(d.rot)}) scale(${d.sc.toFixed(2)})">${d.g}</g>`).join('');
+const treeGroup = (list: string[]) => list.map((d) => `<path d="${d}" pathLength="1"/>`).join('');
 ---
 
 <div class="bd" aria-hidden="true">
-  <svg class="bd__svg" viewBox="0 0 1440 2000" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor" stroke-width="1.3">
+  <svg class="bd__svg" viewBox={`0 0 ${VW} ${VH}`} preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
     <g class="bd__contours" set:html={contours} />
+    <g class="bd__tree bd__tree0" set:html={treeGroup(tree[0])} />
+    <g class="bd__tree bd__tree1" set:html={treeGroup(tree[1])} />
+    <g class="bd__tree bd__tree2" set:html={treeGroup(tree[2])} />
     <g class="bd__l1" set:html={specGroup(layers[0])} />
     <g class="bd__l2" set:html={specGroup(layers[1])} />
     <g class="bd__l3" set:html={specGroup(layers[2])} />

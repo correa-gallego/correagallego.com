@@ -2,6 +2,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,400;0,8..144,500;0,8..144,600;0,8..144,700;1,8..144,400;1,8..144,500&display=swap');
 
+@property --marker-y {
+    syntax: '<length-percentage>';
+    inherits: false;
+    initial-value: 0%;
+}
+
 :root {
     /* Cool paper with a gentle top→bottom descent (light → depth) */
     --paper-top:    oklch(94% 0.007 240);
@@ -19,6 +25,11 @@
 
     --accent:       oklch(45% 0.084 204);
     --accent-hover: oklch(36% 0.076 208);
+    --accent-glow:  oklch(62% 0.11 200);
+
+    --axis-top:     oklch(86% 0.05 200);
+    --axis-mid:     oklch(58% 0.07 212);
+    --axis-bottom:  oklch(33% 0.045 252);
 
     --serif: 'Roboto Serif', 'Georgia', 'Times New Roman', serif;
 
@@ -83,17 +94,69 @@
     .bd__svg { position: absolute; inset: 0; width: 100%; height: 100%; }
     .bd__svg :where(circle, ellipse, rect, line, path) { vector-effect: non-scaling-stroke; }
 
-    .bd__contours { opacity: 0.6; }
+    .bd__contours { opacity: 0.55; }
     .bd__l1 { opacity: 0.72; }
     .bd__l2 { opacity: 0.6; }
     .bd__l3 { opacity: 0.42; }
 
+    .bd__tree { stroke-width: 1.6; stroke-dashoffset: 0; }
+    .bd__tree0 { opacity: 0.66; }
+    .bd__tree1 { opacity: 0.56; }
+    .bd__tree2 { opacity: 0.46; }
+
+    /* ----- Left-margin gradient axis ----- */
+    .axis {
+        position: fixed;
+        left: 0; top: 0; bottom: 0;
+        width: clamp(52px, 5vw, 88px);
+        z-index: -1;
+        pointer-events: none;
+        display: flex;
+        justify-content: center;
+    }
+    .axis__line {
+        position: absolute;
+        top: 13vh; bottom: 13vh;
+        width: 2px;
+        border-radius: 2px;
+        background: linear-gradient(180deg, var(--axis-top) 0%, var(--axis-mid) 54%, var(--axis-bottom) 100%);
+        opacity: 0.6;
+    }
+    .axis__marker {
+        position: absolute;
+        top: 13vh;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--accent-glow);
+        box-shadow: 0 0 10px 2px color-mix(in oklch, var(--accent-glow), transparent 45%),
+                    0 0 0 5px color-mix(in oklch, var(--accent-glow), transparent 86%);
+        transform: translateY(var(--marker-y));
+    }
+    @media (max-width: 1100px) { .axis, .bd__tree { display: none; } }
+
     @media (prefers-reduced-motion: no-preference) {
+        .axis__marker {
+            animation: axis-descend linear both;
+            animation-timeline: scroll(root);
+        }
+        @keyframes axis-descend { from { --marker-y: 0; } to { --marker-y: 74vh; } }
+
+        .bd__tree { stroke-dasharray: 1; }
+        .bd__tree0, .bd__tree1, .bd__tree2 {
+            animation: bd-draw linear both;
+            animation-timeline: scroll(root);
+        }
+        .bd__tree0 { animation-range: 0% 46%; }
+        .bd__tree1 { animation-range: 22% 74%; }
+        .bd__tree2 { animation-range: 50% 100%; }
+        @keyframes bd-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+
         .bd__contours {
             animation: bd-drift-slow linear both;
             animation-timeline: scroll(root);
         }
-        @keyframes bd-drift-slow { from { transform: translateY(0); } to { transform: translateY(-42px); } }
+        @keyframes bd-drift-slow { from { transform: translateY(0); } to { transform: translateY(-34px); } }
 
         .bd__l1 {
             animation: bd-drift-near linear both;
