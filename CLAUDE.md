@@ -36,16 +36,20 @@ Commands: `npm run dev`, `npm run build` (must pass, no console errors).
 Minimal, calm, editorial — the aesthetic of an early-career scientist's page: simple, ordered,
 nothing redundant.
 
-- **One typeface only: Libre Baskerville** (serif), loaded from Google Fonts. No sans-serif.
-- **Pastel light-blue background** across the whole page (`--paper` / `--paper-deep`), deep
-  slate-navy text. No dark hero, no top nav bar, no buttons, no name banner.
+- **One typeface only: Source Serif 4** (variable serif, screen/reading-optimized), from Google
+  Fonts. No sans-serif. Base size 18px; generous, "close to the reader" sizing.
+- **Muted deeper slate-blue background** sitewide (`--paper` ~oklch 88% / `--paper-deep`), deep
+  navy text — subtle, not a bright pastel. No dark hero, no top nav, no buttons, no name banner.
 - **Intro**: profile photo + name (modest size, not full-screen) + one line only,
   "Bachelor of Science in Biology".
 - **Subtle boxes** (`.card`) for the Research items — the user likes these; keep them soft.
-- **Dynamic background**: a soft light bloom (`.bg-glow`) descends on scroll
-  (`animation-timeline: scroll()`), evoking a cave light gradient; faint horizontal strata
-  (`.bg-texture`); section reveals on scroll (`.reveal`, `view()` timeline). All gated behind
-  `prefers-reduced-motion`.
+- **DNA double helix in the side margins** (`src/components/DnaHelix.astro`), rendered on both
+  sides (right one mirrored), spinning as you scroll via `animation-timeline: scroll()`.
+  Geometry computed at build time; very low opacity; hidden below 1180px. This is the signature
+  "detail rarely seen on science pages" — keep it subtle.
+- **Dynamic background**: also a soft light bloom (`.bg-glow`) that descends on scroll, plus
+  section reveals (`.reveal`, `view()` timeline). All motion gated behind `prefers-reduced-motion`.
+- **Footer** icons are prominent circular chips (email, LinkedIn, GitHub, CV).
 - Contact lives **only in the footer**, as icon links. No contact section.
 - Print styles flatten to clean black-on-white.
 

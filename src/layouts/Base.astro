@@ -1,5 +1,6 @@
 ---
 import Footer from '../components/Footer.astro';
+import DnaHelix from '../components/DnaHelix.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -78,7 +79,8 @@ const personSchema = {
 <body>
   <a href="#main-content" class="skip-link">Skip to content</a>
   <div class="bg-glow" aria-hidden="true"></div>
-  <div class="bg-texture" aria-hidden="true"></div>
+  <div class="dna dna--left" aria-hidden="true"><DnaHelix /></div>
+  <div class="dna dna--right" aria-hidden="true"><DnaHelix /></div>
   <main id="main-content">
     <slot />
   </main>
