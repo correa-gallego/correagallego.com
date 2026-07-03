@@ -1,7 +1,6 @@
 ---
 import Footer from '../components/Footer.astro';
-import GradientAxis from '../components/GradientAxis.astro';
-import CommunityField from '../components/CommunityField.astro';
+import Backdrop from '../components/Backdrop.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -79,9 +78,7 @@ const personSchema = {
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to content</a>
-  <div class="bg-glow" aria-hidden="true"></div>
-  <GradientAxis />
-  <CommunityField />
+  <Backdrop />
   <main id="main-content">
     <slot />
   </main>

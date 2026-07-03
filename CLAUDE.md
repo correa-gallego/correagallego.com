@@ -33,29 +33,29 @@ Commands: `npm run dev`, `npm run build` (must pass, no console errors).
 
 ## Design language (current) — "Field notes on a gradient"
 
-Editorial, scientific, calm — clean on the surface, with one signature idea that rewards a
-closer look. The concept: the page's **side margins are Sebastian's research made ambient**.
+Editorial, scientific, calm — clean on the surface, with a generative background that rewards a
+closer look. The concept: a naturalist's field notebook.
 
-- **Two typefaces, deliberate**: `Source Serif 4` (variable) for all reading/voice; `IBM Plex
-  Mono` used *only* for "instrument" labels — section indices (01–06), the eyebrow, dates,
-  card meta tags. Base 18px.
-- **Cool paper with a subtle top→bottom gradient** (`--paper-top` → `--paper-bottom`), echoing a
-  descent from light to depth. Deep slate ink. One restrained **muted-teal accent** (`--accent`).
-- **The margin instruments** (hidden < 1180px, reduced-motion safe):
-  - Left = `GradientAxis.astro`: a vertical light→deep gradient scale with tick marks and a
-    reading-head (`.axis__marker`) that **descends on scroll** (`@property --marker-y` animated
-    via `animation-timeline: scroll()`). It is the *environmental gradient* + a scroll indicator.
-  - Right = `CommunityField.astro`: a build-time-computed scatter of "morphotypes/colonies"
-    whose size/spread peak through the penumbra — the *community response*, with gentle scroll
-    drift. Together they render "environment as sculptor, community as response."
-- **Hero**: eyebrow (mono) + photo + name + "Bachelor of Science in Biology" (mono) + the
-  **organizing statement** ("I study how biological systems *assemble, organize, and transform*
-  …") with the key phrase in accent.
-- **Cards** for Research (kept — Sebastian likes them). `.bg-glow` descends on scroll; `.reveal`
-  section entrances via `view()`. Contact is footer icon chips only. Print flattens to B/W.
+- **One typeface: `Roboto Serif`** (variable, opsz+wght) for everything — chosen for a
+  "frictionless", whisper-serif reading feel. No sans-serif, no monospace. Base 18px.
+- **No ALL-CAPS anywhere** (Sebastian dislikes it) and **no middle-dot/interpunct separators
+  except in the footer** — use em dashes, commas, or line breaks instead.
+- **Cool paper with a subtle top→bottom gradient** (light → depth). Deep slate ink; one
+  restrained **muted-teal accent** (`--accent`). Content column widened (`--content: 50rem`).
+- **Generative backdrop** (`src/components/Backdrop.astro`): faint, hand-drawn microbial
+  specimens (cocci, bacilli, filaments, diatoms, branching lineages, budding yeast) plus contour
+  lines, scattered to the periphery, computed deterministically at build time. Three layers
+  **drift and progressively emerge on scroll** (`animation-timeline: scroll()`) — a community
+  assembling along the gradient. A radial mask keeps the reading column legible; frosted `.card`s
+  (`backdrop-filter`) lift off it. Reduced-motion → static; near-empty on mobile.
+- **Hero** (no eyebrow — just the person): photo + name + "Bachelor of Science in Biology" + the
+  **italic organizing statement** (Sebastian likes it) with the key phrase in accent.
+- **Section headings**: `01 — Orientation` etc., normal case, index in accent. `.reveal`
+  entrances via `view()`. Contact is footer icon chips only (interpunct allowed there). Print B/W.
 
 Section order: Hero → 01 Orientation → 02 Research → 03 Presentations → 04 Honors →
-05 Academic Record → 06 Technical Profile → footer.
+05 Academic Record → 06 Technical Profile → footer. "Orientation" prose = the CV research-interests
+statement. Technical Profile includes R/Python, QGIS (spatial), LaTeX, Git.
 
 ## Who Sebastian is (for framing content — from his own field notebook, non-sensitive)
 
