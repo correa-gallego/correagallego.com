@@ -45,15 +45,17 @@ closer look. The concept: a naturalist's field notebook.
 - **Generative backdrop** (`src/components/Backdrop.astro`), computed deterministically at build
   time, framing the reading column with two axes that map to Sebastian's phrase "across time and
   environment":
-  - **Right = a tree of life** after Darwin's 1837 "I think" sketch — grown recursively, organic
-    wobble, tip ticks/nodes. It **draws itself on scroll** (three tiers, staggered
-    `animation-range`; self-draw via inherited `stroke-dashoffset` on `pathLength="1"` paths) —
-    life diversifying over time.
+  - **Right = a tree of life** after Darwin's 1837 "I think" sketch — grown recursively as a mostly
+    straight, asymmetric form (a main axis throwing lateral branches), with terminal ticks and a
+    circled base node, in a **warm sepia ink** (`--tree-ink`, homage to the original). It **draws
+    itself on scroll** (three tiers, staggered `animation-range`, finishing by ~84% so it completes
+    before the footer; self-draw via inherited `stroke-dashoffset` on `pathLength="1"` paths).
   - **Left = the environmental gradient** (`GradientAxis.astro`): a luminous→deep scale with a
     glowing reading-head that descends on scroll (`@property --marker-y`).
   - **Around = hand-drawn microbial specimens** (cocci, bacilli, septate filaments, pennate
-    diatoms, spirilla, budding yeast, radiolaria, branching lineages) + faint contour lines, in
-    three layers that drift and progressively emerge on scroll.
+    diatoms, spirilla, budding yeast, radiolaria, colonies, hyphae, branching lineages) with very
+    faint colour washes (`.tint-*`: teal/sage/blue/ochre/slate) + contour lines, in three layers
+    that drift and progressively emerge on scroll.
   A radial mask keeps the reading column legible; frosted `.card`s (`backdrop-filter`) lift off
   it. All motion is reduced-motion-safe; the tree + axis hide < 1100px (mobile stays calm).
   Future: Sebastian may add hand-drawn SVGs from Claude Design — drop them in as new glyphs/layers.

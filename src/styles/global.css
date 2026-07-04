@@ -31,6 +31,14 @@
     --axis-mid:     oklch(58% 0.07 212);
     --axis-bottom:  oklch(33% 0.045 252);
 
+    /* Backdrop inks — warm sepia tree (homage to the 1837 ink) + faint washes */
+    --tree-ink:     oklch(45% 0.032 70);
+    --t-slate:      oklch(50% 0.02 250);
+    --t-teal:       oklch(52% 0.045 200);
+    --t-sage:       oklch(53% 0.04 152);
+    --t-blue:       oklch(52% 0.045 244);
+    --t-ochre:      oklch(56% 0.05 74);
+
     --serif: 'Roboto Serif', 'Georgia', 'Times New Roman', serif;
 
     --content: 50rem;
@@ -99,10 +107,17 @@
     .bd__l2 { opacity: 0.6; }
     .bd__l3 { opacity: 0.42; }
 
-    .bd__tree { stroke-width: 1.6; stroke-dashoffset: 0; }
-    .bd__tree0 { opacity: 0.66; }
-    .bd__tree1 { opacity: 0.56; }
-    .bd__tree2 { opacity: 0.46; }
+    .bd__tree { stroke-width: 2.2; stroke-dashoffset: 0; color: var(--tree-ink); }
+    .bd__tree0 { opacity: 0.78; }
+    .bd__tree1 { opacity: 0.66; }
+    .bd__tree2 { opacity: 0.54; }
+
+    /* Subtle colour washes on specimens */
+    .bd .tint-slate { color: var(--t-slate); }
+    .bd .tint-teal  { color: var(--t-teal); }
+    .bd .tint-sage  { color: var(--t-sage); }
+    .bd .tint-blue  { color: var(--t-blue); }
+    .bd .tint-ochre { color: var(--t-ochre); }
 
     /* ----- Left-margin gradient axis ----- */
     .axis {
@@ -147,9 +162,9 @@
             animation: bd-draw linear both;
             animation-timeline: scroll(root);
         }
-        .bd__tree0 { animation-range: 0% 46%; }
-        .bd__tree1 { animation-range: 22% 74%; }
-        .bd__tree2 { animation-range: 50% 100%; }
+        .bd__tree0 { animation-range: 2% 34%; }
+        .bd__tree1 { animation-range: 20% 60%; }
+        .bd__tree2 { animation-range: 42% 84%; }
         @keyframes bd-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 
         .bd__contours {
@@ -256,6 +271,8 @@
         text-wrap: balance;
     }
     .hero__statement em { color: var(--accent); font-style: italic; }
+
+    .notfound__back { margin-top: 1.6rem; font-size: 1.05rem; }
 
     /* ----- Section heading ----- */
     .heading {
