@@ -39,13 +39,18 @@ mirroring the LaTeX/Palatino PDF as closely as is sensible. **No decoration, no 
 scroll animations.** This was a deliberate reset from an earlier animated design; keep it minimal
 unless Sebastian asks to reintroduce flourishes.
 
-- **One typeface: Palatino** via system stack (`"Palatino Linotype","Book Antiqua",Palatino,
-  "URW Palladio L",Georgia,serif`). No web-font request — faithful to the CV's `mathpazo`, and fast.
-- **Neutral pale-gray background** (`--paper: #f4f4f1`) — solid, no gradient. **No blue / no
-  non-neutral hues** (Sebastian's explicit preference). Text near-black `--ink`, headings gray
-  `--head`, sober **navy links** (`--link: #133a80`, matching the PDF's `RGB(0,0,102)`).
-- **No ALL-CAPS in body/section titles**; the name uses `font-variant: small-caps`. Interpunct
-  `·` only in the masthead contact line and footer note.
+- **One typeface: Inter** (Google Fonts, weights 400/500/600/700), loaded via `<link>` in
+  `Base.astro`. Chosen over Palatino: larger x-height (reads bigger), consistent cross-device
+  rendering, clean on white. Base 18px. If Sebastian ever wants warmth back, a refined serif
+  (e.g. Source Serif 4) is the fallback direction.
+- **Pure white background** (`--paper: #ffffff`). All grays are strictly neutral (R=G=B) — an
+  earlier warm off-white read as a green tint, which Sebastian disliked. **No blue / no
+  non-neutral hues** in surfaces. Near-black text, gray headings, sober **navy links**
+  (`--link: #12428f`). Larger text throughout; content column widened (`--content: 52rem`) with
+  smaller gutters to reduce side margins.
+- **No ALL-CAPS** and **no interpunct `·` separators** anywhere. The masthead is name + one
+  subtitle line only. Research Experience / Academic Service bullets are kept **condensed** (the
+  web CV is leaner than the PDF — the PDF remains the complete record).
 - **CV layout**: left-aligned single column (`--content: 48rem`). Masthead = name + one italic
   subtitle line ("Biologist — microbial ecology and evolutionary biology"), rule under. **No
   contact line under the name** — all contact lives in the footer only (Sebastian's call).
