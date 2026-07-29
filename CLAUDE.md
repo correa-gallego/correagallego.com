@@ -21,52 +21,41 @@ multi-page routing, no analytics, no third-party scripts.
 
 - **Astro 5**, static output (`output: 'static'`), `@astrojs/sitemap`.
 - One page: `src/pages/index.astro` (+ `src/pages/404.astro`).
-- Layout `src/layouts/Base.astro` (SEO meta, JSON-LD Person schema, background layers, footer).
-- `src/components/Footer.astro` — inline-SVG icon links (email, LinkedIn, GitHub, CV).
+- Layout `src/layouts/Base.astro` (SEO meta, JSON-LD Person schema, footer). No background layers.
+- `src/components/Footer.astro` — left-aligned inline-SVG icon links: email, ORCID (brand-green
+  mark), GitHub, CV. **No LinkedIn** (Sebastian: not used by scientists).
 - `src/styles/global.css` — the entire design system.
-- Assets kept in `public/assets/`: `profile.jpg` (optimized ~64 KB), `Curriculum_Vitae.pdf`,
-  `favicon.svg`. Nothing else — all other media was removed as unused.
+- Assets kept in `public/assets/`: `Sebastian-Correa-Gallego-CV.pdf`, `favicon.svg`. Nothing else.
+  **No profile photo** (removed at Sebastian's request). No web fonts (Palatino is a system stack).
 - Content is inlined directly in `index.astro`. There are **no content collections** and no
   `src/content/`. Keep it that way unless the content grows substantially.
 
 Commands: `npm run dev`, `npm run build` (must pass, no console errors).
 
-## Design language (current) — "Field notes on a gradient"
+## Design language (current) — "The CV, on the web"
 
-Editorial, scientific, calm — clean on the surface, with a generative background that rewards a
-closer look. The concept: a naturalist's field notebook.
+Sober, formal, document-like — the site is Sebastian's academic CV rendered as a clean web page,
+mirroring the LaTeX/Palatino PDF as closely as is sensible. **No decoration, no background art, no
+scroll animations.** This was a deliberate reset from an earlier animated design; keep it minimal
+unless Sebastian asks to reintroduce flourishes.
 
-- **One typeface: `Roboto Serif`** (variable, opsz+wght) for everything — chosen for a
-  "frictionless", whisper-serif reading feel. No sans-serif, no monospace. Base 18px.
-- **No ALL-CAPS anywhere** (Sebastian dislikes it) and **no middle-dot/interpunct separators
-  except in the footer** — use em dashes, commas, or line breaks instead.
-- **Cool paper with a subtle top→bottom gradient** (light → depth). Deep slate ink; one
-  restrained **muted-teal accent** (`--accent`). Content column widened (`--content: 50rem`).
-- **Generative backdrop** (`src/components/Backdrop.astro`), computed deterministically at build
-  time, framing the reading column with two axes that map to Sebastian's phrase "across time and
-  environment":
-  - **Right = a tree of life** after Darwin's 1837 "I think" sketch — grown recursively as a mostly
-    straight, asymmetric form (a main axis throwing lateral branches), with terminal ticks and a
-    circled base node, in a **warm sepia ink** (`--tree-ink`, homage to the original). It **draws
-    itself on scroll** (three tiers, staggered `animation-range`, finishing by ~84% so it completes
-    before the footer; self-draw via inherited `stroke-dashoffset` on `pathLength="1"` paths).
-  - **Left = the environmental gradient** (`GradientAxis.astro`): a luminous→deep scale with a
-    glowing reading-head that descends on scroll (`@property --marker-y`).
-  - **Around = hand-drawn microbial specimens** (cocci, bacilli, septate filaments, pennate
-    diatoms, spirilla, budding yeast, radiolaria, colonies, hyphae, branching lineages) with very
-    faint colour washes (`.tint-*`: teal/sage/blue/ochre/slate) + contour lines, in three layers
-    that drift and progressively emerge on scroll.
-  A radial mask keeps the reading column legible; frosted `.card`s (`backdrop-filter`) lift off
-  it. All motion is reduced-motion-safe; the tree + axis hide < 1100px (mobile stays calm).
-  Future: Sebastian may add hand-drawn SVGs from Claude Design — drop them in as new glyphs/layers.
-- **Hero** (no eyebrow — just the person): photo + name + "Bachelor of Science in Biology" + the
-  **italic organizing statement** (Sebastian likes it) with the key phrase in accent.
-- **Section headings**: `01 — Orientation` etc., normal case, index in accent. `.reveal`
-  entrances via `view()`. Contact is footer icon chips only (interpunct allowed there). Print B/W.
+- **One typeface: Palatino** via system stack (`"Palatino Linotype","Book Antiqua",Palatino,
+  "URW Palladio L",Georgia,serif`). No web-font request — faithful to the CV's `mathpazo`, and fast.
+- **Neutral pale-gray background** (`--paper: #f4f4f1`) — solid, no gradient. **No blue / no
+  non-neutral hues** (Sebastian's explicit preference). Text near-black `--ink`, headings gray
+  `--head`, sober **navy links** (`--link: #133a80`, matching the PDF's `RGB(0,0,102)`).
+- **No ALL-CAPS in body/section titles**; the name uses `font-variant: small-caps`. Interpunct
+  `·` only in the masthead contact line and footer note.
+- **CV layout**: left-aligned single column (`--content: 48rem`). Masthead (name + contact lines);
+  sections = bold gray title + thin rule; entries = bold title with an italic right-aligned date,
+  a meta line, and gray bullet lists; skills as `strong:` labelled paragraphs; two-column
+  references. `.entry__title-sub` = the non-bold degree/detail after a bold institution.
+- **Footer**: left-aligned icon links (email, ORCID green mark, GitHub octocat, CV) + "Last
+  updated" note. Print styles flatten to black-on-white.
 
-Section order: Hero → 01 Orientation → 02 Research → 03 Presentations → 04 Honors →
-05 Academic Record → 06 Technical Profile → footer. "Orientation" prose = the CV research-interests
-statement. Technical Profile includes R/Python, QGIS (spatial), LaTeX, Git.
+Section order (identical to the PDF): Masthead → Research Interests → Education → Research
+Experience → Academic Service → Conferences and Presentations → Honors and Recognition →
+Certifications and Training → Technical Skills → References → footer.
 
 ## Who Sebastian is (for framing content — from his own field notebook, non-sensitive)
 
@@ -82,13 +71,17 @@ the predictability of microbial community assembly."
 
 ## Content rules (important)
 
-- **Do not invent.** The Purdue manuscript has no title and Sebastian would be at most second
-  author — never fabricate a citation. Describe it as ongoing, manuscript in preparation.
+- **Source of truth is the CV.** The site content mirrors Sebastian's LaTeX academic CV
+  (Palatino/`mathpazo`). When he shares an updated CV, reconcile the page to it. Do not invent.
+- **Contact email is `correagsebastian2204@gmail.com`** (the CV's; not the old EAFIT address).
+  ORCID: `0009-0007-8703-3188` — keep `rel="me"` on ORCID links (identity cross-referencing).
+- The Purdue manuscript has no public citation; describe the internship work as the CV does
+  (project *Proteome Allocation Rules in Osmotrophic Eukaryotes*), never a fabricated paper.
 - The thesis is public: <https://hdl.handle.net/10784/38213> (EAFIT repository, sole author).
+- **References** (Pinel, Muñoz-Gómez) are published with emails per Sebastian's instruction and
+  the PDF; offer to switch to "available on request" if he wants to shield them from scrapers.
 - **Never surface sensitive material** from the Notion workspace: fellowship names/IDs, the
-  school shortlist, psychological/strategic notes, interim plans, finalist dates. Only the
-  committee-facing intellectual framing above is public.
-- Keep prose compact; avoid duplicating facts across sections.
+  school shortlist, psychological/strategic notes, interim plans, finalist dates.
 
 ## Deployment
 
@@ -104,7 +97,10 @@ the predictability of microbial community assembly."
 2. Consolidated a former multi-page site into one page; first editorial redesign.
 3. Design-refinement pass (typography, spacing, hero depth, scroll progress, card panels).
 4. Favicon → serif "SC" monogram on a navy tile.
-5. **Current**: full minimalist redesign — single Baskerville typeface, pastel-blue background,
-   no nav/buttons, content reduced to match the compact academic CV, contact moved to footer
-   icons; removed all unused components, content collections, and media; repo cleaned to just
-   the profile photo, CV, and favicon.
+5. Minimalist redesign (Baskerville, pastel), then an editorial "field notes on a gradient" phase:
+   Roboto Serif + a generative Darwin-tree / microbial backdrop with scroll animation.
+6. **Current**: sober reset to a formal academic CV. Removed the entire animated backdrop and
+   gradient axis; switched to Palatino on a neutral pale-gray solid background with navy links;
+   rebuilt content to mirror the LaTeX CV (added Certifications, References, extra bullets/entries,
+   new Research Interests). Removed the profile photo and old CV; added
+   `Sebastian-Correa-Gallego-CV.pdf`. Footer left-aligned, LinkedIn dropped, ORCID added.

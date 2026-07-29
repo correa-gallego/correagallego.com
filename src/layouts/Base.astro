@@ -1,7 +1,5 @@
 ---
 import Footer from '../components/Footer.astro';
-import Backdrop from '../components/Backdrop.astro';
-import GradientAxis from '../components/GradientAxis.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -12,12 +10,11 @@ interface Props {
 
 const {
   title,
-  description = 'Sebastian Correa-Gallego — biologist (B.Sc., Universidad EAFIT). I study how biological systems assemble, organize, and transform across time and environment — microbial community assembly along environmental gradients and cellular resource allocation under constraint.',
-  ogType = 'website',
+  description = 'Sebastian Correa-Gallego — biologist (B.Sc., Universidad EAFIT). Microbial community assembly, the tension between predictability and contingency, and cellular resource allocation under constraint.',
+  ogType = 'profile',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
-const ogImage = new URL('/assets/profile.jpg', Astro.site).toString();
 
 const personSchema = {
   '@context': 'https://schema.org',
@@ -26,8 +23,7 @@ const personSchema = {
   givenName: 'Sebastian',
   familyName: 'Correa-Gallego',
   url: 'https://correagallego.com',
-  image: ogImage,
-  email: 'mailto:scorreag6@eafit.edu.co',
+  email: 'mailto:correagsebastian2204@gmail.com',
   jobTitle: 'Biologist',
   alumniOf: { '@type': 'CollegeOrUniversity', name: 'Universidad EAFIT', address: 'Medellín, Colombia' },
   knowsAbout: [
@@ -35,10 +31,15 @@ const personSchema = {
     'Community Assembly',
     'Evolutionary Biology',
     'Cellular Resource Allocation',
-    'Natural Systems',
+    'Microbiology',
   ],
+  identifier: {
+    '@type': 'PropertyValue',
+    propertyID: 'ORCID',
+    value: 'https://orcid.org/0009-0007-8703-3188',
+  },
   sameAs: [
-    'https://www.linkedin.com/in/s-correag',
+    'https://orcid.org/0009-0007-8703-3188',
     'https://github.com/correa-gallego',
   ],
 };
@@ -53,34 +54,27 @@ const personSchema = {
   <title>{title}</title>
   <meta name="description" content={description}>
   <meta name="author" content="Sebastian Correa-Gallego">
-  <meta name="theme-color" content="#e3ecf5">
+  <meta name="theme-color" content="#f4f4f2">
   <link rel="canonical" href={canonicalURL}>
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/favicon.svg">
   <link rel="sitemap" href="/sitemap-index.xml">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <meta property="og:type" content={ogType}>
   <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
   <meta property="og:url" content={canonicalURL}>
   <meta property="og:site_name" content="Sebastian Correa-Gallego">
-  <meta property="og:image" content={ogImage}>
   <meta property="og:locale" content="en_US">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content={title}>
   <meta name="twitter:description" content={description}>
-  <meta name="twitter:image" content={ogImage}>
 
   <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to content</a>
-  <Backdrop />
-  <GradientAxis />
   <main id="main-content">
     <slot />
   </main>

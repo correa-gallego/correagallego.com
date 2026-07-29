@@ -2,178 +2,247 @@
 import Base from '../layouts/Base.astro';
 ---
 
-<Base title="Sebastian Correa-Gallego" ogType="profile">
-  <div class="container">
+<Base title="Sebastian Correa-Gallego — Curriculum Vitae">
+  <div class="cv">
 
-    <header class="hero">
-      <img
-        src="/assets/profile.jpg"
-        alt="Portrait of Sebastian Correa-Gallego"
-        class="hero__photo"
-        width="118"
-        height="118"
-        loading="eager"
-        decoding="async"
-      />
-      <h1 class="hero__name">Sebastian Correa-Gallego</h1>
-      <p class="hero__subtitle">Bachelor of Science in Biology</p>
-      <p class="hero__statement">
-        I study how biological systems <em>assemble, organize, and transform</em>
-        across time and environment — and whether the forms life takes are written
-        by rule, or by history and chance.
+    <header class="masthead">
+      <h1 class="masthead__name">Sebastian Correa-Gallego</h1>
+      <p class="masthead__line">
+        Medellín, Colombia
+        <span class="sep">·</span>
+        <a href="mailto:correagsebastian2204@gmail.com">correagsebastian2204@gmail.com</a>
+      </p>
+      <p class="masthead__line">
+        <a href="https://orcid.org/0009-0007-8703-3188" rel="me noopener noreferrer" target="_blank">orcid.org/0009-0007-8703-3188</a>
+        <span class="sep">·</span>
+        <a href="https://github.com/correa-gallego" rel="noopener" target="_blank">github.com/correa-gallego</a>
       </p>
     </header>
 
-    <section id="orientation" class="block">
-      <h2 class="heading reveal"><span class="heading__n">01</span><span class="heading__t">Orientation</span></h2>
-      <div class="prose reveal">
+    <section class="sec">
+      <h2 class="sec__title">Research Interests</h2>
+      <div class="prose">
         <p>
-          Evolution and ecology are not subfields of biology — they are its organizing logic,
-          present from the emergence of cellular complexity to the structure of communities in
-          extreme environments. My research interests sit at this intersection: I am drawn to
-          microbial systems as tractable windows into how life assembles, persists, and transforms
-          under ecological and energetic constraint.
+          Life assembles into order under constraint. A microbial community drawn from the same
+          pool of organisms may converge on a single reproducible state or settle into one of
+          several alternatives depending on the order in which its members arrive, and what decides
+          between these outcomes — whether assembly follows rules or depends on history — remains
+          among the open questions in ecology and evolution. This tension between predictability and
+          contingency reaches beyond any single system: it echoes the broader problem of how
+          autonomous parts come to form integrated wholes, from the structure of a community to the
+          major transitions in the organization of life. I am drawn to these questions, and to the
+          possibility that collective outcomes might be anticipated from measurable properties of the
+          organisms themselves — such as how a cell divides its finite resources between growth and
+          metabolic efficiency. I hope to pursue them with growing quantitative rigor while keeping
+          the living organism, in its real environment, at the center of the inquiry.
         </p>
-        <p>
-          This includes questions about community organization along environmental gradients, the
-          physiological and molecular strategies — including cellular resource allocation — that
-          underlie ecological success, and the eco-evolutionary dynamics that connect cellular
-          function to community-level patterns. I am also interested in the quantitative and
-          computational frameworks that make these questions formally tractable, and in connecting
-          field-based inquiry with analytical rigor across biological scales.
-        </p>
-      </div>
-      <div class="pull reveal">
-        <span class="pull__label">Current direction</span>
-        <span class="pull__text">
-          Cellular resource allocation and the predictability of microbial community assembly.
-        </span>
       </div>
     </section>
 
-    <section id="research" class="block">
-      <h2 class="heading reveal"><span class="heading__n">02</span><span class="heading__t">Research</span></h2>
-      <p class="lede reveal">Two windows on one question.</p>
-
-      <article class="card reveal">
-        <span class="card__meta">Outward — microbial communities</span>
-        <h3 class="card__title card__title--italic">
-          Cultivable Microbial Community Structure Along a Light Gradient in a Tropical
-          Volcaniclastic Cave
-        </h3>
-        <p class="card__sub">Undergraduate thesis, Universidad EAFIT. Advised by Prof. Nicolás Pinel Peláez.</p>
-        <p class="card__desc">
-          In a tropical volcaniclastic cave, a light gradient runs from the entrance to the
-          aphotic zone. Across it, the same cave — under different energetic conditions —
-          produced structurally different microbial communities. Environment as sculptor,
-          community as response; the gradient as the axis that makes the relationship visible.
-        </p>
-        <a class="card__link" href="https://hdl.handle.net/10784/38213" target="_blank" rel="noopener">
-          Read the thesis in the EAFIT repository →
-        </a>
-      </article>
-
-      <article class="card reveal">
-        <span class="card__meta">Inward — cellular constraint</span>
-        <h3 class="card__title">Proteome allocation in osmotrophic yeasts under carbon limitation</h3>
-        <p class="card__sub">ECSO Lab, Purdue University. Visiting Student Intern, 2025–2026.</p>
-        <p class="card__desc">
-          How does a cell reorganize its own molecular machinery to survive a different energetic
-          regime? Working with yeast under carbon limitation, this project follows proteome
-          allocation as resources change — the same logic as the cave, at the scale of a single
-          organism. A manuscript is in preparation.
-        </p>
-      </article>
-    </section>
-
-    <section id="presentations" class="block">
-      <h2 class="heading reveal"><span class="heading__n">03</span><span class="heading__t">Presentations</span></h2>
-      <div class="reveal">
-        <div class="entry">
-          <div class="entry__row">
-            <span class="entry__title">Research proposal presentation</span>
-            <span class="entry__date">2024</span>
-          </div>
-          <p class="entry__sub">2nd Symposium of Biology, Universidad EAFIT — <em>awarded second place</em></p>
+    <section class="sec">
+      <h2 class="sec__title">Education</h2>
+      <div class="entry">
+        <div class="entry__head">
+          <span class="entry__title">Universidad EAFIT<span class="entry__title-sub">, B.Sc. in Biology</span></span>
+          <span class="entry__date">2022–2026</span>
         </div>
-        <div class="entry">
-          <div class="entry__row">
-            <span class="entry__title">Oral presentation</span>
-            <span class="entry__date">2024</span>
-          </div>
-          <p class="entry__sub">XXIII Encuentro Departamental de Semilleros de Investigación, RedCOLSI, Antioquia</p>
-        </div>
+        <p class="entry__meta entry__meta--small">GPA: 4.44 / 5.00</p>
       </div>
     </section>
 
-    <section id="honors" class="block">
-      <h2 class="heading reveal"><span class="heading__n">04</span><span class="heading__t">Honors &amp; Recognition</span></h2>
-      <div class="reveal">
-        <div class="entry">
-          <div class="entry__row">
-            <span class="entry__title">Fully funded visiting internship</span>
-            <span class="entry__date">2025</span>
-          </div>
-          <p class="entry__sub">Fundación Fraternidad Medellín — UREP-C Program</p>
+    <section class="sec">
+      <h2 class="sec__title">Research Experience</h2>
+
+      <div class="entry">
+        <div class="entry__head">
+          <span class="entry__title">Visiting Student Intern</span>
+          <span class="entry__date">Aug 2025 – Jan 2026</span>
         </div>
-        <div class="entry">
-          <div class="entry__row">
-            <span class="entry__title">Undergraduate scholarship</span>
-            <span class="entry__date">2022</span>
-          </div>
-          <p class="entry__sub">Comfama and Fundación Fraternidad Medellín</p>
+        <p class="entry__meta">
+          <a href="https://ecsolab.com/" rel="noopener" target="_blank">The Evolution of Cells, Symbionts and Organelles Lab</a>,
+          Dept. of Biological Sciences, Purdue University
+        </p>
+        <ul class="bullets">
+          <li>
+            Contributed to the project <em>Proteome Allocation Rules in Osmotrophic Eukaryotes</em>,
+            studying how non-conventional osmotrophic yeasts (<em>K. marxianus</em> and
+            <em>V. polyspora</em>) reorganize proteome investment under carbon limitation.
+          </li>
+          <li>
+            Generated high-resolution growth curves to characterize the physiological response of the
+            study organisms across defined carbon regimes, establishing the growth phenotypes
+            underlying the downstream analysis.
+          </li>
+          <li>
+            Contributed to proteomics-based workflows, including sample preparation and integrative
+            analysis linking molecular allocation to cellular physiology.
+          </li>
+          <li>
+            Tested and calibrated an automated continuous-culture system (Pioreactor) to support
+            controlled cultivation for the lab's steady-state experiments.
+          </li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry__head">
+          <span class="entry__title">Undergraduate Thesis Researcher</span>
+          <span class="entry__date">2024–2026</span>
         </div>
+        <p class="entry__meta">Universidad EAFIT, Advisor: Prof. Nicolás Pinel Peláez, Ph.D.</p>
+        <p class="entry__meta entry__meta--small">
+          Thesis: <em>Cultivable Microbial Community Structure Along a Light Gradient in a Tropical
+          Volcaniclastic Cave</em>
+          <a href="https://hdl.handle.net/10784/38213" rel="noopener" target="_blank">[permanent link]</a>
+        </p>
+        <ul class="bullets">
+          <li>
+            Characterized the cultivable microbial fraction of the Organal San Antonio, a tropical
+            volcaniclastic cave at ~2350 m a.s.l. in Támesis, Antioquia, across a light-defined
+            spatial gradient spanning Entrance, Transition, and Dark sectors.
+          </li>
+          <li>
+            Found systematic differences in cultivable abundance and community composition across
+            zonation: the aphotic sector supported markedly reduced densities and a distinct
+            assemblage relative to photic sectors, while the Transition zone harbored a partially
+            unique community of its own.
+          </li>
+          <li>
+            Established a first spatially resolved cultivable baseline for an organal-type
+            pseudokarstic cave system, designing a tractable cultivation study in the absence of
+            sequencing infrastructure.
+          </li>
+        </ul>
       </div>
     </section>
 
-    <section id="record" class="block">
-      <h2 class="heading reveal"><span class="heading__n">05</span><span class="heading__t">Academic Record</span></h2>
-      <div class="reveal">
-        <div class="entry">
-          <div class="entry__row">
-            <span class="entry__title">B.Sc. in Biology</span>
-            <span class="entry__date">2022–2026</span>
-          </div>
-          <p class="entry__sub">Universidad EAFIT, GPA 4.44 / 5.00</p>
+    <section class="sec">
+      <h2 class="sec__title">Academic Service</h2>
+      <div class="entry">
+        <div class="entry__head">
+          <span class="entry__title">
+            Student Director,
+            <a href="https://www.eafit.edu.co/sistema-ciencia-tecnologia-innovacion/investigacion/nuestros-semilleros/investigacion-microbiologia-astrobiologia" rel="noopener" target="_blank">Research Group on Microbiology and Astrobiology (SIAB)</a>
+          </span>
+          <span class="entry__date">Oct 2023 – May 2025</span>
         </div>
-        <div class="entry">
-          <div class="entry__row">
-            <span class="entry__title">Visiting Student Intern</span>
-            <span class="entry__date">Aug 2025 – Jan 2026</span>
-          </div>
-          <p class="entry__sub">ECSO Lab, Department of Biological Sciences, Purdue University</p>
-        </div>
-        <div class="entry">
-          <div class="entry__row">
-            <span class="entry__title">Undergraduate Thesis Researcher</span>
-            <span class="entry__date">2024–2026</span>
-          </div>
-          <p class="entry__sub">Universidad EAFIT, advised by Prof. Nicolás Pinel Peláez</p>
-        </div>
-        <div class="entry">
-          <div class="entry__row">
-            <span class="entry__title">Student Director, Microbiology &amp; Astrobiology Group (SIAB)</span>
-            <span class="entry__date">Oct 2023 – May 2025</span>
-          </div>
-          <p class="entry__sub">Universidad EAFIT, affiliated with GEBI</p>
-        </div>
+        <p class="entry__meta">Universidad EAFIT, affiliated with the Research Group on Geosciences and Biodiversity (GEBI)</p>
+        <ul class="bullets">
+          <li>
+            Led a student research group on microbiology, astrobiology, and extremophiles; taught
+            basic microbiology techniques to incoming students and coordinated projects on cave and
+            thermal-spring microbial communities.
+          </li>
+          <li>
+            Directed an outreach project on the role of microorganisms in the maintenance of Andean
+            forests, producing science-communication material and interpretive displays for the El
+            Globo nature reserve (Támesis).
+          </li>
+        </ul>
       </div>
     </section>
 
-    <section id="profile" class="block">
-      <h2 class="heading reveal"><span class="heading__n">06</span><span class="heading__t">Technical Profile</span></h2>
-      <div class="prose reveal">
-        <p>
-          My training spans cultivation-based microbiology, environmental sampling, microscopy,
-          and morphotype characterization from fieldwork in subterranean systems, together with
-          cell physiology and continuous-culture workflows developed at Purdue.
-        </p>
-        <p>
-          On the quantitative side I work in R and Python for biological data analysis and
-          visualization, use QGIS for spatial and environmental data, and keep reproducible,
-          literate workflows with LaTeX and Git — progressively integrating formal methods with
-          the natural history that motivates them.
-        </p>
+    <section class="sec">
+      <h2 class="sec__title">Conferences and Presentations</h2>
+      <div class="entry">
+        <div class="entry__head">
+          <span class="entry__title">Research Proposal Presentation</span>
+          <span class="entry__date">2024</span>
+        </div>
+        <p class="entry__meta entry__meta--small">2nd Symposium of Biology, Universidad EAFIT</p>
+      </div>
+      <div class="entry">
+        <div class="entry__head">
+          <span class="entry__title">Oral Presentation</span>
+          <span class="entry__date">2024</span>
+        </div>
+        <p class="entry__meta entry__meta--small">XXIII Encuentro Departamental de Semilleros de Investigación, RedCOLSI, Antioquia, Colombia</p>
+      </div>
+      <div class="entry">
+        <div class="entry__head">
+          <span class="entry__title">Research Fair Presentation</span>
+          <span class="entry__date">2022</span>
+        </div>
+        <p class="entry__meta entry__meta--small">Feria de Semilleros de Investigación, Universidad EAFIT</p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec__title">Honors and Recognition</h2>
+      <div class="entry">
+        <div class="entry__head">
+          <span class="entry__title">Fully Funded Internship</span>
+          <span class="entry__date">2025</span>
+        </div>
+        <p class="entry__meta entry__meta--small">Fundación Fraternidad Medellín — UREP-C Program, Purdue University</p>
+      </div>
+      <div class="entry">
+        <div class="entry__head">
+          <span class="entry__title">Award Winner, Research Proposal Presentation</span>
+          <span class="entry__date">2024</span>
+        </div>
+        <p class="entry__meta entry__meta--small">2nd Symposium of Biology, Universidad EAFIT</p>
+      </div>
+      <div class="entry">
+        <div class="entry__head">
+          <span class="entry__title">Undergraduate Scholarship</span>
+          <span class="entry__date">2022</span>
+        </div>
+        <p class="entry__meta entry__meta--small">Comfama and Fundación Fraternidad Medellín</p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec__title">Certifications and Training</h2>
+      <div class="entry">
+        <div class="entry__head">
+          <span class="entry__title">Responsible Conduct of Research (RCR) Training</span>
+          <span class="entry__date">Aug 2025</span>
+        </div>
+        <p class="entry__meta entry__meta--small">CITI Program, Credential ID 71597371, valid through Aug 2029</p>
+      </div>
+      <div class="entry">
+        <div class="entry__head">
+          <span class="entry__title">Technician in Agricultural Sciences</span>
+          <span class="entry__date">2019–2021</span>
+        </div>
+        <p class="entry__meta entry__meta--small">Servicio Nacional de Aprendizaje (SENA), Colombia</p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec__title">Technical Skills</h2>
+      <p class="skill">
+        <strong>Laboratory and biological methods:</strong> microbial cultivation and isolation,
+        continuous-culture operation, growth-curve measurement, environmental sampling and ecological
+        field records, molecular biology and biochemistry techniques, proteomics sample preparation,
+        and microscopy-based observation.
+      </p>
+      <p class="skill">
+        <strong>Quantitative and computational tools:</strong> R, Python, Linux/bash, LaTeX, and
+        QGIS, applied to biological data analysis, statistics, and data visualization.
+      </p>
+      <p class="skill">
+        <strong>Scientific workflows:</strong> scientific writing, research communication, literature
+        synthesis, and figure preparation.
+      </p>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec__title">References</h2>
+      <div class="refs">
+        <div class="ref">
+          <p class="ref__name">Nicolás Pinel Peláez, Ph.D.</p>
+          <p class="ref__line">Professor, Natural Systems and Sustainability</p>
+          <p class="ref__line">Universidad EAFIT</p>
+          <p class="ref__line"><a href="mailto:npinelp@eafit.edu.co">npinelp@eafit.edu.co</a></p>
+        </div>
+        <div class="ref">
+          <p class="ref__name">Sergio A. Muñoz-Gómez, Ph.D.</p>
+          <p class="ref__line">Assistant Professor, Dept. of Biological Sciences</p>
+          <p class="ref__line">Purdue University</p>
+          <p class="ref__line"><a href="mailto:samunozg@purdue.edu">samunozg@purdue.edu</a></p>
+        </div>
       </div>
     </section>
 
