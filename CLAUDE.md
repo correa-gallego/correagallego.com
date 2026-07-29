@@ -46,16 +46,21 @@ unless Sebastian asks to reintroduce flourishes.
   `--head`, sober **navy links** (`--link: #133a80`, matching the PDF's `RGB(0,0,102)`).
 - **No ALL-CAPS in body/section titles**; the name uses `font-variant: small-caps`. Interpunct
   `·` only in the masthead contact line and footer note.
-- **CV layout**: left-aligned single column (`--content: 48rem`). Masthead (name + contact lines);
-  sections = bold gray title + thin rule; entries = bold title with an italic right-aligned date,
-  a meta line, and gray bullet lists; skills as `strong:` labelled paragraphs; two-column
-  references. `.entry__title-sub` = the non-bold degree/detail after a bold institution.
-- **Footer**: left-aligned icon links (email, ORCID green mark, GitHub octocat, CV) + "Last
-  updated" note. Print styles flatten to black-on-white.
+- **CV layout**: left-aligned single column (`--content: 48rem`). Masthead = name + one italic
+  subtitle line ("Biologist — microbial ecology and evolutionary biology"), rule under. **No
+  contact line under the name** — all contact lives in the footer only (Sebastian's call).
+  Sections = bold gray title + thin rule. Entries use a **left date gutter** (`.entry` is a
+  `8.5rem 1fr` grid: italic muted date | `.entry__body` with bold title, meta, gray bullets);
+  collapses to stacked on ≤620px. Skills as `strong:` labelled paragraphs. `.entry__title-sub` =
+  the non-bold degree/detail after a bold institution.
+- **The site is NOT a 1:1 copy of the PDF.** Notably: **no References section** (privacy) and no
+  masthead contact block, even though the PDF has both.
+- **Footer**: left-aligned icon links (email, ORCID green mark, GitHub octocat, CV) + a
+  `© {year} Sebastian Correa-Gallego` copyright note. Print styles flatten to black-on-white.
 
-Section order (identical to the PDF): Masthead → Research Interests → Education → Research
-Experience → Academic Service → Conferences and Presentations → Honors and Recognition →
-Certifications and Training → Technical Skills → References → footer.
+Section order: Masthead → Research Interests → Education → Research Experience → Academic
+Service → Conferences and Presentations → Honors and Recognition → Certifications and Training →
+Technical Skills → footer.
 
 ## Who Sebastian is (for framing content — from his own field notebook, non-sensitive)
 

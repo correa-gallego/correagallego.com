@@ -82,25 +82,25 @@
 @layer components {
 
     /* ----- Masthead ----- */
-    .masthead { margin-bottom: 1.9rem; }
+    .masthead {
+        margin-bottom: 2.2rem;
+        padding-bottom: 1.2rem;
+        border-bottom: 1px solid var(--rule);
+    }
     .masthead__name {
-        font-size: clamp(1.7rem, 4.5vw, 2.1rem);
+        font-size: clamp(1.75rem, 4.6vw, 2.15rem);
         font-weight: 700;
         font-variant: small-caps;
         letter-spacing: 0.02em;
         color: var(--ink);
-        line-height: 1.1;
+        line-height: 1.08;
     }
-    .masthead__line {
+    .masthead__subtitle {
         margin-top: 0.5rem;
-        font-size: 0.94rem;
+        font-size: 1.02rem;
+        font-style: italic;
         color: var(--muted);
-        line-height: 1.7;
-    }
-    .masthead__line .sep { color: var(--rule); margin: 0 0.5em; }
-    @media (max-width: 480px) {
-        .masthead__line .sep { display: none; }
-        .masthead__line a { display: block; }
+        line-height: 1.5;
     }
 
     /* ----- Section ----- */
@@ -117,25 +117,30 @@
     .prose { color: var(--body); line-height: 1.62; }
     .prose p + p { margin-top: 0.7rem; }
 
-    /* ----- Entry ----- */
-    .entry { margin-bottom: 0.95rem; }
-    .entry:last-child { margin-bottom: 0; }
-    .entry__head {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        gap: 1rem;
+    /* ----- Entry (date gutter + body) ----- */
+    .entry {
+        display: grid;
+        grid-template-columns: 8.5rem 1fr;
+        column-gap: 1.5rem;
+        margin-bottom: 1.05rem;
     }
-    .entry__title { font-weight: 700; color: var(--ink); }
+    .entry:last-child { margin-bottom: 0; }
     .entry__date {
-        flex-shrink: 0;
         font-style: italic;
         color: var(--muted);
-        font-size: 0.95rem;
-        white-space: nowrap;
+        font-size: 0.9rem;
+        padding-top: 0.16rem;
+        line-height: 1.4;
     }
-    .entry__meta { color: var(--body); margin-top: 0.05rem; }
+    .entry__title { font-weight: 700; color: var(--ink); line-height: 1.4; }
+    .entry__title-sub { font-weight: 400; color: var(--body); }
+    .entry__meta { color: var(--body); margin-top: 0.08rem; line-height: 1.5; }
     .entry__meta--small { font-size: 0.95rem; }
+
+    @media (max-width: 620px) {
+        .entry { grid-template-columns: 1fr; column-gap: 0; }
+        .entry__date { padding-top: 0; margin-bottom: 0.2rem; font-size: 0.85rem; }
+    }
 
     /* ----- Bullets ----- */
     .bullets {
@@ -160,17 +165,6 @@
     /* ----- Skills ----- */
     .skill { margin-bottom: 0.55rem; line-height: 1.55; color: var(--body); }
     .skill:last-child { margin-bottom: 0; }
-
-    /* ----- References ----- */
-    .refs {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem 2.2rem;
-    }
-    .ref { line-height: 1.5; }
-    .ref__name { font-weight: 700; color: var(--ink); }
-    .ref__line { font-size: 0.95rem; color: var(--body); }
-    @media (max-width: 560px) { .refs { grid-template-columns: 1fr; } }
 
     /* ----- Footer ----- */
     footer {
