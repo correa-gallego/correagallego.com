@@ -39,21 +39,18 @@ mirroring the LaTeX/Palatino PDF as closely as is sensible. **No decoration, no 
 scroll animations.** This was a deliberate reset from an earlier animated design; keep it minimal
 unless Sebastian asks to reintroduce flourishes.
 
-- **One typeface: Inter** (Google Fonts, weights 400/500/600/700), loaded via `<link>` in
-  `Base.astro`. Chosen over Palatino: larger x-height (reads bigger), consistent cross-device
-  rendering, clean on white. Base 18px. If Sebastian ever wants warmth back, a refined serif
-  (e.g. Source Serif 4) is the fallback direction.
-- **Pure white background** (`--paper: #ffffff`). All grays are strictly neutral (R=G=B) — an
-  earlier warm off-white read as a green tint, which Sebastian disliked. **No blue / no
-  non-neutral hues** in surfaces. Near-black text, gray headings, sober **navy links**
-  (`--link: #12428f`). Larger text throughout; content column widened (`--content: 52rem`) with
-  smaller gutters to reduce side margins.
-- **No ALL-CAPS** and **no interpunct `·` separators** anywhere. The masthead is name + one
-  subtitle line only. Research Experience / Academic Service bullets are kept **condensed** (the
-  web CV is leaner than the PDF — the PDF remains the complete record).
-- **CV layout**: left-aligned single column (`--content: 48rem`). Masthead = name + one italic
-  subtitle line ("Biologist — microbial ecology and evolutionary biology"), rule under. **No
-  contact line under the name** — all contact lives in the footer only (Sebastian's call).
+- **One typeface: Source Serif 4** (Google Fonts, `<link>` in `Base.astro`; ital+opsz, weights
+  400/600/700). Base 17px. Palatino was tried first but felt "too formal"; Inter (sans) was tried
+  and disliked — Sebastian prefers a warmer serif. The name is set in `font-variant: small-caps`.
+- **Light cool-gray background** (`--paper: #f1f3f6` — same lightness as the earlier off-white but
+  a **cool** cast; a warm off-white had read as green, which Sebastian disliked). Grays are cool
+  neutrals. Sober **navy links** (`--link: #133a80`, ~ the PDF's `RGB(0,0,102)`). No non-neutral
+  surfaces beyond this subtle cool tint.
+- **No ALL-CAPS** (except the small-caps name) and **no interpunct `·` separators** anywhere.
+  Research Experience / Academic Service keep the full CV bullets (with the CV's exact wording).
+- **CV layout**: left-aligned single column (`--content: 48rem`). Masthead = small-caps name + a
+  **bold "Biologist"** subtitle, rule under. **No contact line under the name** — contact lives in
+  the footer only.
   Sections = bold gray title + thin rule. Entries use a **left date gutter** (`.entry` is a
   `8.5rem 1fr` grid: italic muted date | `.entry__body` with bold title, meta, gray bullets);
   collapses to stacked on ≤620px. Skills as `strong:` labelled paragraphs. `.entry__title-sub` =
@@ -109,8 +106,11 @@ the predictability of microbial community assembly."
 4. Favicon → serif "SC" monogram on a navy tile.
 5. Minimalist redesign (Baskerville, pastel), then an editorial "field notes on a gradient" phase:
    Roboto Serif + a generative Darwin-tree / microbial backdrop with scroll animation.
-6. **Current**: sober reset to a formal academic CV. Removed the entire animated backdrop and
-   gradient axis; switched to Palatino on a neutral pale-gray solid background with navy links;
-   rebuilt content to mirror the LaTeX CV (added Certifications, References, extra bullets/entries,
-   new Research Interests). Removed the profile photo and old CV; added
-   `Sebastian-Correa-Gallego-CV.pdf`. Footer left-aligned, LinkedIn dropped, ORCID added.
+6. Sober reset to a formal academic CV: removed the animated backdrop/gradient axis; content
+   mirrors the LaTeX CV; removed the profile photo; added `Sebastian-Correa-Gallego-CV.pdf`;
+   footer left-aligned, LinkedIn dropped, ORCID added; dropped References + masthead contact.
+   Font churn: Palatino → Inter/white → back toward the Palatino version.
+7. **Current**: on the Palatino-version base — **Source Serif 4**, **cool** light-gray background
+   (`#f1f3f6`), a **bold "Biologist"** subtitle, favicon changed to a **black serif "S" on white**
+   (the "SC" navy tile was too busy), and the CV PDF refreshed (same filename) with the CV's
+   subtler wording (dropped "Pioreactor" and "first"; softened the Academic Service bullets).
