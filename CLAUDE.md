@@ -40,17 +40,17 @@ scroll animations.** This was a deliberate reset from an earlier animated design
 unless Sebastian asks to reintroduce flourishes.
 
 - **One typeface: Source Serif 4** (Google Fonts, `<link>` in `Base.astro`; ital+opsz, weights
-  400/600/700). Base 17px. Palatino was tried first but felt "too formal"; Inter (sans) was tried
-  and disliked — Sebastian prefers a warmer serif. The name is set in `font-variant: small-caps`.
-- **Light cool-gray background** (`--paper: #f1f3f6` — same lightness as the earlier off-white but
-  a **cool** cast; a warm off-white had read as green, which Sebastian disliked). Grays are cool
-  neutrals. Sober **navy links** (`--link: #133a80`, ~ the PDF's `RGB(0,0,102)`). No non-neutral
-  surfaces beyond this subtle cool tint.
-- **No ALL-CAPS** (except the small-caps name) and **no interpunct `·` separators** anywhere.
+  400/600/700), used for **everything including the name** (normal case). Base 17px. Palatino felt
+  "too formal"; Inter (sans) was disliked; small-caps on the name felt elongated/off — Sebastian
+  wants the name to read as the same face as the body.
+- **Warm light-gray background** (`--paper: #f3f2ef`, R>G>B so it reads warm, not green — an
+  earlier equal-R/G off-white had read greenish, and a cool version was also rejected). Grays are
+  warm neutrals. Sober **navy links** (`--link: #133a80`, ~ the PDF's `RGB(0,0,102)`).
+- **No ALL-CAPS** and **no interpunct `·` separators** anywhere.
   Research Experience / Academic Service keep the full CV bullets (with the CV's exact wording).
-- **CV layout**: left-aligned single column (`--content: 48rem`). Masthead = small-caps name + a
-  **bold "Biologist"** subtitle, rule under. **No contact line under the name** — contact lives in
-  the footer only.
+- **CV layout**: left-aligned single column (`--content: 48rem`). Masthead = name (normal-case
+  Source Serif 4, bold) + a **bold "Biologist"** subtitle, rule under. **No contact line under the
+  name** — contact lives in the footer only. Browser-tab `<title>` is just "Sebastian Correa-Gallego".
   Sections = bold gray title + thin rule. Entries use a **left date gutter** (`.entry` is a
   `8.5rem 1fr` grid: italic muted date | `.entry__body` with bold title, meta, gray bullets);
   collapses to stacked on ≤620px. Skills as `strong:` labelled paragraphs. `.entry__title-sub` =
