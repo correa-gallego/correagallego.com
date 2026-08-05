@@ -1,6 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 const thesisUrl = 'https://hdl.handle.net/10784/38213';
+const thesisPdf = '/assets/Sebastian-Correa-Gallego-Thesis.pdf';
+const ecso = 'https://ecsolab.com/';
+const siab = 'https://www.eafit.edu.co/sistema-ciencia-tecnologia-innovacion/investigacion/nuestros-semilleros/investigacion-microbiologia-astrobiologia';
 ---
 
 <Base title="Sebastian Correa-Gallego">
@@ -9,7 +12,7 @@ const thesisUrl = 'https://hdl.handle.net/10784/38213';
     <div class="hero__scrim" aria-hidden="true"></div>
     <div class="hero__inner">
       <div class="hero__content">
-        <h1 class="hero__name">Sebastian Correa-Gallego</h1>
+        <h1 class="hero__name">Sebastian<br />Correa-Gallego</h1>
         <p class="hero__degree">B.Sc. in Biology</p>
         <p class="hero__phrase">
           On how living systems organize under constraint — keeping the living organism at the
@@ -43,12 +46,13 @@ const thesisUrl = 'https://hdl.handle.net/10784/38213';
       <div class="entry reveal">
         <div class="entry__row">
           <span class="entry__role">B.Sc. in Biology</span>
-          <span class="entry__date">2022–2026</span>
+          <span class="date">2022–2026</span>
         </div>
         <span class="entry__inst">
           <img class="logo" src="/assets/logos/EAFIT.svg" alt="Universidad EAFIT" />
-          Universidad EAFIT · GPA 4.44 / 5.00
+          Universidad EAFIT
         </span>
+        <p class="entry__sub">GPA: 4.44 / 5.00</p>
       </div>
     </section>
 
@@ -58,11 +62,11 @@ const thesisUrl = 'https://hdl.handle.net/10784/38213';
       <article class="entry reveal">
         <div class="entry__row">
           <span class="entry__role">Visiting Student Intern</span>
-          <span class="entry__date">Aug 2025 – Jan 2026</span>
+          <span class="date">Aug 2025 – Jan 2026</span>
         </div>
         <span class="entry__inst">
           <img class="logo" src="/assets/logos/Purdue.svg" alt="Purdue University" />
-          The Evolution of Cells, Symbionts and Organelles Lab · Purdue University
+          <span><a href={ecso} rel="noopener" target="_blank">The Evolution of Cells, Symbionts and Organelles Lab</a>, Department of Biological Sciences, Purdue University</span>
         </span>
         <ul class="bullets">
           <li>
@@ -71,51 +75,54 @@ const thesisUrl = 'https://hdl.handle.net/10784/38213';
             <em>V. polyspora</em>) reorganize proteome investment under carbon limitation.
           </li>
           <li>
-            Generated high-resolution growth curves across defined carbon regimes and contributed to
-            proteomics workflows — sample preparation and integrative analysis linking molecular
-            allocation to cellular physiology.
+            Generated high-resolution growth curves to characterize the physiological response of the
+            study organisms across defined carbon regimes, establishing the growth phenotypes
+            underlying the downstream analysis.
+          </li>
+          <li>
+            Contributed to proteomics-based workflows, including sample preparation and integrative
+            analysis linking molecular allocation to cellular physiology.
           </li>
           <li>
             Tested and calibrated an automated continuous-culture system to support controlled
             cultivation for the lab's steady-state experiments.
           </li>
         </ul>
-        <figure class="figure">
-          <img src="/assets/symposium.webp" alt="Title slide of the presentation Proteome Allocation Rules in Osmotrophic Eukaryotes, Purdue University and Universidad EAFIT." width="1600" height="900" loading="lazy" decoding="async" />
-          <figcaption>Final presentation of the internship project, within the Colombia–Purdue (UREP-C) partnership.</figcaption>
-        </figure>
       </article>
 
       <article class="entry reveal">
         <div class="entry__row">
           <span class="entry__role">Undergraduate Thesis Researcher</span>
-          <span class="entry__date">2024–2026</span>
+          <span class="date">2024–2026</span>
         </div>
         <span class="entry__inst">
           <img class="logo" src="/assets/logos/EAFIT.svg" alt="Universidad EAFIT" />
-          Universidad EAFIT · Advisor: Prof. Nicolás Pinel Peláez, Ph.D.
+          <span>Universidad EAFIT, Advisor: Prof. Nicolás Pinel Peláez, Ph.D.</span>
         </span>
         <p class="entry__sub">
           Thesis: <em>Cultivable Microbial Community Structure Along a Light Gradient in a Tropical
           Volcaniclastic Cave</em>
           <a href={thesisUrl} rel="noopener" target="_blank">[permanent link]</a>
+          <a href={thesisPdf} rel="noopener" target="_blank">[defense slides]</a>
         </p>
         <ul class="bullets">
           <li>
             Characterized the cultivable microbial fraction of the Organal San Antonio, a tropical
             volcaniclastic cave at ~2350 m a.s.l. in Támesis, Antioquia, across a light-defined
-            gradient spanning Entrance, Transition, and Dark sectors.
+            spatial gradient spanning Entrance, Transition, and Dark sectors.
           </li>
           <li>
-            Found systematic shifts in cultivable abundance and composition across zonation (a
-            reduced, distinct aphotic assemblage; a partly unique Transition community), establishing
-            a spatially resolved cultivable baseline for an organal-type pseudokarstic system.
+            Found systematic differences in cultivable abundance and community composition across
+            zonation: the aphotic sector supported markedly reduced densities and a distinct
+            assemblage relative to photic sectors, while the Transition zone harbored a partially
+            unique community of its own.
+          </li>
+          <li>
+            Established a spatially resolved cultivable baseline for an organal-type pseudokarstic
+            cave system, designing a tractable cultivation study in the absence of sequencing
+            infrastructure.
           </li>
         </ul>
-        <figure class="figure">
-          <img src="/assets/morphotypes.webp" alt="Cultivable morphotypes recovered across the cave light gradient, grouped by Entrance, Transition, and Dark zones." width="2200" height="1185" loading="lazy" decoding="async" />
-          <figcaption>Representative cultivable morphotypes along the Entrance–Transition–Dark light gradient.</figcaption>
-        </figure>
       </article>
     </section>
 
@@ -123,12 +130,12 @@ const thesisUrl = 'https://hdl.handle.net/10784/38213';
       <div class="head reveal"><h2 class="head__title">Academic Service</h2></div>
       <article class="entry reveal">
         <div class="entry__row">
-          <span class="entry__role">Student Director, Research Group on Microbiology &amp; Astrobiology (SIAB)</span>
-          <span class="entry__date">Oct 2023 – May 2025</span>
+          <span class="entry__role">Student Director, <a href={siab} rel="noopener" target="_blank">Research Group on Microbiology and Astrobiology (SIAB)</a></span>
+          <span class="date">Oct 2023 – May 2025</span>
         </div>
         <span class="entry__inst">
           <img class="logo" src="/assets/logos/EAFIT.svg" alt="Universidad EAFIT" />
-          Universidad EAFIT · affiliated with GEBI
+          <span>Universidad EAFIT, affiliated with the Research Group on Geosciences and Biodiversity (GEBI)</span>
         </span>
         <ul class="bullets">
           <li>
@@ -149,15 +156,15 @@ const thesisUrl = 'https://hdl.handle.net/10784/38213';
       <div class="head reveal"><h2 class="head__title">Conferences &amp; Presentations</h2></div>
       <div class="list reveal">
         <div class="item">
-          <div class="item__row"><span class="item__title">Research Proposal Presentation</span><span class="item__date">2024</span></div>
+          <div class="item__row"><span class="item__title">Research Proposal Presentation</span><span class="date">2024</span></div>
           <p class="item__sub">2nd Symposium of Biology, Universidad EAFIT</p>
         </div>
         <div class="item">
-          <div class="item__row"><span class="item__title">Oral Presentation</span><span class="item__date">2024</span></div>
-          <p class="item__sub">XXIII Encuentro Departamental de Semilleros de Investigación, RedCOLSI, Antioquia</p>
+          <div class="item__row"><span class="item__title">Oral Presentation</span><span class="date">2024</span></div>
+          <p class="item__sub">XXIII Encuentro Departamental de Semilleros de Investigación, RedCOLSI, Antioquia, Colombia</p>
         </div>
         <div class="item">
-          <div class="item__row"><span class="item__title">Research Fair Presentation</span><span class="item__date">2022</span></div>
+          <div class="item__row"><span class="item__title">Research Fair Presentation</span><span class="date">2022</span></div>
           <p class="item__sub">Feria de Semilleros de Investigación, Universidad EAFIT</p>
         </div>
       </div>
@@ -167,15 +174,15 @@ const thesisUrl = 'https://hdl.handle.net/10784/38213';
       <div class="head reveal"><h2 class="head__title">Honors &amp; Recognition</h2></div>
       <div class="list reveal">
         <div class="item">
-          <div class="item__row"><span class="item__title">Fully Funded Internship</span><span class="item__date">2025</span></div>
+          <div class="item__row"><span class="item__title">Fully Funded Internship</span><span class="date">2025</span></div>
           <p class="item__sub">Fundación Fraternidad Medellín — UREP-C Program, Purdue University</p>
         </div>
         <div class="item">
-          <div class="item__row"><span class="item__title">Award Winner, Research Proposal Presentation</span><span class="item__date">2024</span></div>
+          <div class="item__row"><span class="item__title">Award Winner, Research Proposal Presentation</span><span class="date">2024</span></div>
           <p class="item__sub">2nd Symposium of Biology, Universidad EAFIT</p>
         </div>
         <div class="item">
-          <div class="item__row"><span class="item__title">Undergraduate Scholarship</span><span class="item__date">2022</span></div>
+          <div class="item__row"><span class="item__title">Undergraduate Scholarship</span><span class="date">2022</span></div>
           <p class="item__sub">Comfama and Fundación Fraternidad Medellín</p>
         </div>
       </div>
@@ -185,11 +192,11 @@ const thesisUrl = 'https://hdl.handle.net/10784/38213';
       <div class="head reveal"><h2 class="head__title">Certifications &amp; Training</h2></div>
       <div class="list reveal">
         <div class="item">
-          <div class="item__row"><span class="item__title">Responsible Conduct of Research (RCR) Training</span><span class="item__date">Aug 2025</span></div>
+          <div class="item__row"><span class="item__title">Responsible Conduct of Research (RCR) Training</span><span class="date">Aug 2025</span></div>
           <p class="item__sub">CITI Program, Credential ID 71597371, valid through Aug 2029</p>
         </div>
         <div class="item">
-          <div class="item__row"><span class="item__title">Technician in Agricultural Sciences</span><span class="item__date">2019–2021</span></div>
+          <div class="item__row"><span class="item__title">Technician in Agricultural Sciences</span><span class="date">2019–2021</span></div>
           <p class="item__sub">Servicio Nacional de Aprendizaje (SENA), Colombia</p>
         </div>
       </div>

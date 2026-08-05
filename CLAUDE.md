@@ -22,50 +22,53 @@ multi-page routing, no analytics, no third-party scripts.
 - **Astro 5**, static output (`output: 'static'`), `@astrojs/sitemap`.
 - One page: `src/pages/index.astro` (+ `src/pages/404.astro`).
 - Layout `src/layouts/Base.astro` (SEO meta + `og:image`, JSON-LD Person schema, footer).
-- `src/components/Footer.astro` — footer **signature**: rounded profile photo + name + title +
-  inline-SVG icon links (email, ORCID brand-green mark, GitHub, CV) + copyright. **No LinkedIn**.
+- `src/components/Footer.astro` — left-aligned inline-SVG icon links (email, ORCID brand-green
+  mark, GitHub, CV) + copyright. **No LinkedIn**, **no profile photo**.
 - `src/styles/global.css` — the entire design system.
-- Assets in `public/assets/`: `Sebastian-Correa-Gallego-CV.pdf`, `favicon.svg` (black serif "S"),
-  `field.webp` (hero), `symposium.webp`, `morphotypes.webp`, `profile.webp`, `logos/{EAFIT,Purdue}.svg`.
-- **Image pipeline:** Sebastian drops originals into a `multimedia/` staging folder (git-ignored).
-  Optimize with **sharp** (bundled via Astro) → WebP into `public/assets/`, referenced by plain
-  `<img>`. sharp also rasterizes SVGs (e.g. the 8.7 MB `library.svg` → 66 KB `morphotypes.webp`).
-  Keep shipped images small; **Cloudflare Pages rejects any file > 25 MiB** (why `thesis.pdf`, 27 MB,
-  is NOT hosted — needs compression first).
+- Assets in `public/assets/`: `Sebastian-Correa-Gallego-CV.pdf`, `Sebastian-Correa-Gallego-Thesis.pdf`
+  (defense deck), `favicon.svg` (black serif "S"), `field.webp` (hero), `logos/{EAFIT,Purdue}.svg`,
+  and `profile.webp` (kept but currently unreferenced).
+- **Image pipeline:** Sebastian drops originals into a `multimedia/` staging folder, then Claude
+  optimizes with **sharp** (bundled via Astro) → WebP into `public/assets/` (referenced by plain
+  `<img>`); sharp also rasterizes SVGs. **Delete `multimedia/` when done** (Sebastian's instruction).
+  Keep shipped files small; **Cloudflare Pages rejects any file > 25 MiB** (the thesis deck had to be
+  compressed 27 MB → 4.2 MB before hosting).
 - Content is inlined directly in `index.astro`. **No content collections**, no `src/content/`.
 
 Commands: `npm run dev`, `npm run build` (must pass, no console errors).
 
 ## Design language (current) — "Modern academic homepage"
 
-The CV content, presented as a clean modern site: a full-bleed photo hero that fades into a very
-light-blue body, editorial figures, and subtle scroll reveals. Content/ideas stay coherent with the
-CV; the effort is on visual quality. Still one page, no subpages.
+The CV content, presented as a clean modern site: a full-bleed photo hero that fades into a light
+body, subtle scroll reveals, **no figures** (removed — Sebastian preferred them out). One page.
 
-- **Two typefaces, by role:** `Inter` (300–700) for structure — name, section titles, body, dates,
-  UI. `Roboto Serif` **italic** (the "voice") for the hero phrase, the Research-Interests statement,
-  and figure captions (Sebastian finds Roboto Serif more beautiful in italic). Both via Google Fonts.
-- **Hero** (`.hero`, 100svh, full-bleed): `field.webp` (Sebastian sampling in the cave) as the
-  background, a dark scrim gradient (heavier on the left, where the text sits; person is on the
-  right), and the scrim's bottom fades to `--paper` so it connects seamlessly to the body on scroll.
-  Content: name (Inter bold, white) + "B.Sc. in Biology" + the italic phrase.
-- **Very light-blue body** (`--paper: #edf2fa`). Deep slate text; sober **navy links** (`#1b4b9c`).
-  Reduced margins: wide container (`--wrap: 64rem`); text at a readable `--measure: 44rem`; **figures
-  break wider** than the text, in white rounded cards with a soft shadow + italic caption.
-- **Institution logos** (`logos/EAFIT.svg`, `Purdue.svg`) inline next to institutions, small and
-  grayscale (subtle). **No ALL-CAPS, no interpunct in body** (only `·` in inst/footer meta lines).
-- **Figures used:** Purdue → `symposium.webp` (title slide, no unpublished data). Thesis →
-  `morphotypes.webp` (Entrance/Transition/Dark plates) + thesis `[permanent link]`.
-- **Footer signature:** rounded `profile.webp` + name + "Biologist — B.Sc. …" + icon links + © note.
-- Subtle `.reveal` on scroll (`view()` timeline), hero entrance, all reduced-motion-safe. Print
-  flattens to B/W.
+- **Two typefaces, by role:** `Roboto Serif` **italic** is the "voice" — the hero **name** (bold
+  italic), **section titles** (medium italic), and **dates** (light italic). `Inter` for the rest —
+  body/bullets/skills (light, 300), entry roles & item titles (600), the degree line. Both via
+  Google Fonts. (No serif-upright, no sans for the name — Sebastian's explicit split.)
+- **Hero** (`.hero`, 100svh, full-bleed): `field.webp` (Sebastian sampling in the cave), a dark
+  scrim (heavier left, where the text sits; person is on the right), bottom fades to `--paper`.
+  Content: **name on two lines** (`Sebastian` / `Correa-Gallego`, Roboto Serif bold italic, white),
+  "B.Sc. in Biology" (Inter), and the italic phrase.
+- **Light, elegant cool-gray body** (`--paper: #eef0f2` — NOT blue, NOT dark: Sebastian tried a
+  light-blue and a dark theme and rejected both; wants a very light neutral/cool gray). Dark text,
+  sober **navy links** (`#1b4b9c`). `--wrap: 62rem`, text at `--measure: 47rem`.
+- **Institution logos** (`logos/EAFIT.svg`, `Purdue.svg`) inline, **original colours** — EAFIT
+  recoloured to its navy `#000066` (the SVG shipped black via an `icc-color` override that was
+  stripped). **No ALL-CAPS, no interpunct `·` anywhere** (restore full wording + hyperlinks instead:
+  ECSO Lab, Dept. of Biological Sciences; SIAB link; GEBI).
+- **Thesis:** `[permanent link]` to the EAFIT repository **then** `[defense slides]` →
+  `Sebastian-Correa-Gallego-Thesis.pdf` (the compressed 4.2 MB defense deck).
+- **Footer:** left-aligned icon links (email, ORCID green, GitHub, CV) + © note. **No profile photo**
+  in the footer (Sebastian asked to hide it; `profile.webp` stays in assets, unreferenced).
+- Subtle `.reveal` on scroll (`view()` timeline), hero entrance, reduced-motion-safe. Print → B/W.
 
-Section order: Hero → Research Interests (italic statement) → Education → Research Experience →
+Section order: Hero → Research Interests (Inter-light statement) → Education → Research Experience →
 Academic Service → Conferences & Presentations → Honors & Recognition → Certifications & Training →
 Technical Skills → footer.
 
-**Not used (by choice):** `eeb.jpg` (group photo — third-party/minor privacy); `thesis.pdf` (27 MB
-> Cloudflare's 25 MiB limit — needs compression). **No References section** on the web (privacy).
+**Not used (by choice):** `eeb.jpg` (group photo — third-party/minor privacy). **No References
+section** on the web (privacy). Reminder: Cloudflare Pages rejects any single file > 25 MiB.
 
 ## Who Sebastian is (for framing content — from his own field notebook, non-sensitive)
 
@@ -115,8 +118,12 @@ the predictability of microbial community assembly."
    Font churn: Palatino → Inter/white → back toward the Palatino version.
 7. On the Palatino-version base: Source Serif 4, cool→warm background iterations, a bold "Biologist"
    subtitle, favicon changed to a black serif "S" on white; CV PDF refreshed with subtler wording.
-8. **Current — modern academic homepage.** Full-bleed cave-photo hero (`field.webp`) fading into a
-   very light-blue body; Inter + Roboto Serif italic; institution logos; editorial figures
-   (`symposium.webp`, `morphotypes.webp`) in cards; footer signature with `profile.webp`; subtle
-   scroll reveals. Added the sharp image-optimization pipeline + git-ignored `multimedia/` staging.
-   Held `thesis.pdf` (25 MiB Cloudflare limit) and skipped `eeb.jpg` (privacy).
+8. Modern academic homepage: full-bleed cave-photo hero fading into the body; Inter + Roboto Serif
+   italic; institution logos; figures in cards; footer signature. Added the sharp image pipeline.
+9. **Current — refined homepage.** Removed the figures (kept the hero). Typography split: Roboto
+   Serif italic for the name (two lines, bold), section titles (medium), and dates (light); Inter
+   for the rest (statement/body in light 300). **Light, elegant cool-gray body** `#eef0f2` (a dark
+   theme and a light-blue were both tried and rejected). EAFIT logo recoloured to navy `#000066`;
+   logos in original colour. Restored full CV wording + hyperlinks (ECSO, SIAB) and removed all
+   interpuncts. Added the compressed `[defense slides]` PDF after the thesis permanent link. Footer
+   profile photo removed. `multimedia/` deleted after use.

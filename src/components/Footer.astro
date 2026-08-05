@@ -5,43 +5,36 @@ const year = new Date().getFullYear();
 
 <footer>
   <div class="wrap foot">
-    <div class="sig">
-      <img class="sig__photo" src="/assets/profile.webp" alt="Sebastian Correa-Gallego" width="82" height="82" loading="lazy" decoding="async" />
-      <div>
-        <p class="sig__name">Sebastian Correa-Gallego</p>
-        <p class="sig__title">Biologist — B.Sc. in Biology, Universidad EAFIT</p>
-        <nav class="foot__links" aria-label="Contact and profiles">
-          <a href="mailto:correagsebastian2204@gmail.com" aria-label="Email">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3" y="5" width="18" height="14" rx="2.5"></rect>
-              <path d="m3.5 7 8.5 6 8.5-6"></path>
-            </svg>
-          </a>
-          <a href="https://orcid.org/0009-0007-8703-3188" rel="me noopener noreferrer" target="_blank" aria-label="ORCID iD 0009-0007-8703-3188">
-            <svg viewBox="0 0 256 256" width="21" height="21" aria-hidden="true">
-              <path fill="#A6CE39" d="M256 128c0 70.7-57.3 128-128 128S0 198.7 0 128 57.3 0 128 0s128 57.3 128 128z"></path>
-              <g fill="#fff">
-                <path d="M86.3 186.2H70.9V79.1h15.4v107.1z"></path>
-                <path d="M108.9 79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.6-56.8 53.6h-41.8V79.1zm15.4 93.3h24.5c34.9 0 42.9-26.5 42.9-39.7 0-21.5-13.7-39.7-43.7-39.7h-23.7v79.4z"></path>
-                <path d="M88.7 56.8c0 5.5-4.5 10.1-10.1 10.1s-10.1-4.6-10.1-10.1c0-5.6 4.5-10.1 10.1-10.1 5.6 0 10.1 4.6 10.1 10.1z"></path>
-              </g>
-            </svg>
-          </a>
-          <a href="https://github.com/correa-gallego" rel="noopener" target="_blank" aria-label="GitHub">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 2.5-.34c.85 0 1.71.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"></path>
-            </svg>
-          </a>
-          <a href={cv} rel="noopener" target="_blank" aria-label="Curriculum Vitae (PDF)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"></path>
-              <path d="M14 3v5h5"></path>
-              <path d="M9 13h6M9 17h4"></path>
-            </svg>
-          </a>
-        </nav>
-      </div>
-    </div>
-    <p class="foot__note">© {year} Sebastian Correa-Gallego · Medellín, Colombia</p>
+    <nav class="foot__links" aria-label="Contact and profiles">
+      <a href="mailto:correagsebastian2204@gmail.com" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="14" rx="2.5"></rect>
+          <path d="m3.5 7 8.5 6 8.5-6"></path>
+        </svg>
+      </a>
+      <a href="https://orcid.org/0009-0007-8703-3188" rel="me noopener noreferrer" target="_blank" aria-label="ORCID iD 0009-0007-8703-3188">
+        <svg viewBox="0 0 256 256" width="21" height="21" aria-hidden="true">
+          <path fill="#A6CE39" d="M256 128c0 70.7-57.3 128-128 128S0 198.7 0 128 57.3 0 128 0s128 57.3 128 128z"></path>
+          <g fill="#fff">
+            <path d="M86.3 186.2H70.9V79.1h15.4v107.1z"></path>
+            <path d="M108.9 79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.6-56.8 53.6h-41.8V79.1zm15.4 93.3h24.5c34.9 0 42.9-26.5 42.9-39.7 0-21.5-13.7-39.7-43.7-39.7h-23.7v79.4z"></path>
+            <path d="M88.7 56.8c0 5.5-4.5 10.1-10.1 10.1s-10.1-4.6-10.1-10.1c0-5.6 4.5-10.1 10.1-10.1 5.6 0 10.1 4.6 10.1 10.1z"></path>
+          </g>
+        </svg>
+      </a>
+      <a href="https://github.com/correa-gallego" rel="noopener" target="_blank" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 2.5-.34c.85 0 1.71.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"></path>
+        </svg>
+      </a>
+      <a href={cv} rel="noopener" target="_blank" aria-label="Curriculum Vitae (PDF)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"></path>
+          <path d="M14 3v5h5"></path>
+          <path d="M9 13h6M9 17h4"></path>
+        </svg>
+      </a>
+    </nav>
+    <p class="foot__note">© {year} Sebastian Correa-Gallego</p>
   </div>
 </footer>
