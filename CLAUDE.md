@@ -21,48 +21,51 @@ multi-page routing, no analytics, no third-party scripts.
 
 - **Astro 5**, static output (`output: 'static'`), `@astrojs/sitemap`.
 - One page: `src/pages/index.astro` (+ `src/pages/404.astro`).
-- Layout `src/layouts/Base.astro` (SEO meta, JSON-LD Person schema, footer). No background layers.
-- `src/components/Footer.astro` — left-aligned inline-SVG icon links: email, ORCID (brand-green
-  mark), GitHub, CV. **No LinkedIn** (Sebastian: not used by scientists).
+- Layout `src/layouts/Base.astro` (SEO meta + `og:image`, JSON-LD Person schema, footer).
+- `src/components/Footer.astro` — footer **signature**: rounded profile photo + name + title +
+  inline-SVG icon links (email, ORCID brand-green mark, GitHub, CV) + copyright. **No LinkedIn**.
 - `src/styles/global.css` — the entire design system.
-- Assets kept in `public/assets/`: `Sebastian-Correa-Gallego-CV.pdf`, `favicon.svg`. Nothing else.
-  **No profile photo** (removed at Sebastian's request). No web fonts (Palatino is a system stack).
-- Content is inlined directly in `index.astro`. There are **no content collections** and no
-  `src/content/`. Keep it that way unless the content grows substantially.
+- Assets in `public/assets/`: `Sebastian-Correa-Gallego-CV.pdf`, `favicon.svg` (black serif "S"),
+  `field.webp` (hero), `symposium.webp`, `morphotypes.webp`, `profile.webp`, `logos/{EAFIT,Purdue}.svg`.
+- **Image pipeline:** Sebastian drops originals into a `multimedia/` staging folder (git-ignored).
+  Optimize with **sharp** (bundled via Astro) → WebP into `public/assets/`, referenced by plain
+  `<img>`. sharp also rasterizes SVGs (e.g. the 8.7 MB `library.svg` → 66 KB `morphotypes.webp`).
+  Keep shipped images small; **Cloudflare Pages rejects any file > 25 MiB** (why `thesis.pdf`, 27 MB,
+  is NOT hosted — needs compression first).
+- Content is inlined directly in `index.astro`. **No content collections**, no `src/content/`.
 
 Commands: `npm run dev`, `npm run build` (must pass, no console errors).
 
-## Design language (current) — "The CV, on the web"
+## Design language (current) — "Modern academic homepage"
 
-Sober, formal, document-like — the site is Sebastian's academic CV rendered as a clean web page,
-mirroring the LaTeX/Palatino PDF as closely as is sensible. **No decoration, no background art, no
-scroll animations.** This was a deliberate reset from an earlier animated design; keep it minimal
-unless Sebastian asks to reintroduce flourishes.
+The CV content, presented as a clean modern site: a full-bleed photo hero that fades into a very
+light-blue body, editorial figures, and subtle scroll reveals. Content/ideas stay coherent with the
+CV; the effort is on visual quality. Still one page, no subpages.
 
-- **One typeface: Source Serif 4** (Google Fonts, `<link>` in `Base.astro`; ital+opsz, weights
-  400/600/700), used for **everything including the name** (normal case). Base 17px. Palatino felt
-  "too formal"; Inter (sans) was disliked; small-caps on the name felt elongated/off — Sebastian
-  wants the name to read as the same face as the body.
-- **Warm light-gray background** (`--paper: #f3f2ef`, R>G>B so it reads warm, not green — an
-  earlier equal-R/G off-white had read greenish, and a cool version was also rejected). Grays are
-  warm neutrals. Sober **navy links** (`--link: #133a80`, ~ the PDF's `RGB(0,0,102)`).
-- **No ALL-CAPS** and **no interpunct `·` separators** anywhere.
-  Research Experience / Academic Service keep the full CV bullets (with the CV's exact wording).
-- **CV layout**: left-aligned single column (`--content: 48rem`). Masthead = name (normal-case
-  Source Serif 4, bold) + a **bold "Biologist"** subtitle, rule under. **No contact line under the
-  name** — contact lives in the footer only. Browser-tab `<title>` is just "Sebastian Correa-Gallego".
-  Sections = bold gray title + thin rule. Entries use a **left date gutter** (`.entry` is a
-  `8.5rem 1fr` grid: italic muted date | `.entry__body` with bold title, meta, gray bullets);
-  collapses to stacked on ≤620px. Skills as `strong:` labelled paragraphs. `.entry__title-sub` =
-  the non-bold degree/detail after a bold institution.
-- **The site is NOT a 1:1 copy of the PDF.** Notably: **no References section** (privacy) and no
-  masthead contact block, even though the PDF has both.
-- **Footer**: left-aligned icon links (email, ORCID green mark, GitHub octocat, CV) + a
-  `© {year} Sebastian Correa-Gallego` copyright note. Print styles flatten to black-on-white.
+- **Two typefaces, by role:** `Inter` (300–700) for structure — name, section titles, body, dates,
+  UI. `Roboto Serif` **italic** (the "voice") for the hero phrase, the Research-Interests statement,
+  and figure captions (Sebastian finds Roboto Serif more beautiful in italic). Both via Google Fonts.
+- **Hero** (`.hero`, 100svh, full-bleed): `field.webp` (Sebastian sampling in the cave) as the
+  background, a dark scrim gradient (heavier on the left, where the text sits; person is on the
+  right), and the scrim's bottom fades to `--paper` so it connects seamlessly to the body on scroll.
+  Content: name (Inter bold, white) + "B.Sc. in Biology" + the italic phrase.
+- **Very light-blue body** (`--paper: #edf2fa`). Deep slate text; sober **navy links** (`#1b4b9c`).
+  Reduced margins: wide container (`--wrap: 64rem`); text at a readable `--measure: 44rem`; **figures
+  break wider** than the text, in white rounded cards with a soft shadow + italic caption.
+- **Institution logos** (`logos/EAFIT.svg`, `Purdue.svg`) inline next to institutions, small and
+  grayscale (subtle). **No ALL-CAPS, no interpunct in body** (only `·` in inst/footer meta lines).
+- **Figures used:** Purdue → `symposium.webp` (title slide, no unpublished data). Thesis →
+  `morphotypes.webp` (Entrance/Transition/Dark plates) + thesis `[permanent link]`.
+- **Footer signature:** rounded `profile.webp` + name + "Biologist — B.Sc. …" + icon links + © note.
+- Subtle `.reveal` on scroll (`view()` timeline), hero entrance, all reduced-motion-safe. Print
+  flattens to B/W.
 
-Section order: Masthead → Research Interests → Education → Research Experience → Academic
-Service → Conferences and Presentations → Honors and Recognition → Certifications and Training →
+Section order: Hero → Research Interests (italic statement) → Education → Research Experience →
+Academic Service → Conferences & Presentations → Honors & Recognition → Certifications & Training →
 Technical Skills → footer.
+
+**Not used (by choice):** `eeb.jpg` (group photo — third-party/minor privacy); `thesis.pdf` (27 MB
+> Cloudflare's 25 MiB limit — needs compression). **No References section** on the web (privacy).
 
 ## Who Sebastian is (for framing content — from his own field notebook, non-sensitive)
 
@@ -110,7 +113,10 @@ the predictability of microbial community assembly."
    mirrors the LaTeX CV; removed the profile photo; added `Sebastian-Correa-Gallego-CV.pdf`;
    footer left-aligned, LinkedIn dropped, ORCID added; dropped References + masthead contact.
    Font churn: Palatino → Inter/white → back toward the Palatino version.
-7. **Current**: on the Palatino-version base — **Source Serif 4**, **cool** light-gray background
-   (`#f1f3f6`), a **bold "Biologist"** subtitle, favicon changed to a **black serif "S" on white**
-   (the "SC" navy tile was too busy), and the CV PDF refreshed (same filename) with the CV's
-   subtler wording (dropped "Pioreactor" and "first"; softened the Academic Service bullets).
+7. On the Palatino-version base: Source Serif 4, cool→warm background iterations, a bold "Biologist"
+   subtitle, favicon changed to a black serif "S" on white; CV PDF refreshed with subtler wording.
+8. **Current — modern academic homepage.** Full-bleed cave-photo hero (`field.webp`) fading into a
+   very light-blue body; Inter + Roboto Serif italic; institution logos; editorial figures
+   (`symposium.webp`, `morphotypes.webp`) in cards; footer signature with `profile.webp`; subtle
+   scroll reveals. Added the sharp image-optimization pipeline + git-ignored `multimedia/` staging.
+   Held `thesis.pdf` (25 MiB Cloudflare limit) and skipped `eeb.jpg` (privacy).
