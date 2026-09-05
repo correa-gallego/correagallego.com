@@ -1,32 +1,13 @@
 ---
 const year = new Date().getFullYear();
-const thesis = 'https://hdl.handle.net/10784/38213';
-const ecso = 'https://ecsolab.com/';
 ---
 
 <footer>
   <div class="wrap foot">
-    <div class="foot__standing">
-      <p class="foot__status">
-        B.Sc. in Biology, Universidad EAFIT, conferred June 2026. Applying for doctoral study in
-        microbial ecology and evolutionary biology.
-      </p>
-      <ul class="foot__work">
-        <li>
-          Undergraduate thesis, <em>Cultivable Microbial Community Structure Along a Light Gradient
-          in a Tropical Volcaniclastic Cave</em>. Universidad EAFIT, 2026.
-          <a href={thesis} rel="noopener" target="_blank">Permanent link</a>
-        </li>
-        <li>
-          <em>Proteome Allocation Rules in Osmotrophic Eukaryotes</em>, manuscript in preparation.
-          <a href={ecso} rel="noopener" target="_blank">Evolution of Cells, Symbionts and
-          Organelles Lab</a>, Purdue University.
-        </li>
-        <li>
-          Six conference presentations, 2022–2026. Stanford Biology Preview Program, 2026 cohort.
-        </li>
-      </ul>
-    </div>
+    <p class="foot__degree">
+      <img class="foot__logo" src="/assets/logos/EAFIT.svg" alt="" />
+      <span>B.Sc. in Biology, Universidad EAFIT, 2026</span>
+    </p>
 
     <nav class="foot__links" aria-label="Contact and profiles">
       <a href="mailto:correagsebastian2204@gmail.com" aria-label="Email">

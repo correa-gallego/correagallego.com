@@ -14,34 +14,36 @@ precision, and restraint. No self-promotion.
 
 ## What the site is
 
-A single, static, one-page academic homepage — **two full-viewport screens and a footer that
-carries the record**: a photo hero, then one research-narrative section, then a footer holding
-standing and work. **The site is deliberately NOT a copy of the CV**: the CV lives in the PDF,
-linked from the one visible button. No blog, no multi-page routing, no analytics, no third-party
-scripts, **no JavaScript at all**.
+A single, static, one-page academic homepage — **two full-viewport screens and a footer**: a photo
+hero, then one research-narrative section. **The site is deliberately NOT a copy of the CV**: the
+CV lives in the PDF, linked from the one visible button. No blog, no multi-page routing, no
+analytics, no third-party scripts, **no JavaScript at all**.
 
-**The division of labour is the whole design.** The two screens are argument and must stay pure —
-no lists, no dates, no institutions beyond the hero's one line. The footer is record, and is where
-anything factual goes. A reviewer's finding drove this: with no visible work, careful prose in an
-applicant without publications reads as *compensatory*; with the thesis, the manuscript and the
-presentations visible, the same prose reads as *earned*. Do not solve a "the site should mention
-X" request by adding X to the screens.
+**The site carries exactly three facts about Sebastian**: his name, his degree (hero line and
+footer), and the research argument. Everything else — thesis, manuscript, presentations, service,
+honours, training — is in the CV, and the CV button is the route to it. A full standing block
+(status + thesis link + manuscript + presentations + BPP) was built in the footer after an outside
+review argued the site showed no evidence of work; Sebastian removed it the same day —
+*"no me parece presentable… con eso queda claro el tema de la educación, y para el resto de
+contexto ir a CV."* **Do not rebuild it.** If a future request asks the site to show more of the
+record, the answer is the CV button, not a new section.
 
 ## Stack & tooling
 
 - **Astro 5**, static output (`output: 'static'`), `@astrojs/sitemap`.
 - One page: `src/pages/index.astro` (+ `src/pages/404.astro`).
 - Layout `src/layouts/Base.astro` (SEO meta + `og:image`, JSON-LD Person schema, footer).
-- `src/components/Footer.astro` — the standing block (status line + three work bullets), then
-  left-aligned inline-SVG icon links (email, ORCID brand-green mark, Google Scholar, GitHub,
-  Bluesky), then copyright. **No LinkedIn**, **no profile photo**, **no CV icon** (the CV moved to
-  the fixed top-right button in `Base.astro`). See the footer bullet under Design language.
+- `src/components/Footer.astro` — the degree line (EAFIT logo + text), then left-aligned
+  inline-SVG icon links (email, ORCID brand-green mark, Google Scholar, GitHub, Bluesky), then
+  copyright. **No LinkedIn**, **no profile photo**, **no CV icon** (the CV moved to the fixed
+  top-right button in `Base.astro`).
 - `src/styles/global.css` — the entire design system.
 - Assets in `public/assets/`: `Sebastian-Correa-Gallego-CV.pdf` (**the live CV — keep this exact
   filename so the shared URL never breaks**; replace the file in place when Sebastian sends a new
-  version), `favicon.svg` (black serif "S"), `field.webp` (hero). Kept but **unreferenced**:
-  `Sebastian-Correa-Gallego-Thesis.pdf` (4.2 MB defense deck), `logos/{EAFIT,Purdue}.svg`,
-  `profile.webp` — retained because their URLs may already be circulating.
+  version), `favicon.svg` (black serif "S"), `field.webp` (hero), `logos/EAFIT.svg` (navy
+  `#000066`, in the footer). Kept but **unreferenced**: `Sebastian-Correa-Gallego-Thesis.pdf`
+  (4.2 MB defense deck), `logos/Purdue.svg`, `profile.webp` — retained because their URLs may
+  already be circulating. Asset files are mode `644`; the logos shipped as `700` and were fixed.
 - **Image pipeline:** Sebastian drops originals into a `multimedia/` staging folder, then Claude
   optimizes with **sharp** (bundled via Astro) → WebP into `public/assets/` (referenced by plain
   `<img>`); sharp also rasterizes SVGs. **Delete `multimedia/` when done** (Sebastian's instruction).
@@ -116,14 +118,14 @@ Hero, then one research section, then the footer. Nothing else. The whole page i
   `/assets/Sebastian-Correa-Gallego-CV.pdf` in a new tab, straight into the browser's own PDF
   viewer (Sebastian: "el CV abierto en Google, tal cómo está" — **never** an embedded subpage).
   Label "Curriculum Vitae", collapsing to "CV" under 560px.
-- **Footer:** now three parts — a `.foot__standing` block (a `.foot__status` line giving degree,
-  institution, conferral date and that he is applying for doctoral study; then `.foot__work`, three
-  restrained bullets: thesis + permanent link, the Purdue manuscript in preparation + ECSO link,
-  and "six conference presentations, 2022–2026. Stanford Biology Preview Program, 2026 cohort") —
-  then the icon links (email, ORCID green, Google Scholar, GitHub, Bluesky), then the © note.
-  **Six is the real count** (2022, 2023, 2024×2, Jan 2026, May 2026); don't round it. No profile
-  photo, **no CV icon** (it moved to the top-right button). **Never list the fellowship here** —
-  the sensitive-material rule below still holds.
+- **Footer:** three parts — `.foot__degree` (the navy EAFIT mark at `height: 1.45em` beside
+  "B.Sc. in Biology, Universidad EAFIT, 2026", the logo/text lockup from the old `.entry__inst`
+  style Sebastian asked to bring back), then the icon links (email, ORCID green, Google Scholar,
+  GitHub, Bluesky), then the © note. The text sits in its own `<span>` with `text-wrap: balance`
+  so it breaks evenly at phone width instead of orphaning "2026". The logo takes **`alt=""`** —
+  correct here, unlike the hero photo, because the words beside it already say Universidad EAFIT.
+  No profile photo, **no CV icon**. **Never list the fellowship here** — the sensitive-material
+  rule below still holds.
 - Subtle `.reveal` on scroll (`view()` timeline), hero entrance, reduced-motion-safe. Print → B/W.
 
 **Not on the site (by choice):** no education, experience, service, presentations, honours,
@@ -278,3 +280,12 @@ the predictability of microbial community assembly."
    visible. Fixed *without* touching the two screens — the hero degree line gained ", Universidad
    EAFIT", and the footer gained the standing block. This reverses his earlier "no habrá más
    contenido en la web" only for the footer; the screens stayed pure, which is the point.
+16. **Current — the footer went back to one line (Sep 2026).** The standing block from entry 15
+   lasted a day. Sebastian: *"No me parece presentable el footer. Lo mejor para mí es solo insertar
+   el grado, con el estilo que usamos con el logo de EAFIT."* So the status line, the thesis link,
+   the manuscript, the presentations and the BPP all came out, and the footer now carries the
+   degree with the EAFIT mark and nothing else. The reviewer's other three fixes — the narrowed
+   gap claim, the hedges, the three DOI citations — all stayed, and those were the substantive
+   ones. **What this costs, on the record:** the site now links to no scholarly output of his own;
+   the thesis handle (`hdl.handle.net/10784/38213`) lives only in the CV PDF. He accepted that
+   trade knowingly. Don't reopen it unprompted.
