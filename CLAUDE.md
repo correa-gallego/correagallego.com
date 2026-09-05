@@ -55,6 +55,10 @@ Hero, then one research section, then the footer. Nothing else. The whole page i
   (Sebastian sampling in the cave), a dark scrim (heavier left, where the text sits; person is on
   the right), bottom fades to `--paper`. Content: **name on two lines** (`Sebastian` /
   `Correa-Gallego`), "B.Sc. in Biology", and the phrase. `.hero__cue` is now an anchor → `#research`.
+  **`field.webp` carries real `alt` text and no `aria-hidden` — do not "fix" it back to `alt=""`.**
+  It looks like a background but it is the page's only evidence of fieldwork (Sebastian sampling in
+  the Organal San Antonio, Támesis — he confirmed the location); the same sentence is the
+  `og:image:alt` / `twitter:image:alt`. Keep the three in sync.
 - **`.focus`** (100svh, vertically centred). **There is no eyebrow/kicker** — Sebastian removed
   "Research" and its rule ("si el contenido es meramente esa pestaña, no lo veo necesario"), so the
   lead **question** is the section's own masthead: Roboto Serif medium italic, **no `max-width`**,

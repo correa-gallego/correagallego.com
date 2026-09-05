@@ -16,6 +16,8 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 const ogImage = new URL('/assets/field.webp', Astro.site).toString();
+const ogImageAlt =
+  'Sebastian Correa-Gallego taking samples by headlamp in the Organal San Antonio, a volcaniclastic cave in Támesis, Colombia.';
 const cv = '/assets/Sebastian-Correa-Gallego-CV.pdf';
 
 const personSchema = {
@@ -74,12 +76,14 @@ const personSchema = {
   <meta property="og:url" content={canonicalURL}>
   <meta property="og:site_name" content="Sebastian Correa-Gallego">
   <meta property="og:image" content={ogImage}>
+  <meta property="og:image:alt" content={ogImageAlt}>
   <meta property="og:locale" content="en_US">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content={title}>
   <meta name="twitter:description" content={description}>
   <meta name="twitter:image" content={ogImage}>
+  <meta name="twitter:image:alt" content={ogImageAlt}>
 
   <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 </head>
