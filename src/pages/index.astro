@@ -41,71 +41,46 @@ import Base from '../layouts/Base.astro';
           </p>
           <p>
             I ask whether that can be anticipated from the organisms themselves — from how a cell
-            divides its finite proteome between growing quickly and growing efficiently, and how
-            selection reshapes those strategies as a community assembles. Allocation is
-            measurable. If its spread across a species pool sets when arrival order matters,
-            contingency becomes a quantity rather than a caveat.
+            divides its finite proteome between growing quickly and growing efficiently. Organisms
+            alike in that division should exclude one another early and converge; a pool spanning
+            the whole rate–yield axis should cross-feed instead, and dependence is what admits
+            several outcomes. Allocation is measurable, which would make the shape of that
+            landscape a quantity rather than a caveat — and the same question continues upward,
+            toward the thresholds at which cooperating parts cease to be separable.
           </p>
         </div>
 
         <figure class="focus__figure reveal">
-          <svg class="fig" viewBox="0 0 340 250" role="img" aria-labelledby="fig-title">
+          <svg class="fig" viewBox="0 0 340 192" role="img" aria-labelledby="fig-title">
             <title id="fig-title">
-              One species pool resolving either into a single convergent end state, or into
-              several alternative states set by the order in which its members arrive.
+              Two stability landscapes. Where a species pool spans a narrow range of allocation
+              strategies the landscape has a single basin and assembly converges on one state;
+              where it spans a wide range the landscape has two basins, and which one a community
+              settles in depends on the order its members arrive.
             </title>
 
-            <text class="fig__label" x="170" y="10" text-anchor="middle">the same species pool</text>
+            <path class="fig__line" pathLength="1" d="M18.0,26.0 L19.8,32.9 L21.7,39.4 L23.5,45.4 L25.4,50.9 L27.2,56.1 L29.1,60.8 L30.9,65.2 L32.7,69.2 L34.6,72.9 L36.4,76.2 L38.3,79.3 L40.1,82.1 L41.9,84.7 L43.8,87.0 L45.6,89.1 L47.5,91.0 L49.3,92.7 L51.2,94.2 L53.0,95.5 L54.8,96.7 L56.7,97.8 L58.5,98.7 L60.4,99.6 L62.2,100.3 L64.1,100.9 L65.9,101.5 L67.7,102.0 L69.6,102.4 L71.4,102.7 L73.3,103.0 L75.1,103.3 L76.9,103.5 L78.8,103.6 L80.6,103.8 L82.5,103.9 L84.3,103.9 L86.2,104.0 L88.0,104.0 L89.8,104.0 L91.7,103.9 L93.5,103.9 L95.4,103.8 L97.2,103.6 L99.1,103.5 L100.9,103.3 L102.7,103.0 L104.6,102.7 L106.4,102.4 L108.3,102.0 L110.1,101.5 L111.9,100.9 L113.8,100.3 L115.6,99.6 L117.5,98.7 L119.3,97.8 L121.2,96.7 L123.0,95.5 L124.8,94.2 L126.7,92.7 L128.5,91.0 L130.4,89.1 L132.2,87.0 L134.1,84.7 L135.9,82.1 L137.7,79.3 L139.6,76.2 L141.4,72.9 L143.3,69.2 L145.1,65.2 L146.9,60.8 L148.8,56.1 L150.6,50.9 L152.5,45.4 L154.3,39.4 L156.2,32.9 L158.0,26.0" />
+            <circle class="fig__node fig__node--solid" cx="88" cy="98.5" r="5.5" />
+            <text class="fig__label" x="88" y="126" text-anchor="middle">convergent</text>
+            <text class="fig__sublabel" x="88" y="141" text-anchor="middle">one basin</text>
 
-            <g class="fig__pool">
-              <circle cx="66"  cy="34" r="3.2" />
-              <circle cx="96"  cy="24" r="3.2" />
-              <circle cx="126" cy="36" r="3.2" />
-              <circle cx="156" cy="25" r="3.2" />
-              <circle cx="186" cy="35" r="3.2" />
-              <circle cx="216" cy="24" r="3.2" />
-              <circle cx="246" cy="35" r="3.2" />
-              <circle cx="274" cy="26" r="3.2" />
-            </g>
+            <path class="fig__line" pathLength="1" d="M182.0,26.0 L183.8,37.6 L185.7,47.9 L187.5,57.2 L189.4,65.4 L191.2,72.6 L193.1,78.8 L194.9,84.2 L196.7,88.9 L198.6,92.8 L200.4,96.0 L202.3,98.5 L204.1,100.6 L205.9,102.1 L207.8,103.1 L209.6,103.7 L211.5,104.0 L213.3,103.9 L215.2,103.6 L217.0,103.0 L218.8,102.2 L220.7,101.3 L222.5,100.2 L224.4,99.0 L226.2,97.8 L228.1,96.5 L229.9,95.2 L231.7,93.9 L233.6,92.6 L235.4,91.4 L237.3,90.3 L239.1,89.3 L240.9,88.4 L242.8,87.6 L244.6,86.9 L246.5,86.4 L248.3,86.0 L250.2,85.8 L252.0,85.7 L253.8,85.8 L255.7,86.0 L257.5,86.4 L259.4,86.9 L261.2,87.6 L263.1,88.4 L264.9,89.3 L266.7,90.3 L268.6,91.4 L270.4,92.6 L272.3,93.9 L274.1,95.2 L275.9,96.5 L277.8,97.8 L279.6,99.0 L281.5,100.2 L283.3,101.3 L285.2,102.2 L287.0,103.0 L288.8,103.6 L290.7,103.9 L292.5,104.0 L294.4,103.7 L296.2,103.1 L298.1,102.1 L299.9,100.6 L301.7,98.5 L303.6,96.0 L305.4,92.8 L307.3,88.9 L309.1,84.2 L310.9,78.8 L312.8,72.6 L314.6,65.4 L316.5,57.2 L318.3,47.9 L320.2,37.6 L322.0,26.0" />
+            <circle class="fig__node" cx="212" cy="99" r="5" />
+            <circle class="fig__node" cx="292" cy="99" r="5" />
+            <text class="fig__label" x="252" y="126" text-anchor="middle">contingent</text>
+            <text class="fig__sublabel" x="252" y="141" text-anchor="middle">two basins</text>
 
-            <path class="fig__baseline" d="M28,208 H 312" />
-
-            <path class="fig__line" pathLength="1" d="M170,50 C 170,68 118,64 90,84" />
-            <path class="fig__line" pathLength="1" d="M170,50 C 170,68 222,64 250,84" />
-
-            <g>
-              <path class="fig__line" pathLength="1" d="M90,84 C 48,118 54,178 90,204" />
-              <path class="fig__line" pathLength="1" d="M90,84 C 112,114 68,170 90,204" />
-              <path class="fig__line" pathLength="1" d="M90,84 C 132,118 126,178 90,204" />
-              <circle class="fig__ring" cx="90" cy="208" r="11.5" />
-              <circle class="fig__node fig__node--solid" cx="90" cy="208" r="6.5" />
-              <text class="fig__label" x="90" y="234" text-anchor="middle">convergent</text>
-            </g>
-
-            <g>
-              <path class="fig__line" pathLength="1" d="M250,84 C 226,118 212,172 208,204" />
-              <path class="fig__line" pathLength="1" d="M250,84 C 254,118 244,172 248,204" />
-              <path class="fig__line" pathLength="1" d="M250,84 C 274,118 288,172 292,204" />
-              <circle class="fig__node" cx="208" cy="208" r="5" />
-              <circle class="fig__node" cx="248" cy="208" r="5" />
-              <circle class="fig__node" cx="292" cy="208" r="5" />
-              <text class="fig__label" x="250" y="234" text-anchor="middle">contingent</text>
-            </g>
+            <path class="fig__axis" d="M18,162 H 322 M88,162 V 166 M252,162 V 166 M317,158 L322,162 L317,166" />
+            <text class="fig__sublabel" x="170" y="182" text-anchor="middle">spread of allocation strategies in the pool</text>
           </svg>
 
           <figcaption class="fig__caption">
-            One pool, two regimes. Predicting which one governs a given community is the open
-            problem.
+            A schematic of the conjecture: how widely a pool spans the rate–yield axis should set
+            whether assembly has a single stable outcome or more than one.
           </figcaption>
         </figure>
       </div>
 
-      <hr class="focus__rule reveal" />
-      <p class="focus__coda reveal">
-        The question continues upward, toward the thresholds at which cooperating parts cease to
-        be separable. The approach is experimental: cultivation, growth physiology, and
-        quantitative analysis of community structure.
-      </p>
     </div>
   </section>
 </Base>

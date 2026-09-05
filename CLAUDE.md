@@ -65,16 +65,26 @@ Hero, then one research section, then the footer. Nothing else. The whole page i
   sized `clamp(1.35rem, 2.6vw, 1.8rem)` so it lands on exactly **two full-measure lines** across
   every desktop width. Below it a 2-column grid, `repeat(2, minmax(0,1fr))`, `align-items: start`
   -- **narrative left / SVG figure right**, the figure nudged `margin-top: .35rem` so its top label
-  sits on the first line of body text. The section closes with a full-width `<hr class="focus__rule">`
-  and a muted `.focus__coda` capped at 62ch. Two `@media` blocks keep it inside one screen:
-  `max-height: 780px` (shrinks type) and `max-width: 860px` (stacks, figure first).
+  is `align-self: center`. **The section is exactly one text block plus the figure** — Sebastian
+  deleted the closing rule and coda too ("solo me gustaría tener un bloque de texto"), so the
+  ladder (upward toward the thresholds where cooperating parts stop being separable) now lives in
+  the last sentence of the body. Two `@media` blocks keep it inside one screen: `max-height: 780px`
+  (shrinks type) and `max-width: 860px` (stacks, figure first).
   **The two-line lead is load-bearing** — it replaces the deleted rule as the section's top edge; if
   the wording changes, re-check the line count before shipping.
-- **The figure** (`.fig`, hand-authored inline SVG, no library): one species pool → a bifurcation →
-  a **convergent** bundle closing on one filled navy node with a ring, versus a **contingent** fan
-  ending on three open nodes. Both bundles have the same footprint so the contrast reads as the
-  *ending*, not the size, and a `.fig__baseline` hairline puts both outcomes on a shared axis
-  instead of leaving them afloat. Lines draw in on scroll via `pathLength="1"` + `view()` timeline.
+- **The figure** (`.fig`, hand-authored inline SVG, no library) is a **stability landscape** — the
+  canonical picture for alternative stable states, and the exact image Sebastian's own field
+  notebook uses ("Convergence is a landscape with one valley… contingency is a landscape with many
+  valleys… the doctoral question is, literally, what determines the shape of the landscape").
+  Two panels, one filled navy ball in a single basin (*convergent*) versus two open balls in a
+  double well (*contingent*), over an arrowed axis labelled "spread of allocation strategies in
+  the pool" — which is his actual hypothesis, not the textbook phenomenon.
+  **The curves are not drawn by hand.** They are sampled from V(x) = x⁴ + a·x², the normal form
+  for bistability: `a = +1` gives one basin, `a = −2` gives two at x = ±1. **`node tools/landscape.mjs`
+  regenerates the path data** and prints the minima the balls sit at. If the figure is ever
+  edited, change the parameter and re-run — never nudge the coordinates by hand. Caption opens with
+  "A schematic" on purpose: a potential exists only for gradient systems, and community dynamics
+  are not one. Lines draw in on scroll via `pathLength="1"` + `view()` timeline.
 - **Light, elegant cool-gray body** (`--paper: #eef0f2` — NOT blue, NOT dark: Sebastian tried a
   light-blue and a dark theme and rejected both). Dark text, sober **navy** (`#1b4b9c`).
   `--wrap: 62rem`. **No ALL-CAPS, no interpunct `·` anywhere.**
@@ -172,6 +182,20 @@ the predictability of microbial community assembly."
    sentences after "contingency becomes a quantity"). **Composition:** eyebrow deleted, question
    set to two full-measure lines, equal top-aligned columns, figure enlarged to 24.5rem and given
    a baseline, coda lifted out of the text column to sit full-width under an `<hr>`.
-   **Left open, deliberately:** the hero photo still carries `alt=""` though it is the page's most
-   content-rich element; and nothing on the page evidences that Sebastian has *done* any of this
-   (the CV button carries it — his brief forbids experience content, so this is a flag, not a bug).
+   Then the hero photo got a real `alt` (see the hero bullet); the "no evidence of having done it"
+   flag was closed by Sebastian — the CV *is* the evidence, and that is why the page is minimal.
+12. **Current — scientific pass on the figure (Sep 2026).** Sebastian: the old SVG "parece solo un
+   garabato… no sé si sea válido a nivel científico". He was right. It drew freehand bezier
+   trajectories through no state space, and its caption ("the same species pool → two outcomes")
+   illustrated the *textbook phenomenon* rather than his own contribution. Replaced with the
+   stability landscape above, computed from a real potential and axed on the quantity he proposes
+   to measure. Also deleted the closing `<hr>` + coda at his request (one text block only), folding
+   the ladder into the body. **Read before touching the science:** his Notion *Field Notebook* —
+   "Theoretical Framework — The Ladder" (glossary, the four rungs, the verified anchor list) and
+   "The Question, The Program". Access is via the Notion connector; that notebook, not this file,
+   is the source of truth for the framing. Sensitive-material rule still applies.
+   **One correction found and reported:** the notebook credits Dubinkina et al. 2019 (eLife
+   8:e49720) with showing that the growth–yield tradeoff generates multistability. That paper's
+   mechanism is competition for two *essential nutrients* with differing C:N stoichiometry. The
+   tradeoff→multistability bridge he wants is Manhart & Shakhnovich 2018 (Nat Commun 9:3214),
+   already in his own anchor list. Left for him to fix in Notion; nothing on the site cites either.
