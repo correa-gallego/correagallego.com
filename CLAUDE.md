@@ -67,27 +67,35 @@ Hero, then one research section, then the footer. Nothing else. The whole page i
   lead **question** is the section's own masthead: Roboto Serif medium italic, **no `max-width`**,
   sized `clamp(1.35rem, 2.6vw, 1.8rem)` so it lands on exactly **two full-measure lines** across
   every desktop width. Below it a 2-column grid, `repeat(2, minmax(0,1fr))`, `align-items: start`
-  -- **narrative left / SVG figure right**, the figure nudged `margin-top: .35rem` so its top label
-  is `align-self: center`. **The section is exactly one text block plus the figure** — Sebastian
+  -- **narrative left / SVG figure right**; the text column is top-aligned, the figure is
+  `align-self: center` (it has no top label to align to).
+  **The section is exactly one text block plus the figure** — Sebastian
   deleted the closing rule and coda too ("solo me gustaría tener un bloque de texto"), so the
   ladder (upward toward the thresholds where cooperating parts stop being separable) now lives in
   the last sentence of the body. Two `@media` blocks keep it inside one screen: `max-height: 780px`
   (shrinks type) and `max-width: 860px` (stacks, figure first).
   **The two-line lead is load-bearing** — it replaces the deleted rule as the section's top edge; if
   the wording changes, re-check the line count before shipping.
-- **The figure** (`.fig`, hand-authored inline SVG, no library) is a **stability landscape** — the
-  canonical picture for alternative stable states, and the exact image Sebastian's own field
-  notebook uses ("Convergence is a landscape with one valley… contingency is a landscape with many
-  valleys… the doctoral question is, literally, what determines the shape of the landscape").
-  Two panels, one filled navy ball in a single basin (*convergent*) versus two open balls in a
-  double well (*contingent*), over an arrowed axis labelled "spread of allocation strategies in
-  the pool" — which is his actual hypothesis, not the textbook phenomenon.
-  **The curves are not drawn by hand.** They are sampled from V(x) = x⁴ + a·x², the normal form
-  for bistability: `a = +1` gives one basin, `a = −2` gives two at x = ±1. **`node tools/landscape.mjs`
-  regenerates the path data** and prints the minima the balls sit at. If the figure is ever
-  edited, change the parameter and re-run — never nudge the coordinates by hand. Caption opens with
-  "A schematic" on purpose: a potential exists only for gradient systems, and community dynamics
-  are not one. Lines draw in on scroll via `pathLength="1"` + `view()` timeline.
+- **The figure** (`.fig`, inline SVG, no library) is a pair of **phase portraits**. Sebastian chose
+  this over a 1D stability landscape and over a bifurcation diagram, for a reason worth keeping:
+  his claim is about **arrival order, and arrival order is an initial condition** — this is the
+  only one of the three that draws initial conditions. Left panel: one attractor every start flows
+  to. Right: two attractors either side of a dashed separatrix through an **unstable saddle** (open
+  circle; filled navy = stable, open = unstable, standard convention), with the two basins tinted.
+  **Nothing in it is drawn by hand.** Trajectories are RK4 integrations of
+  `dx/dt = μx − x³, dy/dt = −0.3y` — one family, one parameter: `μ = −0.8` gives a single node,
+  `μ = +1.0` gives two nodes plus the saddle. The 24-arrow flow field per panel is the vector field
+  sampled on a 5×5 grid; arrowheads sit at 34% along each trajectory. y relaxes more slowly than x
+  on purpose — equal rates made the left panel a starburst instead of a portrait.
+  **`node tools/phaseportrait.mjs` regenerates everything** (it prints JSON that
+  `tools/assemble-figure.py` splices into the page). Change the parameter and re-run; never
+  nudge coordinates. Axes are labelled "community composition, two of many axes" — i.e. an
+  ordination-like projection, which is honest and matches his thesis methods. Trajectories draw in
+  on scroll via `pathLength="1"` + `view()`; the field and frames stay static.
+- **The caption is a figure caption, not a sentence of prose** (his instruction: "que sea muy
+  objetivo en su descripción"). It names what is drawn first — dots, arrows, attractors,
+  separatrix, saddle — and only then the reading, and it ends with "Schematic". It is
+  **left-aligned on the figure's own measure**, never centred: it runs five to six lines.
 - **Light, elegant cool-gray body** (`--paper: #eef0f2` — NOT blue, NOT dark: Sebastian tried a
   light-blue and a dark theme and rejected both). Dark text, sober **navy** (`#1b4b9c`).
   `--wrap: 62rem`. **No ALL-CAPS, no interpunct `·` anywhere.**
@@ -202,7 +210,7 @@ the predictability of microbial community assembly."
    mechanism is competition for two *essential nutrients* with differing C:N stoichiometry. The
    tradeoff→multistability bridge he wants is Manhart & Shakhnovich 2018 (Nat Commun 9:3214),
    already in his own anchor list. Left for him to fix in Notion; nothing on the site cites either.
-13. **Current — type audit (Sep 2026).** Sebastian asked whether to move the site to Palatino, as
+13. **Type audit (Sep 2026).** Sebastian asked whether to move the site to Palatino, as
    in his CV's `mathpazo`/`\scshape` setup, or keep Inter + Roboto Serif. **Kept the current
    pairing**, for three reasons worth not relitigating: Linotype Palatino has no web licence and
    the free stand-in (TeX Gyre Pagella, the URW Palladio descendant `mathpazo` actually uses) would
@@ -216,3 +224,12 @@ the predictability of microbial community assembly."
    Source Serif 4, Spectral), not Palatino. Per his instruction, the hero name then dropped from
    **700 → 500** and `clamp(2.3rem, 5.6vw, 3.3rem)` → `clamp(2rem, 4.9vw, 2.9rem)`; 400 was tried
    and rejected (it lost its step above the phrase and went fragile over the lit rock).
+14. **Current — the figure became a phase portrait (Sep 2026).** Sebastian was shown three
+   options and picked the attractor map, then rejected the first draft of it as "gráficamente
+   vago" — correctly: it was hand-drawn arcs with no flow field, no direction, and no saddle. It
+   is now integrated rather than drawn (see the figure bullet above). The two rejected options are
+   kept on the design canvas's "Superseded"/options pages, with the reasoning, so the choice does
+   not get relitigated: the 1D landscape is more instantly legible but never shows a starting
+   point; the bifurcation diagram is the most informative but assumes the reader knows a branch is
+   an attractor. **The 3D Waddington valley was ruled out on substance, not taste** — that image is
+   about a trajectory over developmental time, not about how many end states exist.
