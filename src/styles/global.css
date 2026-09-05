@@ -187,30 +187,19 @@
     }
     .focus__inner { width: 100%; }
 
-    .eyebrow {
-        font-family: var(--sans); font-weight: 500;
-        font-size: 0.78rem; letter-spacing: 0.14em;
-        color: var(--faint);
-    }
-    .eyebrow::after {
-        content: ""; display: block; width: 2.2rem; height: 1px;
-        margin-top: 0.55rem; background: var(--rule);
-    }
-
     .focus__lead {
-        margin-top: 1.35rem;
         font-family: var(--serif); font-style: italic; font-weight: 500;
-        font-size: clamp(1.35rem, 2.8vw, 1.92rem);
+        font-size: clamp(1.35rem, 2.6vw, 1.8rem);
         line-height: 1.33; color: var(--head);
-        max-width: 40ch; text-wrap: balance;
+        text-wrap: balance;
     }
 
     .focus__grid {
-        margin-top: clamp(1.7rem, 3.2vw, 2.5rem);
+        margin-top: clamp(1.9rem, 3.6vw, 2.5rem);
         display: grid;
-        grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: clamp(2rem, 4.6vw, 3.4rem);
-        align-items: center;
+        align-items: start;
     }
 
     .focus__text p {
@@ -219,28 +208,37 @@
         line-height: 1.68; color: #2f363f;
     }
     .focus__text p + p { margin-top: 0.95rem; }
+
+    /* Coda — a full-width rule closes the section; the note keeps a readable measure */
+    .focus__rule {
+        margin-top: clamp(1.7rem, 3vw, 2.24rem);
+        border: 0; height: 1px; background: var(--rule);
+    }
     .focus__coda {
-        margin-top: 1.25rem !important;
-        padding-top: 1rem;
-        border-top: 1px solid var(--rule);
-        font-size: 0.93rem !important;
-        color: var(--muted) !important;
+        margin-top: 1.18rem;
+        max-width: 62ch;
+        font-family: var(--sans); font-weight: 300;
+        font-size: 0.93rem; line-height: 1.68; color: var(--muted);
     }
 
     /* Figure */
-    .focus__figure { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
-    .fig { width: 100%; max-width: 22rem; height: auto; overflow: visible; }
+    .focus__figure {
+        margin-top: 0.35rem;
+        display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    }
+    .fig { width: 100%; max-width: 24.5rem; height: auto; overflow: visible; }
     .fig__label {
         font-family: var(--sans); font-size: 12px; font-weight: 500;
         letter-spacing: 0.035em; fill: var(--head);
     }
     .fig__pool circle { fill: var(--muted); }
     .fig__line { fill: none; stroke: #a3abb4; stroke-width: 1; stroke-linecap: round; }
+    .fig__baseline { fill: none; stroke: var(--rule); stroke-width: 1; }
     .fig__node { fill: var(--paper); stroke: #6d7883; stroke-width: 1.3; }
     .fig__node--solid { fill: var(--link); stroke: none; }
-    .fig__ring { fill: none; stroke: var(--link); stroke-width: 1; opacity: 0.3; }
+    .fig__ring { fill: none; stroke: var(--link); stroke-width: 1; opacity: 0.45; }
     .fig__caption {
-        max-width: 30ch;
+        max-width: 32ch;
         font-family: var(--sans); font-weight: 300;
         font-size: 0.86rem; line-height: 1.55; color: var(--muted);
         text-align: center; text-wrap: pretty;
@@ -257,13 +255,14 @@
     }
 
     /* Shorter viewports: keep the section within one screen */
-    @media (min-width: 861px) and (max-height: 860px) {
-        .focus { padding-block: clamp(2.4rem, 5.5vh, 3.6rem); }
-        .focus__lead { font-size: clamp(1.2rem, 2.3vw, 1.58rem); margin-top: 1.05rem; }
-        .focus__grid { margin-top: 1.5rem; }
-        .focus__text p { font-size: 0.94rem; line-height: 1.62; }
-        .focus__coda { font-size: 0.88rem !important; margin-top: 1rem !important; padding-top: 0.85rem; }
-        .fig { max-width: 19.5rem; }
+    @media (min-width: 861px) and (max-height: 780px) {
+        .focus { padding-block: clamp(2.4rem, 5.5vh, 3.4rem); }
+        .focus__lead { font-size: clamp(1.2rem, 2.4vw, 1.62rem); }
+        .focus__grid { margin-top: 1.6rem; }
+        .focus__text p { font-size: 0.95rem; line-height: 1.64; }
+        .focus__rule { margin-top: 1.3rem; }
+        .focus__coda { margin-top: 0.95rem; font-size: 0.88rem; }
+        .fig { max-width: 20rem; }
         .fig__caption { font-size: 0.82rem; }
     }
 
@@ -271,7 +270,7 @@
         .focus { padding-block: clamp(3.5rem, 10vh, 5rem); }
         .focus__grid { grid-template-columns: 1fr; gap: 2.2rem; }
         .focus__lead { max-width: 26ch; }
-        .focus__figure { order: -1; }
+        .focus__figure { order: -1; margin-top: 0; }
         .fig { max-width: 19rem; }
         .fig__caption { font-size: 0.83rem; max-width: 28ch; }
     }

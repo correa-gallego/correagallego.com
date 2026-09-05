@@ -21,8 +21,6 @@ import Base from '../layouts/Base.astro';
 
   <section class="focus" id="research">
     <div class="wrap focus__inner">
-      <p class="eyebrow reveal">Research</p>
-
       <h2 class="focus__lead reveal">
         How does order arise from parts that were previously autonomous — and does that
         process follow rules, or depend on history?
@@ -31,10 +29,10 @@ import Base from '../layouts/Base.astro';
       <div class="focus__grid">
         <div class="focus__text reveal">
           <p>
-            It is most tractable in microbial community assembly, where one pool of organisms may
-            converge on a single reproducible state or settle into any of several, depending on
-            which arrives first. Ecology describes both outcomes; it cannot yet predict which one
-            a given community will take.
+            The question is most tractable in microbial community assembly, where one pool of
+            organisms may converge on a single reproducible state or settle into any of several,
+            depending on which arrives first. Ecology describes both outcomes; no general rule yet
+            says which one a given community will take.
           </p>
           <p>
             I ask whether that can be anticipated from the organisms themselves — from how a cell
@@ -43,15 +41,10 @@ import Base from '../layouts/Base.astro';
             measurable. If its spread across a species pool sets when arrival order matters,
             contingency becomes a quantity rather than a caveat.
           </p>
-          <p class="focus__coda">
-            The question continues upward, toward the thresholds at which cooperating parts cease
-            to be separable. The approach is experimental: cultivation, growth physiology, and
-            quantitative analysis of community structure.
-          </p>
         </div>
 
         <figure class="focus__figure reveal">
-          <svg class="fig" viewBox="0 0 340 258" role="img" aria-labelledby="fig-title">
+          <svg class="fig" viewBox="0 0 340 250" role="img" aria-labelledby="fig-title">
             <title id="fig-title">
               One species pool resolving either into a single convergent end state, or into
               several alternative states set by the order in which its members arrive.
@@ -70,6 +63,8 @@ import Base from '../layouts/Base.astro';
               <circle cx="274" cy="26" r="3.2" />
             </g>
 
+            <path class="fig__baseline" d="M28,208 H 312" />
+
             <path class="fig__line" pathLength="1" d="M170,50 C 170,68 118,64 90,84" />
             <path class="fig__line" pathLength="1" d="M170,50 C 170,68 222,64 250,84" />
 
@@ -79,7 +74,7 @@ import Base from '../layouts/Base.astro';
               <path class="fig__line" pathLength="1" d="M90,84 C 132,118 126,178 90,204" />
               <circle class="fig__ring" cx="90" cy="208" r="11.5" />
               <circle class="fig__node fig__node--solid" cx="90" cy="208" r="6.5" />
-              <text class="fig__label" x="90" y="242" text-anchor="middle">convergent</text>
+              <text class="fig__label" x="90" y="234" text-anchor="middle">convergent</text>
             </g>
 
             <g>
@@ -89,16 +84,23 @@ import Base from '../layouts/Base.astro';
               <circle class="fig__node" cx="208" cy="208" r="5" />
               <circle class="fig__node" cx="248" cy="208" r="5" />
               <circle class="fig__node" cx="292" cy="208" r="5" />
-              <text class="fig__label" x="250" y="242" text-anchor="middle">contingent</text>
+              <text class="fig__label" x="250" y="234" text-anchor="middle">contingent</text>
             </g>
           </svg>
 
           <figcaption class="fig__caption">
-            One pool, two outcomes. Which of them a community reaches is the quantity I want to
-            predict.
+            One pool, two regimes. Predicting which one governs a given community is the open
+            problem.
           </figcaption>
         </figure>
       </div>
+
+      <hr class="focus__rule reveal" />
+      <p class="focus__coda reveal">
+        The question continues upward, toward the thresholds at which cooperating parts cease to
+        be separable. The approach is experimental: cultivation, growth physiology, and
+        quantitative analysis of community structure.
+      </p>
     </div>
   </section>
 </Base>

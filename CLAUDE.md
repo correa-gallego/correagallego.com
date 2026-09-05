@@ -55,14 +55,22 @@ Hero, then one research section, then the footer. Nothing else. The whole page i
   (Sebastian sampling in the cave), a dark scrim (heavier left, where the text sits; person is on
   the right), bottom fades to `--paper`. Content: **name on two lines** (`Sebastian` /
   `Correa-Gallego`), "B.Sc. in Biology", and the phrase. `.hero__cue` is now an anchor → `#research`.
-- **`.focus`** (100svh, vertically centred): eyebrow "Research" → the lead **question** in Roboto
-  Serif medium italic (max 40ch) → a 2-column grid, **narrative left / SVG figure right**. Third
-  paragraph is a muted `.focus__coda` above a hairline rule. Two `@media` blocks keep it inside one
-  screen: `max-height: 860px` (shrinks type) and `max-width: 860px` (stacks, figure first).
+- **`.focus`** (100svh, vertically centred). **There is no eyebrow/kicker** — Sebastian removed
+  "Research" and its rule ("si el contenido es meramente esa pestaña, no lo veo necesario"), so the
+  lead **question** is the section's own masthead: Roboto Serif medium italic, **no `max-width`**,
+  sized `clamp(1.35rem, 2.6vw, 1.8rem)` so it lands on exactly **two full-measure lines** across
+  every desktop width. Below it a 2-column grid, `repeat(2, minmax(0,1fr))`, `align-items: start`
+  -- **narrative left / SVG figure right**, the figure nudged `margin-top: .35rem` so its top label
+  sits on the first line of body text. The section closes with a full-width `<hr class="focus__rule">`
+  and a muted `.focus__coda` capped at 62ch. Two `@media` blocks keep it inside one screen:
+  `max-height: 780px` (shrinks type) and `max-width: 860px` (stacks, figure first).
+  **The two-line lead is load-bearing** — it replaces the deleted rule as the section's top edge; if
+  the wording changes, re-check the line count before shipping.
 - **The figure** (`.fig`, hand-authored inline SVG, no library): one species pool → a bifurcation →
   a **convergent** bundle closing on one filled navy node with a ring, versus a **contingent** fan
   ending on three open nodes. Both bundles have the same footprint so the contrast reads as the
-  *ending*, not the size. Lines draw in on scroll via `pathLength="1"` + `view()` timeline.
+  *ending*, not the size, and a `.fig__baseline` hairline puts both outcomes on a shared axis
+  instead of leaving them afloat. Lines draw in on scroll via `pathLength="1"` + `view()` timeline.
 - **Light, elegant cool-gray body** (`--paper: #eef0f2` — NOT blue, NOT dark: Sebastian tried a
   light-blue and a dark theme and rejected both). Dark text, sober **navy** (`#1b4b9c`).
   `--wrap: 62rem`. **No ALL-CAPS, no interpunct `·` anywhere.**
@@ -149,3 +157,17 @@ the predictability of microbial community assembly."
    scientific: *"On how microbial communities assemble — and whether the state they reach is
    predictable from the cells themselves."* CV moved out of the footer into the single fixed
    top-right glass button; new CV installed under the existing filename to preserve the URL.
+11. **Current — design review pass (Sep 2026).** Ran the research screen through a design canvas
+   (as-shipped vs. two directions) and shipped the recommended one. **Three copy corrections:**
+   "It is most tractable" → "The question is most tractable" (the old "It" referred to the heading,
+   which is not part of the body's grammar); "it cannot yet predict which one" → "no general rule
+   yet says which one" (the original overstated the gap — priority-effect theory does predict in
+   some systems, and a committee may well include people who work on it); and the caption's
+   "…is the quantity I want to predict" → "One pool, two regimes. Predicting which one governs a
+   given community is the open problem" (it had called a categorical outcome a *quantity*, two
+   sentences after "contingency becomes a quantity"). **Composition:** eyebrow deleted, question
+   set to two full-measure lines, equal top-aligned columns, figure enlarged to 24.5rem and given
+   a baseline, coda lifted out of the text column to sit full-width under an `<hr>`.
+   **Left open, deliberately:** the hero photo still carries `alt=""` though it is the page's most
+   content-rich element; and nothing on the page evidences that Sebastian has *done* any of this
+   (the CV button carries it — his brief forbids experience content, so this is a flag, not a bug).
