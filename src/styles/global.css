@@ -227,11 +227,12 @@
     .fig__axis { fill: none; stroke: var(--rule); stroke-width: 1; }
     .fig__node { fill: var(--paper); stroke: #6d7883; stroke-width: 1.3; }
     .fig__node--solid { fill: var(--link); stroke: none; }
+    /* Figure caption — left-aligned on the figure's own measure, as in a journal */
     .fig__caption {
-        max-width: 40ch;
+        width: 100%; max-width: 25.5rem;
         font-family: var(--sans); font-weight: 300;
         font-size: 0.86rem; line-height: 1.55; color: var(--muted);
-        text-align: center; text-wrap: pretty;
+        text-wrap: pretty;
     }
 
     @media (prefers-reduced-motion: no-preference) {
@@ -260,7 +261,7 @@
         .focus__lead { max-width: 26ch; }
         .focus__figure { order: -1; margin-top: 0; }
         .fig { max-width: 19rem; }
-        .fig__caption { font-size: 0.83rem; max-width: 28ch; }
+        .fig__caption { font-size: 0.83rem; max-width: 19rem; }
     }
 }
 
