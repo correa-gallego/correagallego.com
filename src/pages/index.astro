@@ -1,5 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
+
+const fukami = 'https://doi.org/10.1146/annurev-ecolsys-110411-160340';
+const hu = 'https://doi.org/10.1126/science.abm7841';
+const scott = 'https://doi.org/10.1126/science.1192588';
 ---
 
 <Base title="Sebastian Correa-Gallego">
@@ -14,7 +18,7 @@ import Base from '../layouts/Base.astro';
     <div class="hero__inner">
       <div class="hero__content">
         <h1 class="hero__name">Sebastian<br />Correa-Gallego</h1>
-        <p class="hero__degree">B.Sc. in Biology</p>
+        <p class="hero__degree">B.Sc. in Biology, Universidad EAFIT</p>
         <p class="hero__phrase">
           On how microbial communities assemble — and whether the state they reach is
           predictable from the cells themselves.
@@ -36,17 +40,20 @@ import Base from '../layouts/Base.astro';
           <p>
             The question is most tractable in microbial community assembly, where one pool of
             organisms may converge on a single reproducible state or settle into any of several,
-            depending on which arrives first. Ecology describes both outcomes; no general rule yet
-            says which one a given community will take.
+            depending on which arrives first
+            (<a href={fukami} rel="noopener" target="_blank">Fukami 2015</a>). Both outcomes are
+            documented, and the conditions separating them are increasingly well mapped
+            (<a href={hu} rel="noopener" target="_blank">Hu et al. 2022</a>); what is missing is a
+            rule that predicts the regime from properties of the organisms themselves.
           </p>
           <p>
-            I ask whether that can be anticipated from the organisms themselves — from how a cell
-            divides its finite proteome between growing quickly and growing efficiently. Organisms
-            alike in that division should exclude one another early and converge; a pool spanning
-            the whole rate–yield axis should cross-feed instead, and dependence is what admits
-            several outcomes. Allocation is measurable, which would make the shape of that
-            landscape a quantity rather than a caveat — and the same question continues upward,
-            toward the thresholds at which cooperating parts cease to be separable.
+            I ask whether such a rule can be built from how a cell divides its finite proteome
+            between growing quickly and growing efficiently — a partition the bacterial growth
+            laws made measurable
+            (<a href={scott} rel="noopener" target="_blank">Scott et al. 2010</a>). I expect
+            organisms alike in that division to exclude one another early and converge, while a
+            pool spanning the rate–yield axis may cross-feed instead, and dependence is what
+            admits several outcomes.
           </p>
         </div>
 

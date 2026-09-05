@@ -14,19 +14,28 @@ precision, and restraint. No self-promotion.
 
 ## What the site is
 
-A single, static, one-page academic homepage — **two full-viewport screens and a footer**:
-a photo hero, then one research-narrative section. **The site is deliberately NOT a copy of
-the CV**: the CV lives in the PDF, linked from the one visible button. No blog, no multi-page
-routing, no analytics, no third-party scripts, **no JavaScript at all**.
+A single, static, one-page academic homepage — **two full-viewport screens and a footer that
+carries the record**: a photo hero, then one research-narrative section, then a footer holding
+standing and work. **The site is deliberately NOT a copy of the CV**: the CV lives in the PDF,
+linked from the one visible button. No blog, no multi-page routing, no analytics, no third-party
+scripts, **no JavaScript at all**.
+
+**The division of labour is the whole design.** The two screens are argument and must stay pure —
+no lists, no dates, no institutions beyond the hero's one line. The footer is record, and is where
+anything factual goes. A reviewer's finding drove this: with no visible work, careful prose in an
+applicant without publications reads as *compensatory*; with the thesis, the manuscript and the
+presentations visible, the same prose reads as *earned*. Do not solve a "the site should mention
+X" request by adding X to the screens.
 
 ## Stack & tooling
 
 - **Astro 5**, static output (`output: 'static'`), `@astrojs/sitemap`.
 - One page: `src/pages/index.astro` (+ `src/pages/404.astro`).
 - Layout `src/layouts/Base.astro` (SEO meta + `og:image`, JSON-LD Person schema, footer).
-- `src/components/Footer.astro` — left-aligned inline-SVG icon links (email, ORCID brand-green
-  mark, Google Scholar, GitHub, Bluesky) + copyright. **No LinkedIn**, **no profile photo**,
-  **no CV icon** (the CV moved to the fixed top-right button in `Base.astro`).
+- `src/components/Footer.astro` — the standing block (status line + three work bullets), then
+  left-aligned inline-SVG icon links (email, ORCID brand-green mark, Google Scholar, GitHub,
+  Bluesky), then copyright. **No LinkedIn**, **no profile photo**, **no CV icon** (the CV moved to
+  the fixed top-right button in `Base.astro`). See the footer bullet under Design language.
 - `src/styles/global.css` — the entire design system.
 - Assets in `public/assets/`: `Sebastian-Correa-Gallego-CV.pdf` (**the live CV — keep this exact
   filename so the shared URL never breaks**; replace the file in place when Sebastian sends a new
@@ -57,7 +66,9 @@ Hero, then one research section, then the footer. Nothing else. The whole page i
 - **Hero** (`.hero`, 100svh, full-bleed) — unchanged and not to be redesigned: `field.webp`
   (Sebastian sampling in the cave), a dark scrim (heavier left, where the text sits; person is on
   the right), bottom fades to `--paper`. Content: **name on two lines** (`Sebastian` /
-  `Correa-Gallego`), "B.Sc. in Biology", and the phrase. `.hero__cue` is now an anchor → `#research`.
+  `Correa-Gallego`), **"B.Sc. in Biology, Universidad EAFIT"** (the institution was added so a
+  cold visitor gets the affiliation immediately), and the phrase. `.hero__cue` is an anchor →
+  `#research`.
   **`field.webp` carries real `alt` text and no `aria-hidden` — do not "fix" it back to `alt=""`.**
   It looks like a background but it is the page's only evidence of fieldwork (Sebastian sampling in
   the Organal San Antonio, Támesis — he confirmed the location); the same sentence is the
@@ -69,10 +80,10 @@ Hero, then one research section, then the footer. Nothing else. The whole page i
   every desktop width. Below it a 2-column grid, `repeat(2, minmax(0,1fr))`, `align-items: start`
   -- **narrative left / SVG figure right**; the text column is top-aligned, the figure is
   `align-self: center` (it has no top label to align to).
-  **The section is exactly one text block plus the figure** — Sebastian
-  deleted the closing rule and coda too ("solo me gustaría tener un bloque de texto"), so the
-  ladder (upward toward the thresholds where cooperating parts stop being separable) now lives in
-  the last sentence of the body. Two `@media` blocks keep it inside one screen: `max-height: 780px`
+  **The section is exactly one text block plus the figure** — Sebastian deleted the closing rule
+  and coda ("solo me gustaría tener un bloque de texto"), and a later review cut the ladder
+  sentence as well, so the body is now two paragraphs and stops on the mechanism.
+  Two `@media` blocks keep it inside one screen: `max-height: 780px`
   (shrinks type) and `max-width: 860px` (stacks, figure first).
   **The two-line lead is load-bearing** — it replaces the deleted rule as the section's top edge; if
   the wording changes, re-check the line count before shipping.
@@ -105,8 +116,14 @@ Hero, then one research section, then the footer. Nothing else. The whole page i
   `/assets/Sebastian-Correa-Gallego-CV.pdf` in a new tab, straight into the browser's own PDF
   viewer (Sebastian: "el CV abierto en Google, tal cómo está" — **never** an embedded subpage).
   Label "Curriculum Vitae", collapsing to "CV" under 560px.
-- **Footer:** left-aligned icon links (email, ORCID green, Google Scholar, GitHub, Bluesky) + ©
-  note. No profile photo, **no CV icon** (it moved to the top-right button).
+- **Footer:** now three parts — a `.foot__standing` block (a `.foot__status` line giving degree,
+  institution, conferral date and that he is applying for doctoral study; then `.foot__work`, three
+  restrained bullets: thesis + permanent link, the Purdue manuscript in preparation + ECSO link,
+  and "six conference presentations, 2022–2026. Stanford Biology Preview Program, 2026 cohort") —
+  then the icon links (email, ORCID green, Google Scholar, GitHub, Bluesky), then the © note.
+  **Six is the real count** (2022, 2023, 2024×2, Jan 2026, May 2026); don't round it. No profile
+  photo, **no CV icon** (it moved to the top-right button). **Never list the fellowship here** —
+  the sensitive-material rule below still holds.
 - Subtle `.reveal` on scroll (`view()` timeline), hero entrance, reduced-motion-safe. Print → B/W.
 
 **Not on the site (by choice):** no education, experience, service, presentations, honours,
@@ -126,6 +143,23 @@ energetic constraint. Current direction phrase (safe to use): "cellular resource
 the predictability of microbial community assembly."
 
 ## Content rules (important)
+
+- **Three citations are load-bearing and must stay.** The research prose carries
+  `Fukami 2015` (priority effects, `10.1146/annurev-ecolsys-110411-160340`), `Hu et al. 2022`
+  (phase mapping, `10.1126/science.abm7841`) and `Scott et al. 2010` (bacterial growth laws,
+  `10.1126/science.1192588`), as DOI links. All three DOIs were verified against publisher pages.
+  Without them a professor landing here sees an idea with no lineage; a reviewer called this the
+  highest-return, lowest-effort improvement on the site.
+- **The gap claim is deliberately narrow.** Not "no general rule says which outcome a community
+  will take" — that is overstated, because Hu 2022 maps phases and Estrela 2022 explains
+  functional attractors. The defensible claim, and the one on the page, is that what is missing is
+  **a rule that predicts the regime from properties of the organisms themselves**. Do not widen it.
+- **The hypothesis is hedged on purpose** ("I expect… may cross-feed"), not asserted with "should".
+  The rate–yield tradeoff is contested; the hedge costs nothing and buys calibration.
+- **Do not restore the deleted closing sentence.** "a quantity rather than a caveat", "continues
+  upward", and "the thresholds at which cooperating parts cease to be separable" were cut together:
+  all three were written for effect, and the third pointed at rung 4 of the ladder — the weakest,
+  least defensible part of the frame. The most ornamental phrasing was sitting on the weakest claim.
 
 - **Source of truth is the CV.** The site content mirrors Sebastian's LaTeX academic CV
   (Palatino/`mathpazo`). When he shares an updated CV, reconcile the page to it. Do not invent.
@@ -233,3 +267,14 @@ the predictability of microbial community assembly."
    point; the bifurcation diagram is the most informative but assumes the reader knows a branch is
    an attractor. **The 3D Waddington valley was ruled out on substance, not taste** — that image is
    about a trajectory over developmental time, not about how many end states exist.
+15. **Current — content pass after an outside review (Sep 2026).** A reviewer's critique, which
+   Sebastian handed over in full, drove four changes. **Precision:** the gap claim was narrowed to
+   organism-level prediction, and the two consecutive "should" became "I expect… may".
+   **Lineage:** three DOI citations added — the first links in the body, which finally put the
+   navy `--link` accent to work (styled as a hairline border, not an underline, so they read as
+   citations rather than as loud links). **Cut:** the ornamental closing sentence, in full.
+   **Information:** the reviewer's strongest point was that a visitor could not tell whether
+   Sebastian is a current student, a graduate or an applicant, and that none of the work was
+   visible. Fixed *without* touching the two screens — the hero degree line gained ", Universidad
+   EAFIT", and the footer gained the standing block. This reverses his earlier "no habrá más
+   contenido en la web" only for the footer; the screens stayed pure, which is the point.
