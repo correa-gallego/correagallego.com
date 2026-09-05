@@ -10,12 +10,13 @@ interface Props {
 
 const {
   title,
-  description = 'Sebastian Correa-Gallego — biologist (B.Sc., Universidad EAFIT). Microbial community assembly, the tension between predictability and contingency, and cellular resource allocation under constraint.',
+  description = 'Sebastian Correa-Gallego — biologist (B.Sc., Universidad EAFIT). Microbial community assembly, and whether the state a community reaches can be predicted from how its cells allocate finite resources.',
   ogType = 'profile',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 const ogImage = new URL('/assets/field.webp', Astro.site).toString();
+const cv = '/assets/Sebastian-Correa-Gallego-CV.pdf';
 
 const personSchema = {
   '@context': 'https://schema.org',
@@ -41,7 +42,9 @@ const personSchema = {
   },
   sameAs: [
     'https://orcid.org/0009-0007-8703-3188',
+    'https://scholar.google.com/citations?user=fy4svCIAAAAJ',
     'https://github.com/correa-gallego',
+    'https://bsky.app/profile/prometheoarchaeum.bsky.social',
   ],
 };
 ---
@@ -82,6 +85,15 @@ const personSchema = {
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to content</a>
+  <a class="cv-link" href={cv} rel="noopener" target="_blank">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"></path>
+      <path d="M14 3v5h5"></path>
+      <path d="M9 13h6M9 17h4"></path>
+    </svg>
+    <span class="cv-link__full">Curriculum Vitae</span>
+    <span class="cv-link__short">CV</span>
+  </a>
   <main id="main-content">
     <slot />
   </main>

@@ -1,9 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-const thesisUrl = 'https://hdl.handle.net/10784/38213';
-const thesisPdf = '/assets/Sebastian-Correa-Gallego-Thesis.pdf';
-const ecso = 'https://ecsolab.com/';
-const siab = 'https://www.eafit.edu.co/sistema-ciencia-tecnologia-innovacion/investigacion/nuestros-semilleros/investigacion-microbiologia-astrobiologia';
 ---
 
 <Base title="Sebastian Correa-Gallego">
@@ -15,199 +11,94 @@ const siab = 'https://www.eafit.edu.co/sistema-ciencia-tecnologia-innovacion/inv
         <h1 class="hero__name">Sebastian<br />Correa-Gallego</h1>
         <p class="hero__degree">B.Sc. in Biology</p>
         <p class="hero__phrase">
-          On how living systems organize under constraint — keeping the living organism at the
-          center of the question.
+          On how microbial communities assemble — and whether the state they reach is
+          predictable from the cells themselves.
         </p>
       </div>
     </div>
-    <span class="hero__cue" aria-hidden="true"></span>
+    <a class="hero__cue" href="#research" aria-label="Continue to research"><span aria-hidden="true"></span></a>
   </header>
 
-    <section class="section wrap">
-      <div class="head reveal"><h2 class="head__title">Research Interests</h2></div>
-      <p class="statement reveal">
-        Life assembles into order under constraint. A microbial community drawn from the same pool
-        of organisms may converge on a single reproducible state or settle into one of several
-        alternatives depending on the order in which its members arrive, and what decides between
-        these outcomes — whether assembly follows rules or depends on history — remains among the
-        open questions in ecology and evolution. This tension between predictability and contingency
-        reaches beyond any single system: it echoes the broader problem of how autonomous parts come
-        to form integrated wholes, from the structure of a community to the major transitions in the
-        organization of life. I am drawn to these questions, and to the possibility that collective
-        outcomes might be anticipated from measurable properties of the organisms themselves — such
-        as how a cell divides its finite resources between growth and metabolic efficiency. I hope to
-        pursue them with growing quantitative rigor while keeping the living organism, in its real
-        environment, at the center of the inquiry.
-      </p>
-    </section>
+  <section class="focus" id="research">
+    <div class="wrap focus__inner">
+      <p class="eyebrow reveal">Research</p>
 
-    <section class="section wrap">
-      <div class="head reveal"><h2 class="head__title">Education</h2></div>
-      <div class="entry reveal">
-        <div class="entry__row">
-          <span class="entry__role">B.Sc. in Biology</span>
-          <span class="date">2022–2026</span>
+      <h2 class="focus__lead reveal">
+        How does order arise from parts that were previously autonomous — and does that
+        process follow rules, or depend on history?
+      </h2>
+
+      <div class="focus__grid">
+        <div class="focus__text reveal">
+          <p>
+            It is most tractable in microbial community assembly, where one pool of organisms may
+            converge on a single reproducible state or settle into any of several, depending on
+            which arrives first. Ecology describes both outcomes; it cannot yet predict which one
+            a given community will take.
+          </p>
+          <p>
+            I ask whether that can be anticipated from the organisms themselves — from how a cell
+            divides its finite proteome between growing quickly and growing efficiently, and how
+            selection reshapes those strategies as a community assembles. Allocation is
+            measurable. If its spread across a species pool sets when arrival order matters,
+            contingency becomes a quantity rather than a caveat.
+          </p>
+          <p class="focus__coda">
+            The question continues upward, toward the thresholds at which cooperating parts cease
+            to be separable. The approach is experimental: cultivation, growth physiology, and
+            quantitative analysis of community structure.
+          </p>
         </div>
-        <span class="entry__inst">
-          <img class="logo" src="/assets/logos/EAFIT.svg" alt="Universidad EAFIT" />
-          Universidad EAFIT
-        </span>
-        <p class="entry__sub">GPA: 4.44 / 5.00</p>
+
+        <figure class="focus__figure reveal">
+          <svg class="fig" viewBox="0 0 340 258" role="img" aria-labelledby="fig-title">
+            <title id="fig-title">
+              One species pool resolving either into a single convergent end state, or into
+              several alternative states set by the order in which its members arrive.
+            </title>
+
+            <text class="fig__label" x="170" y="10" text-anchor="middle">the same species pool</text>
+
+            <g class="fig__pool">
+              <circle cx="66"  cy="34" r="3.2" />
+              <circle cx="96"  cy="24" r="3.2" />
+              <circle cx="126" cy="36" r="3.2" />
+              <circle cx="156" cy="25" r="3.2" />
+              <circle cx="186" cy="35" r="3.2" />
+              <circle cx="216" cy="24" r="3.2" />
+              <circle cx="246" cy="35" r="3.2" />
+              <circle cx="274" cy="26" r="3.2" />
+            </g>
+
+            <path class="fig__line" pathLength="1" d="M170,50 C 170,68 118,64 90,84" />
+            <path class="fig__line" pathLength="1" d="M170,50 C 170,68 222,64 250,84" />
+
+            <g>
+              <path class="fig__line" pathLength="1" d="M90,84 C 48,118 54,178 90,204" />
+              <path class="fig__line" pathLength="1" d="M90,84 C 112,114 68,170 90,204" />
+              <path class="fig__line" pathLength="1" d="M90,84 C 132,118 126,178 90,204" />
+              <circle class="fig__ring" cx="90" cy="208" r="11.5" />
+              <circle class="fig__node fig__node--solid" cx="90" cy="208" r="6.5" />
+              <text class="fig__label" x="90" y="242" text-anchor="middle">convergent</text>
+            </g>
+
+            <g>
+              <path class="fig__line" pathLength="1" d="M250,84 C 226,118 212,172 208,204" />
+              <path class="fig__line" pathLength="1" d="M250,84 C 254,118 244,172 248,204" />
+              <path class="fig__line" pathLength="1" d="M250,84 C 274,118 288,172 292,204" />
+              <circle class="fig__node" cx="208" cy="208" r="5" />
+              <circle class="fig__node" cx="248" cy="208" r="5" />
+              <circle class="fig__node" cx="292" cy="208" r="5" />
+              <text class="fig__label" x="250" y="242" text-anchor="middle">contingent</text>
+            </g>
+          </svg>
+
+          <figcaption class="fig__caption">
+            One pool, two outcomes. Which of them a community reaches is the quantity I want to
+            predict.
+          </figcaption>
+        </figure>
       </div>
-    </section>
-
-    <section class="section wrap">
-      <div class="head reveal"><h2 class="head__title">Research Experience</h2></div>
-
-      <article class="entry reveal">
-        <div class="entry__row">
-          <span class="entry__role">Visiting Student Intern</span>
-          <span class="date">Aug 2025 – Jan 2026</span>
-        </div>
-        <span class="entry__inst">
-          <img class="logo" src="/assets/logos/Purdue.svg" alt="Purdue University" />
-          <span><a href={ecso} rel="noopener" target="_blank">The Evolution of Cells, Symbionts and Organelles Lab</a>, Department of Biological Sciences, Purdue University</span>
-        </span>
-        <ul class="bullets">
-          <li>
-            Contributed to the project <em>Proteome Allocation Rules in Osmotrophic Eukaryotes</em>,
-            studying how non-conventional osmotrophic yeasts (<em>K. marxianus</em> and
-            <em>V. polyspora</em>) reorganize proteome investment under carbon limitation.
-          </li>
-          <li>
-            Generated high-resolution growth curves to characterize the physiological response of the
-            study organisms across defined carbon regimes, establishing the growth phenotypes
-            underlying the downstream analysis.
-          </li>
-          <li>
-            Contributed to proteomics-based workflows, including sample preparation and integrative
-            analysis linking molecular allocation to cellular physiology.
-          </li>
-          <li>
-            Tested and calibrated an automated continuous-culture system to support controlled
-            cultivation for the lab's steady-state experiments.
-          </li>
-        </ul>
-      </article>
-
-      <article class="entry reveal">
-        <div class="entry__row">
-          <span class="entry__role">Undergraduate Thesis Researcher</span>
-          <span class="date">2024–2026</span>
-        </div>
-        <span class="entry__inst">
-          <img class="logo" src="/assets/logos/EAFIT.svg" alt="Universidad EAFIT" />
-          <span>Universidad EAFIT, Advisor: Prof. Nicolás Pinel Peláez, Ph.D.</span>
-        </span>
-        <p class="entry__sub">
-          Thesis: <em>Cultivable Microbial Community Structure Along a Light Gradient in a Tropical
-          Volcaniclastic Cave</em>
-          <a href={thesisUrl} rel="noopener" target="_blank">[permanent link]</a>
-          <a href={thesisPdf} rel="noopener" target="_blank">[defense slides]</a>
-        </p>
-        <ul class="bullets">
-          <li>
-            Characterized the cultivable microbial fraction of the Organal San Antonio, a tropical
-            volcaniclastic cave at ~2350 m a.s.l. in Támesis, Antioquia, across a light-defined
-            spatial gradient spanning Entrance, Transition, and Dark sectors.
-          </li>
-          <li>
-            Found systematic differences in cultivable abundance and community composition across
-            zonation: the aphotic sector supported markedly reduced densities and a distinct
-            assemblage relative to photic sectors, while the Transition zone harbored a partially
-            unique community of its own.
-          </li>
-          <li>
-            Established a spatially resolved cultivable baseline for an organal-type pseudokarstic
-            cave system, designing a tractable cultivation study in the absence of sequencing
-            infrastructure.
-          </li>
-        </ul>
-      </article>
-    </section>
-
-    <section class="section wrap">
-      <div class="head reveal"><h2 class="head__title">Academic Service</h2></div>
-      <article class="entry reveal">
-        <div class="entry__row">
-          <span class="entry__role">Student Director, <a href={siab} rel="noopener" target="_blank">Research Group on Microbiology and Astrobiology (SIAB)</a></span>
-          <span class="date">Oct 2023 – May 2025</span>
-        </div>
-        <span class="entry__inst">
-          <img class="logo" src="/assets/logos/EAFIT.svg" alt="Universidad EAFIT" />
-          <span>Universidad EAFIT, affiliated with the Research Group on Geosciences and Biodiversity (GEBI)</span>
-        </span>
-        <ul class="bullets">
-          <li>
-            Led a student research group on microbiology, astrobiology, and extremophiles, working
-            collaboratively with members to learn and apply microbiological techniques and explore
-            the diversity of these organisms.
-          </li>
-          <li>
-            Participated in a science-outreach initiative on the role of microorganisms in the
-            maintenance of Andean forests, contributing science-communication material for the El
-            Globo nature reserve (Támesis).
-          </li>
-        </ul>
-      </article>
-    </section>
-
-    <section class="section wrap">
-      <div class="head reveal"><h2 class="head__title">Conferences &amp; Presentations</h2></div>
-      <div class="list reveal">
-        <div class="item">
-          <div class="item__row"><span class="item__title">Research Proposal Presentation</span><span class="date">2024</span></div>
-          <p class="item__sub">2nd Symposium of Biology, Universidad EAFIT</p>
-        </div>
-        <div class="item">
-          <div class="item__row"><span class="item__title">Oral Presentation</span><span class="date">2024</span></div>
-          <p class="item__sub">XXIII Encuentro Departamental de Semilleros de Investigación, RedCOLSI, Antioquia, Colombia</p>
-        </div>
-        <div class="item">
-          <div class="item__row"><span class="item__title">Research Fair Presentation</span><span class="date">2022</span></div>
-          <p class="item__sub">Feria de Semilleros de Investigación, Universidad EAFIT</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section wrap">
-      <div class="head reveal"><h2 class="head__title">Honors &amp; Recognition</h2></div>
-      <div class="list reveal">
-        <div class="item">
-          <div class="item__row"><span class="item__title">Fully Funded Internship</span><span class="date">2025</span></div>
-          <p class="item__sub">Fundación Fraternidad Medellín — UREP-C Program, Purdue University</p>
-        </div>
-        <div class="item">
-          <div class="item__row"><span class="item__title">Award Winner, Research Proposal Presentation</span><span class="date">2024</span></div>
-          <p class="item__sub">2nd Symposium of Biology, Universidad EAFIT</p>
-        </div>
-        <div class="item">
-          <div class="item__row"><span class="item__title">Undergraduate Scholarship</span><span class="date">2022</span></div>
-          <p class="item__sub">Comfama and Fundación Fraternidad Medellín</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section wrap">
-      <div class="head reveal"><h2 class="head__title">Certifications &amp; Training</h2></div>
-      <div class="list reveal">
-        <div class="item">
-          <div class="item__row"><span class="item__title">Responsible Conduct of Research (RCR) Training</span><span class="date">Aug 2025</span></div>
-          <p class="item__sub">CITI Program, Credential ID 71597371, valid through Aug 2029</p>
-        </div>
-        <div class="item">
-          <div class="item__row"><span class="item__title">Technician in Agricultural Sciences</span><span class="date">2019–2021</span></div>
-          <p class="item__sub">Servicio Nacional de Aprendizaje (SENA), Colombia</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section wrap">
-      <div class="head reveal"><h2 class="head__title">Technical Skills</h2></div>
-      <div class="reveal">
-        <p class="skill"><strong>Laboratory and biological methods:</strong> microbial cultivation and isolation, continuous-culture operation, growth-curve measurement, environmental sampling and ecological field records, molecular biology and biochemistry techniques, proteomics sample preparation, and microscopy-based observation.</p>
-        <p class="skill"><strong>Quantitative and computational tools:</strong> R, Python, Linux/bash, LaTeX, and QGIS, applied to biological data analysis, statistics, and data visualization.</p>
-        <p class="skill"><strong>Scientific workflows:</strong> scientific writing, research communication, literature synthesis, and figure preparation.</p>
-      </div>
-    </section>
+    </div>
+  </section>
 </Base>

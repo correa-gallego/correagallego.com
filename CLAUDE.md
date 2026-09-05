@@ -14,8 +14,10 @@ precision, and restraint. No self-promotion.
 
 ## What the site is
 
-A single, static, one-page academic homepage. Personal CV/identity site — no blog, no
-multi-page routing, no analytics, no third-party scripts.
+A single, static, one-page academic homepage — **two full-viewport screens and a footer**:
+a photo hero, then one research-narrative section. **The site is deliberately NOT a copy of
+the CV**: the CV lives in the PDF, linked from the one visible button. No blog, no multi-page
+routing, no analytics, no third-party scripts, **no JavaScript at all**.
 
 ## Stack & tooling
 
@@ -23,11 +25,14 @@ multi-page routing, no analytics, no third-party scripts.
 - One page: `src/pages/index.astro` (+ `src/pages/404.astro`).
 - Layout `src/layouts/Base.astro` (SEO meta + `og:image`, JSON-LD Person schema, footer).
 - `src/components/Footer.astro` — left-aligned inline-SVG icon links (email, ORCID brand-green
-  mark, GitHub, CV) + copyright. **No LinkedIn**, **no profile photo**.
+  mark, Google Scholar, GitHub, Bluesky) + copyright. **No LinkedIn**, **no profile photo**,
+  **no CV icon** (the CV moved to the fixed top-right button in `Base.astro`).
 - `src/styles/global.css` — the entire design system.
-- Assets in `public/assets/`: `Sebastian-Correa-Gallego-CV.pdf`, `Sebastian-Correa-Gallego-Thesis.pdf`
-  (defense deck), `favicon.svg` (black serif "S"), `field.webp` (hero), `logos/{EAFIT,Purdue}.svg`,
-  and `profile.webp` (kept but currently unreferenced).
+- Assets in `public/assets/`: `Sebastian-Correa-Gallego-CV.pdf` (**the live CV — keep this exact
+  filename so the shared URL never breaks**; replace the file in place when Sebastian sends a new
+  version), `favicon.svg` (black serif "S"), `field.webp` (hero). Kept but **unreferenced**:
+  `Sebastian-Correa-Gallego-Thesis.pdf` (4.2 MB defense deck), `logos/{EAFIT,Purdue}.svg`,
+  `profile.webp` — retained because their URLs may already be circulating.
 - **Image pipeline:** Sebastian drops originals into a `multimedia/` staging folder, then Claude
   optimizes with **sharp** (bundled via Astro) → WebP into `public/assets/` (referenced by plain
   `<img>`); sharp also rasterizes SVGs. **Delete `multimedia/` when done** (Sebastian's instruction).
@@ -37,38 +42,43 @@ multi-page routing, no analytics, no third-party scripts.
 
 Commands: `npm run dev`, `npm run build` (must pass, no console errors).
 
-## Design language (current) — "Modern academic homepage"
+## Design language (current) — "Two screens"
 
-The CV content, presented as a clean modern site: a full-bleed photo hero that fades into a light
-body, subtle scroll reveals, **no figures** (removed — Sebastian preferred them out). One page.
+Hero, then one research section, then the footer. Nothing else. The whole page is
+**hero (100svh) → `.focus` (100svh) → footer**; total scroll ≈ two screens.
 
 - **Two typefaces, by role:** `Roboto Serif` **italic** is the "voice" — the hero **name** (bold
-  italic), **section titles** (medium italic), and **dates** (light italic). `Inter` for the rest —
-  body/bullets/skills (light, 300), entry roles & item titles (600), the degree line. Both via
-  Google Fonts. (No serif-upright, no sans for the name — Sebastian's explicit split.)
-- **Hero** (`.hero`, 100svh, full-bleed): `field.webp` (Sebastian sampling in the cave), a dark
-  scrim (heavier left, where the text sits; person is on the right), bottom fades to `--paper`.
-  Content: **name on two lines** (`Sebastian` / `Correa-Gallego`, Roboto Serif bold italic, white),
-  "B.Sc. in Biology" (Inter), and the italic phrase.
+  italic) and the `.focus__lead` research question (medium italic). `Inter` for the rest — the
+  narrative body (light, 300), the eyebrow and figure labels (500), the degree line, the CV
+  button. Both via Google Fonts. (No serif-upright, no sans for the name — Sebastian's split.)
+- **Hero** (`.hero`, 100svh, full-bleed) — unchanged and not to be redesigned: `field.webp`
+  (Sebastian sampling in the cave), a dark scrim (heavier left, where the text sits; person is on
+  the right), bottom fades to `--paper`. Content: **name on two lines** (`Sebastian` /
+  `Correa-Gallego`), "B.Sc. in Biology", and the phrase. `.hero__cue` is now an anchor → `#research`.
+- **`.focus`** (100svh, vertically centred): eyebrow "Research" → the lead **question** in Roboto
+  Serif medium italic (max 40ch) → a 2-column grid, **narrative left / SVG figure right**. Third
+  paragraph is a muted `.focus__coda` above a hairline rule. Two `@media` blocks keep it inside one
+  screen: `max-height: 860px` (shrinks type) and `max-width: 860px` (stacks, figure first).
+- **The figure** (`.fig`, hand-authored inline SVG, no library): one species pool → a bifurcation →
+  a **convergent** bundle closing on one filled navy node with a ring, versus a **contingent** fan
+  ending on three open nodes. Both bundles have the same footprint so the contrast reads as the
+  *ending*, not the size. Lines draw in on scroll via `pathLength="1"` + `view()` timeline.
 - **Light, elegant cool-gray body** (`--paper: #eef0f2` — NOT blue, NOT dark: Sebastian tried a
-  light-blue and a dark theme and rejected both; wants a very light neutral/cool gray). Dark text,
-  sober **navy links** (`#1b4b9c`). `--wrap: 62rem`, text at `--measure: 47rem`.
-- **Institution logos** (`logos/EAFIT.svg`, `Purdue.svg`) inline, **original colours** — EAFIT
-  recoloured to its navy `#000066` (the SVG shipped black via an `icc-color` override that was
-  stripped). **No ALL-CAPS, no interpunct `·` anywhere** (restore full wording + hyperlinks instead:
-  ECSO Lab, Dept. of Biological Sciences; SIAB link; GEBI).
-- **Thesis:** `[permanent link]` to the EAFIT repository **then** `[defense slides]` →
-  `Sebastian-Correa-Gallego-Thesis.pdf` (the compressed 4.2 MB defense deck).
-- **Footer:** left-aligned icon links (email, ORCID green, GitHub, CV) + © note. **No profile photo**
-  in the footer (Sebastian asked to hide it; `profile.webp` stays in assets, unreferenced).
+  light-blue and a dark theme and rejected both). Dark text, sober **navy** (`#1b4b9c`).
+  `--wrap: 62rem`. **No ALL-CAPS, no interpunct `·` anywhere.**
+- **CV button** (`.cv-link`, in `Base.astro`): the *only* visible button, `position: fixed`
+  top-right, on every page. A dark translucent glass pill — deliberately the **same** style over
+  the dark hero and the light body, so it needs no JS to re-theme. Opens
+  `/assets/Sebastian-Correa-Gallego-CV.pdf` in a new tab, straight into the browser's own PDF
+  viewer (Sebastian: "el CV abierto en Google, tal cómo está" — **never** an embedded subpage).
+  Label "Curriculum Vitae", collapsing to "CV" under 560px.
+- **Footer:** left-aligned icon links (email, ORCID green, Google Scholar, GitHub, Bluesky) + ©
+  note. No profile photo, **no CV icon** (it moved to the top-right button).
 - Subtle `.reveal` on scroll (`view()` timeline), hero entrance, reduced-motion-safe. Print → B/W.
 
-Section order: Hero → Research Interests (Inter-light statement) → Education → Research Experience →
-Academic Service → Conferences & Presentations → Honors & Recognition → Certifications & Training →
-Technical Skills → footer.
-
-**Not used (by choice):** `eeb.jpg` (group photo — third-party/minor privacy). **No References
-section** on the web (privacy). Reminder: Cloudflare Pages rejects any single file > 25 MiB.
+**Not on the site (by choice):** no education, experience, service, presentations, honours,
+certifications or skills — that is what the CV PDF is for. No References (privacy). `eeb.jpg`
+(group photo — third-party/minor privacy). Reminder: Cloudflare Pages rejects any file > 25 MiB.
 
 ## Who Sebastian is (for framing content — from his own field notebook, non-sensitive)
 
@@ -120,10 +130,22 @@ the predictability of microbial community assembly."
    subtitle, favicon changed to a black serif "S" on white; CV PDF refreshed with subtler wording.
 8. Modern academic homepage: full-bleed cave-photo hero fading into the body; Inter + Roboto Serif
    italic; institution logos; figures in cards; footer signature. Added the sharp image pipeline.
-9. **Current — refined homepage.** Removed the figures (kept the hero). Typography split: Roboto
-   Serif italic for the name (two lines, bold), section titles (medium), and dates (light); Inter
-   for the rest (statement/body in light 300). **Light, elegant cool-gray body** `#eef0f2` (a dark
-   theme and a light-blue were both tried and rejected). EAFIT logo recoloured to navy `#000066`;
-   logos in original colour. Restored full CV wording + hyperlinks (ECSO, SIAB) and removed all
-   interpuncts. Added the compressed `[defense slides]` PDF after the thesis permanent link. Footer
-   profile photo removed. `multimedia/` deleted after use.
+9. Refined homepage. Removed the figures (kept the hero). Typography split: Roboto Serif italic for
+   the name (two lines, bold), section titles (medium), and dates (light); Inter for the rest.
+   **Light, elegant cool-gray body** `#eef0f2` (a dark theme and a light-blue were both tried and
+   rejected). EAFIT logo recoloured to navy `#000066`. Restored full CV wording + hyperlinks (ECSO,
+   SIAB) and removed all interpuncts. Footer profile photo removed. `multimedia/` deleted after use.
+   Then added Google Scholar and Bluesky to the footer icon row.
+10. **Current — "two screens" (Sep 2026).** Sebastian sent `CV_v25.pdf` and his Stanford
+   `SOP_v21.pdf` and asked to stop mirroring the CV: *"Ya existe un CV en PDF, por ello no tiene
+   sentido que la página web figure como el mismo PDF."* So **every CV-derived section was deleted**
+   (education, experience, service, presentations, honours, certifications, skills). What remains is
+   the hero plus one new full-viewport `.focus` section carrying the research narrative, drawn from
+   the SOP and the CV's Research Interests: the organising question (order from previously
+   autonomous parts — rules or history?), microbial community assembly as the tractable case,
+   proteome allocation as the measurable handle, and the coda pointing upward toward the thresholds
+   at which cooperating parts cease to be separable. Added a hand-authored SVG figure
+   (convergent vs. contingent assembly from one pool). Hero phrase rewritten to be plainer and more
+   scientific: *"On how microbial communities assemble — and whether the state they reach is
+   predictable from the cells themselves."* CV moved out of the footer into the single fixed
+   top-right glass button; new CV installed under the existing filename to preserve the URL.
