@@ -58,7 +58,7 @@
     a:hover { color: var(--link-hover); text-decoration: underline; text-underline-offset: 2px; }
     :focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; }
     ::selection { background: #d7dde6; color: var(--ink); }
-    strong, b { font-weight: 600; color: var(--ink); }
+    strong, b { font-weight: 500; color: var(--ink); }
     em, i { font-style: italic; }
 }
 
@@ -138,9 +138,9 @@
     .hero__name {
         font-family: var(--serif);
         font-style: italic;
-        font-weight: 700;
-        font-size: clamp(2.3rem, 5.6vw, 3.3rem);
-        line-height: 1.1;
+        font-weight: 500;
+        font-size: clamp(2rem, 4.9vw, 2.9rem);
+        line-height: 1.12;
         color: #fff;
     }
     .hero__degree {

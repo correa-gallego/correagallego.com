@@ -47,10 +47,13 @@ Commands: `npm run dev`, `npm run build` (must pass, no console errors).
 Hero, then one research section, then the footer. Nothing else. The whole page is
 **hero (100svh) → `.focus` (100svh) → footer**; total scroll ≈ two screens.
 
-- **Two typefaces, by role:** `Roboto Serif` **italic** is the "voice" — the hero **name** (bold
-  italic) and the `.focus__lead` research question (medium italic). `Inter` for the rest — the
-  narrative body (light, 300), the eyebrow and figure labels (500), the degree line, the CV
-  button. Both via Google Fonts. (No serif-upright, no sans for the name — Sebastian's split.)
+- **Two typefaces, by role:** `Roboto Serif` **italic** is the "voice" — the hero **name** and the
+  `.focus__lead` research question, both **medium (500)**; the hero phrase is 400. `Inter` for the
+  rest — the narrative body (light, 300), figure labels (500), the degree line, the CV button.
+  Both via Google Fonts. (No serif-upright, no sans for the name — Sebastian's split.)
+  **Only five faces are downloaded** — Inter 300/400/500 and Roboto Serif 400/500 italic. Serif
+  300/700 and Inter 600 were audited out once nothing used them; if you add a weight to the CSS,
+  add it to the `<link>` in `Base.astro` too, and if you remove one, take it back out.
 - **Hero** (`.hero`, 100svh, full-bleed) — unchanged and not to be redesigned: `field.webp`
   (Sebastian sampling in the cave), a dark scrim (heavier left, where the text sits; person is on
   the right), bottom fades to `--paper`. Content: **name on two lines** (`Sebastian` /
@@ -199,3 +202,17 @@ the predictability of microbial community assembly."
    mechanism is competition for two *essential nutrients* with differing C:N stoichiometry. The
    tradeoff→multistability bridge he wants is Manhart & Shakhnovich 2018 (Nat Commun 9:3214),
    already in his own anchor list. Left for him to fix in Notion; nothing on the site cites either.
+13. **Current — type audit (Sep 2026).** Sebastian asked whether to move the site to Palatino, as
+   in his CV's `mathpazo`/`\scshape` setup, or keep Inter + Roboto Serif. **Kept the current
+   pairing**, for three reasons worth not relitigating: Linotype Palatino has no web licence and
+   the free stand-in (TeX Gyre Pagella, the URW Palladio descendant `mathpazo` actually uses) would
+   need self-hosting, while the system fallbacks — `Palatino`, `Book Antiqua` — are absent on Linux
+   and Android, so a large share of visitors would see something else on a page that is almost
+   entirely type; Palatino is a print face whose stroke contrast and modest x-height weaken on a
+   backlit screen at body sizes; and matching the CV's type would make the site read as a document
+   rather than as a page built on a photograph. **Honest caveat recorded:** Inter and Roboto Serif
+   are very common choices, so the page is legible and contemporary rather than distinctive — if
+   that ever bothers him, the move is a screen-designed scholarly serif (Literata, Newsreader,
+   Source Serif 4, Spectral), not Palatino. Per his instruction, the hero name then dropped from
+   **700 → 500** and `clamp(2.3rem, 5.6vw, 3.3rem)` → `clamp(2rem, 4.9vw, 2.9rem)`; 400 was tried
+   and rejected (it lost its step above the phrase and went fragile over the lit rock).
