@@ -55,8 +55,10 @@ Commands: `npm run dev`, `npm run build` (must pass, no console errors).
 
 ## Design language (current) — "Two screens"
 
-Hero, then one research section, then the footer. Nothing else. The whole page is
-**hero (100svh) → `.focus` (100svh) → footer**; total scroll ≈ two screens.
+Hero, then one research section, then the footer. Nothing else. The page is
+**hero (100svh) → `.focus` (`min-height: 100svh`) → footer**. Since entry 17 the research section
+no longer fits one screen except on 1080-tall displays; it grows past the fold rather than
+clipping. See entry 17 before "fixing" this.
 
 - **Two typefaces, by role:** `Roboto Serif` **italic** is the "voice" — the hero **name** and the
   `.focus__lead` research question, both **medium (500)**; the hero phrase is 400. `Inter` for the
@@ -85,26 +87,23 @@ Hero, then one research section, then the footer. Nothing else. The whole page i
   **The section is exactly one text block plus the figure** — Sebastian deleted the closing rule
   and coda ("solo me gustaría tener un bloque de texto"), and a later review cut the ladder
   sentence as well, so the body is now two paragraphs and stops on the mechanism.
-  Two `@media` blocks keep it inside one screen: `max-height: 780px`
-  (shrinks type) and `max-width: 860px` (stacks, figure first).
+  Two `@media` blocks trim it on small viewports: `max-height: 780px` (shrinks type) and
+  `max-width: 860px` (stacks, figure first). They no longer bring it inside one screen.
   **The two-line lead is load-bearing** — it replaces the deleted rule as the section's top edge; if
   the wording changes, re-check the line count before shipping.
-- **The figure** (`.fig`, inline SVG, no library) is a pair of **phase portraits**. Sebastian chose
-  this over a 1D stability landscape and over a bifurcation diagram, for a reason worth keeping:
-  his claim is about **arrival order, and arrival order is an initial condition** — this is the
-  only one of the three that draws initial conditions. Left panel: one attractor every start flows
-  to. Right: two attractors either side of a dashed separatrix through an **unstable saddle** (open
-  circle; filled navy = stable, open = unstable, standard convention), with the two basins tinted.
-  **Nothing in it is drawn by hand.** Trajectories are RK4 integrations of
-  `dx/dt = μx − x³, dy/dt = −0.3y` — one family, one parameter: `μ = −0.8` gives a single node,
-  `μ = +1.0` gives two nodes plus the saddle. The 24-arrow flow field per panel is the vector field
-  sampled on a 5×5 grid; arrowheads sit at 34% along each trajectory. y relaxes more slowly than x
-  on purpose — equal rates made the left panel a starburst instead of a portrait.
-  **`node tools/phaseportrait.mjs` regenerates everything** (it prints JSON that
-  `tools/assemble-figure.py` splices into the page). Change the parameter and re-run; never
-  nudge coordinates. Axes are labelled "community composition, two of many axes" — i.e. an
-  ordination-like projection, which is honest and matches his thesis methods. Trajectories draw in
-  on scroll via `pathLength="1"` + `view()`; the field and frames stay static.
+- **The figure is generated, not authored.** `scripts/phase_portraits.py` integrates a two-species
+  Lotka-Volterra competition model with `scipy.integrate.solve_ivp`, solves the equilibria with
+  `fsolve` and classifies them from the analytic Jacobian, traces the separatrix by integrating the
+  saddle's stable eigenvector backwards in time, and samples the flow field from the equations.
+  Both panels are the same model; only `a12`/`a21` differ. Left `0.6/0.6` (product 0.36) gives one
+  stable coexistence state at (0.625, 0.625). Right `1.6/1.6` (product 2.56) gives stable states at
+  (1,0) and (0,1) with a saddle at (0.3846, 0.3846). The script writes
+  `src/figures/phase-portraits.svg`, which `index.astro` inlines with Astro's `?raw` import so the
+  CSS custom properties and `currentColor` resolve against the page. **Never hand-edit that SVG.**
+  Re-run the script instead. It needs numpy, scipy and matplotlib, which are not in the system
+  Python (PEP 668); use a venv. Colours come from `--fig-flow`, `--fig-traj`, `--fig-sep`,
+  `--rule`, `--link`, `--paper`, `--faint` and `currentColor`, so the figure follows the theme.
+  Trajectory paths are tagged `.fig__draw` with `pathLength="1"` for the scroll draw-in.
 - **The caption is a figure caption, not a sentence of prose** (his instruction: "que sea muy
   objetivo en su descripción"). It names what is drawn first — dots, arrows, attractors,
   separatrix, saddle — and only then the reading, and it ends with "Schematic". It is
@@ -144,20 +143,38 @@ thesis and the Purdue yeast work are two scales of the same logic: life reorgani
 energetic constraint. Current direction phrase (safe to use): "cellular resource allocation and
 the predictability of microbial community assembly."
 
+## Prose rules (hard constraints, apply to every visible string)
+
+Sebastian set these explicitly. They cover the page, the figure caption, the meta description
+and the 404, not just the research prose.
+
+- **No em dashes anywhere.** Rewrite the sentence; do not swap the dash for a comma and leave the
+  same clause structure.
+- **No colons introducing an explanatory clause.**
+- **Continuous prose. Short sentences. No lists in the narrative sections.**
+- **Mark modality consistently.** Use "whether", "may", "the hypothesis is that". Do **not** use
+  "I expect", and do not use "because" for a link that is a hypothesis rather than a published
+  result.
+
 ## Content rules (important)
 
-- **Three citations are load-bearing and must stay.** The research prose carries
-  `Fukami 2015` (priority effects, `10.1146/annurev-ecolsys-110411-160340`), `Hu et al. 2022`
-  (phase mapping, `10.1126/science.abm7841`) and `Scott et al. 2010` (bacterial growth laws,
-  `10.1126/science.1192588`), as DOI links. All three DOIs were verified against publisher pages.
-  Without them a professor landing here sees an idea with no lineage; a reviewer called this the
-  highest-return, lowest-effort improvement on the site.
+- **Five citations are load-bearing and must stay**, all as DOI links, all verified against
+  publisher pages: `Fukami 2015` (priority effects, `10.1146/annurev-ecolsys-110411-160340`),
+  `Goldford et al. 2018` (coarse-grained convergence, `10.1126/science.aat1168`),
+  `Estrela et al. 2022` (functional attractors, `10.1016/j.cels.2021.09.011`),
+  `Scott et al. 2010` (bacterial growth laws, `10.1126/science.1192588`) and
+  `Vannette and Fukami 2014` (niche decomposition predicts priority-effect strength,
+  `10.1111/ele.12204`). **Note the last one.** Sebastian supplied `10.1111/ele.12238`, which is a
+  different paper; the correct DOI for *Historical contingency in species interactions* is
+  `.12204`. Verify any DOI before shipping it. `Hu et al. 2022` was **removed** from the first
+  paragraph, having been over-attributed there.
 - **The gap claim is deliberately narrow.** Not "no general rule says which outcome a community
   will take" — that is overstated, because Hu 2022 maps phases and Estrela 2022 explains
   functional attractors. The defensible claim, and the one on the page, is that what is missing is
   **a rule that predicts the regime from properties of the organisms themselves**. Do not widen it.
-- **The hypothesis is hedged on purpose** ("I expect… may cross-feed"), not asserted with "should".
-  The rate–yield tradeoff is contested; the hedge costs nothing and buys calibration.
+- **The hypothesis is hedged on purpose**, in the register fixed by the prose rules above
+  ("I ask whether", "may sit below", "The hypothesis is that"). The rate-yield tradeoff is
+  contested, so the hedge costs nothing and buys calibration.
 - **Do not restore the deleted closing sentence.** "a quantity rather than a caveat", "continues
   upward", and "the thresholds at which cooperating parts cease to be separable" were cut together:
   all three were written for effect, and the third pointed at rung 4 of the ladder — the weakest,
@@ -289,3 +306,16 @@ the predictability of microbial community assembly."
    ones. **What this costs, on the record:** the site now links to no scholarly output of his own;
    the thesis handle (`hdl.handle.net/10784/38213`) lives only in the CV PDF. He accepted that
    trade knowingly. Don't reopen it unprompted.
+17. **Current — prose rules, five citations, computed figure (Sep 2026).** Sebastian imposed the
+   style constraints now recorded above, replaced the hero phrase, the section heading and both
+   paragraphs with exact text, and asked for the figure to be regenerated from a real
+   Lotka-Volterra competition model with scipy rather than from the earlier normal-form sketch.
+   **One correction made to his brief:** the DOI he gave for Vannette and Fukami 2014 was
+   `10.1111/ele.12238`, which is a different paper. Shipped `.12204`, the correct one.
+   **One consequence to be aware of:** the specified text is about half again as long as what it
+   replaced, so `.focus` no longer fits inside one screen except on 1080-tall displays. It needs
+   roughly 1010 to 1050px against 830 available at 1512x830, and overflows by about 115 to 185px
+   on common laptop viewports. `min-height: 100svh` means it simply grows rather than clipping, so
+   nothing breaks, but the "two screens" reading is now "hero, then a section you scroll through".
+   Fixing it needs either shorter text or a typographic change, both of which he ruled out, so it
+   was shipped as specified and reported.

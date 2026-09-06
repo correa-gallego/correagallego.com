@@ -17,6 +17,11 @@
     --link:       #1b4b9c;
     --link-hover: #123472;
 
+    /* Figure ink. The generated SVG references these, so it themes with the page. */
+    --fig-flow: #c5ccd4;
+    --fig-traj: #a3abb4;
+    --fig-sep:  #6d7883;
+
     --sans:  "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --serif: "Roboto Serif", Georgia, "Times New Roman", serif;
 
@@ -223,26 +228,11 @@
         align-self: center;
         display: flex; flex-direction: column; align-items: center; gap: 1.1rem;
     }
-    .fig { width: 100%; max-width: 25.5rem; height: auto; overflow: visible; }
-    .fig__label {
-        font-family: var(--sans); font-size: 12px; font-weight: 500;
-        letter-spacing: 0.035em; fill: var(--head);
+    .fig { width: 100%; max-width: 25.5rem; height: auto; font-family: var(--sans); }
+    .fig__source {
+        display: block; margin-top: 0.6rem;
+        font-size: 0.78rem; line-height: 1.5; color: var(--faint);
     }
-    .fig__sublabel {
-        font-family: var(--sans); font-size: 11px; font-weight: 300;
-        letter-spacing: 0.02em; fill: var(--muted);
-    }
-    /* Phase portrait: basins, flow field, trajectories, fixed points */
-    .fig__basin { fill: #e8ebef; }
-    .fig__basin--alt { fill: #e2e6eb; }
-    .fig__axis { fill: none; stroke: var(--rule); stroke-width: 1; stroke-linecap: round; }
-    .fig__field { fill: none; stroke: #c5ccd4; stroke-width: 0.7; stroke-linecap: round; stroke-linejoin: round; }
-    .fig__sep { fill: none; stroke: #6d7883; stroke-width: 1; stroke-dasharray: 3 3; }
-    .fig__line { fill: none; stroke: #a3abb4; stroke-width: 1; stroke-linecap: round; }
-    .fig__head { fill: none; stroke: #8b929b; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; }
-    .fig__start { fill: #8b929b; }
-    .fig__node { fill: var(--paper); stroke: #6d7883; stroke-width: 1.3; }
-    .fig__node--solid { fill: var(--link); stroke: none; }
     /* Figure caption — left-aligned on the figure's own measure, as in a journal */
     .fig__caption {
         width: 100%; max-width: 25.5rem;
@@ -252,7 +242,7 @@
     }
 
     @media (prefers-reduced-motion: no-preference) {
-        .fig__line {
+        .fig__draw {
             stroke-dasharray: 1; stroke-dashoffset: 1;
             animation: draw linear both;
             animation-timeline: view();
