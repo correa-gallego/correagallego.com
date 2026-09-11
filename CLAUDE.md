@@ -73,6 +73,20 @@ record, the answer is the CV button, not a new section.
   entry-25 note below. A second `@font-face`, **`Inter Fallback`**, carries Inter's own metrics
   (`size-adjust: 108.32%`, `ascent-override: 89.43%`, `descent-override: 22.27%`) so the text does
   not reflow when the real face swaps in. Recompute those if the face ever changes.
+- **Cloudflare rewrites the HTML at the edge, and the strict CSP collides with it.** Two features
+  are on in the dashboard and neither is visible in the build output, so both can only be caught on
+  the live site.
+  **Email Address Obfuscation** rewrites the footer's `mailto:` into a
+  `/cdn-cgi/l/email-protection#...` link and injects a decoder script to undo it in the browser.
+  The CSP blocks that script, so the link went to a Cloudflare notice page instead of opening a
+  mail client. The footer link is therefore wrapped in `<!--email_off-->` and `<!--/email_off-->`,
+  Cloudflare's own opt-out, which makes it serve the raw `mailto:` and inject nothing.
+  `compressHTML` keeps those comments; check they survive if that setting ever changes. The
+  obfuscation bought nothing here anyway, since the JSON-LD carries the address in clear.
+  **Cloudflare Web Analytics** injects a beacon from `static.cloudflareinsights.com`. The CSP
+  blocks it, which is the only reason this site's "no analytics, no third-party scripts" claim is
+  currently true. **It is on in Sebastian's dashboard and he should decide.** Turning it off is
+  the honest fix; leaving it on and relaxing the CSP to admit it would make the claim false.
 - **`public/_headers` is the Cloudflare Pages header file.** It sets `default-src 'none'`, which
   the site can state honestly because it runs no JavaScript, and holds the two generated
   directories for a year. `style-src` needs `'unsafe-inline'` for the inlined stylesheet and for
