@@ -21,12 +21,11 @@
     --fig-flow: #c5ccd4;
     --fig-traj: #a3abb4;
     --fig-sep:  #6d7883;
-    /* Figure type. A Palatino stack, as in the LaTeX CV, falling back to Georgia. */
-    --fig-type: "Palatino", "Palatino Linotype", "Book Antiqua", "URW Palladio L",
-                "TeX Gyre Pagella", Georgia, serif;
+    /* One editorial family for the whole page, figures included. */
+    --fig-type: var(--serif);
 
-    --sans:  "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    --serif: "Roboto Serif", Georgia, "Times New Roman", serif;
+    --sans:  "Source Sans 3", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    --serif: "Source Serif 4", Charter, "Iowan Old Style", Georgia, serif;
 
     --wrap:    62rem;
     --measure: 47rem;
@@ -52,7 +51,7 @@
 /* ========= BASE ========= */
 @layer base {
     body {
-        font-family: var(--sans);
+        font-family: var(--serif);
         font-weight: 400;
         background: var(--paper);
         color: var(--body);
@@ -66,7 +65,7 @@
     a:hover { color: var(--link-hover); text-decoration: underline; text-underline-offset: 2px; }
     :focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; }
     ::selection { background: #d7dde6; color: var(--ink); }
-    strong, b { font-weight: 500; color: var(--ink); }
+    strong, b { font-weight: 600; color: var(--ink); }
     em, i { font-style: italic; }
 }
 
@@ -159,8 +158,8 @@
     }
     .hero__phrase {
         margin-top: 1.5rem;
-        font-family: var(--serif); font-style: italic; font-weight: 400;
-        font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+        font-family: var(--serif); font-weight: 400;
+        font-size: clamp(1.2rem, 2.4vw, 1.58rem);
         line-height: 1.44; color: rgba(255,255,255,0.94);
         max-width: 32ch; text-wrap: balance;
     }
@@ -196,9 +195,9 @@
     .focus__inner { width: 100%; }
 
     .focus__lead {
-        font-family: var(--serif); font-style: italic; font-weight: 500;
-        font-size: clamp(1.35rem, 2.6vw, 1.8rem);
-        line-height: 1.33; color: var(--head);
+        font-family: var(--serif); font-weight: 600;
+        font-size: clamp(1.32rem, 2.5vw, 1.74rem);
+        line-height: 1.32; color: var(--head);
         text-wrap: balance;
     }
 
@@ -211,9 +210,9 @@
     }
 
     .focus__text p {
-        font-family: var(--sans); font-weight: 300;
-        font-size: clamp(0.97rem, 1.4vw, 1.02rem);
-        line-height: 1.68; color: #2f363f;
+        font-family: var(--serif); font-weight: 400;
+        font-size: clamp(1rem, 1.45vw, 1.05rem);
+        line-height: 1.62; color: #2f363f;
     }
     .focus__text p + p { margin-top: 0.95rem; }
     /* Citations — an affordance, but quieter than a full underline */
@@ -240,7 +239,7 @@
         stroke-linecap: round; stroke-linejoin: round;
     }
     .pe__head {
-        font-family: var(--fig-type); font-size: 9.8px; font-weight: 500;
+        font-family: var(--fig-type); font-size: 9.6px; font-weight: 600;
         letter-spacing: 0.03em; fill: var(--head);
     }
     .pe__row {
@@ -255,8 +254,8 @@
     /* Figure caption — left-aligned on the figure's own measure, as in a journal */
     .fig__caption {
         width: 100%; max-width: 25.5rem;
-        font-family: var(--sans); font-weight: 300;
-        font-size: 0.86rem; line-height: 1.55; color: var(--muted);
+        font-family: var(--serif); font-weight: 400;
+        font-size: 0.88rem; line-height: 1.5; color: var(--muted);
         text-wrap: pretty;
     }
 
@@ -287,11 +286,11 @@
 @layer components {
     .head { margin-bottom: 1.2rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--rule); }
     .head__title {
-        font-family: var(--serif); font-style: italic; font-weight: 500;
+        font-family: var(--serif); font-weight: 600;
         font-size: 1.34rem; color: var(--head);
     }
     .prose { max-width: var(--measure); }
-    .prose p { font-weight: 300; font-size: 1.05rem; line-height: 1.72; color: var(--body); }
+    .prose p { font-weight: 400; font-size: 1.05rem; line-height: 1.72; color: var(--body); }
     .notfound__back { margin-top: 1.4rem; }
 }
 
@@ -306,7 +305,7 @@
     /* Degree — the one fact the footer carries; everything else is in the CV */
     .foot__degree {
         display: flex; align-items: center; gap: 0.6rem;
-        font-family: var(--sans); font-weight: 400;
+        font-family: var(--serif); font-weight: 400;
         font-size: 0.92rem; line-height: 1.5; color: var(--body);
     }
     .foot__degree span { text-wrap: balance; }

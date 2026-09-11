@@ -62,13 +62,15 @@ section back inside one screen after entry 17 made it overflow. **Both sections 
 1512x830, 1440x900, 1366x700, 1280x720 and 1024x640. Keep them balanced: if you add text to one,
 take some out or move it to the other, and re-measure.
 
-- **Two typefaces, by role:** `Roboto Serif` **italic** is the "voice" — the hero **name** and the
-  `.focus__lead` research question, both **medium (500)**; the hero phrase is 400. `Inter` for the
-  rest — the narrative body (light, 300), figure labels (500), the degree line, the CV button.
-  Both via Google Fonts. (No serif-upright, no sans for the name — Sebastian's split.)
-  **Only five faces are downloaded** — Inter 300/400/500 and Roboto Serif 400/500 italic. Serif
-  300/700 and Inter 600 were audited out once nothing used them; if you add a weight to the CSS,
-  add it to the `<link>` in `Base.astro` too, and if you remove one, take it back out.
+- **One editorial family, and a sans only for chrome.** `Source Serif 4` sets everything that
+  carries meaning: the hero name, both section mastheads, the running prose, the figure labels and
+  the captions. `Source Sans 3` (the designed companion) sets only the CV button and the hero
+  degree line. **`--fig-type` is an alias for `--serif`**, so the figures cannot drift onto a third
+  family. Four faces are downloaded: Source Sans 3 at 400 and 500, Source Serif 4 roman at 400 and
+  600, italic at 500. If you add a weight to the CSS, add it to the `<link>` in `Base.astro` too.
+- **Italic is reserved for the name.** Mastheads are **roman semibold**, the way a paper sets a
+  heading; italic in this register means emphasis and taxon names, not headings. The hero name in
+  italic works because it is a nameplate. Do not put the section leads back into italic.
 - **Hero** (`.hero`, 100svh, full-bleed) — unchanged and not to be redesigned: `field.webp`
   (Sebastian sampling in the cave), a dark scrim (heavier left, where the text sits; person is on
   the right), bottom fades to `--paper`. Content: **name on two lines** (`Sebastian` /
@@ -81,9 +83,9 @@ take some out or move it to the other, and re-measure.
   `og:image:alt` / `twitter:image:alt`. Keep the three in sync.
 - **`.focus`** (100svh, vertically centred). **There is no eyebrow/kicker** — Sebastian removed
   "Research" and its rule ("si el contenido es meramente esa pestaña, no lo veo necesario"), so the
-  lead **question** is the section's own masthead: Roboto Serif medium italic, **no `max-width`**,
-  sized `clamp(1.35rem, 2.6vw, 1.8rem)` so it lands on exactly **two full-measure lines** across
-  every desktop width. Below it a 2-column grid, `repeat(2, minmax(0,1fr))`, `align-items: start`
+  lead is the section's own masthead: Source Serif 4 semibold roman, **no `max-width`**, sized
+  `clamp(1.32rem, 2.5vw, 1.74rem)` so it lands on **two full-measure lines** across every desktop
+  width. Below it a 2-column grid, `repeat(2, minmax(0,1fr))`, `align-items: start`
   -- **narrative left / SVG figure right**; the text column is top-aligned, the figure is
   `align-self: center` (it has no top label to align to).
   **Each section is text plus one figure, nothing else.** No closing rule, no coda, no kicker.
@@ -110,9 +112,8 @@ take some out or move it to the other, and re-measure.
   - Both carry quantitative axes with ticks, numerals, units and panel letters, and true
     subscripts via `tspan`. **Do not strip those.** Sebastian's test is whether the authors of
     those papers would read it as a figure, and unlabelled axes are what fails that test.
-  - **Figure type is a Palatino stack** (`--fig-type`), not the page sans. Short labels make the
-    fallback to Georgia acceptable on Linux and Android, which is why the argument against
-    Palatino for body text does not carry here. It also matches the `mathpazo` of his CV.
+  - Figure type is `--fig-type`, which is an alias for the page serif, so a figure never
+    introduces a family the page does not already use.
   - Other colours are `--fig-flow`, `--fig-traj`, `--fig-sep`, `--rule`, `--link`, `--paper`,
     `--faint` and `currentColor`, so both follow the theme. Label sizes are tuned so the two
     render at a comparable scale; re-check if you resize either canvas.
@@ -354,3 +355,18 @@ and the 404, not just the research prose.
    Dubinkina et al. 2019 with the rate-yield route to multistability. That paper's mechanism is
    competition for essential nutrients with differing stoichiometry. Manhart and Shakhnovich 2018,
    his own reference 4, is the right one, and it is what the site cites.
+19. **Current — type audit, second pass (Sep 2026).** Sebastian asked whether the typefaces suited
+   his scientific aspiration, with freedom to replace them. Three problems had accumulated. The
+   page was running **three families** (Inter, Roboto Serif, and the Palatino stack the figures
+   picked up in entry 18), which reads as drift rather than intent. Roboto Serif was used **only in
+   italic**, and with two section mastheads that had stopped being a device and become a mannerism.
+   And Inter is an interface face doing the job of running prose with citations.
+   **Replaced with Source Serif 4 for everything editorial and Source Sans 3 for chrome.** Source
+   Serif 4 is a text face built for screen reading in technical publishing, which is the job here,
+   and the two are a designed pair. Mastheads moved to roman semibold; italic is now the name only.
+   `--fig-type` became an alias for `--serif`, so the figures cannot drift again.
+   **Entry 13's reasoning against Palatino still stands for body text** (no web licence, the free
+   stand-in needs self-hosting, the system fallbacks are absent on Linux and Android, and it is a
+   print face at body sizes). What changed is that the honest caveat recorded there, that Inter and
+   Roboto Serif were legible but generic, was worth acting on once the page had become a short
+   paper rather than a photograph with a caption.
