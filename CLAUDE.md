@@ -64,23 +64,17 @@ section back inside one screen after entry 17 made it overflow. **Both sections 
 1512x830, 1440x900, 1366x700, 1280x720 and 1024x640. Keep them balanced: if you add text to one,
 take some out or move it to the other, and re-measure.
 
-- **Palatino, self-hosted.** `TeX Gyre Pagella` is the free Palatino that `mathpazo` uses, subset
-  to Latin plus Greek and served from `public/assets/fonts/` as three WOFF2 files, about 103 KB
-  together, with the GUST Font License beside them. **Self-hosting is what made Palatino viable**:
-  the earlier audits ruled it out because Linotype Palatino has no web licence and the system
-  fallbacks are absent on Linux and Android. That objection is gone; every visitor gets the real
-  face. It also matches his CV, LOI, SOP and thesis, which are all `mathpazo`.
-  It sets the name, the hero degree line, both mastheads, the prose and the figure captions.
-- **`Inter` (Google, 400 and 500) sets only the CV button and the labels inside the figures.**
-  `--fig-type` is an alias for `--sans` for that reason. Nothing editorial is in the sans.
-- **Mathematics keeps the serif italic.** Inside the figures, `phi_Q`, `phi_R`, `phi_P` and the
-  growth-law equation carry `.fig__math`, which switches them to Pagella italic. Everything else in
-  a figure is sans. This is the journal convention, and it is Sebastian's instruction: "volver a
-  usar sin serifas, excepto para las ecuaciones". The tagging is automatic, since the generator
-  marks those texts italic and the postprocessor turns any italic text into `.fig__math`.
-- **Nothing on the page is italic except mathematics.** Sebastian asked for the name in roman too,
-  so italic now appears only inside the figures, on `phi` and the equation. Mastheads are roman
-  bold, the way a paper sets a heading. Do not reintroduce italic for the name or the section leads.
+- **`Inter` sets the entire page**, at 300 for prose, 400 and 500 for labels, 600 for the name and
+  the two mastheads. Sebastian settled this after trying Source Serif 4 and a full-Palatino page:
+  "podría mejor usarse la tipografía inter en toda la página web y solo dejar las palatino para las
+  ecuaciones."
+- **Palatino survives only as mathematics.** `TeX Gyre Pagella` **italic alone** is self-hosted at
+  `public/assets/fonts/pagella-italic.woff2` (about 36 KB, GUST Font License beside it) and is
+  reached only through `--math`, which `.fig__math` applies. Inside a figure that means `phi_Q`,
+  `phi_R`, `phi_P` and the growth-law equation; everything else in a figure is Inter. This is the
+  journal convention and it is his instruction. The roman and bold cuts were deleted once nothing
+  used them.
+- **Nothing on the page is italic except that mathematics.** Mastheads and the name are roman.
 - **Hero** (`.hero`, 100svh, full-bleed) — unchanged and not to be redesigned: `field.webp`
   (Sebastian sampling in the cave), a dark scrim (heavier left, where the text sits; person is on
   the right), bottom fades to `--paper`. Content: **name on two lines** (`Sebastian` /
@@ -107,23 +101,37 @@ take some out or move it to the other, and re-measure.
 - **Two figures, and they are different kinds of object. The caption must say which is which.**
   - `scripts/priority_effects.py` emits `src/figures/priority-effects.svg`, a **schematic** in the
     representation this literature uses for priority effects. Fukami 2015 Fig. 2 draws a species
-    pool, the arrival order above an arrow, and the resulting community, with different orders
-    giving different communities. This follows that grammar and is original artwork, not a
-    reproduction. Six strains, told apart by shape and by filled or open, so it survives greyscale.
-    **Each community is a subset of what actually arrived** and keeps whichever strain came first.
-    Do not break that; it is what makes the priority effect legible.
+    pool, **the initial niches**, the arrival order above an arrow, and the niches that end up
+    filled. This follows that grammar and is original artwork, not a reproduction. **The niche
+    layer is load-bearing and was missing from the first version.** The mechanism drawn is niche
+    preemption: three niches, one per guild, six strains, two per guild, and the first of a guild
+    to arrive takes its niche. The two rows hold the arriving strains constant and change only
+    their order, so the single difference between the communities is attributable to order alone.
+    The square niche stays vacant in both, since no strain of that guild arrived, which is honest
+    and worth keeping. The excluded third arrival is drawn faded.
   - `scripts/allocation_tradeoff.py` emits `src/figures/allocation-tradeoff.svg`, the **computed**
     one. Panel A is the growth law with parameters read off Scott et al. 2010 Fig. 1A,
     `phi_R = 0.05 + lambda / 7.0`, so the ribosomal fraction runs 0.05 to 0.336 over 0 to 2 per
     hour. **An earlier draft used a slope of 1/4.5 and reached 0.46, nearly double the published
     value; the error was caught only by opening the paper and looking at the figure.** Sectors
     follow their Q/R/P scheme. Panel B is the rate-yield line the partition implies, an inference,
-    since Scott et al. do not measure yield, and the caption says so.
+    since Scott et al. do not measure yield, and the caption says so. **`PHI_Q = 0.45` is checked
+    against the literature**, not guessed: the housekeeping sector is reported as a growth-rate
+    independent 0.45 of the E. coli proteome, with the constraint `phi_C + phi_R + phi_E = 1 -
+    phi_Q` fixing the growth-dependent sectors at 0.55. Do not alter it without a source.
   - Both carry quantitative axes with ticks, numerals, units and panel letters, and true
     subscripts via `tspan`. **Do not strip those.** Sebastian's test is whether the authors of
     those papers would read it as a figure, and unlabelled axes are what fails that test.
-  - **Both figures are 2:1**, 452x226 and 374.4x188.64, so they sit consistently in the column.
+  - **Both figures are 2:1**, 566x283 and 374.4x188.64, so they sit consistently in the column.
     If you resize one, match the other.
+  - **The figures run into the right margin.** `.focus__figure` carries a negative right margin,
+    `clamp(0rem, (100vw - var(--wrap)) / 2 - 2.2rem, 11rem)`, so a figure is about 650px at 1512
+    and falls back to the column width below 1100. A 25rem box read as too small next to the
+    journals this is measured against. The margin collapses to zero under 860px.
+  - **`--fig-alt` (#a8762e) is the second functional colour.** Blue and amber is the safest pair
+    for colour-blind readers. In the schematic, shape is the guild and colour separates the two
+    competitors within a guild, which is the whole point of the two rows; with fill-versus-outline
+    the difference was invisible at figure size.
   - Other colours are `--fig-flow`, `--fig-traj`, `--fig-sep`, `--rule`, `--link`, `--paper`,
     `--faint` and `currentColor`, so both follow the theme. Label sizes are tuned so the two
     render at a comparable scale; re-check if you resize either canvas.
@@ -392,3 +400,15 @@ and the 404, not just the research prose.
    Palatino on availability and on it being a print face. The availability half is solved by
    self-hosting. The screen half is a real but modest cost, accepted knowingly, and it buys a page
    set in the same face as every other document he submits.
+21. **Current — Inter everywhere, bigger figures, the niche layer (Sep 2026).** Three things.
+   **Typography settled**: Inter for the whole page, Pagella italic kept only for the mathematics
+   inside figures. That is Sebastian's call after Source Serif 4 was rejected and full Palatino
+   tried; the two unused Pagella cuts were deleted.
+   **Figures enlarged.** They read as too small against the journals this is measured against, so
+   `.focus__figure` now runs into the right margin, reaching about 650px at 1512 and collapsing
+   back to the column below 1100. Both sections still fit one screen.
+   **Figure 1 rebuilt with the niche layer**, which the first version omitted even though it is the
+   substance of Fukami's Fig. 2, and given a second functional colour so the difference between the
+   two communities is visible rather than a solid-versus-outline distinction lost at figure size.
+   **Figure 2 validated rather than changed**: `phi_Q = 0.45` is the reported housekeeping fraction
+   and the sectors sum correctly, so the proportions stand.
