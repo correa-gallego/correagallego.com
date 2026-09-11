@@ -184,6 +184,12 @@ take some out or move it to the other, and re-measure.
   - **Panel titles are left-aligned and start with a capital, and so does every axis label,
     legend entry and row label.** Sentence case with an initial capital is the journal
     convention and Sebastian asked for it; centred panel titles were his first correction.
+  - **The species-pool capsule in figure 1 is sized by `COL_X`, not by the marks.** Sized to the
+    marks it stopped short of the outer columns and the first and last arrows began in mid air
+    instead of leaving the pool.
+  - **The gap between figure 1's two panels has to clear a two-line row label against the next
+    panel's title.** `PANEL_Y[1]` minus `HAB_Y` must leave room for the habitat label's second
+    line plus its descender under the title's cap height; at 226 against 190 they touched.
   - **When checking a figure for collisions, include the container rects, not just the text.**
     Two rounds of "no overlaps" were reported from a text-only sweep while every neighbouring
     `.fk__comm` box in figure 1 overlapped its neighbour by 4px, because `COMM_W` was wider than
@@ -192,7 +198,7 @@ take some out or move it to the other, and re-measure.
   - Both carry quantitative axes with ticks, numerals, units and panel letters, and true
     subscripts via `tspan`. **Do not strip those.** Sebastian's test is whether the authors of
     those papers would read it as a figure, and unlabelled axes are what fails that test.
-  - Figure 1 is 568x428, figure 2 is 524x452. **Figure 2's plot areas are square**, 120 units a
+  - Figure 1 is 568x430, figure 2 is 544x493. **Figure 2's plot areas are square**, 120 units a
     side, and every axis carries four intervals, so the grid cells are square too. That is what
     Sebastian meant by "plots formales con relaciones adecuadas en las gradillas". Square panels
     stacked two over one make an almost square figure, which is far too tall for the width the page
@@ -678,3 +684,16 @@ and the 404, not just the research prose.
    correction recorded in the layout section above.
    The footer lost the degree line, now that the hero and the band both carry it, and was tightened
    to match; it went from 193px to 152.
+30. **Current - three figure corrections (Sep 2026).** All three from Sebastian, all three real.
+   **The species-pool capsule** did not reach the outer columns, so the first and last arrows left
+   from nothing. It is now sized by `COL_X`. **Panels A and B came closer and panel C dropped**,
+   `GUTTER` 58 to 40 and `GAP` 72 to 80, and the panels grew to 198px.
+   **What that cost, since the arithmetic is not obvious.** The gutter is the only thing holding
+   figure 2's aspect down. Narrowing it makes the figure relatively taller, and at the width the
+   page gives it the aspect sits near 0.90 whatever the panel size, so there is no panel size that
+   pays for the change. **Figure 2's caption went from three lines to two** to buy the height, and
+   with it the clause explaining why panel C is an inference. The panel is still marked as one. If
+   that clause matters more than the panel size, restoring it costs about 23px and the panels go
+   back to roughly 183.
+   A fourth overlap surfaced while measuring, figure 1's habitat label against the lower panel's
+   title, and the clearance rule is in the figure bullet above.

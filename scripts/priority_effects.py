@@ -47,7 +47,7 @@ import math
 import sys
 from pathlib import Path
 
-W, H = 568, 428
+W, H = 568, 430
 LABEL_X = 66                       # right edge of the row labels
 LABEL_DY = 12.4                    # leading of the two-line row labels. The label is set
                                    # at 9.6px and a text run's box is about 1.2 times its
@@ -57,7 +57,7 @@ LABEL_DY = 12.4                    # leading of the two-line row labels. The lab
 # the boxes were 4 units wider than the space between their centres, so every
 # neighbouring pair overlapped. Keep COMM_W + 8 <= the within-group step.
 COL_X = [108, 188, 268, 362, 442, 522]
-PANEL_Y = (14, 226)                # top of each panel
+PANEL_Y = (14, 230)                # top of each panel
 
 POOL_Y, POOL_H = 26, 44            # the shared pool capsule
 POOL_MARK_Y = 18                   # mark centre, from the top of the capsule
@@ -68,11 +68,11 @@ POOL_PAD = 30                      # the capsule rounds off this far past the ma
 
 HIST_Y = 96                        # the immigration-history letter
 COMM_Y = 146                       # centre of the local-community box
-COMM_W, COMM_UP, COMM_DOWN = 72, 30, 28
+COMM_W, COMM_UP, COMM_DOWN = 72, 30, 26
 COMM_MARK_Y = -13                  # marks, relative to the box centre
 COMM_SET_Y = 19                    # set notation, relative to the box centre
 COMM_STEP = 21                     # between marks inside a community
-HAB_Y = 190                        # the habitat-condition numeral
+HAB_Y = 188                        # the habitat-condition numeral
 
 R_POOL, R_COMM = 10.4, 8.0          # mark radius in each row. The community marks
                                    # came down so the three inside a box clear each
@@ -175,9 +175,12 @@ def panel(top, assignment, title):
     span = 3 * 2 * POOL_STEP + 2 * POOL_GAP
     left = mid - span / 2
     xs = [left + (k // 3) * (2 * POOL_STEP + POOL_GAP) + (k % 3) * POOL_STEP for k in range(9)]
+    # The capsule is set by the columns, not by the marks. Sized to the marks it
+    # stopped short of the outer columns, and the first and last arrows started
+    # in mid air instead of leaving the pool.
     o.append(
-        f'<rect class="fk__pool" x="{xs[0] - POOL_PAD:.1f}" y="{top + POOL_Y}" '
-        f'width="{xs[-1] - xs[0] + 2 * POOL_PAD:.1f}" height="{POOL_H}" '
+        f'<rect class="fk__pool" x="{COL_X[0] - POOL_PAD:.1f}" y="{top + POOL_Y}" '
+        f'width="{COL_X[-1] - COL_X[0] + 2 * POOL_PAD:.1f}" height="{POOL_H}" '
         f'rx="{POOL_H / 2}" />'
     )
     for k, x in enumerate(xs):

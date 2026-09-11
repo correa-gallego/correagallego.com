@@ -64,23 +64,23 @@ LAM_MAX = 2.0
 # so a square panel makes the grid cells square too, which is what makes these
 # read as plots rather than as sketches. The canvas is derived from the panel
 # rather than the other way round, so changing S is the only knob.
-S = 153.0             # the side of the square plot area
+S = 172.0             # the side of the square plot area
 
 LEFT = 52.0           # figure left to the plot area, for the y label and ticks
 RIGHT_AX = 40.0       # panel A's second y axis, drawn outside it on the right
-GUTTER = 58.0         # clear space between that axis and panel B's y label. It is
-                      # wide on purpose. Two square panels stacked over one make
-                      # an almost square figure, and an almost square figure is
-                      # far too tall for the width the page gives it, so the
-                      # gutter is what buys the aspect back. Panel C sits under
-                      # it, so the space reads as composition rather than waste.
+GUTTER = 40.0         # clear space between that axis and panel B's y label.
+                      # It buys the aspect back: two square panels stacked over
+                      # one make an almost square figure, which is far too tall
+                      # for the width the page gives it. Every unit taken out of
+                      # here has to come back as a shorter caption or a smaller
+                      # panel, so do not narrow it without re-measuring.
 RIGHT = 16.0          # figure right margin
-TOP = 48.0            # figure top to the upper plot areas, holding the title
+TOP = 45.0            # figure top to the upper plot areas, holding the title
                       # and, on panel A only, the doubling-rate scale
-GAP = 72.0            # upper x label down to the lower title. It has to clear
+GAP = 80.0            # upper x label down to the lower title. It has to clear
                       # the upper x label block and then LETTER_UP again, or the
                       # lower title lands on top of the upper axis.
-BOTTOM = 26.0         # lower x label to the figure edge
+BOTTOM = 24.0         # lower x label to the figure edge
 
 W = LEFT + S + RIGHT_AX + GUTTER + LEFT + S + RIGHT
 H = TOP + S + GAP + S + BOTTOM
@@ -103,8 +103,8 @@ CSS = {
 # Type sizes are in user units, so the rendered size is these times W over the
 # width the figure is given on the page. The canvas shrank with the square
 # panels, so the same numbers already render larger; these are larger again.
-FS_TICK, FS_LABEL, FS_SEC, FS_SECTICK = 7.4, 8.6, 8.0, 7.2
-FS_TITLE, FS_NOTE, FS_MATH, FS_LETTER = 10.0, 7.8, 8.6, 11.0
+FS_TICK, FS_LABEL, FS_SEC, FS_SECTICK = 7.7, 8.9, 8.3, 7.5
+FS_TITLE, FS_NOTE, FS_MATH, FS_LETTER = 10.4, 8.1, 8.9, 11.4
 
 TITLE = "The bacterial growth laws, the proteome partition, and the tradeoff it implies"
 DESC = (
