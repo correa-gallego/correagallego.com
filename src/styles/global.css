@@ -21,6 +21,9 @@
     --fig-flow: #c5ccd4;
     --fig-traj: #a3abb4;
     --fig-sep:  #6d7883;
+    /* Figure type. A Palatino stack, as in the LaTeX CV, falling back to Georgia. */
+    --fig-type: "Palatino", "Palatino Linotype", "Book Antiqua", "URW Palladio L",
+                "TeX Gyre Pagella", Georgia, serif;
 
     --sans:  "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --serif: "Roboto Serif", Georgia, "Times New Roman", serif;
@@ -228,7 +231,23 @@
         align-self: center;
         display: flex; flex-direction: column; align-items: center; gap: 1.1rem;
     }
-    .fig { width: 100%; max-width: 25.5rem; height: auto; font-family: var(--sans); }
+    .fig { width: 100%; max-width: 25.5rem; height: auto; font-family: var(--fig-type); }
+    /* Priority-effects schematic */
+    .pe__pool, .pe__box { fill: none; stroke: var(--rule); stroke-width: 1; }
+    .pe__mark { stroke: var(--fig-sep); stroke-width: 1.1; }
+    .pe__arrow {
+        fill: none; stroke: var(--fig-traj); stroke-width: 0.9;
+        stroke-linecap: round; stroke-linejoin: round;
+    }
+    .pe__head {
+        font-family: var(--fig-type); font-size: 9.8px; font-weight: 500;
+        letter-spacing: 0.03em; fill: var(--head);
+    }
+    .pe__row {
+        font-family: var(--fig-type); font-size: 9.2px; font-weight: 400;
+        fill: var(--muted);
+    }
+
     .fig__source {
         display: block; margin-top: 0.6rem;
         font-size: 0.78rem; line-height: 1.5; color: var(--faint);
@@ -241,24 +260,17 @@
         text-wrap: pretty;
     }
 
-    @media (prefers-reduced-motion: no-preference) {
-        .fig__draw {
-            stroke-dasharray: 1; stroke-dashoffset: 1;
-            animation: draw linear both;
-            animation-timeline: view();
-            animation-range: entry 12% entry 65%;
-        }
-        @keyframes draw { to { stroke-dashoffset: 0; } }
-    }
 
     /* Shorter viewports: keep the section within one screen */
     @media (min-width: 861px) and (max-height: 780px) {
-        .focus { padding-block: clamp(2.4rem, 5.5vh, 3.4rem); }
+        .focus { padding-block: clamp(2rem, 4.6vh, 3.2rem); }
         .focus__lead { font-size: clamp(1.2rem, 2.4vw, 1.62rem); }
-        .focus__grid { margin-top: 1.6rem; }
-        .focus__text p { font-size: 0.95rem; line-height: 1.64; }
+        .focus__grid { margin-top: 1.3rem; }
+        .focus__text p { font-size: 0.94rem; line-height: 1.58; }
+        .focus__text p + p { margin-top: 0.8rem; }
         .fig { max-width: 20rem; }
-        .fig__caption { font-size: 0.82rem; }
+        .fig__caption { font-size: 0.81rem; line-height: 1.5; }
+        .fig__source { margin-top: 0.45rem; font-size: 0.74rem; }
     }
 
     @media (max-width: 860px) {

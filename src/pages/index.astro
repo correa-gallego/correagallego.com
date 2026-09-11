@@ -1,12 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
-import phasePortraits from '../figures/phase-portraits.svg?raw';
+import priorityEffects from '../figures/priority-effects.svg?raw';
+import allocationTradeoff from '../figures/allocation-tradeoff.svg?raw';
 
 const fukami = 'https://doi.org/10.1146/annurev-ecolsys-110411-160340';
 const goldford = 'https://doi.org/10.1126/science.aat1168';
 const estrela = 'https://doi.org/10.1016/j.cels.2021.09.011';
 const scott = 'https://doi.org/10.1126/science.1192588';
+const manhart = 'https://doi.org/10.1038/s41467-018-05703-6';
 const vannette = 'https://doi.org/10.1111/ele.12204';
+const blount = 'https://doi.org/10.1073/pnas.0803151105';
 ---
 
 <Base title="Sebastian Correa-Gallego">
@@ -23,64 +26,102 @@ const vannette = 'https://doi.org/10.1111/ele.12204';
         <h1 class="hero__name">Sebastian<br />Correa-Gallego</h1>
         <p class="hero__degree">B.Sc. in Biology, Universidad EAFIT</p>
         <p class="hero__phrase">
-          On how microbial communities assemble, and whether the state they reach can be
-          predicted from the organisms that build it.
+          Microbial community assembly, and whether its outcome can be predicted from how a cell
+          divides a finite proteome between growth rate and yield.
         </p>
       </div>
     </div>
-    <a class="hero__cue" href="#research" aria-label="Continue to research"><span aria-hidden="true"></span></a>
+    <a class="hero__cue" href="#question" aria-label="Continue to the question"><span aria-hidden="true"></span></a>
   </header>
 
-  <section class="focus" id="research">
+  <section class="focus" id="question">
     <div class="wrap focus__inner">
       <h2 class="focus__lead reveal">
-        When does community assembly follow rules, and when does it depend on history?
+        When is community assembly reproducible, and when does arrival order decide the outcome?
       </h2>
 
       <div class="focus__grid">
         <div class="focus__text reveal">
           <p>
-            The question is most tractable in microbial community assembly, where one pool of
-            organisms may converge on a single reproducible state or settle into any of several,
-            depending on which arrives first
-            (<a href={fukami} rel="noopener" target="_blank">Fukami 2015</a>). Both outcomes are
-            documented. Communities assembled from different natural inocula converge at coarse
-            taxonomic levels while diverging at the level of species
-            (<a href={goldford} rel="noopener" target="_blank">Goldford et al. 2018</a>), and a
-            single pool can reach distinct stable compositions that share a common function
-            (<a href={estrela} rel="noopener" target="_blank">Estrela et al. 2022</a>). What is
-            missing is a rule that predicts which regime holds from properties of the organisms
-            themselves.
+            Communities assembled from the same species pool under identical conditions sometimes
+            converge on one reproducible state and sometimes diverge into several, depending on
+            the order in which members arrive
+            (<a href={fukami} rel="noopener" target="_blank">Fukami 2015</a>). Both regimes appear
+            in the same experimental systems. Replicate glucose-limited communities converge at the
+            family level while their species composition diverges, and that divergence traces to
+            multistability in the population dynamics rather than to noise
+            (<a href={goldford} rel="noopener" target="_blank">Goldford et al. 2018</a>,
+            <a href={estrela} rel="noopener" target="_blank">Estrela et al. 2022</a>).
           </p>
           <p>
-            I ask whether such a rule can be built from how a cell divides its finite proteome
-            between growing quickly and growing efficiently, a partition the bacterial growth laws
-            made measurable
-            (<a href={scott} rel="noopener" target="_blank">Scott et al. 2010</a>). Species traits
-            already predict the strength of priority effects better than phylogenetic relatedness
-            does, once they are decomposed into what a species requires and how it alters its
-            environment
-            (<a href={vannette} rel="noopener" target="_blank">Vannette and Fukami 2014</a>).
-            Proteome allocation may sit below that decomposition, since it can be measured in an
-            organism grown alone, before any competition takes place. The hypothesis is that the
-            spread of allocation strategies across a species pool predicts whether assembly
-            converges or arrival order decides the outcome.
+            Variation in growth traits alone is enough to produce more than one stable state on a
+            single limiting resource
+            (<a href={manhart} rel="noopener" target="_blank">Manhart and Shakhnovich 2018</a>),
+            so the ingredients may be physiological. Ecology has candidate mechanisms for the
+            history-dependent case, among them niche preemption, niche modification, and the size
+            of the regional pool. What it does not have is a parameter, measured before assembly
+            begins, that says which regime a given pool will fall into.
           </p>
         </div>
 
         <figure class="focus__figure reveal">
-          <Fragment set:html={phasePortraits} />
+          <Fragment set:html={priorityEffects} />
           <figcaption class="fig__caption">
-            Trajectories of a two-species competition model, each starting from a different
-            initial composition. Arrows show the direction of flow. On the left, weak
-            interspecific competition and a single stable state reached from every start. On the
-            right, mutual competition strong enough to make each species able to exclude the
-            other, so two stable states sit on either side of a separatrix through an unstable
-            saddle. Which one the community reaches depends on where it starts. The axes are the
-            abundances of two species, and real communities have many more.
+            A schematic, drawn in the representation this literature uses for priority effects.
+            The same three strains arrive in one order above and in another order below. Each
+            community keeps whichever strain arrived first, so the two differ although the pool
+            and the conditions do not.
             <span class="fig__source">
-              Generated from the Lotka-Volterra competition equations. Source in
-              scripts/phase_portraits.py.
+              Diagram, not a model output. Source in scripts/priority_effects.py.
+            </span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="focus" id="approach">
+    <div class="wrap focus__inner">
+      <h2 class="focus__lead reveal">
+        Proteome allocation fixes each strain on a rate and yield axis, and can be measured
+        before assembly begins.
+      </h2>
+
+      <div class="focus__grid">
+        <div class="focus__text reveal">
+          <p>
+            Cells divide a finite proteome between ribosomes, which set growth rate, and metabolic
+            enzymes, which set yield
+            (<a href={scott} rel="noopener" target="_blank">Scott et al. 2010</a>). Traits of this
+            kind already predict the strength of priority effects better than phylogenetic
+            relatedness does, once they are separated into what a species requires and how it
+            alters its environment
+            (<a href={vannette} rel="noopener" target="_blank">Vannette and Fukami 2014</a>).
+          </p>
+          <p>
+            The hypothesis is that the spread of allocation strategies across a pool predicts how
+            far replicate communities diverge. A wide spread may strengthen priority effects, if
+            early arrivals preempt resources that later ones cannot recover, or weaken them, if
+            complementary strategies let late arrivals establish anyway. Permuting arrival order
+            in synthetic communities built from characterised strains distinguishes the two.
+            Microbes also evolve on the timescale of assembly, so whether adaptation amplifies
+            contingency or erases it is the same question one level down
+            (<a href={blount} rel="noopener" target="_blank">Blount et al. 2008</a>).
+          </p>
+        </div>
+
+        <figure class="focus__figure reveal">
+          <Fragment set:html={allocationTradeoff} />
+          <figcaption class="fig__caption">
+            The growth law on the left. The ribosomal share of the proteome rises in a straight
+            line with growth rate and the metabolic share falls by the same amount, against a
+            fixed housekeeping sector. On the right, the rate and yield tradeoff that partition
+            implies. The same eight strains per pool are marked in both panels, and the bars give
+            the range of growth rate each pool covers, which is the spread the hypothesis is
+            about.
+            <span class="fig__source">
+              Left panel computed from Scott et al. 2010. Right panel is an inference from it,
+              since yield is not measured there. Source in scripts/allocation_tradeoff.py.
             </span>
           </figcaption>
         </figure>

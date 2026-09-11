@@ -14,8 +14,8 @@ precision, and restraint. No self-promotion.
 
 ## What the site is
 
-A single, static, one-page academic homepage — **two full-viewport screens and a footer**: a photo
-hero, then one research-narrative section. **The site is deliberately NOT a copy of the CV**: the
+A single, static, one-page academic homepage — **three full-viewport screens and a footer**: a
+photo hero, then `#question` (the open problem) and `#approach` (the proposal). **The site is deliberately NOT a copy of the CV**: the
 CV lives in the PDF, linked from the one visible button. No blog, no multi-page routing, no
 analytics, no third-party scripts, **no JavaScript at all**.
 
@@ -38,9 +38,10 @@ record, the answer is the CV button, not a new section.
   copyright. **No LinkedIn**, **no profile photo**, **no CV icon** (the CV moved to the fixed
   top-right button in `Base.astro`).
 - `src/styles/global.css` — the entire design system.
-- Assets in `public/assets/`: `Sebastian-Correa-Gallego-CV.pdf` (**the live CV — keep this exact
-  filename so the shared URL never breaks**; replace the file in place when Sebastian sends a new
-  version), `favicon.svg` (black serif "S"), `field.webp` (hero), `logos/EAFIT.svg` (navy
+- Assets in `public/assets/`: **`CV.pdf` is the live CV**, and the button points at it. Sebastian
+  named the file and asked that it not be renamed ("lo dejas con el nombre que le puse"). A
+  byte-identical copy is kept at `Sebastian-Correa-Gallego-CV.pdf` because that URL was live for a
+  while and may be circulating; **when a new CV arrives, overwrite both**. Also `favicon.svg` (black serif "S"), `field.webp` (hero), `logos/EAFIT.svg` (navy
   `#000066`, in the footer). Kept but **unreferenced**: `Sebastian-Correa-Gallego-Thesis.pdf`
   (4.2 MB defense deck), `logos/Purdue.svg`, `profile.webp` — retained because their URLs may
   already be circulating. Asset files are mode `644`; the logos shipped as `700` and were fixed.
@@ -55,10 +56,11 @@ Commands: `npm run dev`, `npm run build` (must pass, no console errors).
 
 ## Design language (current) — "Two screens"
 
-Hero, then one research section, then the footer. Nothing else. The page is
-**hero (100svh) → `.focus` (`min-height: 100svh`) → footer**. Since entry 17 the research section
-no longer fits one screen except on 1080-tall displays; it grows past the fold rather than
-clipping. See entry 17 before "fixing" this.
+Hero, then two research sections, then the footer. The page is **hero (100svh) → `#question`
+(`.focus`) → `#approach` (`.focus`) → footer**. Splitting the argument in two is what brought each
+section back inside one screen after entry 17 made it overflow. **Both sections fit** at
+1512x830, 1440x900, 1366x700, 1280x720 and 1024x640. Keep them balanced: if you add text to one,
+take some out or move it to the other, and re-measure.
 
 - **Two typefaces, by role:** `Roboto Serif` **italic** is the "voice" — the hero **name** and the
   `.focus__lead` research question, both **medium (500)**; the hero phrase is 400. `Inter` for the
@@ -72,7 +74,7 @@ clipping. See entry 17 before "fixing" this.
   the right), bottom fades to `--paper`. Content: **name on two lines** (`Sebastian` /
   `Correa-Gallego`), **"B.Sc. in Biology, Universidad EAFIT"** (the institution was added so a
   cold visitor gets the affiliation immediately), and the phrase. `.hero__cue` is an anchor →
-  `#research`.
+  `#question`.
   **`field.webp` carries real `alt` text and no `aria-hidden` — do not "fix" it back to `alt=""`.**
   It looks like a background but it is the page's only evidence of fieldwork (Sebastian sampling in
   the Organal San Antonio, Támesis — he confirmed the location); the same sentence is the
@@ -84,30 +86,43 @@ clipping. See entry 17 before "fixing" this.
   every desktop width. Below it a 2-column grid, `repeat(2, minmax(0,1fr))`, `align-items: start`
   -- **narrative left / SVG figure right**; the text column is top-aligned, the figure is
   `align-self: center` (it has no top label to align to).
-  **The section is exactly one text block plus the figure** — Sebastian deleted the closing rule
-  and coda ("solo me gustaría tener un bloque de texto"), and a later review cut the ladder
-  sentence as well, so the body is now two paragraphs and stops on the mechanism.
-  Two `@media` blocks trim it on small viewports: `max-height: 780px` (shrinks type) and
-  `max-width: 860px` (stacks, figure first). They no longer bring it inside one screen.
+  **Each section is text plus one figure, nothing else.** No closing rule, no coda, no kicker.
+  `#question` states the open problem, `#approach` the proposal.
+  Two `@media` blocks trim both sections on small viewports: `max-height: 780px` (shrinks type,
+  tightens leading and the caption) and `max-width: 860px` (stacks, figure first).
   **The two-line lead is load-bearing** — it replaces the deleted rule as the section's top edge; if
   the wording changes, re-check the line count before shipping.
-- **The figure is generated, not authored.** `scripts/phase_portraits.py` integrates a two-species
-  Lotka-Volterra competition model with `scipy.integrate.solve_ivp`, solves the equilibria with
-  `fsolve` and classifies them from the analytic Jacobian, traces the separatrix by integrating the
-  saddle's stable eigenvector backwards in time, and samples the flow field from the equations.
-  Both panels are the same model; only `a12`/`a21` differ. Left `0.6/0.6` (product 0.36) gives one
-  stable coexistence state at (0.625, 0.625). Right `1.6/1.6` (product 2.56) gives stable states at
-  (1,0) and (0,1) with a saddle at (0.3846, 0.3846). The script writes
-  `src/figures/phase-portraits.svg`, which `index.astro` inlines with Astro's `?raw` import so the
-  CSS custom properties and `currentColor` resolve against the page. **Never hand-edit that SVG.**
-  Re-run the script instead. It needs numpy, scipy and matplotlib, which are not in the system
-  Python (PEP 668); use a venv. Colours come from `--fig-flow`, `--fig-traj`, `--fig-sep`,
-  `--rule`, `--link`, `--paper`, `--faint` and `currentColor`, so the figure follows the theme.
-  Trajectory paths are tagged `.fig__draw` with `pathLength="1"` for the scroll draw-in.
-- **The caption is a figure caption, not a sentence of prose** (his instruction: "que sea muy
-  objetivo en su descripción"). It names what is drawn first — dots, arrows, attractors,
-  separatrix, saddle — and only then the reading, and it ends with "Schematic". It is
-  **left-aligned on the figure's own measure**, never centred: it runs five to six lines.
+- **Two figures, and they are different kinds of object. The caption must say which is which.**
+  - `scripts/priority_effects.py` emits `src/figures/priority-effects.svg`, a **schematic** in the
+    representation this literature uses for priority effects. Fukami 2015 Fig. 2 draws a species
+    pool, the arrival order above an arrow, and the resulting community, with different orders
+    giving different communities. This follows that grammar and is original artwork, not a
+    reproduction. Six strains, told apart by shape and by filled or open, so it survives greyscale.
+    **Each community is a subset of what actually arrived** and keeps whichever strain came first.
+    Do not break that; it is what makes the priority effect legible.
+  - `scripts/allocation_tradeoff.py` emits `src/figures/allocation-tradeoff.svg`, the **computed**
+    one. Panel A is the growth law with parameters read off Scott et al. 2010 Fig. 1A,
+    `phi_R = 0.05 + lambda / 7.0`, so the ribosomal fraction runs 0.05 to 0.336 over 0 to 2 per
+    hour. **An earlier draft used a slope of 1/4.5 and reached 0.46, nearly double the published
+    value; the error was caught only by opening the paper and looking at the figure.** Sectors
+    follow their Q/R/P scheme. Panel B is the rate-yield line the partition implies, an inference,
+    since Scott et al. do not measure yield, and the caption says so.
+  - Both carry quantitative axes with ticks, numerals, units and panel letters, and true
+    subscripts via `tspan`. **Do not strip those.** Sebastian's test is whether the authors of
+    those papers would read it as a figure, and unlabelled axes are what fails that test.
+  - **Figure type is a Palatino stack** (`--fig-type`), not the page sans. Short labels make the
+    fallback to Georgia acceptable on Linux and Android, which is why the argument against
+    Palatino for body text does not carry here. It also matches the `mathpazo` of his CV.
+  - Other colours are `--fig-flow`, `--fig-traj`, `--fig-sep`, `--rule`, `--link`, `--paper`,
+    `--faint` and `currentColor`, so both follow the theme. Label sizes are tuned so the two
+    render at a comparable scale; re-check if you resize either canvas.
+  - Both need numpy and matplotlib, absent from the system Python under PEP 668, so use a venv.
+    `index.astro` inlines both with Astro's `?raw` import, which is what lets the custom properties
+    resolve. **Never hand-edit the SVGs**; re-run the scripts.
+- **Captions are figure captions, not prose** (his instruction: "que sea muy objetivo en su
+  descripción"). Each names what is drawn first and only then the reading, and each ends with a
+  `.fig__source` line giving the script and, where it matters, what is computed and what is
+  inferred. **Left-aligned on the figure's own measure**, never centred.
 - **Light, elegant cool-gray body** (`--paper: #eef0f2` — NOT blue, NOT dark: Sebastian tried a
   light-blue and a dark theme and rejected both). Dark text, sober **navy** (`#1b4b9c`).
   `--wrap: 62rem`. **No ALL-CAPS, no interpunct `·` anywhere.**
@@ -319,3 +334,23 @@ and the 404, not just the research prose.
    nothing breaks, but the "two screens" reading is now "hero, then a section you scroll through".
    Fixing it needs either shorter text or a typographic change, both of which he ruled out, so it
    was shipped as specified and reported.
+18. **Current — audit against the primary literature (Sep 2026).** Sebastian sent the newest CV,
+   his Stanford SOP and the submitted Simons LOI, then the PDFs of Blount 2008, Fukami 2015 and
+   Scott 2010, and asked that the figures be compared against the figures in those papers. That
+   comparison changed the work twice, and the practice is worth repeating.
+   **First**, Fukami's Fig. 2 showed that this field draws priority effects as pool, arrival order,
+   resulting community, not as a phase portrait. The Lotka-Volterra phase portrait from entry 17
+   was retired for a schematic in that grammar, and `scripts/phase_portraits.py` was deleted. It is
+   in git history if the dynamical view is ever wanted again.
+   **Second**, Scott's Fig. 1A showed the growth-law slope in the new allocation figure was nearly
+   double the published value. Fixed. Opening the paper is what caught it.
+   **Structure:** the research section split into `#question` and `#approach`, which fixed the
+   entry-17 overflow and matches the argument. Prose rewritten in paper register, organised around
+   the three advisors named in the SOP: Fukami for priority effects, Cremer for allocation from
+   inside the cell, Petrov for evolution during assembly. Seven citations, all DOIs verified.
+   **Moran et al. 2026 is deliberately absent.** Sebastian cited it in the LOI for emergent
+   predictability and later established the attribution does not hold. Do not reintroduce it.
+   **Also still wrong in the submitted LOI, for his records, not the site:** reference 5 credits
+   Dubinkina et al. 2019 with the rate-yield route to multistability. That paper's mechanism is
+   competition for essential nutrients with differing stoichiometry. Manhart and Shakhnovich 2018,
+   his own reference 4, is the right one, and it is what the site cites.
