@@ -1,885 +1,797 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 552 372" version="1.1" class="fig" role="img" aria-labelledby="alloc-title alloc-desc" preserveAspectRatio="xMidYMid meet">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 465 386" version="1.1" class="fig" role="img" aria-labelledby="alloc-title alloc-desc" preserveAspectRatio="xMidYMid meet">
  <title id="alloc-title">The bacterial growth laws, the proteome partition, and the tradeoff it implies</title><desc id="alloc-desc">Three panels. The first plots the RNA to protein ratio against growth rate. A rising line follows changes in nutrient quality and a family of falling lines follows translational inhibition, one per growth medium, and each medium's drug-free culture sits where its two lines cross. The second converts that ratio into proteome mass fractions, showing a fixed housekeeping sector, a ribosomal sector that rises with growth rate, and a metabolic sector that falls by the same amount. The third shows the tradeoff between growth rate and yield that the partition implies, with two pools of strains marked on it, one occupying a narrow band of the axis and one spanning it.</desc><defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="figure_1">
   <g id="patch_1">
-   <path d="M 0 372  L 552 372  L 552 0  L 0 0  L 0 372  z " style="fill: none" />
+   <path d="M 0 386  L 465 386  L 465 0  L 0 0  L 0 386  z " style="fill: none" />
   </g>
   <g id="axes_1">
    <g id="patch_2">
-    <path d="M 50 162  L 242 162  L 242 48  L 50 48  L 50 162  z " style="fill: none; opacity: 0" />
+    <path d="M 52 168  L 172 168  L 172 48  L 52 48  L 52 168  z " style="fill: none; opacity: 0" />
    </g>
    <g id="axes_2">
     <g id="patch_3">
-     <path d="M 242 162  L 242 162  L 242 48  L 242 48  L 242 162  z " style="fill: none" />
+     <path d="M 172 168  L 172 168  L 172 48  L 172 48  L 172 168  z " style="fill: none" />
     </g>
     <g id="matplotlib.axis_1" />
     <g id="matplotlib.axis_2">
      <g id="ytick_1">
       <g id="line2d_1">
        <defs>
-        <path id="m6672d4dd1a" d="M 0 0  L 2.6 0  " style="stroke: var(--rule); stroke-width: 0.8" />
+        <path id="mb8425fc651" d="M 0 0  L 2.6 0  " style="stroke: var(--rule); stroke-width: 0.8" />
        </defs>
        <g>
-        <use xlink:href="#m6672d4dd1a" x="242" y="162" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+        <use xlink:href="#mb8425fc651" x="172" y="168" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
        </g>
       </g>
       <g id="text_1">
-       <text style="font-size: 6.2px; text-anchor: start; fill: currentColor" x="246.1" y="164.36" transform="rotate(-0 246.1 164.36)">0</text>
+       <text style="font-size: 7.2px; text-anchor: start; fill: currentColor" x="176.1" y="170.74" transform="rotate(-0 176.1 170.74)">0</text>
       </g>
      </g>
      <g id="ytick_2">
       <g id="line2d_2">
        <g>
-        <use xlink:href="#m6672d4dd1a" x="242" y="124.5" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+        <use xlink:href="#mb8425fc651" x="172" y="128.53" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
        </g>
       </g>
       <g id="text_2">
-       <text style="font-size: 6.2px; text-anchor: start; fill: currentColor" x="246.1" y="126.86" transform="rotate(-0 246.1 126.86)">0.2</text>
+       <text style="font-size: 7.2px; text-anchor: start; fill: currentColor" x="176.1" y="131.26" transform="rotate(-0 176.1 131.26)">0.2</text>
       </g>
      </g>
      <g id="ytick_3">
       <g id="line2d_3">
        <g>
-        <use xlink:href="#m6672d4dd1a" x="242" y="87" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+        <use xlink:href="#mb8425fc651" x="172" y="89.05" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
        </g>
       </g>
       <g id="text_3">
-       <text style="font-size: 6.2px; text-anchor: start; fill: currentColor" x="246.1" y="89.36" transform="rotate(-0 246.1 89.36)">0.4</text>
+       <text style="font-size: 7.2px; text-anchor: start; fill: currentColor" x="176.1" y="91.79" transform="rotate(-0 176.1 91.79)">0.4</text>
       </g>
      </g>
      <g id="text_4">
-      <text style="font-size: 7px; text-anchor: middle; fill: currentColor" x="264.28" y="105" transform="rotate(-90 264.28 105)">Ribosomal fraction</text>
+      <text style="font-size: 8px; text-anchor: middle; fill: currentColor" x="196.63" y="108" transform="rotate(-90 196.63 108)">Ribosomal fraction</text>
      </g>
     </g>
     <g id="patch_4">
-     <path d="M 242 162  L 242 48  " style="fill: none; stroke: var(--rule); stroke-width: 0.9; stroke-linejoin: miter; stroke-linecap: square" />
+     <path d="M 172 168  L 172 48  " style="fill: none; stroke: var(--rule); stroke-width: 0.9; stroke-linejoin: miter; stroke-linecap: square" />
     </g>
    </g>
    <g id="axes_3">
     <g id="patch_5">
-     <path d="M 50 48  L 242 48  L 242 48  L 50 48  L 50 48  z " style="fill: none" />
+     <path d="M 52 48  L 172 48  L 172 48  L 52 48  L 52 48  z " style="fill: none" />
     </g>
     <g id="matplotlib.axis_3">
      <g id="xtick_1">
       <g id="line2d_4">
        <defs>
-        <path id="m0bf94aced7" d="M 0 0  L 0 -2.6  " style="stroke: var(--rule); stroke-width: 0.8" />
+        <path id="m89181daf37" d="M 0 0  L 0 -2.6  " style="stroke: var(--rule); stroke-width: 0.8" />
        </defs>
        <g>
-        <use xlink:href="#m0bf94aced7" x="50" y="48" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+        <use xlink:href="#m89181daf37" x="52" y="48" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
        </g>
       </g>
       <g id="text_5">
-       <text style="font-size: 6.2px; text-anchor: middle; fill: currentColor" x="50" y="42.41" transform="rotate(-0 50 42.41)">0</text>
+       <text style="font-size: 7.2px; text-anchor: middle; fill: currentColor" x="52" y="41.17" transform="rotate(-0 52 41.17)">0</text>
       </g>
      </g>
      <g id="xtick_2">
       <g id="line2d_5">
        <g>
-        <use xlink:href="#m0bf94aced7" x="116.54" y="48" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+        <use xlink:href="#m89181daf37" x="93.59" y="48" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
        </g>
       </g>
       <g id="text_6">
-       <text style="font-size: 6.2px; text-anchor: middle; fill: currentColor" x="116.54" y="42.41" transform="rotate(-0 116.54 42.41)">1</text>
+       <text style="font-size: 7.2px; text-anchor: middle; fill: currentColor" x="93.59" y="41.17" transform="rotate(-0 93.59 41.17)">1</text>
       </g>
      </g>
      <g id="xtick_3">
       <g id="line2d_6">
        <g>
-        <use xlink:href="#m0bf94aced7" x="183.08" y="48" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+        <use xlink:href="#m89181daf37" x="135.18" y="48" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
        </g>
       </g>
       <g id="text_7">
-       <text style="font-size: 6.2px; text-anchor: middle; fill: currentColor" x="183.08" y="42.41" transform="rotate(-0 183.08 42.41)">2</text>
+       <text style="font-size: 7.2px; text-anchor: middle; fill: currentColor" x="135.18" y="41.17" transform="rotate(-0 135.18 41.17)">2</text>
       </g>
      </g>
      <g id="text_8">
-      <text style="font-size: 7px; text-anchor: middle; fill: currentColor" x="146" y="35.7" transform="rotate(-0 146 35.7)">Doublings per hour</text>
+      <text style="font-size: 8px; text-anchor: middle; fill: currentColor" x="112" y="31.7" transform="rotate(-0 112 31.7)">Doublings per hour</text>
      </g>
     </g>
     <g id="matplotlib.axis_4" />
     <g id="patch_6">
-     <path d="M 50 48  L 242 48  " style="fill: none; stroke: var(--rule); stroke-width: 0.9; stroke-linejoin: miter; stroke-linecap: square" />
+     <path d="M 52 48  L 172 48  " style="fill: none; stroke: var(--rule); stroke-width: 0.9; stroke-linejoin: miter; stroke-linecap: square" />
     </g>
    </g>
    <g id="matplotlib.axis_5">
     <g id="xtick_4">
      <g id="line2d_7">
-      <path d="M 50 162  L 50 48  " clip-path="url(#pc117d54e43)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+      <path d="M 52 168  L 52 48  " clip-path="url(#p18211f7210)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
      </g>
      <g id="line2d_8">
       <defs>
-       <path id="m92f36b26e2" d="M 0 0  L 0 2.8  " style="stroke: var(--rule); stroke-width: 0.8" />
+       <path id="m0470316a28" d="M 0 0  L 0 2.8  " style="stroke: var(--rule); stroke-width: 0.8" />
       </defs>
       <g>
-       <use xlink:href="#m92f36b26e2" x="50" y="162" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+       <use xlink:href="#m0470316a28" x="52" y="168" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
      <g id="text_9">
-      <text style="font-size: 6.4px; text-anchor: middle; fill: currentColor" x="50" y="171.66" transform="rotate(-0 50 171.66)">0</text>
+      <text style="font-size: 7.4px; text-anchor: middle; fill: currentColor" x="52" y="178.42" transform="rotate(-0 52 178.42)">0</text>
      </g>
     </g>
     <g id="xtick_5">
      <g id="line2d_9">
-      <path d="M 98 162  L 98 48  " clip-path="url(#pc117d54e43)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+      <path d="M 82 168  L 82 48  " clip-path="url(#p18211f7210)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
      </g>
      <g id="line2d_10">
       <g>
-       <use xlink:href="#m92f36b26e2" x="98" y="162" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+       <use xlink:href="#m0470316a28" x="82" y="168" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
      <g id="text_10">
-      <text style="font-size: 6.4px; text-anchor: middle; fill: currentColor" x="98" y="171.66" transform="rotate(-0 98 171.66)">0.5</text>
+      <text style="font-size: 7.4px; text-anchor: middle; fill: currentColor" x="82" y="178.42" transform="rotate(-0 82 178.42)">0.5</text>
      </g>
     </g>
     <g id="xtick_6">
      <g id="line2d_11">
-      <path d="M 146 162  L 146 48  " clip-path="url(#pc117d54e43)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+      <path d="M 112 168  L 112 48  " clip-path="url(#p18211f7210)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
      </g>
      <g id="line2d_12">
       <g>
-       <use xlink:href="#m92f36b26e2" x="146" y="162" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+       <use xlink:href="#m0470316a28" x="112" y="168" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
      <g id="text_11">
-      <text style="font-size: 6.4px; text-anchor: middle; fill: currentColor" x="146" y="171.66" transform="rotate(-0 146 171.66)">1</text>
+      <text style="font-size: 7.4px; text-anchor: middle; fill: currentColor" x="112" y="178.42" transform="rotate(-0 112 178.42)">1</text>
      </g>
     </g>
     <g id="xtick_7">
      <g id="line2d_13">
-      <path d="M 194 162  L 194 48  " clip-path="url(#pc117d54e43)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+      <path d="M 142 168  L 142 48  " clip-path="url(#p18211f7210)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
      </g>
      <g id="line2d_14">
       <g>
-       <use xlink:href="#m92f36b26e2" x="194" y="162" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+       <use xlink:href="#m0470316a28" x="142" y="168" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
      <g id="text_12">
-      <text style="font-size: 6.4px; text-anchor: middle; fill: currentColor" x="194" y="171.66" transform="rotate(-0 194 171.66)">1.5</text>
+      <text style="font-size: 7.4px; text-anchor: middle; fill: currentColor" x="142" y="178.42" transform="rotate(-0 142 178.42)">1.5</text>
      </g>
     </g>
     <g id="xtick_8">
      <g id="line2d_15">
-      <path d="M 242 162  L 242 48  " clip-path="url(#pc117d54e43)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+      <path d="M 172 168  L 172 48  " clip-path="url(#p18211f7210)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
      </g>
      <g id="line2d_16">
       <g>
-       <use xlink:href="#m92f36b26e2" x="242" y="162" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+       <use xlink:href="#m0470316a28" x="172" y="168" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
      <g id="text_13">
-      <text style="font-size: 6.4px; text-anchor: middle; fill: currentColor" x="242" y="171.66" transform="rotate(-0 242 171.66)">2</text>
+      <text style="font-size: 7.4px; text-anchor: middle; fill: currentColor" x="172" y="178.42" transform="rotate(-0 172 178.42)">2</text>
      </g>
     </g>
     <g id="text_14">
-     <text style="font-size: 7.4px; text-anchor: middle; fill: currentColor" x="146" y="180.82" transform="rotate(-0 146 180.82)">Growth rate λ (per hour)</text>
+     <text style="font-size: 8.6px; text-anchor: middle; fill: currentColor" x="112" y="188.73" transform="rotate(-0 112 188.73)">Growth rate λ (per hour)</text>
     </g>
    </g>
    <g id="matplotlib.axis_6">
     <g id="ytick_4">
      <g id="line2d_17">
-      <path d="M 50 162  L 242 162  " clip-path="url(#pc117d54e43)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+      <path d="M 52 168  L 172 168  " clip-path="url(#p18211f7210)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
      </g>
      <g id="line2d_18">
       <defs>
-       <path id="m205f2b6cc9" d="M 0 0  L -2.8 0  " style="stroke: var(--rule); stroke-width: 0.8" />
+       <path id="m79f2f1c7d3" d="M 0 0  L -2.8 0  " style="stroke: var(--rule); stroke-width: 0.8" />
       </defs>
       <g>
-       <use xlink:href="#m205f2b6cc9" x="50" y="162" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+       <use xlink:href="#m79f2f1c7d3" x="52" y="168" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
      <g id="text_15">
-      <text style="font-size: 6.4px; text-anchor: end; fill: currentColor" x="45.2" y="164.43" transform="rotate(-0 45.2 164.43)">0</text>
+      <text style="font-size: 7.4px; text-anchor: end; fill: currentColor" x="47.2" y="170.81" transform="rotate(-0 47.2 170.81)">0</text>
      </g>
     </g>
     <g id="ytick_5">
      <g id="line2d_19">
-      <path d="M 50 133.5  L 242 133.5  " clip-path="url(#pc117d54e43)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+      <path d="M 52 138  L 172 138  " clip-path="url(#p18211f7210)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
      </g>
      <g id="line2d_20">
       <g>
-       <use xlink:href="#m205f2b6cc9" x="50" y="133.5" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+       <use xlink:href="#m79f2f1c7d3" x="52" y="138" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
      <g id="text_16">
-      <text style="font-size: 6.4px; text-anchor: end; fill: currentColor" x="45.2" y="135.93" transform="rotate(-0 45.2 135.93)">0.2</text>
+      <text style="font-size: 7.4px; text-anchor: end; fill: currentColor" x="47.2" y="140.81" transform="rotate(-0 47.2 140.81)">0.2</text>
      </g>
     </g>
     <g id="ytick_6">
      <g id="line2d_21">
-      <path d="M 50 105  L 242 105  " clip-path="url(#pc117d54e43)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+      <path d="M 52 108  L 172 108  " clip-path="url(#p18211f7210)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
      </g>
      <g id="line2d_22">
       <g>
-       <use xlink:href="#m205f2b6cc9" x="50" y="105" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+       <use xlink:href="#m79f2f1c7d3" x="52" y="108" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
      <g id="text_17">
-      <text style="font-size: 6.4px; text-anchor: end; fill: currentColor" x="45.2" y="107.43" transform="rotate(-0 45.2 107.43)">0.4</text>
+      <text style="font-size: 7.4px; text-anchor: end; fill: currentColor" x="47.2" y="110.81" transform="rotate(-0 47.2 110.81)">0.4</text>
      </g>
     </g>
     <g id="ytick_7">
      <g id="line2d_23">
-      <path d="M 50 76.5  L 242 76.5  " clip-path="url(#pc117d54e43)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+      <path d="M 52 78  L 172 78  " clip-path="url(#p18211f7210)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
      </g>
      <g id="line2d_24">
       <g>
-       <use xlink:href="#m205f2b6cc9" x="50" y="76.5" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+       <use xlink:href="#m79f2f1c7d3" x="52" y="78" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
      <g id="text_18">
-      <text style="font-size: 6.4px; text-anchor: end; fill: currentColor" x="45.2" y="78.93" transform="rotate(-0 45.2 78.93)">0.6</text>
+      <text style="font-size: 7.4px; text-anchor: end; fill: currentColor" x="47.2" y="80.81" transform="rotate(-0 47.2 80.81)">0.6</text>
      </g>
     </g>
     <g id="ytick_8">
      <g id="line2d_25">
-      <path d="M 50 48  L 242 48  " clip-path="url(#pc117d54e43)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+      <path d="M 52 48  L 172 48  " clip-path="url(#p18211f7210)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
      </g>
      <g id="line2d_26">
       <g>
-       <use xlink:href="#m205f2b6cc9" x="50" y="48" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+       <use xlink:href="#m79f2f1c7d3" x="52" y="48" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
      <g id="text_19">
-      <text style="font-size: 6.4px; text-anchor: end; fill: currentColor" x="45.2" y="50.43" transform="rotate(-0 45.2 50.43)">0.8</text>
+      <text style="font-size: 7.4px; text-anchor: end; fill: currentColor" x="47.2" y="50.81" transform="rotate(-0 47.2 50.81)">0.8</text>
      </g>
     </g>
     <g id="text_20">
-     <text style="font-size: 7.4px; text-anchor: middle; fill: currentColor" x="31.24" y="105" transform="rotate(-90 31.24 105)">RNA / protein, r</text>
+     <text style="font-size: 8.6px; text-anchor: middle; fill: currentColor" x="31.37" y="108" transform="rotate(-90 31.37 108)">RNA / protein, r</text>
     </g>
    </g>
    <g id="line2d_27">
-    <path d="M 50 59.4  L 50.93 60.79  L 51.87 62.17  L 52.8 63.56  L 53.74 64.95  L 54.67 66.33  L 55.61 67.72  L 56.54 69.11  L 57.47 70.49  L 58.41 71.88  L 59.34 73.27  L 60.28 74.65  L 61.21 76.04  L 62.15 77.43  L 63.08 78.81  L 64.01 80.2  L 64.95 81.59  L 65.88 82.97  L 66.82 84.36  L 67.75 85.75  L 68.68 87.14  L 69.62 88.52  L 70.55 89.91  L 71.49 91.3  L 72.42 92.68  L 73.36 94.07  L 74.29 95.46  L 75.22 96.84  L 76.16 98.23  L 77.09 99.62  L 78.03 101  L 78.96 102.39  L 79.9 103.78  L 80.83 105.16  L 81.76 106.55  L 82.7 107.94  L 83.63 109.32  L 84.57 110.71  L 85.5 112.1  L 86.44 113.48  L 87.37 114.87  L 88.3 116.26  L 89.24 117.64  L 90.17 119.03  L 91.11 120.42  L 92.04 121.8  L 92.97 123.19  L 93.91 124.58  L 94.84 125.96  L 95.78 127.35  L 96.71 128.74  L 97.65 130.12  L 98.58 131.51  L 99.51 132.9  L 100.45 134.28  L 101.38 135.67  L 102.32 137.06  L 103.25 138.45  L 104.19 139.83  L 105.12 141.22  " clip-path="url(#pc117d54e43)" style="fill: none; stroke: var(--fig-flow); stroke-linecap: square" />
+    <path d="M 52 60  L 52.58 61.46  L 53.17 62.92  L 53.75 64.38  L 54.34 65.84  L 54.92 67.3  L 55.5 68.76  L 56.09 70.22  L 56.67 71.68  L 57.26 73.14  L 57.84 74.6  L 58.42 76.06  L 59.01 77.52  L 59.59 78.98  L 60.17 80.44  L 60.76 81.9  L 61.34 83.36  L 61.93 84.82  L 62.51 86.28  L 63.09 87.74  L 63.68 89.19  L 64.26 90.65  L 64.85 92.11  L 65.43 93.57  L 66.01 95.03  L 66.6 96.49  L 67.18 97.95  L 67.77 99.41  L 68.35 100.87  L 68.93 102.33  L 69.52 103.79  L 70.1 105.25  L 70.68 106.71  L 71.27 108.17  L 71.85 109.63  L 72.44 111.09  L 73.02 112.55  L 73.6 114.01  L 74.19 115.47  L 74.77 116.93  L 75.36 118.39  L 75.94 119.85  L 76.52 121.31  L 77.11 122.77  L 77.69 124.23  L 78.28 125.69  L 78.86 127.15  L 79.44 128.61  L 80.03 130.07  L 80.61 131.53  L 81.19 132.99  L 81.78 134.45  L 82.36 135.91  L 82.95 137.37  L 83.53 138.83  L 84.11 140.29  L 84.7 141.75  L 85.28 143.21  L 85.87 144.67  L 86.45 146.12  " clip-path="url(#p18211f7210)" style="fill: none; stroke: var(--fig-flow); stroke-linecap: square" />
    </g>
    <g id="line2d_28">
-    <path d="M 50 59.4  L 51.36 60.66  L 52.72 61.92  L 54.08 63.18  L 55.44 64.44  L 56.79 65.7  L 58.15 66.96  L 59.51 68.22  L 60.87 69.49  L 62.23 70.75  L 63.59 72.01  L 64.95 73.27  L 66.31 74.53  L 67.67 75.79  L 69.02 77.05  L 70.38 78.31  L 71.74 79.57  L 73.1 80.83  L 74.46 82.09  L 75.82 83.35  L 77.18 84.61  L 78.54 85.87  L 79.9 87.14  L 81.25 88.4  L 82.61 89.66  L 83.97 90.92  L 85.33 92.18  L 86.69 93.44  L 88.05 94.7  L 89.41 95.96  L 90.77 97.22  L 92.13 98.48  L 93.48 99.74  L 94.84 101  L 96.2 102.26  L 97.56 103.52  L 98.92 104.78  L 100.28 106.05  L 101.64 107.31  L 103 108.57  L 104.36 109.83  L 105.71 111.09  L 107.07 112.35  L 108.43 113.61  L 109.79 114.87  L 111.15 116.13  L 112.51 117.39  L 113.87 118.65  L 115.23 119.91  L 116.59 121.17  L 117.94 122.43  L 119.3 123.7  L 120.66 124.96  L 122.02 126.22  L 123.38 127.48  L 124.74 128.74  L 126.1 130  L 127.46 131.26  L 128.82 132.52  L 130.17 133.78  " clip-path="url(#pc117d54e43)" style="fill: none; stroke: var(--fig-flow); stroke-linecap: square" />
+    <path d="M 52 60  L 52.85 61.33  L 53.7 62.65  L 54.55 63.98  L 55.4 65.31  L 56.25 66.64  L 57.1 67.96  L 57.95 69.29  L 58.79 70.62  L 59.64 71.94  L 60.49 73.27  L 61.34 74.6  L 62.19 75.92  L 63.04 77.25  L 63.89 78.58  L 64.74 79.91  L 65.59 81.23  L 66.44 82.56  L 67.29 83.89  L 68.14 85.21  L 68.99 86.54  L 69.84 87.87  L 70.68 89.19  L 71.53 90.52  L 72.38 91.85  L 73.23 93.18  L 74.08 94.5  L 74.93 95.83  L 75.78 97.16  L 76.63 98.48  L 77.48 99.81  L 78.33 101.14  L 79.18 102.47  L 80.03 103.79  L 80.88 105.12  L 81.73 106.45  L 82.58 107.77  L 83.42 109.1  L 84.27 110.43  L 85.12 111.75  L 85.97 113.08  L 86.82 114.41  L 87.67 115.74  L 88.52 117.06  L 89.37 118.39  L 90.22 119.72  L 91.07 121.04  L 91.92 122.37  L 92.77 123.7  L 93.62 125.03  L 94.47 126.35  L 95.31 127.68  L 96.16 129.01  L 97.01 130.33  L 97.86 131.66  L 98.71 132.99  L 99.56 134.31  L 100.41 135.64  L 101.26 136.97  L 102.11 138.3  " clip-path="url(#p18211f7210)" style="fill: none; stroke: var(--fig-flow); stroke-linecap: square" />
    </g>
    <g id="line2d_29">
-    <path d="M 50 59.4  L 51.82 60.52  L 53.64 61.65  L 55.45 62.77  L 57.27 63.9  L 59.09 65.02  L 60.91 66.15  L 62.73 67.27  L 64.54 68.4  L 66.36 69.52  L 68.18 70.64  L 70 71.77  L 71.82 72.89  L 73.63 74.02  L 75.45 75.14  L 77.27 76.27  L 79.09 77.39  L 80.91 78.51  L 82.72 79.64  L 84.54 80.76  L 86.36 81.89  L 88.18 83.01  L 90 84.14  L 91.81 85.26  L 93.63 86.39  L 95.45 87.51  L 97.27 88.63  L 99.09 89.76  L 100.9 90.88  L 102.72 92.01  L 104.54 93.13  L 106.36 94.26  L 108.18 95.38  L 109.99 96.51  L 111.81 97.63  L 113.63 98.75  L 115.45 99.88  L 117.27 101  L 119.08 102.13  L 120.9 103.25  L 122.72 104.38  L 124.54 105.5  L 126.35 106.62  L 128.17 107.75  L 129.99 108.87  L 131.81 110  L 133.63 111.12  L 135.44 112.25  L 137.26 113.37  L 139.08 114.5  L 140.9 115.62  L 142.72 116.74  L 144.53 117.87  L 146.35 118.99  L 148.17 120.12  L 149.99 121.24  L 151.81 122.37  L 153.62 123.49  L 155.44 124.62  L 157.26 125.74  " clip-path="url(#pc117d54e43)" style="fill: none; stroke: var(--fig-flow); stroke-linecap: square" />
+    <path d="M 52 60  L 53.14 61.18  L 54.27 62.37  L 55.41 63.55  L 56.54 64.73  L 57.68 65.92  L 58.82 67.1  L 59.95 68.29  L 61.09 69.47  L 62.23 70.65  L 63.36 71.84  L 64.5 73.02  L 65.63 74.2  L 66.77 75.39  L 67.91 76.57  L 69.04 77.75  L 70.18 78.94  L 71.32 80.12  L 72.45 81.3  L 73.59 82.49  L 74.72 83.67  L 75.86 84.86  L 77 86.04  L 78.13 87.22  L 79.27 88.41  L 80.41 89.59  L 81.54 90.77  L 82.68 91.96  L 83.81 93.14  L 84.95 94.32  L 86.09 95.51  L 87.22 96.69  L 88.36 97.87  L 89.5 99.06  L 90.63 100.24  L 91.77 101.43  L 92.9 102.61  L 94.04 103.79  L 95.18 104.98  L 96.31 106.16  L 97.45 107.34  L 98.59 108.53  L 99.72 109.71  L 100.86 110.89  L 101.99 112.08  L 103.13 113.26  L 104.27 114.44  L 105.4 115.63  L 106.54 116.81  L 107.68 118  L 108.81 119.18  L 109.95 120.36  L 111.08 121.55  L 112.22 122.73  L 113.36 123.91  L 114.49 125.1  L 115.63 126.28  L 116.77 127.46  L 117.9 128.65  L 119.04 129.83  " clip-path="url(#p18211f7210)" style="fill: none; stroke: var(--fig-flow); stroke-linecap: square" />
    </g>
    <g id="line2d_30">
-    <path d="M 50 59.4  L 52.27 60.39  L 54.54 61.38  L 56.81 62.37  L 59.08 63.36  L 61.34 64.35  L 63.61 65.34  L 65.88 66.33  L 68.15 67.32  L 70.42 68.31  L 72.69 69.31  L 74.96 70.3  L 77.23 71.29  L 79.5 72.28  L 81.76 73.27  L 84.03 74.26  L 86.3 75.25  L 88.57 76.24  L 90.84 77.23  L 93.11 78.22  L 95.38 79.21  L 97.65 80.2  L 99.91 81.19  L 102.18 82.18  L 104.45 83.17  L 106.72 84.16  L 108.99 85.15  L 111.26 86.14  L 113.53 87.14  L 115.8 88.13  L 118.07 89.12  L 120.33 90.11  L 122.6 91.1  L 124.87 92.09  L 127.14 93.08  L 129.41 94.07  L 131.68 95.06  L 133.95 96.05  L 136.22 97.04  L 138.49 98.03  L 140.75 99.02  L 143.02 100.01  L 145.29 101  L 147.56 101.99  L 149.83 102.98  L 152.1 103.97  L 154.37 104.96  L 156.64 105.96  L 158.91 106.95  L 161.17 107.94  L 163.44 108.93  L 165.71 109.92  L 167.98 110.91  L 170.25 111.9  L 172.52 112.89  L 174.79 113.88  L 177.06 114.87  L 179.33 115.86  L 181.59 116.85  L 183.86 117.84  " clip-path="url(#pc117d54e43)" style="fill: none; stroke: var(--fig-flow); stroke-linecap: square" />
+    <path d="M 52 60  L 53.42 61.04  L 54.84 62.09  L 56.25 63.13  L 57.67 64.17  L 59.09 65.21  L 60.51 66.26  L 61.93 67.3  L 63.34 68.34  L 64.76 69.38  L 66.18 70.43  L 67.6 71.47  L 69.02 72.51  L 70.43 73.55  L 71.85 74.6  L 73.27 75.64  L 74.69 76.68  L 76.11 77.73  L 77.52 78.77  L 78.94 79.81  L 80.36 80.85  L 81.78 81.9  L 83.2 82.94  L 84.61 83.98  L 86.03 85.02  L 87.45 86.07  L 88.87 87.11  L 90.29 88.15  L 91.71 89.19  L 93.12 90.24  L 94.54 91.28  L 95.96 92.32  L 97.38 93.37  L 98.8 94.41  L 100.21 95.45  L 101.63 96.49  L 103.05 97.54  L 104.47 98.58  L 105.89 99.62  L 107.3 100.66  L 108.72 101.71  L 110.14 102.75  L 111.56 103.79  L 112.98 104.84  L 114.39 105.88  L 115.81 106.92  L 117.23 107.96  L 118.65 109.01  L 120.07 110.05  L 121.48 111.09  L 122.9 112.13  L 124.32 113.18  L 125.74 114.22  L 127.16 115.26  L 128.57 116.3  L 129.99 117.35  L 131.41 118.39  L 132.83 119.43  L 134.25 120.48  L 135.66 121.52  " clip-path="url(#p18211f7210)" style="fill: none; stroke: var(--fig-flow); stroke-linecap: square" />
    </g>
    <g id="line2d_31">
-    <path d="M 50 59.4  L 52.69 60.27  L 55.37 61.13  L 58.06 62  L 60.74 62.87  L 63.43 63.73  L 66.12 64.6  L 68.8 65.47  L 71.49 66.33  L 74.17 67.2  L 76.86 68.07  L 79.55 68.93  L 82.23 69.8  L 84.92 70.67  L 87.6 71.53  L 90.29 72.4  L 92.97 73.27  L 95.66 74.13  L 98.35 75  L 101.03 75.87  L 103.72 76.73  L 106.4 77.6  L 109.09 78.47  L 111.78 79.33  L 114.46 80.2  L 117.15 81.07  L 119.83 81.93  L 122.52 82.8  L 125.21 83.67  L 127.89 84.53  L 130.58 85.4  L 133.26 86.27  L 135.95 87.14  L 138.64 88  L 141.32 88.87  L 144.01 89.74  L 146.69 90.6  L 149.38 91.47  L 152.07 92.34  L 154.75 93.2  L 157.44 94.07  L 160.12 94.94  L 162.81 95.8  L 165.5 96.67  L 168.18 97.54  L 170.87 98.4  L 173.55 99.27  L 176.24 100.14  L 178.92 101  L 181.61 101.87  L 184.3 102.74  L 186.98 103.6  L 189.67 104.47  L 192.35 105.34  L 195.04 106.2  L 197.73 107.07  L 200.41 107.94  L 203.1 108.8  L 205.78 109.67  L 208.47 110.54  " clip-path="url(#pc117d54e43)" style="fill: none; stroke: var(--fig-flow); stroke-linecap: square" />
+    <path d="M 52 60  L 53.68 60.91  L 55.36 61.82  L 57.04 62.74  L 58.71 63.65  L 60.39 64.56  L 62.07 65.47  L 63.75 66.39  L 65.43 67.3  L 67.11 68.21  L 68.79 69.12  L 70.47 70.04  L 72.14 70.95  L 73.82 71.86  L 75.5 72.77  L 77.18 73.69  L 78.86 74.6  L 80.54 75.51  L 82.22 76.42  L 83.9 77.33  L 85.57 78.25  L 87.25 79.16  L 88.93 80.07  L 90.61 80.98  L 92.29 81.9  L 93.97 82.81  L 95.65 83.72  L 97.33 84.63  L 99 85.55  L 100.68 86.46  L 102.36 87.37  L 104.04 88.28  L 105.72 89.19  L 107.4 90.11  L 109.08 91.02  L 110.75 91.93  L 112.43 92.84  L 114.11 93.76  L 115.79 94.67  L 117.47 95.58  L 119.15 96.49  L 120.83 97.41  L 122.51 98.32  L 124.18 99.23  L 125.86 100.14  L 127.54 101.06  L 129.22 101.97  L 130.9 102.88  L 132.58 103.79  L 134.26 104.7  L 135.94 105.62  L 137.61 106.53  L 139.29 107.44  L 140.97 108.35  L 142.65 109.27  L 144.33 110.18  L 146.01 111.09  L 147.69 112  L 149.37 112.92  L 151.04 113.83  " clip-path="url(#p18211f7210)" style="fill: none; stroke: var(--fig-flow); stroke-linecap: square" />
    </g>
    <g id="line2d_32">
-    <path d="M 50 59.4  L 53.1 60.14  L 56.21 60.89  L 59.31 61.63  L 62.41 62.37  L 65.52 63.11  L 68.62 63.86  L 71.72 64.6  L 74.82 65.34  L 77.93 66.09  L 81.03 66.83  L 84.13 67.57  L 87.24 68.31  L 90.34 69.06  L 93.44 69.8  L 96.55 70.54  L 99.65 71.29  L 102.75 72.03  L 105.85 72.77  L 108.96 73.52  L 112.06 74.26  L 115.16 75  L 118.27 75.74  L 121.37 76.49  L 124.47 77.23  L 127.58 77.97  L 130.68 78.72  L 133.78 79.46  L 136.88 80.2  L 139.99 80.94  L 143.09 81.69  L 146.19 82.43  L 149.3 83.17  L 152.4 83.92  L 155.5 84.66  L 158.61 85.4  L 161.71 86.14  L 164.81 86.89  L 167.91 87.63  L 171.02 88.37  L 174.12 89.12  L 177.22 89.86  L 180.33 90.6  L 183.43 91.34  L 186.53 92.09  L 189.64 92.83  L 192.74 93.57  L 195.84 94.32  L 198.94 95.06  L 202.05 95.8  L 205.15 96.55  L 208.25 97.29  L 211.36 98.03  L 214.46 98.77  L 217.56 99.52  L 220.67 100.26  L 223.77 101  L 226.87 101.75  L 229.97 102.49  L 233.08 103.23  " clip-path="url(#pc117d54e43)" style="fill: none; stroke: var(--fig-flow); stroke-linecap: square" />
+    <path d="M 52 60  L 53.94 60.78  L 55.88 61.56  L 57.82 62.35  L 59.76 63.13  L 61.7 63.91  L 63.64 64.69  L 65.58 65.47  L 67.52 66.26  L 69.45 67.04  L 71.39 67.82  L 73.33 68.6  L 75.27 69.38  L 77.21 70.17  L 79.15 70.95  L 81.09 71.73  L 83.03 72.51  L 84.97 73.29  L 86.91 74.08  L 88.85 74.86  L 90.79 75.64  L 92.73 76.42  L 94.67 77.2  L 96.61 77.99  L 98.55 78.77  L 100.48 79.55  L 102.42 80.33  L 104.36 81.11  L 106.3 81.9  L 108.24 82.68  L 110.18 83.46  L 112.12 84.24  L 114.06 85.02  L 116 85.81  L 117.94 86.59  L 119.88 87.37  L 121.82 88.15  L 123.76 88.93  L 125.7 89.72  L 127.64 90.5  L 129.58 91.28  L 131.51 92.06  L 133.45 92.84  L 135.39 93.63  L 137.33 94.41  L 139.27 95.19  L 141.21 95.97  L 143.15 96.75  L 145.09 97.54  L 147.03 98.32  L 148.97 99.1  L 150.91 99.88  L 152.85 100.66  L 154.79 101.45  L 156.73 102.23  L 158.67 103.01  L 160.61 103.79  L 162.54 104.57  L 164.48 105.36  L 166.42 106.14  " clip-path="url(#p18211f7210)" style="fill: none; stroke: var(--fig-flow); stroke-linecap: square" />
    </g>
    <g id="patch_7">
-    <path d="M 50 162  L 50 48  " style="fill: none; stroke: var(--rule); stroke-width: 0.9; stroke-linejoin: miter; stroke-linecap: square" />
+    <path d="M 52 168  L 52 48  " style="fill: none; stroke: var(--rule); stroke-width: 0.9; stroke-linejoin: miter; stroke-linecap: square" />
    </g>
    <g id="patch_8">
-    <path d="M 50 162  L 242 162  " style="fill: none; stroke: var(--rule); stroke-width: 0.9; stroke-linejoin: miter; stroke-linecap: square" />
+    <path d="M 52 168  L 172 168  " style="fill: none; stroke: var(--rule); stroke-width: 0.9; stroke-linejoin: miter; stroke-linecap: square" />
    </g>
    <g id="text_21">
-    <text class="fig__math" style="font-style: italic; font-size: 7.4px; text-anchor: middle; fill: currentColor" x="186.32" y="136.35" transform="rotate(-0 186.32 136.35)">r = r<tspan baseline-shift="sub" font-size="74%">0</tspan> + λ/κ<tspan baseline-shift="sub" font-size="74%">t</tspan></text>
+    <text class="fig__math" style="font-style: italic; font-size: 8.6px; text-anchor: middle; fill: currentColor" x="137.2" y="141" transform="rotate(-0 137.2 141)">r = r<tspan baseline-shift="sub" font-size="74%">0</tspan> + λ/κ<tspan baseline-shift="sub" font-size="74%">t</tspan></text>
    </g>
    <g id="text_22">
-    <text class="fig__math" style="font-style: italic; font-size: 7.4px; text-anchor: start; fill: currentColor" x="80.72" y="56.34" transform="rotate(-0 80.72 56.34)">r = r<tspan baseline-shift="sub" font-size="74%">max</tspan> − λ/κ<tspan baseline-shift="sub" font-size="74%">n</tspan></text>
+    <text class="fig__math" style="font-style: italic; font-size: 8.6px; text-anchor: start; fill: currentColor" x="71.2" y="56.98" transform="rotate(-0 71.2 56.98)">r = r<tspan baseline-shift="sub" font-size="74%">max</tspan> − λ/κ<tspan baseline-shift="sub" font-size="74%">n</tspan></text>
    </g>
    <g id="text_23">
-    <text style="font-weight: 600; font-size: 9.8px; text-anchor: start; fill: currentColor" x="24" y="12" transform="rotate(-0 24 12)">A</text>
+    <text style="font-weight: 600; font-size: 11px; text-anchor: start; fill: currentColor" x="24" y="14" transform="rotate(-0 24 14)">A</text>
    </g>
    <g id="text_24">
-    <text style="font-size: 8.6px; text-anchor: start; fill: currentColor" x="50" y="12" transform="rotate(-0 50 12)">Two growth laws</text>
+    <text style="font-size: 10px; text-anchor: start; fill: currentColor" x="52" y="14" transform="rotate(-0 52 14)">Two growth laws</text>
    </g>
    <g id="line2d_33">
-    <path d="M 50 152.03  L 242 95.03  L 242 95.03  " clip-path="url(#pc117d54e43)" style="fill: none; stroke: var(--link); stroke-width: 1.5; stroke-linecap: square" />
+    <path d="M 52 157.5  L 172 97.5  L 172 97.5  " clip-path="url(#p18211f7210)" style="fill: none; stroke: var(--link); stroke-width: 1.5; stroke-linecap: square" />
    </g>
    <g id="line2d_34">
     <defs>
-     <path id="m8494510bac" d="M 0 2.1  C 0.56 2.1 1.09 1.88 1.48 1.48  C 1.88 1.09 2.1 0.56 2.1 0  C 2.1 -0.56 1.88 -1.09 1.48 -1.48  C 1.09 -1.88 0.56 -2.1 0 -2.1  C -0.56 -2.1 -1.09 -1.88 -1.48 -1.48  C -1.88 -1.09 -2.1 -0.56 -2.1 0  C -2.1 0.56 -1.88 1.09 -1.48 1.48  C -1.09 1.88 -0.56 2.1 0 2.1  z " style="" />
+     <path id="mae034a322d" d="M 0 2.1  C 0.56 2.1 1.09 1.88 1.48 1.48  C 1.88 1.09 2.1 0.56 2.1 0  C 2.1 -0.56 1.88 -1.09 1.48 -1.48  C 1.09 -1.88 0.56 -2.1 0 -2.1  C -0.56 -2.1 -1.09 -1.88 -1.48 -1.48  C -1.88 -1.09 -2.1 -0.56 -2.1 0  C -2.1 0.56 -1.88 1.09 -1.48 1.48  C -1.09 1.88 -0.56 2.1 0 2.1  z " style="" />
     </defs>
-    <g clip-path="url(#pc117d54e43)">
-     <use xlink:href="#m8494510bac" x="102" y="136.59" style="fill: var(--link);" />
+    <g clip-path="url(#p18211f7210)">
+     <use xlink:href="#mae034a322d" x="84.5" y="141.25" style="fill: var(--link);" />
     </g>
    </g>
    <g id="line2d_35">
-    <g clip-path="url(#pc117d54e43)">
-     <use xlink:href="#m8494510bac" x="125.64" y="129.57" style="fill: var(--link);" />
+    <g clip-path="url(#p18211f7210)">
+     <use xlink:href="#mae034a322d" x="99.27" y="133.86" style="fill: var(--link);" />
     </g>
    </g>
    <g id="line2d_36">
-    <g clip-path="url(#pc117d54e43)">
-     <use xlink:href="#m8494510bac" x="151.19" y="121.98" style="fill: var(--link);" />
+    <g clip-path="url(#p18211f7210)">
+     <use xlink:href="#mae034a322d" x="115.24" y="125.88" style="fill: var(--link);" />
     </g>
    </g>
    <g id="line2d_37">
-    <g clip-path="url(#pc117d54e43)">
-     <use xlink:href="#m8494510bac" x="176.29" y="114.53" style="fill: var(--link);" />
+    <g clip-path="url(#p18211f7210)">
+     <use xlink:href="#mae034a322d" x="130.93" y="118.04" style="fill: var(--link);" />
     </g>
    </g>
    <g id="line2d_38">
-    <g clip-path="url(#pc117d54e43)">
-     <use xlink:href="#m8494510bac" x="199.5" y="107.64" style="fill: var(--link);" />
+    <g clip-path="url(#p18211f7210)">
+     <use xlink:href="#mae034a322d" x="145.44" y="110.78" style="fill: var(--link);" />
     </g>
    </g>
    <g id="line2d_39">
-    <g clip-path="url(#pc117d54e43)">
-     <use xlink:href="#m8494510bac" x="222.71" y="100.75" style="fill: var(--link);" />
+    <g clip-path="url(#p18211f7210)">
+     <use xlink:href="#mae034a322d" x="159.95" y="103.53" style="fill: var(--link);" />
     </g>
    </g>
   </g>
   <g id="axes_4">
    <g id="patch_9">
-    <path d="M 336 162  L 528 162  L 528 48  L 336 48  L 336 162  z " style="fill: none; opacity: 0" />
+    <path d="M 329 168  L 449 168  L 449 48  L 329 48  L 329 168  z " style="fill: none; opacity: 0" />
    </g>
-   <g id="axes_5">
-    <g id="patch_10">
-     <path d="M 336 48  L 528 48  L 528 48  L 336 48  L 336 48  z " style="fill: none" />
+   <g id="matplotlib.axis_7">
+    <g id="xtick_9">
+     <g id="line2d_40">
+      <path d="M 329 168  L 329 48  " clip-path="url(#pb124218aa0)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+     </g>
+     <g id="line2d_41">
+      <g>
+       <use xlink:href="#m0470316a28" x="329" y="168" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+      </g>
+     </g>
+     <g id="text_25">
+      <text style="font-size: 7.4px; text-anchor: middle; fill: currentColor" x="329" y="178.42" transform="rotate(-0 329 178.42)">0</text>
+     </g>
     </g>
-    <g id="matplotlib.axis_7">
-     <g id="xtick_9">
-      <g id="line2d_40">
-       <g>
-        <use xlink:href="#m0bf94aced7" x="336" y="48" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
-       </g>
-      </g>
-      <g id="text_25">
-       <text style="font-size: 6.2px; text-anchor: middle; fill: currentColor" x="336" y="42.41" transform="rotate(-0 336 42.41)">0</text>
+    <g id="xtick_10">
+     <g id="line2d_42">
+      <path d="M 359 168  L 359 48  " clip-path="url(#pb124218aa0)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+     </g>
+     <g id="line2d_43">
+      <g>
+       <use xlink:href="#m0470316a28" x="359" y="168" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
-     <g id="xtick_10">
-      <g id="line2d_41">
-       <g>
-        <use xlink:href="#m0bf94aced7" x="402.54" y="48" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
-       </g>
-      </g>
-      <g id="text_26">
-       <text style="font-size: 6.2px; text-anchor: middle; fill: currentColor" x="402.54" y="42.41" transform="rotate(-0 402.54 42.41)">1</text>
+     <g id="text_26">
+      <text style="font-size: 7.4px; text-anchor: middle; fill: currentColor" x="359" y="178.42" transform="rotate(-0 359 178.42)">0.5</text>
+     </g>
+    </g>
+    <g id="xtick_11">
+     <g id="line2d_44">
+      <path d="M 389 168  L 389 48  " clip-path="url(#pb124218aa0)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+     </g>
+     <g id="line2d_45">
+      <g>
+       <use xlink:href="#m0470316a28" x="389" y="168" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
-     <g id="xtick_11">
-      <g id="line2d_42">
-       <g>
-        <use xlink:href="#m0bf94aced7" x="469.08" y="48" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
-       </g>
-      </g>
-      <g id="text_27">
-       <text style="font-size: 6.2px; text-anchor: middle; fill: currentColor" x="469.08" y="42.41" transform="rotate(-0 469.08 42.41)">2</text>
+     <g id="text_27">
+      <text style="font-size: 7.4px; text-anchor: middle; fill: currentColor" x="389" y="178.42" transform="rotate(-0 389 178.42)">1</text>
+     </g>
+    </g>
+    <g id="xtick_12">
+     <g id="line2d_46">
+      <path d="M 419 168  L 419 48  " clip-path="url(#pb124218aa0)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+     </g>
+     <g id="line2d_47">
+      <g>
+       <use xlink:href="#m0470316a28" x="419" y="168" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
      <g id="text_28">
-      <text style="font-size: 7px; text-anchor: middle; fill: currentColor" x="432" y="35.7" transform="rotate(-0 432 35.7)">Doublings per hour</text>
-     </g>
-    </g>
-    <g id="matplotlib.axis_8" />
-    <g id="patch_11">
-     <path d="M 336 48  L 528 48  " style="fill: none; stroke: var(--rule); stroke-width: 0.9; stroke-linejoin: miter; stroke-linecap: square" />
-    </g>
-   </g>
-   <g id="matplotlib.axis_9">
-    <g id="xtick_12">
-     <g id="line2d_43">
-      <path d="M 336 162  L 336 48  " clip-path="url(#pc4866db671)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
-     </g>
-     <g id="line2d_44">
-      <g>
-       <use xlink:href="#m92f36b26e2" x="336" y="162" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_29">
-      <text style="font-size: 6.4px; text-anchor: middle; fill: currentColor" x="336" y="171.66" transform="rotate(-0 336 171.66)">0</text>
+      <text style="font-size: 7.4px; text-anchor: middle; fill: currentColor" x="419" y="178.42" transform="rotate(-0 419 178.42)">1.5</text>
      </g>
     </g>
     <g id="xtick_13">
-     <g id="line2d_45">
-      <path d="M 384 162  L 384 48  " clip-path="url(#pc4866db671)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+     <g id="line2d_48">
+      <path d="M 449 168  L 449 48  " clip-path="url(#pb124218aa0)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
      </g>
-     <g id="line2d_46">
+     <g id="line2d_49">
       <g>
-       <use xlink:href="#m92f36b26e2" x="384" y="162" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+       <use xlink:href="#m0470316a28" x="449" y="168" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
-     <g id="text_30">
-      <text style="font-size: 6.4px; text-anchor: middle; fill: currentColor" x="384" y="171.66" transform="rotate(-0 384 171.66)">0.5</text>
+     <g id="text_29">
+      <text style="font-size: 7.4px; text-anchor: middle; fill: currentColor" x="449" y="178.42" transform="rotate(-0 449 178.42)">2</text>
      </g>
     </g>
-    <g id="xtick_14">
-     <g id="line2d_47">
-      <path d="M 432 162  L 432 48  " clip-path="url(#pc4866db671)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+    <g id="text_30">
+     <text style="font-size: 8.6px; text-anchor: middle; fill: currentColor" x="389" y="188.73" transform="rotate(-0 389 188.73)">Growth rate λ (per hour)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_8">
+    <g id="ytick_9">
+     <g id="line2d_50">
+      <path d="M 329 168  L 449 168  " clip-path="url(#pb124218aa0)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
      </g>
-     <g id="line2d_48">
+     <g id="line2d_51">
       <g>
-       <use xlink:href="#m92f36b26e2" x="432" y="162" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+       <use xlink:href="#m79f2f1c7d3" x="329" y="168" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
      <g id="text_31">
-      <text style="font-size: 6.4px; text-anchor: middle; fill: currentColor" x="432" y="171.66" transform="rotate(-0 432 171.66)">1</text>
-     </g>
-    </g>
-    <g id="xtick_15">
-     <g id="line2d_49">
-      <path d="M 480 162  L 480 48  " clip-path="url(#pc4866db671)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
-     </g>
-     <g id="line2d_50">
-      <g>
-       <use xlink:href="#m92f36b26e2" x="480" y="162" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_32">
-      <text style="font-size: 6.4px; text-anchor: middle; fill: currentColor" x="480" y="171.66" transform="rotate(-0 480 171.66)">1.5</text>
-     </g>
-    </g>
-    <g id="xtick_16">
-     <g id="line2d_51">
-      <path d="M 528 162  L 528 48  " clip-path="url(#pc4866db671)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
-     </g>
-     <g id="line2d_52">
-      <g>
-       <use xlink:href="#m92f36b26e2" x="528" y="162" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_33">
-      <text style="font-size: 6.4px; text-anchor: middle; fill: currentColor" x="528" y="171.66" transform="rotate(-0 528 171.66)">2</text>
-     </g>
-    </g>
-    <g id="text_34">
-     <text style="font-size: 7.4px; text-anchor: middle; fill: currentColor" x="432" y="180.82" transform="rotate(-0 432 180.82)">Growth rate λ (per hour)</text>
-    </g>
-   </g>
-   <g id="matplotlib.axis_10">
-    <g id="ytick_9">
-     <g id="line2d_53">
-      <path d="M 336 162  L 528 162  " clip-path="url(#pc4866db671)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
-     </g>
-     <g id="line2d_54">
-      <g>
-       <use xlink:href="#m205f2b6cc9" x="336" y="162" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_35">
-      <text style="font-size: 6.4px; text-anchor: end; fill: currentColor" x="331.2" y="164.43" transform="rotate(-0 331.2 164.43)">0</text>
+      <text style="font-size: 7.4px; text-anchor: end; fill: currentColor" x="324.2" y="170.81" transform="rotate(-0 324.2 170.81)">0</text>
      </g>
     </g>
     <g id="ytick_10">
-     <g id="line2d_55">
-      <path d="M 336 133.5  L 528 133.5  " clip-path="url(#pc4866db671)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+     <g id="line2d_52">
+      <path d="M 329 138  L 449 138  " clip-path="url(#pb124218aa0)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
      </g>
-     <g id="line2d_56">
+     <g id="line2d_53">
       <g>
-       <use xlink:href="#m205f2b6cc9" x="336" y="133.5" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+       <use xlink:href="#m79f2f1c7d3" x="329" y="138" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
-     <g id="text_36">
-      <text style="font-size: 6.4px; text-anchor: end; fill: currentColor" x="331.2" y="135.93" transform="rotate(-0 331.2 135.93)">0.25</text>
+     <g id="text_32">
+      <text style="font-size: 7.4px; text-anchor: end; fill: currentColor" x="324.2" y="140.81" transform="rotate(-0 324.2 140.81)">0.25</text>
      </g>
     </g>
     <g id="ytick_11">
-     <g id="line2d_57">
-      <path d="M 336 105  L 528 105  " clip-path="url(#pc4866db671)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+     <g id="line2d_54">
+      <path d="M 329 108  L 449 108  " clip-path="url(#pb124218aa0)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
      </g>
-     <g id="line2d_58">
+     <g id="line2d_55">
       <g>
-       <use xlink:href="#m205f2b6cc9" x="336" y="105" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+       <use xlink:href="#m79f2f1c7d3" x="329" y="108" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
-     <g id="text_37">
-      <text style="font-size: 6.4px; text-anchor: end; fill: currentColor" x="331.2" y="107.43" transform="rotate(-0 331.2 107.43)">0.5</text>
+     <g id="text_33">
+      <text style="font-size: 7.4px; text-anchor: end; fill: currentColor" x="324.2" y="110.81" transform="rotate(-0 324.2 110.81)">0.5</text>
      </g>
     </g>
     <g id="ytick_12">
-     <g id="line2d_59">
-      <path d="M 336 76.5  L 528 76.5  " clip-path="url(#pc4866db671)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+     <g id="line2d_56">
+      <path d="M 329 78  L 449 78  " clip-path="url(#pb124218aa0)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
      </g>
-     <g id="line2d_60">
+     <g id="line2d_57">
       <g>
-       <use xlink:href="#m205f2b6cc9" x="336" y="76.5" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+       <use xlink:href="#m79f2f1c7d3" x="329" y="78" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
-     <g id="text_38">
-      <text style="font-size: 6.4px; text-anchor: end; fill: currentColor" x="331.2" y="78.93" transform="rotate(-0 331.2 78.93)">0.75</text>
+     <g id="text_34">
+      <text style="font-size: 7.4px; text-anchor: end; fill: currentColor" x="324.2" y="80.81" transform="rotate(-0 324.2 80.81)">0.75</text>
      </g>
     </g>
     <g id="ytick_13">
-     <g id="line2d_61">
-      <path d="M 336 48  L 528 48  " clip-path="url(#pc4866db671)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+     <g id="line2d_58">
+      <path d="M 329 48  L 449 48  " clip-path="url(#pb124218aa0)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
      </g>
-     <g id="line2d_62">
+     <g id="line2d_59">
       <g>
-       <use xlink:href="#m205f2b6cc9" x="336" y="48" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+       <use xlink:href="#m79f2f1c7d3" x="329" y="48" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
-     <g id="text_39">
-      <text style="font-size: 6.4px; text-anchor: end; fill: currentColor" x="331.2" y="50.43" transform="rotate(-0 331.2 50.43)">1</text>
+     <g id="text_35">
+      <text style="font-size: 7.4px; text-anchor: end; fill: currentColor" x="324.2" y="50.81" transform="rotate(-0 324.2 50.81)">1</text>
      </g>
     </g>
-    <g id="text_40">
-     <text style="font-size: 7.4px; text-anchor: middle; fill: currentColor" x="313.17" y="105" transform="rotate(-90 313.17 105)">Proteome mass fraction</text>
+    <g id="text_36">
+     <text style="font-size: 8.6px; text-anchor: middle; fill: currentColor" x="303.66" y="108" transform="rotate(-90 303.66 108)">Proteome mass fraction</text>
     </g>
    </g>
    <g id="FillBetweenPolyCollection_1">
     <defs>
-     <path id="m79d6bcd9f4" d="M 336 -261.3  L 336 -210  L 336.96 -210  L 337.93 -210  L 338.89 -210  L 339.86 -210  L 340.82 -210  L 341.79 -210  L 342.75 -210  L 343.72 -210  L 344.68 -210  L 345.65 -210  L 346.61 -210  L 347.58 -210  L 348.54 -210  L 349.51 -210  L 350.47 -210  L 351.44 -210  L 352.4 -210  L 353.37 -210  L 354.33 -210  L 355.3 -210  L 356.26 -210  L 357.23 -210  L 358.19 -210  L 359.16 -210  L 360.12 -210  L 361.09 -210  L 362.05 -210  L 363.02 -210  L 363.98 -210  L 364.94 -210  L 365.91 -210  L 366.87 -210  L 367.84 -210  L 368.8 -210  L 369.77 -210  L 370.73 -210  L 371.7 -210  L 372.66 -210  L 373.63 -210  L 374.59 -210  L 375.56 -210  L 376.52 -210  L 377.49 -210  L 378.45 -210  L 379.42 -210  L 380.38 -210  L 381.35 -210  L 382.31 -210  L 383.28 -210  L 384.24 -210  L 385.21 -210  L 386.17 -210  L 387.14 -210  L 388.1 -210  L 389.07 -210  L 390.03 -210  L 390.99 -210  L 391.96 -210  L 392.92 -210  L 393.89 -210  L 394.85 -210  L 395.82 -210  L 396.78 -210  L 397.75 -210  L 398.71 -210  L 399.68 -210  L 400.64 -210  L 401.61 -210  L 402.57 -210  L 403.54 -210  L 404.5 -210  L 405.47 -210  L 406.43 -210  L 407.4 -210  L 408.36 -210  L 409.33 -210  L 410.29 -210  L 411.26 -210  L 412.22 -210  L 413.19 -210  L 414.15 -210  L 415.12 -210  L 416.08 -210  L 417.05 -210  L 418.01 -210  L 418.97 -210  L 419.94 -210  L 420.9 -210  L 421.87 -210  L 422.83 -210  L 423.8 -210  L 424.76 -210  L 425.73 -210  L 426.69 -210  L 427.66 -210  L 428.62 -210  L 429.59 -210  L 430.55 -210  L 431.52 -210  L 432.48 -210  L 433.45 -210  L 434.41 -210  L 435.38 -210  L 436.34 -210  L 437.31 -210  L 438.27 -210  L 439.24 -210  L 440.2 -210  L 441.17 -210  L 442.13 -210  L 443.1 -210  L 444.06 -210  L 445.03 -210  L 445.99 -210  L 446.95 -210  L 447.92 -210  L 448.88 -210  L 449.85 -210  L 450.81 -210  L 451.78 -210  L 452.74 -210  L 453.71 -210  L 454.67 -210  L 455.64 -210  L 456.6 -210  L 457.57 -210  L 458.53 -210  L 459.5 -210  L 460.46 -210  L 461.43 -210  L 462.39 -210  L 463.36 -210  L 464.32 -210  L 465.29 -210  L 466.25 -210  L 467.22 -210  L 468.18 -210  L 469.15 -210  L 470.11 -210  L 471.08 -210  L 472.04 -210  L 473.01 -210  L 473.97 -210  L 474.93 -210  L 475.9 -210  L 476.86 -210  L 477.83 -210  L 478.79 -210  L 479.76 -210  L 480.72 -210  L 481.69 -210  L 482.65 -210  L 483.62 -210  L 484.58 -210  L 485.55 -210  L 486.51 -210  L 487.48 -210  L 488.44 -210  L 489.41 -210  L 490.37 -210  L 491.34 -210  L 492.3 -210  L 493.27 -210  L 494.23 -210  L 495.2 -210  L 496.16 -210  L 497.13 -210  L 498.09 -210  L 499.06 -210  L 500.02 -210  L 500.98 -210  L 501.95 -210  L 502.91 -210  L 503.88 -210  L 504.84 -210  L 505.81 -210  L 506.77 -210  L 507.74 -210  L 508.7 -210  L 509.67 -210  L 510.63 -210  L 511.6 -210  L 512.56 -210  L 513.53 -210  L 514.49 -210  L 515.46 -210  L 516.42 -210  L 517.39 -210  L 518.35 -210  L 519.32 -210  L 520.28 -210  L 521.25 -210  L 522.21 -210  L 523.18 -210  L 524.14 -210  L 525.11 -210  L 526.07 -210  L 527.04 -210  L 528 -210  L 528 -261.3  L 528 -261.3  L 527.04 -261.3  L 526.07 -261.3  L 525.11 -261.3  L 524.14 -261.3  L 523.18 -261.3  L 522.21 -261.3  L 521.25 -261.3  L 520.28 -261.3  L 519.32 -261.3  L 518.35 -261.3  L 517.39 -261.3  L 516.42 -261.3  L 515.46 -261.3  L 514.49 -261.3  L 513.53 -261.3  L 512.56 -261.3  L 511.6 -261.3  L 510.63 -261.3  L 509.67 -261.3  L 508.7 -261.3  L 507.74 -261.3  L 506.77 -261.3  L 505.81 -261.3  L 504.84 -261.3  L 503.88 -261.3  L 502.91 -261.3  L 501.95 -261.3  L 500.98 -261.3  L 500.02 -261.3  L 499.06 -261.3  L 498.09 -261.3  L 497.13 -261.3  L 496.16 -261.3  L 495.2 -261.3  L 494.23 -261.3  L 493.27 -261.3  L 492.3 -261.3  L 491.34 -261.3  L 490.37 -261.3  L 489.41 -261.3  L 488.44 -261.3  L 487.48 -261.3  L 486.51 -261.3  L 485.55 -261.3  L 484.58 -261.3  L 483.62 -261.3  L 482.65 -261.3  L 481.69 -261.3  L 480.72 -261.3  L 479.76 -261.3  L 478.79 -261.3  L 477.83 -261.3  L 476.86 -261.3  L 475.9 -261.3  L 474.93 -261.3  L 473.97 -261.3  L 473.01 -261.3  L 472.04 -261.3  L 471.08 -261.3  L 470.11 -261.3  L 469.15 -261.3  L 468.18 -261.3  L 467.22 -261.3  L 466.25 -261.3  L 465.29 -261.3  L 464.32 -261.3  L 463.36 -261.3  L 462.39 -261.3  L 461.43 -261.3  L 460.46 -261.3  L 459.5 -261.3  L 458.53 -261.3  L 457.57 -261.3  L 456.6 -261.3  L 455.64 -261.3  L 454.67 -261.3  L 453.71 -261.3  L 452.74 -261.3  L 451.78 -261.3  L 450.81 -261.3  L 449.85 -261.3  L 448.88 -261.3  L 447.92 -261.3  L 446.95 -261.3  L 445.99 -261.3  L 445.03 -261.3  L 444.06 -261.3  L 443.1 -261.3  L 442.13 -261.3  L 441.17 -261.3  L 440.2 -261.3  L 439.24 -261.3  L 438.27 -261.3  L 437.31 -261.3  L 436.34 -261.3  L 435.38 -261.3  L 434.41 -261.3  L 433.45 -261.3  L 432.48 -261.3  L 431.52 -261.3  L 430.55 -261.3  L 429.59 -261.3  L 428.62 -261.3  L 427.66 -261.3  L 426.69 -261.3  L 425.73 -261.3  L 424.76 -261.3  L 423.8 -261.3  L 422.83 -261.3  L 421.87 -261.3  L 420.9 -261.3  L 419.94 -261.3  L 418.97 -261.3  L 418.01 -261.3  L 417.05 -261.3  L 416.08 -261.3  L 415.12 -261.3  L 414.15 -261.3  L 413.19 -261.3  L 412.22 -261.3  L 411.26 -261.3  L 410.29 -261.3  L 409.33 -261.3  L 408.36 -261.3  L 407.4 -261.3  L 406.43 -261.3  L 405.47 -261.3  L 404.5 -261.3  L 403.54 -261.3  L 402.57 -261.3  L 401.61 -261.3  L 400.64 -261.3  L 399.68 -261.3  L 398.71 -261.3  L 397.75 -261.3  L 396.78 -261.3  L 395.82 -261.3  L 394.85 -261.3  L 393.89 -261.3  L 392.92 -261.3  L 391.96 -261.3  L 390.99 -261.3  L 390.03 -261.3  L 389.07 -261.3  L 388.1 -261.3  L 387.14 -261.3  L 386.17 -261.3  L 385.21 -261.3  L 384.24 -261.3  L 383.28 -261.3  L 382.31 -261.3  L 381.35 -261.3  L 380.38 -261.3  L 379.42 -261.3  L 378.45 -261.3  L 377.49 -261.3  L 376.52 -261.3  L 375.56 -261.3  L 374.59 -261.3  L 373.63 -261.3  L 372.66 -261.3  L 371.7 -261.3  L 370.73 -261.3  L 369.77 -261.3  L 368.8 -261.3  L 367.84 -261.3  L 366.87 -261.3  L 365.91 -261.3  L 364.94 -261.3  L 363.98 -261.3  L 363.02 -261.3  L 362.05 -261.3  L 361.09 -261.3  L 360.12 -261.3  L 359.16 -261.3  L 358.19 -261.3  L 357.23 -261.3  L 356.26 -261.3  L 355.3 -261.3  L 354.33 -261.3  L 353.37 -261.3  L 352.4 -261.3  L 351.44 -261.3  L 350.47 -261.3  L 349.51 -261.3  L 348.54 -261.3  L 347.58 -261.3  L 346.61 -261.3  L 345.65 -261.3  L 344.68 -261.3  L 343.72 -261.3  L 342.75 -261.3  L 341.79 -261.3  L 340.82 -261.3  L 339.86 -261.3  L 338.89 -261.3  L 337.93 -261.3  L 336.96 -261.3  L 336 -261.3  z " />
+     <path id="me0df17902e" d="M 329 -272  L 329 -218  L 329.6 -218  L 330.21 -218  L 330.81 -218  L 331.41 -218  L 332.02 -218  L 332.62 -218  L 333.22 -218  L 333.82 -218  L 334.43 -218  L 335.03 -218  L 335.63 -218  L 336.24 -218  L 336.84 -218  L 337.44 -218  L 338.05 -218  L 338.65 -218  L 339.25 -218  L 339.85 -218  L 340.46 -218  L 341.06 -218  L 341.66 -218  L 342.27 -218  L 342.87 -218  L 343.47 -218  L 344.08 -218  L 344.68 -218  L 345.28 -218  L 345.88 -218  L 346.49 -218  L 347.09 -218  L 347.69 -218  L 348.3 -218  L 348.9 -218  L 349.5 -218  L 350.11 -218  L 350.71 -218  L 351.31 -218  L 351.91 -218  L 352.52 -218  L 353.12 -218  L 353.72 -218  L 354.33 -218  L 354.93 -218  L 355.53 -218  L 356.14 -218  L 356.74 -218  L 357.34 -218  L 357.94 -218  L 358.55 -218  L 359.15 -218  L 359.75 -218  L 360.36 -218  L 360.96 -218  L 361.56 -218  L 362.17 -218  L 362.77 -218  L 363.37 -218  L 363.97 -218  L 364.58 -218  L 365.18 -218  L 365.78 -218  L 366.39 -218  L 366.99 -218  L 367.59 -218  L 368.2 -218  L 368.8 -218  L 369.4 -218  L 370.01 -218  L 370.61 -218  L 371.21 -218  L 371.81 -218  L 372.42 -218  L 373.02 -218  L 373.62 -218  L 374.23 -218  L 374.83 -218  L 375.43 -218  L 376.04 -218  L 376.64 -218  L 377.24 -218  L 377.84 -218  L 378.45 -218  L 379.05 -218  L 379.65 -218  L 380.26 -218  L 380.86 -218  L 381.46 -218  L 382.07 -218  L 382.67 -218  L 383.27 -218  L 383.87 -218  L 384.48 -218  L 385.08 -218  L 385.68 -218  L 386.29 -218  L 386.89 -218  L 387.49 -218  L 388.1 -218  L 388.7 -218  L 389.3 -218  L 389.9 -218  L 390.51 -218  L 391.11 -218  L 391.71 -218  L 392.32 -218  L 392.92 -218  L 393.52 -218  L 394.13 -218  L 394.73 -218  L 395.33 -218  L 395.93 -218  L 396.54 -218  L 397.14 -218  L 397.74 -218  L 398.35 -218  L 398.95 -218  L 399.55 -218  L 400.16 -218  L 400.76 -218  L 401.36 -218  L 401.96 -218  L 402.57 -218  L 403.17 -218  L 403.77 -218  L 404.38 -218  L 404.98 -218  L 405.58 -218  L 406.19 -218  L 406.79 -218  L 407.39 -218  L 407.99 -218  L 408.6 -218  L 409.2 -218  L 409.8 -218  L 410.41 -218  L 411.01 -218  L 411.61 -218  L 412.22 -218  L 412.82 -218  L 413.42 -218  L 414.03 -218  L 414.63 -218  L 415.23 -218  L 415.83 -218  L 416.44 -218  L 417.04 -218  L 417.64 -218  L 418.25 -218  L 418.85 -218  L 419.45 -218  L 420.06 -218  L 420.66 -218  L 421.26 -218  L 421.86 -218  L 422.47 -218  L 423.07 -218  L 423.67 -218  L 424.28 -218  L 424.88 -218  L 425.48 -218  L 426.09 -218  L 426.69 -218  L 427.29 -218  L 427.89 -218  L 428.5 -218  L 429.1 -218  L 429.7 -218  L 430.31 -218  L 430.91 -218  L 431.51 -218  L 432.12 -218  L 432.72 -218  L 433.32 -218  L 433.92 -218  L 434.53 -218  L 435.13 -218  L 435.73 -218  L 436.34 -218  L 436.94 -218  L 437.54 -218  L 438.15 -218  L 438.75 -218  L 439.35 -218  L 439.95 -218  L 440.56 -218  L 441.16 -218  L 441.76 -218  L 442.37 -218  L 442.97 -218  L 443.57 -218  L 444.18 -218  L 444.78 -218  L 445.38 -218  L 445.98 -218  L 446.59 -218  L 447.19 -218  L 447.79 -218  L 448.4 -218  L 449 -218  L 449 -272  L 449 -272  L 448.4 -272  L 447.79 -272  L 447.19 -272  L 446.59 -272  L 445.98 -272  L 445.38 -272  L 444.78 -272  L 444.18 -272  L 443.57 -272  L 442.97 -272  L 442.37 -272  L 441.76 -272  L 441.16 -272  L 440.56 -272  L 439.95 -272  L 439.35 -272  L 438.75 -272  L 438.15 -272  L 437.54 -272  L 436.94 -272  L 436.34 -272  L 435.73 -272  L 435.13 -272  L 434.53 -272  L 433.92 -272  L 433.32 -272  L 432.72 -272  L 432.12 -272  L 431.51 -272  L 430.91 -272  L 430.31 -272  L 429.7 -272  L 429.1 -272  L 428.5 -272  L 427.89 -272  L 427.29 -272  L 426.69 -272  L 426.09 -272  L 425.48 -272  L 424.88 -272  L 424.28 -272  L 423.67 -272  L 423.07 -272  L 422.47 -272  L 421.86 -272  L 421.26 -272  L 420.66 -272  L 420.06 -272  L 419.45 -272  L 418.85 -272  L 418.25 -272  L 417.64 -272  L 417.04 -272  L 416.44 -272  L 415.83 -272  L 415.23 -272  L 414.63 -272  L 414.03 -272  L 413.42 -272  L 412.82 -272  L 412.22 -272  L 411.61 -272  L 411.01 -272  L 410.41 -272  L 409.8 -272  L 409.2 -272  L 408.6 -272  L 407.99 -272  L 407.39 -272  L 406.79 -272  L 406.19 -272  L 405.58 -272  L 404.98 -272  L 404.38 -272  L 403.77 -272  L 403.17 -272  L 402.57 -272  L 401.96 -272  L 401.36 -272  L 400.76 -272  L 400.16 -272  L 399.55 -272  L 398.95 -272  L 398.35 -272  L 397.74 -272  L 397.14 -272  L 396.54 -272  L 395.93 -272  L 395.33 -272  L 394.73 -272  L 394.13 -272  L 393.52 -272  L 392.92 -272  L 392.32 -272  L 391.71 -272  L 391.11 -272  L 390.51 -272  L 389.9 -272  L 389.3 -272  L 388.7 -272  L 388.1 -272  L 387.49 -272  L 386.89 -272  L 386.29 -272  L 385.68 -272  L 385.08 -272  L 384.48 -272  L 383.87 -272  L 383.27 -272  L 382.67 -272  L 382.07 -272  L 381.46 -272  L 380.86 -272  L 380.26 -272  L 379.65 -272  L 379.05 -272  L 378.45 -272  L 377.84 -272  L 377.24 -272  L 376.64 -272  L 376.04 -272  L 375.43 -272  L 374.83 -272  L 374.23 -272  L 373.62 -272  L 373.02 -272  L 372.42 -272  L 371.81 -272  L 371.21 -272  L 370.61 -272  L 370.01 -272  L 369.4 -272  L 368.8 -272  L 368.2 -272  L 367.59 -272  L 366.99 -272  L 366.39 -272  L 365.78 -272  L 365.18 -272  L 364.58 -272  L 363.97 -272  L 363.37 -272  L 362.77 -272  L 362.17 -272  L 361.56 -272  L 360.96 -272  L 360.36 -272  L 359.75 -272  L 359.15 -272  L 358.55 -272  L 357.94 -272  L 357.34 -272  L 356.74 -272  L 356.14 -272  L 355.53 -272  L 354.93 -272  L 354.33 -272  L 353.72 -272  L 353.12 -272  L 352.52 -272  L 351.91 -272  L 351.31 -272  L 350.71 -272  L 350.11 -272  L 349.5 -272  L 348.9 -272  L 348.3 -272  L 347.69 -272  L 347.09 -272  L 346.49 -272  L 345.88 -272  L 345.28 -272  L 344.68 -272  L 344.08 -272  L 343.47 -272  L 342.87 -272  L 342.27 -272  L 341.66 -272  L 341.06 -272  L 340.46 -272  L 339.85 -272  L 339.25 -272  L 338.65 -272  L 338.05 -272  L 337.44 -272  L 336.84 -272  L 336.24 -272  L 335.63 -272  L 335.03 -272  L 334.43 -272  L 333.82 -272  L 333.22 -272  L 332.62 -272  L 332.02 -272  L 331.41 -272  L 330.81 -272  L 330.21 -272  L 329.6 -272  L 329 -272  z " />
     </defs>
-    <g clip-path="url(#pc4866db671)">
-     <use xlink:href="#m79d6bcd9f4" x="0" y="372" style="fill: var(--fig-flow); fill-opacity: 0.45" />
+    <g clip-path="url(#pb124218aa0)">
+     <use xlink:href="#me0df17902e" x="0" y="386" style="fill: var(--fig-flow); fill-opacity: 0.45" />
     </g>
    </g>
    <g id="FillBetweenPolyCollection_2">
     <defs>
-     <path id="mc095326578" d="M 336 -267.36  L 336 -261.3  L 336.96 -261.3  L 337.93 -261.3  L 338.89 -261.3  L 339.86 -261.3  L 340.82 -261.3  L 341.79 -261.3  L 342.75 -261.3  L 343.72 -261.3  L 344.68 -261.3  L 345.65 -261.3  L 346.61 -261.3  L 347.58 -261.3  L 348.54 -261.3  L 349.51 -261.3  L 350.47 -261.3  L 351.44 -261.3  L 352.4 -261.3  L 353.37 -261.3  L 354.33 -261.3  L 355.3 -261.3  L 356.26 -261.3  L 357.23 -261.3  L 358.19 -261.3  L 359.16 -261.3  L 360.12 -261.3  L 361.09 -261.3  L 362.05 -261.3  L 363.02 -261.3  L 363.98 -261.3  L 364.94 -261.3  L 365.91 -261.3  L 366.87 -261.3  L 367.84 -261.3  L 368.8 -261.3  L 369.77 -261.3  L 370.73 -261.3  L 371.7 -261.3  L 372.66 -261.3  L 373.63 -261.3  L 374.59 -261.3  L 375.56 -261.3  L 376.52 -261.3  L 377.49 -261.3  L 378.45 -261.3  L 379.42 -261.3  L 380.38 -261.3  L 381.35 -261.3  L 382.31 -261.3  L 383.28 -261.3  L 384.24 -261.3  L 385.21 -261.3  L 386.17 -261.3  L 387.14 -261.3  L 388.1 -261.3  L 389.07 -261.3  L 390.03 -261.3  L 390.99 -261.3  L 391.96 -261.3  L 392.92 -261.3  L 393.89 -261.3  L 394.85 -261.3  L 395.82 -261.3  L 396.78 -261.3  L 397.75 -261.3  L 398.71 -261.3  L 399.68 -261.3  L 400.64 -261.3  L 401.61 -261.3  L 402.57 -261.3  L 403.54 -261.3  L 404.5 -261.3  L 405.47 -261.3  L 406.43 -261.3  L 407.4 -261.3  L 408.36 -261.3  L 409.33 -261.3  L 410.29 -261.3  L 411.26 -261.3  L 412.22 -261.3  L 413.19 -261.3  L 414.15 -261.3  L 415.12 -261.3  L 416.08 -261.3  L 417.05 -261.3  L 418.01 -261.3  L 418.97 -261.3  L 419.94 -261.3  L 420.9 -261.3  L 421.87 -261.3  L 422.83 -261.3  L 423.8 -261.3  L 424.76 -261.3  L 425.73 -261.3  L 426.69 -261.3  L 427.66 -261.3  L 428.62 -261.3  L 429.59 -261.3  L 430.55 -261.3  L 431.52 -261.3  L 432.48 -261.3  L 433.45 -261.3  L 434.41 -261.3  L 435.38 -261.3  L 436.34 -261.3  L 437.31 -261.3  L 438.27 -261.3  L 439.24 -261.3  L 440.2 -261.3  L 441.17 -261.3  L 442.13 -261.3  L 443.1 -261.3  L 444.06 -261.3  L 445.03 -261.3  L 445.99 -261.3  L 446.95 -261.3  L 447.92 -261.3  L 448.88 -261.3  L 449.85 -261.3  L 450.81 -261.3  L 451.78 -261.3  L 452.74 -261.3  L 453.71 -261.3  L 454.67 -261.3  L 455.64 -261.3  L 456.6 -261.3  L 457.57 -261.3  L 458.53 -261.3  L 459.5 -261.3  L 460.46 -261.3  L 461.43 -261.3  L 462.39 -261.3  L 463.36 -261.3  L 464.32 -261.3  L 465.29 -261.3  L 466.25 -261.3  L 467.22 -261.3  L 468.18 -261.3  L 469.15 -261.3  L 470.11 -261.3  L 471.08 -261.3  L 472.04 -261.3  L 473.01 -261.3  L 473.97 -261.3  L 474.93 -261.3  L 475.9 -261.3  L 476.86 -261.3  L 477.83 -261.3  L 478.79 -261.3  L 479.76 -261.3  L 480.72 -261.3  L 481.69 -261.3  L 482.65 -261.3  L 483.62 -261.3  L 484.58 -261.3  L 485.55 -261.3  L 486.51 -261.3  L 487.48 -261.3  L 488.44 -261.3  L 489.41 -261.3  L 490.37 -261.3  L 491.34 -261.3  L 492.3 -261.3  L 493.27 -261.3  L 494.23 -261.3  L 495.2 -261.3  L 496.16 -261.3  L 497.13 -261.3  L 498.09 -261.3  L 499.06 -261.3  L 500.02 -261.3  L 500.98 -261.3  L 501.95 -261.3  L 502.91 -261.3  L 503.88 -261.3  L 504.84 -261.3  L 505.81 -261.3  L 506.77 -261.3  L 507.74 -261.3  L 508.7 -261.3  L 509.67 -261.3  L 510.63 -261.3  L 511.6 -261.3  L 512.56 -261.3  L 513.53 -261.3  L 514.49 -261.3  L 515.46 -261.3  L 516.42 -261.3  L 517.39 -261.3  L 518.35 -261.3  L 519.32 -261.3  L 520.28 -261.3  L 521.25 -261.3  L 522.21 -261.3  L 523.18 -261.3  L 524.14 -261.3  L 525.11 -261.3  L 526.07 -261.3  L 527.04 -261.3  L 528 -261.3  L 528 -302.02  L 528 -302.02  L 527.04 -301.85  L 526.07 -301.67  L 525.11 -301.5  L 524.14 -301.32  L 523.18 -301.15  L 522.21 -300.98  L 521.25 -300.8  L 520.28 -300.63  L 519.32 -300.45  L 518.35 -300.28  L 517.39 -300.11  L 516.42 -299.93  L 515.46 -299.76  L 514.49 -299.58  L 513.53 -299.41  L 512.56 -299.23  L 511.6 -299.06  L 510.63 -298.89  L 509.67 -298.71  L 508.7 -298.54  L 507.74 -298.36  L 506.77 -298.19  L 505.81 -298.02  L 504.84 -297.84  L 503.88 -297.67  L 502.91 -297.49  L 501.95 -297.32  L 500.98 -297.14  L 500.02 -296.97  L 499.06 -296.8  L 498.09 -296.62  L 497.13 -296.45  L 496.16 -296.27  L 495.2 -296.1  L 494.23 -295.93  L 493.27 -295.75  L 492.3 -295.58  L 491.34 -295.4  L 490.37 -295.23  L 489.41 -295.05  L 488.44 -294.88  L 487.48 -294.71  L 486.51 -294.53  L 485.55 -294.36  L 484.58 -294.18  L 483.62 -294.01  L 482.65 -293.84  L 481.69 -293.66  L 480.72 -293.49  L 479.76 -293.31  L 478.79 -293.14  L 477.83 -292.96  L 476.86 -292.79  L 475.9 -292.62  L 474.93 -292.44  L 473.97 -292.27  L 473.01 -292.09  L 472.04 -291.92  L 471.08 -291.75  L 470.11 -291.57  L 469.15 -291.4  L 468.18 -291.22  L 467.22 -291.05  L 466.25 -290.88  L 465.29 -290.7  L 464.32 -290.53  L 463.36 -290.35  L 462.39 -290.18  L 461.43 -290  L 460.46 -289.83  L 459.5 -289.66  L 458.53 -289.48  L 457.57 -289.31  L 456.6 -289.13  L 455.64 -288.96  L 454.67 -288.79  L 453.71 -288.61  L 452.74 -288.44  L 451.78 -288.26  L 450.81 -288.09  L 449.85 -287.91  L 448.88 -287.74  L 447.92 -287.57  L 446.95 -287.39  L 445.99 -287.22  L 445.03 -287.04  L 444.06 -286.87  L 443.1 -286.7  L 442.13 -286.52  L 441.17 -286.35  L 440.2 -286.17  L 439.24 -286  L 438.27 -285.82  L 437.31 -285.65  L 436.34 -285.48  L 435.38 -285.3  L 434.41 -285.13  L 433.45 -284.95  L 432.48 -284.78  L 431.52 -284.61  L 430.55 -284.43  L 429.59 -284.26  L 428.62 -284.08  L 427.66 -283.91  L 426.69 -283.73  L 425.73 -283.56  L 424.76 -283.39  L 423.8 -283.21  L 422.83 -283.04  L 421.87 -282.86  L 420.9 -282.69  L 419.94 -282.52  L 418.97 -282.34  L 418.01 -282.17  L 417.05 -281.99  L 416.08 -281.82  L 415.12 -281.65  L 414.15 -281.47  L 413.19 -281.3  L 412.22 -281.12  L 411.26 -280.95  L 410.29 -280.77  L 409.33 -280.6  L 408.36 -280.43  L 407.4 -280.25  L 406.43 -280.08  L 405.47 -279.9  L 404.5 -279.73  L 403.54 -279.56  L 402.57 -279.38  L 401.61 -279.21  L 400.64 -279.03  L 399.68 -278.86  L 398.71 -278.68  L 397.75 -278.51  L 396.78 -278.34  L 395.82 -278.16  L 394.85 -277.99  L 393.89 -277.81  L 392.92 -277.64  L 391.96 -277.47  L 390.99 -277.29  L 390.03 -277.12  L 389.07 -276.94  L 388.1 -276.77  L 387.14 -276.59  L 386.17 -276.42  L 385.21 -276.25  L 384.24 -276.07  L 383.28 -275.9  L 382.31 -275.72  L 381.35 -275.55  L 380.38 -275.38  L 379.42 -275.2  L 378.45 -275.03  L 377.49 -274.85  L 376.52 -274.68  L 375.56 -274.5  L 374.59 -274.33  L 373.63 -274.16  L 372.66 -273.98  L 371.7 -273.81  L 370.73 -273.63  L 369.77 -273.46  L 368.8 -273.29  L 367.84 -273.11  L 366.87 -272.94  L 365.91 -272.76  L 364.94 -272.59  L 363.98 -272.42  L 363.02 -272.24  L 362.05 -272.07  L 361.09 -271.89  L 360.12 -271.72  L 359.16 -271.54  L 358.19 -271.37  L 357.23 -271.2  L 356.26 -271.02  L 355.3 -270.85  L 354.33 -270.67  L 353.37 -270.5  L 352.4 -270.33  L 351.44 -270.15  L 350.47 -269.98  L 349.51 -269.8  L 348.54 -269.63  L 347.58 -269.45  L 346.61 -269.28  L 345.65 -269.11  L 344.68 -268.93  L 343.72 -268.76  L 342.75 -268.58  L 341.79 -268.41  L 340.82 -268.24  L 339.86 -268.06  L 338.89 -267.89  L 337.93 -267.71  L 336.96 -267.54  L 336 -267.36  z " />
+     <path id="mccf6cae1f2" d="M 329 -278.38  L 329 -272  L 329.6 -272  L 330.21 -272  L 330.81 -272  L 331.41 -272  L 332.02 -272  L 332.62 -272  L 333.22 -272  L 333.82 -272  L 334.43 -272  L 335.03 -272  L 335.63 -272  L 336.24 -272  L 336.84 -272  L 337.44 -272  L 338.05 -272  L 338.65 -272  L 339.25 -272  L 339.85 -272  L 340.46 -272  L 341.06 -272  L 341.66 -272  L 342.27 -272  L 342.87 -272  L 343.47 -272  L 344.08 -272  L 344.68 -272  L 345.28 -272  L 345.88 -272  L 346.49 -272  L 347.09 -272  L 347.69 -272  L 348.3 -272  L 348.9 -272  L 349.5 -272  L 350.11 -272  L 350.71 -272  L 351.31 -272  L 351.91 -272  L 352.52 -272  L 353.12 -272  L 353.72 -272  L 354.33 -272  L 354.93 -272  L 355.53 -272  L 356.14 -272  L 356.74 -272  L 357.34 -272  L 357.94 -272  L 358.55 -272  L 359.15 -272  L 359.75 -272  L 360.36 -272  L 360.96 -272  L 361.56 -272  L 362.17 -272  L 362.77 -272  L 363.37 -272  L 363.97 -272  L 364.58 -272  L 365.18 -272  L 365.78 -272  L 366.39 -272  L 366.99 -272  L 367.59 -272  L 368.2 -272  L 368.8 -272  L 369.4 -272  L 370.01 -272  L 370.61 -272  L 371.21 -272  L 371.81 -272  L 372.42 -272  L 373.02 -272  L 373.62 -272  L 374.23 -272  L 374.83 -272  L 375.43 -272  L 376.04 -272  L 376.64 -272  L 377.24 -272  L 377.84 -272  L 378.45 -272  L 379.05 -272  L 379.65 -272  L 380.26 -272  L 380.86 -272  L 381.46 -272  L 382.07 -272  L 382.67 -272  L 383.27 -272  L 383.87 -272  L 384.48 -272  L 385.08 -272  L 385.68 -272  L 386.29 -272  L 386.89 -272  L 387.49 -272  L 388.1 -272  L 388.7 -272  L 389.3 -272  L 389.9 -272  L 390.51 -272  L 391.11 -272  L 391.71 -272  L 392.32 -272  L 392.92 -272  L 393.52 -272  L 394.13 -272  L 394.73 -272  L 395.33 -272  L 395.93 -272  L 396.54 -272  L 397.14 -272  L 397.74 -272  L 398.35 -272  L 398.95 -272  L 399.55 -272  L 400.16 -272  L 400.76 -272  L 401.36 -272  L 401.96 -272  L 402.57 -272  L 403.17 -272  L 403.77 -272  L 404.38 -272  L 404.98 -272  L 405.58 -272  L 406.19 -272  L 406.79 -272  L 407.39 -272  L 407.99 -272  L 408.6 -272  L 409.2 -272  L 409.8 -272  L 410.41 -272  L 411.01 -272  L 411.61 -272  L 412.22 -272  L 412.82 -272  L 413.42 -272  L 414.03 -272  L 414.63 -272  L 415.23 -272  L 415.83 -272  L 416.44 -272  L 417.04 -272  L 417.64 -272  L 418.25 -272  L 418.85 -272  L 419.45 -272  L 420.06 -272  L 420.66 -272  L 421.26 -272  L 421.86 -272  L 422.47 -272  L 423.07 -272  L 423.67 -272  L 424.28 -272  L 424.88 -272  L 425.48 -272  L 426.09 -272  L 426.69 -272  L 427.29 -272  L 427.89 -272  L 428.5 -272  L 429.1 -272  L 429.7 -272  L 430.31 -272  L 430.91 -272  L 431.51 -272  L 432.12 -272  L 432.72 -272  L 433.32 -272  L 433.92 -272  L 434.53 -272  L 435.13 -272  L 435.73 -272  L 436.34 -272  L 436.94 -272  L 437.54 -272  L 438.15 -272  L 438.75 -272  L 439.35 -272  L 439.95 -272  L 440.56 -272  L 441.16 -272  L 441.76 -272  L 442.37 -272  L 442.97 -272  L 443.57 -272  L 444.18 -272  L 444.78 -272  L 445.38 -272  L 445.98 -272  L 446.59 -272  L 447.19 -272  L 447.79 -272  L 448.4 -272  L 449 -272  L 449 -314.86  L 449 -314.86  L 448.4 -314.68  L 447.79 -314.5  L 447.19 -314.31  L 446.59 -314.13  L 445.98 -313.95  L 445.38 -313.76  L 444.78 -313.58  L 444.18 -313.4  L 443.57 -313.21  L 442.97 -313.03  L 442.37 -312.85  L 441.76 -312.66  L 441.16 -312.48  L 440.56 -312.3  L 439.95 -312.11  L 439.35 -311.93  L 438.75 -311.75  L 438.15 -311.56  L 437.54 -311.38  L 436.94 -311.2  L 436.34 -311.01  L 435.73 -310.83  L 435.13 -310.65  L 434.53 -310.46  L 433.92 -310.28  L 433.32 -310.1  L 432.72 -309.91  L 432.12 -309.73  L 431.51 -309.55  L 430.91 -309.36  L 430.31 -309.18  L 429.7 -309  L 429.1 -308.81  L 428.5 -308.63  L 427.89 -308.45  L 427.29 -308.26  L 426.69 -308.08  L 426.09 -307.9  L 425.48 -307.71  L 424.88 -307.53  L 424.28 -307.35  L 423.67 -307.16  L 423.07 -306.98  L 422.47 -306.8  L 421.86 -306.61  L 421.26 -306.43  L 420.66 -306.25  L 420.06 -306.06  L 419.45 -305.88  L 418.85 -305.7  L 418.25 -305.51  L 417.64 -305.33  L 417.04 -305.15  L 416.44 -304.96  L 415.83 -304.78  L 415.23 -304.6  L 414.63 -304.41  L 414.03 -304.23  L 413.42 -304.05  L 412.82 -303.87  L 412.22 -303.68  L 411.61 -303.5  L 411.01 -303.32  L 410.41 -303.13  L 409.8 -302.95  L 409.2 -302.77  L 408.6 -302.58  L 407.99 -302.4  L 407.39 -302.22  L 406.79 -302.03  L 406.19 -301.85  L 405.58 -301.67  L 404.98 -301.48  L 404.38 -301.3  L 403.77 -301.12  L 403.17 -300.93  L 402.57 -300.75  L 401.96 -300.57  L 401.36 -300.38  L 400.76 -300.2  L 400.16 -300.02  L 399.55 -299.83  L 398.95 -299.65  L 398.35 -299.47  L 397.74 -299.28  L 397.14 -299.1  L 396.54 -298.92  L 395.93 -298.73  L 395.33 -298.55  L 394.73 -298.37  L 394.13 -298.18  L 393.52 -298  L 392.92 -297.82  L 392.32 -297.63  L 391.71 -297.45  L 391.11 -297.27  L 390.51 -297.08  L 389.9 -296.9  L 389.3 -296.72  L 388.7 -296.53  L 388.1 -296.35  L 387.49 -296.17  L 386.89 -295.98  L 386.29 -295.8  L 385.68 -295.62  L 385.08 -295.43  L 384.48 -295.25  L 383.87 -295.07  L 383.27 -294.88  L 382.67 -294.7  L 382.07 -294.52  L 381.46 -294.33  L 380.86 -294.15  L 380.26 -293.97  L 379.65 -293.78  L 379.05 -293.6  L 378.45 -293.42  L 377.84 -293.23  L 377.24 -293.05  L 376.64 -292.87  L 376.04 -292.68  L 375.43 -292.5  L 374.83 -292.32  L 374.23 -292.13  L 373.62 -291.95  L 373.02 -291.77  L 372.42 -291.58  L 371.81 -291.4  L 371.21 -291.22  L 370.61 -291.03  L 370.01 -290.85  L 369.4 -290.67  L 368.8 -290.48  L 368.2 -290.3  L 367.59 -290.12  L 366.99 -289.93  L 366.39 -289.75  L 365.78 -289.57  L 365.18 -289.38  L 364.58 -289.2  L 363.97 -289.02  L 363.37 -288.83  L 362.77 -288.65  L 362.17 -288.47  L 361.56 -288.28  L 360.96 -288.1  L 360.36 -287.92  L 359.75 -287.73  L 359.15 -287.55  L 358.55 -287.37  L 357.94 -287.18  L 357.34 -287  L 356.74 -286.82  L 356.14 -286.63  L 355.53 -286.45  L 354.93 -286.27  L 354.33 -286.08  L 353.72 -285.9  L 353.12 -285.72  L 352.52 -285.53  L 351.91 -285.35  L 351.31 -285.17  L 350.71 -284.98  L 350.11 -284.8  L 349.5 -284.62  L 348.9 -284.43  L 348.3 -284.25  L 347.69 -284.07  L 347.09 -283.88  L 346.49 -283.7  L 345.88 -283.52  L 345.28 -283.33  L 344.68 -283.15  L 344.08 -282.97  L 343.47 -282.78  L 342.87 -282.6  L 342.27 -282.42  L 341.66 -282.23  L 341.06 -282.05  L 340.46 -281.87  L 339.85 -281.68  L 339.25 -281.5  L 338.65 -281.32  L 338.05 -281.13  L 337.44 -280.95  L 336.84 -280.77  L 336.24 -280.58  L 335.63 -280.4  L 335.03 -280.22  L 334.43 -280.03  L 333.82 -279.85  L 333.22 -279.67  L 332.62 -279.48  L 332.02 -279.3  L 331.41 -279.12  L 330.81 -278.93  L 330.21 -278.75  L 329.6 -278.57  L 329 -278.38  z " />
     </defs>
-    <g clip-path="url(#pc4866db671)">
-     <use xlink:href="#mc095326578" x="0" y="372" style="fill: var(--link); fill-opacity: 0.22" />
+    <g clip-path="url(#pb124218aa0)">
+     <use xlink:href="#mccf6cae1f2" x="0" y="386" style="fill: var(--link); fill-opacity: 0.22" />
     </g>
    </g>
    <g id="FillBetweenPolyCollection_3">
     <defs>
-     <path id="mf67e9eb026" d="M 336 -324  L 336 -267.36  L 336.96 -267.54  L 337.93 -267.71  L 338.89 -267.89  L 339.86 -268.06  L 340.82 -268.24  L 341.79 -268.41  L 342.75 -268.58  L 343.72 -268.76  L 344.68 -268.93  L 345.65 -269.11  L 346.61 -269.28  L 347.58 -269.45  L 348.54 -269.63  L 349.51 -269.8  L 350.47 -269.98  L 351.44 -270.15  L 352.4 -270.33  L 353.37 -270.5  L 354.33 -270.67  L 355.3 -270.85  L 356.26 -271.02  L 357.23 -271.2  L 358.19 -271.37  L 359.16 -271.54  L 360.12 -271.72  L 361.09 -271.89  L 362.05 -272.07  L 363.02 -272.24  L 363.98 -272.42  L 364.94 -272.59  L 365.91 -272.76  L 366.87 -272.94  L 367.84 -273.11  L 368.8 -273.29  L 369.77 -273.46  L 370.73 -273.63  L 371.7 -273.81  L 372.66 -273.98  L 373.63 -274.16  L 374.59 -274.33  L 375.56 -274.5  L 376.52 -274.68  L 377.49 -274.85  L 378.45 -275.03  L 379.42 -275.2  L 380.38 -275.38  L 381.35 -275.55  L 382.31 -275.72  L 383.28 -275.9  L 384.24 -276.07  L 385.21 -276.25  L 386.17 -276.42  L 387.14 -276.59  L 388.1 -276.77  L 389.07 -276.94  L 390.03 -277.12  L 390.99 -277.29  L 391.96 -277.47  L 392.92 -277.64  L 393.89 -277.81  L 394.85 -277.99  L 395.82 -278.16  L 396.78 -278.34  L 397.75 -278.51  L 398.71 -278.68  L 399.68 -278.86  L 400.64 -279.03  L 401.61 -279.21  L 402.57 -279.38  L 403.54 -279.56  L 404.5 -279.73  L 405.47 -279.9  L 406.43 -280.08  L 407.4 -280.25  L 408.36 -280.43  L 409.33 -280.6  L 410.29 -280.77  L 411.26 -280.95  L 412.22 -281.12  L 413.19 -281.3  L 414.15 -281.47  L 415.12 -281.65  L 416.08 -281.82  L 417.05 -281.99  L 418.01 -282.17  L 418.97 -282.34  L 419.94 -282.52  L 420.9 -282.69  L 421.87 -282.86  L 422.83 -283.04  L 423.8 -283.21  L 424.76 -283.39  L 425.73 -283.56  L 426.69 -283.73  L 427.66 -283.91  L 428.62 -284.08  L 429.59 -284.26  L 430.55 -284.43  L 431.52 -284.61  L 432.48 -284.78  L 433.45 -284.95  L 434.41 -285.13  L 435.38 -285.3  L 436.34 -285.48  L 437.31 -285.65  L 438.27 -285.82  L 439.24 -286  L 440.2 -286.17  L 441.17 -286.35  L 442.13 -286.52  L 443.1 -286.7  L 444.06 -286.87  L 445.03 -287.04  L 445.99 -287.22  L 446.95 -287.39  L 447.92 -287.57  L 448.88 -287.74  L 449.85 -287.91  L 450.81 -288.09  L 451.78 -288.26  L 452.74 -288.44  L 453.71 -288.61  L 454.67 -288.79  L 455.64 -288.96  L 456.6 -289.13  L 457.57 -289.31  L 458.53 -289.48  L 459.5 -289.66  L 460.46 -289.83  L 461.43 -290  L 462.39 -290.18  L 463.36 -290.35  L 464.32 -290.53  L 465.29 -290.7  L 466.25 -290.88  L 467.22 -291.05  L 468.18 -291.22  L 469.15 -291.4  L 470.11 -291.57  L 471.08 -291.75  L 472.04 -291.92  L 473.01 -292.09  L 473.97 -292.27  L 474.93 -292.44  L 475.9 -292.62  L 476.86 -292.79  L 477.83 -292.96  L 478.79 -293.14  L 479.76 -293.31  L 480.72 -293.49  L 481.69 -293.66  L 482.65 -293.84  L 483.62 -294.01  L 484.58 -294.18  L 485.55 -294.36  L 486.51 -294.53  L 487.48 -294.71  L 488.44 -294.88  L 489.41 -295.05  L 490.37 -295.23  L 491.34 -295.4  L 492.3 -295.58  L 493.27 -295.75  L 494.23 -295.93  L 495.2 -296.1  L 496.16 -296.27  L 497.13 -296.45  L 498.09 -296.62  L 499.06 -296.8  L 500.02 -296.97  L 500.98 -297.14  L 501.95 -297.32  L 502.91 -297.49  L 503.88 -297.67  L 504.84 -297.84  L 505.81 -298.02  L 506.77 -298.19  L 507.74 -298.36  L 508.7 -298.54  L 509.67 -298.71  L 510.63 -298.89  L 511.6 -299.06  L 512.56 -299.23  L 513.53 -299.41  L 514.49 -299.58  L 515.46 -299.76  L 516.42 -299.93  L 517.39 -300.11  L 518.35 -300.28  L 519.32 -300.45  L 520.28 -300.63  L 521.25 -300.8  L 522.21 -300.98  L 523.18 -301.15  L 524.14 -301.32  L 525.11 -301.5  L 526.07 -301.67  L 527.04 -301.85  L 528 -302.02  L 528 -324  L 528 -324  L 527.04 -324  L 526.07 -324  L 525.11 -324  L 524.14 -324  L 523.18 -324  L 522.21 -324  L 521.25 -324  L 520.28 -324  L 519.32 -324  L 518.35 -324  L 517.39 -324  L 516.42 -324  L 515.46 -324  L 514.49 -324  L 513.53 -324  L 512.56 -324  L 511.6 -324  L 510.63 -324  L 509.67 -324  L 508.7 -324  L 507.74 -324  L 506.77 -324  L 505.81 -324  L 504.84 -324  L 503.88 -324  L 502.91 -324  L 501.95 -324  L 500.98 -324  L 500.02 -324  L 499.06 -324  L 498.09 -324  L 497.13 -324  L 496.16 -324  L 495.2 -324  L 494.23 -324  L 493.27 -324  L 492.3 -324  L 491.34 -324  L 490.37 -324  L 489.41 -324  L 488.44 -324  L 487.48 -324  L 486.51 -324  L 485.55 -324  L 484.58 -324  L 483.62 -324  L 482.65 -324  L 481.69 -324  L 480.72 -324  L 479.76 -324  L 478.79 -324  L 477.83 -324  L 476.86 -324  L 475.9 -324  L 474.93 -324  L 473.97 -324  L 473.01 -324  L 472.04 -324  L 471.08 -324  L 470.11 -324  L 469.15 -324  L 468.18 -324  L 467.22 -324  L 466.25 -324  L 465.29 -324  L 464.32 -324  L 463.36 -324  L 462.39 -324  L 461.43 -324  L 460.46 -324  L 459.5 -324  L 458.53 -324  L 457.57 -324  L 456.6 -324  L 455.64 -324  L 454.67 -324  L 453.71 -324  L 452.74 -324  L 451.78 -324  L 450.81 -324  L 449.85 -324  L 448.88 -324  L 447.92 -324  L 446.95 -324  L 445.99 -324  L 445.03 -324  L 444.06 -324  L 443.1 -324  L 442.13 -324  L 441.17 -324  L 440.2 -324  L 439.24 -324  L 438.27 -324  L 437.31 -324  L 436.34 -324  L 435.38 -324  L 434.41 -324  L 433.45 -324  L 432.48 -324  L 431.52 -324  L 430.55 -324  L 429.59 -324  L 428.62 -324  L 427.66 -324  L 426.69 -324  L 425.73 -324  L 424.76 -324  L 423.8 -324  L 422.83 -324  L 421.87 -324  L 420.9 -324  L 419.94 -324  L 418.97 -324  L 418.01 -324  L 417.05 -324  L 416.08 -324  L 415.12 -324  L 414.15 -324  L 413.19 -324  L 412.22 -324  L 411.26 -324  L 410.29 -324  L 409.33 -324  L 408.36 -324  L 407.4 -324  L 406.43 -324  L 405.47 -324  L 404.5 -324  L 403.54 -324  L 402.57 -324  L 401.61 -324  L 400.64 -324  L 399.68 -324  L 398.71 -324  L 397.75 -324  L 396.78 -324  L 395.82 -324  L 394.85 -324  L 393.89 -324  L 392.92 -324  L 391.96 -324  L 390.99 -324  L 390.03 -324  L 389.07 -324  L 388.1 -324  L 387.14 -324  L 386.17 -324  L 385.21 -324  L 384.24 -324  L 383.28 -324  L 382.31 -324  L 381.35 -324  L 380.38 -324  L 379.42 -324  L 378.45 -324  L 377.49 -324  L 376.52 -324  L 375.56 -324  L 374.59 -324  L 373.63 -324  L 372.66 -324  L 371.7 -324  L 370.73 -324  L 369.77 -324  L 368.8 -324  L 367.84 -324  L 366.87 -324  L 365.91 -324  L 364.94 -324  L 363.98 -324  L 363.02 -324  L 362.05 -324  L 361.09 -324  L 360.12 -324  L 359.16 -324  L 358.19 -324  L 357.23 -324  L 356.26 -324  L 355.3 -324  L 354.33 -324  L 353.37 -324  L 352.4 -324  L 351.44 -324  L 350.47 -324  L 349.51 -324  L 348.54 -324  L 347.58 -324  L 346.61 -324  L 345.65 -324  L 344.68 -324  L 343.72 -324  L 342.75 -324  L 341.79 -324  L 340.82 -324  L 339.86 -324  L 338.89 -324  L 337.93 -324  L 336.96 -324  L 336 -324  z " />
+     <path id="m3abd9b6eea" d="M 329 -338  L 329 -278.38  L 329.6 -278.57  L 330.21 -278.75  L 330.81 -278.93  L 331.41 -279.12  L 332.02 -279.3  L 332.62 -279.48  L 333.22 -279.67  L 333.82 -279.85  L 334.43 -280.03  L 335.03 -280.22  L 335.63 -280.4  L 336.24 -280.58  L 336.84 -280.77  L 337.44 -280.95  L 338.05 -281.13  L 338.65 -281.32  L 339.25 -281.5  L 339.85 -281.68  L 340.46 -281.87  L 341.06 -282.05  L 341.66 -282.23  L 342.27 -282.42  L 342.87 -282.6  L 343.47 -282.78  L 344.08 -282.97  L 344.68 -283.15  L 345.28 -283.33  L 345.88 -283.52  L 346.49 -283.7  L 347.09 -283.88  L 347.69 -284.07  L 348.3 -284.25  L 348.9 -284.43  L 349.5 -284.62  L 350.11 -284.8  L 350.71 -284.98  L 351.31 -285.17  L 351.91 -285.35  L 352.52 -285.53  L 353.12 -285.72  L 353.72 -285.9  L 354.33 -286.08  L 354.93 -286.27  L 355.53 -286.45  L 356.14 -286.63  L 356.74 -286.82  L 357.34 -287  L 357.94 -287.18  L 358.55 -287.37  L 359.15 -287.55  L 359.75 -287.73  L 360.36 -287.92  L 360.96 -288.1  L 361.56 -288.28  L 362.17 -288.47  L 362.77 -288.65  L 363.37 -288.83  L 363.97 -289.02  L 364.58 -289.2  L 365.18 -289.38  L 365.78 -289.57  L 366.39 -289.75  L 366.99 -289.93  L 367.59 -290.12  L 368.2 -290.3  L 368.8 -290.48  L 369.4 -290.67  L 370.01 -290.85  L 370.61 -291.03  L 371.21 -291.22  L 371.81 -291.4  L 372.42 -291.58  L 373.02 -291.77  L 373.62 -291.95  L 374.23 -292.13  L 374.83 -292.32  L 375.43 -292.5  L 376.04 -292.68  L 376.64 -292.87  L 377.24 -293.05  L 377.84 -293.23  L 378.45 -293.42  L 379.05 -293.6  L 379.65 -293.78  L 380.26 -293.97  L 380.86 -294.15  L 381.46 -294.33  L 382.07 -294.52  L 382.67 -294.7  L 383.27 -294.88  L 383.87 -295.07  L 384.48 -295.25  L 385.08 -295.43  L 385.68 -295.62  L 386.29 -295.8  L 386.89 -295.98  L 387.49 -296.17  L 388.1 -296.35  L 388.7 -296.53  L 389.3 -296.72  L 389.9 -296.9  L 390.51 -297.08  L 391.11 -297.27  L 391.71 -297.45  L 392.32 -297.63  L 392.92 -297.82  L 393.52 -298  L 394.13 -298.18  L 394.73 -298.37  L 395.33 -298.55  L 395.93 -298.73  L 396.54 -298.92  L 397.14 -299.1  L 397.74 -299.28  L 398.35 -299.47  L 398.95 -299.65  L 399.55 -299.83  L 400.16 -300.02  L 400.76 -300.2  L 401.36 -300.38  L 401.96 -300.57  L 402.57 -300.75  L 403.17 -300.93  L 403.77 -301.12  L 404.38 -301.3  L 404.98 -301.48  L 405.58 -301.67  L 406.19 -301.85  L 406.79 -302.03  L 407.39 -302.22  L 407.99 -302.4  L 408.6 -302.58  L 409.2 -302.77  L 409.8 -302.95  L 410.41 -303.13  L 411.01 -303.32  L 411.61 -303.5  L 412.22 -303.68  L 412.82 -303.87  L 413.42 -304.05  L 414.03 -304.23  L 414.63 -304.41  L 415.23 -304.6  L 415.83 -304.78  L 416.44 -304.96  L 417.04 -305.15  L 417.64 -305.33  L 418.25 -305.51  L 418.85 -305.7  L 419.45 -305.88  L 420.06 -306.06  L 420.66 -306.25  L 421.26 -306.43  L 421.86 -306.61  L 422.47 -306.8  L 423.07 -306.98  L 423.67 -307.16  L 424.28 -307.35  L 424.88 -307.53  L 425.48 -307.71  L 426.09 -307.9  L 426.69 -308.08  L 427.29 -308.26  L 427.89 -308.45  L 428.5 -308.63  L 429.1 -308.81  L 429.7 -309  L 430.31 -309.18  L 430.91 -309.36  L 431.51 -309.55  L 432.12 -309.73  L 432.72 -309.91  L 433.32 -310.1  L 433.92 -310.28  L 434.53 -310.46  L 435.13 -310.65  L 435.73 -310.83  L 436.34 -311.01  L 436.94 -311.2  L 437.54 -311.38  L 438.15 -311.56  L 438.75 -311.75  L 439.35 -311.93  L 439.95 -312.11  L 440.56 -312.3  L 441.16 -312.48  L 441.76 -312.66  L 442.37 -312.85  L 442.97 -313.03  L 443.57 -313.21  L 444.18 -313.4  L 444.78 -313.58  L 445.38 -313.76  L 445.98 -313.95  L 446.59 -314.13  L 447.19 -314.31  L 447.79 -314.5  L 448.4 -314.68  L 449 -314.86  L 449 -338  L 449 -338  L 448.4 -338  L 447.79 -338  L 447.19 -338  L 446.59 -338  L 445.98 -338  L 445.38 -338  L 444.78 -338  L 444.18 -338  L 443.57 -338  L 442.97 -338  L 442.37 -338  L 441.76 -338  L 441.16 -338  L 440.56 -338  L 439.95 -338  L 439.35 -338  L 438.75 -338  L 438.15 -338  L 437.54 -338  L 436.94 -338  L 436.34 -338  L 435.73 -338  L 435.13 -338  L 434.53 -338  L 433.92 -338  L 433.32 -338  L 432.72 -338  L 432.12 -338  L 431.51 -338  L 430.91 -338  L 430.31 -338  L 429.7 -338  L 429.1 -338  L 428.5 -338  L 427.89 -338  L 427.29 -338  L 426.69 -338  L 426.09 -338  L 425.48 -338  L 424.88 -338  L 424.28 -338  L 423.67 -338  L 423.07 -338  L 422.47 -338  L 421.86 -338  L 421.26 -338  L 420.66 -338  L 420.06 -338  L 419.45 -338  L 418.85 -338  L 418.25 -338  L 417.64 -338  L 417.04 -338  L 416.44 -338  L 415.83 -338  L 415.23 -338  L 414.63 -338  L 414.03 -338  L 413.42 -338  L 412.82 -338  L 412.22 -338  L 411.61 -338  L 411.01 -338  L 410.41 -338  L 409.8 -338  L 409.2 -338  L 408.6 -338  L 407.99 -338  L 407.39 -338  L 406.79 -338  L 406.19 -338  L 405.58 -338  L 404.98 -338  L 404.38 -338  L 403.77 -338  L 403.17 -338  L 402.57 -338  L 401.96 -338  L 401.36 -338  L 400.76 -338  L 400.16 -338  L 399.55 -338  L 398.95 -338  L 398.35 -338  L 397.74 -338  L 397.14 -338  L 396.54 -338  L 395.93 -338  L 395.33 -338  L 394.73 -338  L 394.13 -338  L 393.52 -338  L 392.92 -338  L 392.32 -338  L 391.71 -338  L 391.11 -338  L 390.51 -338  L 389.9 -338  L 389.3 -338  L 388.7 -338  L 388.1 -338  L 387.49 -338  L 386.89 -338  L 386.29 -338  L 385.68 -338  L 385.08 -338  L 384.48 -338  L 383.87 -338  L 383.27 -338  L 382.67 -338  L 382.07 -338  L 381.46 -338  L 380.86 -338  L 380.26 -338  L 379.65 -338  L 379.05 -338  L 378.45 -338  L 377.84 -338  L 377.24 -338  L 376.64 -338  L 376.04 -338  L 375.43 -338  L 374.83 -338  L 374.23 -338  L 373.62 -338  L 373.02 -338  L 372.42 -338  L 371.81 -338  L 371.21 -338  L 370.61 -338  L 370.01 -338  L 369.4 -338  L 368.8 -338  L 368.2 -338  L 367.59 -338  L 366.99 -338  L 366.39 -338  L 365.78 -338  L 365.18 -338  L 364.58 -338  L 363.97 -338  L 363.37 -338  L 362.77 -338  L 362.17 -338  L 361.56 -338  L 360.96 -338  L 360.36 -338  L 359.75 -338  L 359.15 -338  L 358.55 -338  L 357.94 -338  L 357.34 -338  L 356.74 -338  L 356.14 -338  L 355.53 -338  L 354.93 -338  L 354.33 -338  L 353.72 -338  L 353.12 -338  L 352.52 -338  L 351.91 -338  L 351.31 -338  L 350.71 -338  L 350.11 -338  L 349.5 -338  L 348.9 -338  L 348.3 -338  L 347.69 -338  L 347.09 -338  L 346.49 -338  L 345.88 -338  L 345.28 -338  L 344.68 -338  L 344.08 -338  L 343.47 -338  L 342.87 -338  L 342.27 -338  L 341.66 -338  L 341.06 -338  L 340.46 -338  L 339.85 -338  L 339.25 -338  L 338.65 -338  L 338.05 -338  L 337.44 -338  L 336.84 -338  L 336.24 -338  L 335.63 -338  L 335.03 -338  L 334.43 -338  L 333.82 -338  L 333.22 -338  L 332.62 -338  L 332.02 -338  L 331.41 -338  L 330.81 -338  L 330.21 -338  L 329.6 -338  L 329 -338  z " />
     </defs>
-    <g clip-path="url(#pc4866db671)">
-     <use xlink:href="#mf67e9eb026" x="0" y="372" style="fill: var(--fig-traj); fill-opacity: 0.55" />
+    <g clip-path="url(#pb124218aa0)">
+     <use xlink:href="#m3abd9b6eea" x="0" y="386" style="fill: var(--fig-traj); fill-opacity: 0.55" />
     </g>
    </g>
-   <g id="patch_12">
-    <path d="M 336 162  L 336 48  " style="fill: none; stroke: var(--rule); stroke-width: 0.9; stroke-linejoin: miter; stroke-linecap: square" />
+   <g id="patch_10">
+    <path d="M 329 168  L 329 48  " style="fill: none; stroke: var(--rule); stroke-width: 0.9; stroke-linejoin: miter; stroke-linecap: square" />
    </g>
-   <g id="patch_13">
-    <path d="M 336 162  L 528 162  " style="fill: none; stroke: var(--rule); stroke-width: 0.9; stroke-linejoin: miter; stroke-linecap: square" />
+   <g id="patch_11">
+    <path d="M 329 168  L 449 168  " style="fill: none; stroke: var(--rule); stroke-width: 0.9; stroke-linejoin: miter; stroke-linecap: square" />
    </g>
-   <g id="line2d_63">
-    <path d="M 336 104.64  L 528 69.98  L 528 69.98  " clip-path="url(#pc4866db671)" style="fill: none; stroke: var(--link); stroke-width: 1.5; stroke-linecap: square" />
+   <g id="line2d_60">
+    <path d="M 329 107.62  L 449 71.14  L 449 71.14  " clip-path="url(#pb124218aa0)" style="fill: none; stroke: var(--link); stroke-width: 1.5; stroke-linecap: square" />
+   </g>
+   <g id="text_37">
+    <text class="fig__math" style="font-style: italic; font-size: 9.4px; text-anchor: end; fill: currentColor" x="385.4" y="145.24" transform="rotate(-0 385.4 145.24)">φ<tspan baseline-shift="sub" font-size="74%">Q</tspan></text>
+   </g>
+   <g id="text_38">
+    <text style="font-size: 7.8px; text-anchor: start; fill: currentColor" x="390.2" y="144.83" transform="rotate(-0 390.2 144.83)">Housekeeping</text>
+   </g>
+   <g id="text_39">
+    <text class="fig__math" style="font-style: italic; font-size: 9.4px; text-anchor: end; fill: currentColor" x="385.4" y="100.24" transform="rotate(-0 385.4 100.24)">φ<tspan baseline-shift="sub" font-size="74%">R</tspan></text>
+   </g>
+   <g id="text_40">
+    <text style="font-size: 7.8px; text-anchor: start; fill: currentColor" x="390.2" y="99.83" transform="rotate(-0 390.2 99.83)">Ribosomal</text>
    </g>
    <g id="text_41">
-    <text class="fig__math" style="font-style: italic; font-size: 8.2px; text-anchor: end; fill: currentColor" x="426.24" y="140.19" transform="rotate(-0 426.24 140.19)">φ<tspan baseline-shift="sub" font-size="74%">Q</tspan></text>
+    <text class="fig__math" style="font-style: italic; font-size: 9.4px; text-anchor: end; fill: currentColor" x="385.4" y="64.84" transform="rotate(-0 385.4 64.84)">φ<tspan baseline-shift="sub" font-size="74%">P</tspan></text>
    </g>
    <g id="text_42">
-    <text style="font-size: 6.8px; text-anchor: start; fill: currentColor" x="433.92" y="139.83" transform="rotate(-0 433.92 139.83)">Housekeeping</text>
+    <text style="font-size: 7.8px; text-anchor: start; fill: currentColor" x="390.2" y="64.43" transform="rotate(-0 390.2 64.43)">Metabolic</text>
    </g>
    <g id="text_43">
-    <text class="fig__math" style="font-style: italic; font-size: 8.2px; text-anchor: end; fill: currentColor" x="426.24" y="97.44" transform="rotate(-0 426.24 97.44)">φ<tspan baseline-shift="sub" font-size="74%">R</tspan></text>
+    <text style="font-weight: 600; font-size: 11px; text-anchor: start; fill: currentColor" x="301" y="14" transform="rotate(-0 301 14)">B</text>
    </g>
    <g id="text_44">
-    <text style="font-size: 6.8px; text-anchor: start; fill: currentColor" x="433.92" y="97.08" transform="rotate(-0 433.92 97.08)">Ribosomal</text>
+    <text style="font-size: 10px; text-anchor: start; fill: currentColor" x="329" y="14" transform="rotate(-0 329 14)">The partition it fixes</text>
    </g>
-   <g id="text_45">
-    <text class="fig__math" style="font-style: italic; font-size: 8.2px; text-anchor: end; fill: currentColor" x="426.24" y="63.81" transform="rotate(-0 426.24 63.81)">φ<tspan baseline-shift="sub" font-size="74%">P</tspan></text>
-   </g>
-   <g id="text_46">
-    <text style="font-size: 6.8px; text-anchor: start; fill: currentColor" x="433.92" y="63.45" transform="rotate(-0 433.92 63.45)">Metabolic</text>
-   </g>
-   <g id="text_47">
-    <text style="font-weight: 600; font-size: 9.8px; text-anchor: start; fill: currentColor" x="310" y="12" transform="rotate(-0 310 12)">B</text>
-   </g>
-   <g id="text_48">
-    <text style="font-size: 8.6px; text-anchor: start; fill: currentColor" x="336" y="12" transform="rotate(-0 336 12)">The partition it fixes</text>
-   </g>
-   <g id="line2d_64">
+   <g id="line2d_61">
     <defs>
-     <path id="m723aced929" d="M 0 1.5  C 0.4 1.5 0.78 1.34 1.06 1.06  C 1.34 0.78 1.5 0.4 1.5 0  C 1.5 -0.4 1.34 -0.78 1.06 -1.06  C 0.78 -1.34 0.4 -1.5 0 -1.5  C -0.4 -1.5 -0.78 -1.34 -1.06 -1.06  C -1.34 -0.78 -1.5 -0.4 -1.5 0  C -1.5 0.4 -1.34 0.78 -1.06 1.06  C -0.78 1.34 -0.4 1.5 0 1.5  z " style="" />
+     <path id="macd6448c09" d="M 0 1.5  C 0.4 1.5 0.78 1.34 1.06 1.06  C 1.34 0.78 1.5 0.4 1.5 0  C 1.5 -0.4 1.34 -0.78 1.06 -1.06  C 0.78 -1.34 0.4 -1.5 0 -1.5  C -0.4 -1.5 -0.78 -1.34 -1.06 -1.06  C -1.34 -0.78 -1.5 -0.4 -1.5 0  C -1.5 0.4 -1.34 0.78 -1.06 1.06  C -0.78 1.34 -0.4 1.5 0 1.5  z " style="" />
     </defs>
-    <g clip-path="url(#pc4866db671)">
-     <use xlink:href="#m723aced929" x="400.3" y="93.03" style="fill: var(--faint);" />
-     <use xlink:href="#m723aced929" x="406.09" y="91.98" style="fill: var(--faint);" />
-     <use xlink:href="#m723aced929" x="410.45" y="91.2" style="fill: var(--faint);" />
-     <use xlink:href="#m723aced929" x="413.24" y="90.69" style="fill: var(--faint);" />
-     <use xlink:href="#m723aced929" x="418.31" y="89.78" style="fill: var(--faint);" />
-     <use xlink:href="#m723aced929" x="425.2" y="88.53" style="fill: var(--faint);" />
-     <use xlink:href="#m723aced929" x="426.84" y="88.24" style="fill: var(--faint);" />
-     <use xlink:href="#m723aced929" x="434.61" y="86.84" style="fill: var(--faint);" />
+    <g clip-path="url(#pb124218aa0)">
+     <use xlink:href="#macd6448c09" x="369.19" y="95.4" style="fill: var(--faint);" />
+     <use xlink:href="#macd6448c09" x="372.81" y="94.3" style="fill: var(--faint);" />
+     <use xlink:href="#macd6448c09" x="375.53" y="93.47" style="fill: var(--faint);" />
+     <use xlink:href="#macd6448c09" x="377.27" y="92.94" style="fill: var(--faint);" />
+     <use xlink:href="#macd6448c09" x="380.44" y="91.98" style="fill: var(--faint);" />
+     <use xlink:href="#macd6448c09" x="384.75" y="90.67" style="fill: var(--faint);" />
+     <use xlink:href="#macd6448c09" x="385.77" y="90.36" style="fill: var(--faint);" />
+     <use xlink:href="#macd6448c09" x="390.63" y="88.88" style="fill: var(--faint);" />
     </g>
    </g>
-   <g id="line2d_65">
+   <g id="line2d_62">
     <defs>
-     <path id="m15533902ac" d="M 0 1.5  C 0.4 1.5 0.78 1.34 1.06 1.06  C 1.34 0.78 1.5 0.4 1.5 0  C 1.5 -0.4 1.34 -0.78 1.06 -1.06  C 0.78 -1.34 0.4 -1.5 0 -1.5  C -0.4 -1.5 -0.78 -1.34 -1.06 -1.06  C -1.34 -0.78 -1.5 -0.4 -1.5 0  C -1.5 0.4 -1.34 0.78 -1.06 1.06  C -0.78 1.34 -0.4 1.5 0 1.5  z " style="" />
+     <path id="mee0548aca9" d="M 0 1.5  C 0.4 1.5 0.78 1.34 1.06 1.06  C 1.34 0.78 1.5 0.4 1.5 0  C 1.5 -0.4 1.34 -0.78 1.06 -1.06  C 0.78 -1.34 0.4 -1.5 0 -1.5  C -0.4 -1.5 -0.78 -1.34 -1.06 -1.06  C -1.34 -0.78 -1.5 -0.4 -1.5 0  C -1.5 0.4 -1.34 0.78 -1.06 1.06  C -0.78 1.34 -0.4 1.5 0 1.5  z " style="" />
     </defs>
-    <g clip-path="url(#pc4866db671)">
-     <use xlink:href="#m15533902ac" x="364.77" y="99.44" style="fill: var(--link);" />
-     <use xlink:href="#m15533902ac" x="380.61" y="96.58" style="fill: var(--link);" />
-     <use xlink:href="#m15533902ac" x="399.08" y="93.25" style="fill: var(--link);" />
-     <use xlink:href="#m15533902ac" x="419.8" y="89.51" style="fill: var(--link);" />
-     <use xlink:href="#m15533902ac" x="440.55" y="85.76" style="fill: var(--link);" />
-     <use xlink:href="#m15533902ac" x="464.72" y="81.4" style="fill: var(--link);" />
-     <use xlink:href="#m15533902ac" x="486.79" y="77.42" style="fill: var(--link);" />
-     <use xlink:href="#m15533902ac" x="508.7" y="73.46" style="fill: var(--link);" />
+    <g clip-path="url(#pb124218aa0)">
+     <use xlink:href="#mee0548aca9" x="346.98" y="102.15" style="fill: var(--link);" />
+     <use xlink:href="#mee0548aca9" x="356.88" y="99.14" style="fill: var(--link);" />
+     <use xlink:href="#mee0548aca9" x="368.42" y="95.63" style="fill: var(--link);" />
+     <use xlink:href="#mee0548aca9" x="381.38" y="91.69" style="fill: var(--link);" />
+     <use xlink:href="#mee0548aca9" x="394.34" y="87.75" style="fill: var(--link);" />
+     <use xlink:href="#mee0548aca9" x="409.45" y="83.16" style="fill: var(--link);" />
+     <use xlink:href="#mee0548aca9" x="423.25" y="78.97" style="fill: var(--link);" />
+     <use xlink:href="#mee0548aca9" x="436.94" y="74.8" style="fill: var(--link);" />
     </g>
    </g>
   </g>
-  <g id="axes_6">
-   <g id="patch_14">
-    <path d="M 193 344  L 385 344  L 385 230  L 193 230  L 193 344  z " style="fill: none; opacity: 0" />
+  <g id="axes_5">
+   <g id="patch_12">
+    <path d="M 190.5 360  L 310.5 360  L 310.5 240  L 190.5 240  L 190.5 360  z " style="fill: none; opacity: 0" />
    </g>
-   <g id="axes_7">
-    <g id="patch_15">
-     <path d="M 193 230  L 385 230  L 385 230  L 193 230  L 193 230  z " style="fill: none" />
-    </g>
-    <g id="matplotlib.axis_11">
-     <g id="xtick_17">
-      <g id="line2d_66">
-       <g>
-        <use xlink:href="#m0bf94aced7" x="193" y="230" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
-       </g>
-      </g>
-      <g id="text_49">
-       <text style="font-size: 6.2px; text-anchor: middle; fill: currentColor" x="193" y="224.41" transform="rotate(-0 193 224.41)">0</text>
+   <g id="matplotlib.axis_9">
+    <g id="xtick_14">
+     <g id="line2d_63">
+      <path d="M 190.5 360  L 190.5 240  " clip-path="url(#p657f0b462a)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+     </g>
+     <g id="line2d_64">
+      <g>
+       <use xlink:href="#m0470316a28" x="190.5" y="360" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
-     <g id="xtick_18">
-      <g id="line2d_67">
-       <g>
-        <use xlink:href="#m0bf94aced7" x="259.54" y="230" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
-       </g>
-      </g>
-      <g id="text_50">
-       <text style="font-size: 6.2px; text-anchor: middle; fill: currentColor" x="259.54" y="224.41" transform="rotate(-0 259.54 224.41)">1</text>
-      </g>
-     </g>
-     <g id="xtick_19">
-      <g id="line2d_68">
-       <g>
-        <use xlink:href="#m0bf94aced7" x="326.08" y="230" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
-       </g>
-      </g>
-      <g id="text_51">
-       <text style="font-size: 6.2px; text-anchor: middle; fill: currentColor" x="326.08" y="224.41" transform="rotate(-0 326.08 224.41)">2</text>
-      </g>
-     </g>
-     <g id="text_52">
-      <text style="font-size: 7px; text-anchor: middle; fill: currentColor" x="289" y="217.7" transform="rotate(-0 289 217.7)">Doublings per hour</text>
+     <g id="text_45">
+      <text style="font-size: 7.4px; text-anchor: middle; fill: currentColor" x="190.5" y="370.42" transform="rotate(-0 190.5 370.42)">0</text>
      </g>
     </g>
-    <g id="matplotlib.axis_12" />
-    <g id="patch_16">
-     <path d="M 193 230  L 385 230  " style="fill: none; stroke: var(--rule); stroke-width: 0.9; stroke-linejoin: miter; stroke-linecap: square" />
+    <g id="xtick_15">
+     <g id="line2d_65">
+      <path d="M 220.5 360  L 220.5 240  " clip-path="url(#p657f0b462a)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+     </g>
+     <g id="line2d_66">
+      <g>
+       <use xlink:href="#m0470316a28" x="220.5" y="360" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+      </g>
+     </g>
+     <g id="text_46">
+      <text style="font-size: 7.4px; text-anchor: middle; fill: currentColor" x="220.5" y="370.42" transform="rotate(-0 220.5 370.42)">0.5</text>
+     </g>
     </g>
-   </g>
-   <g id="matplotlib.axis_13">
-    <g id="xtick_20">
+    <g id="xtick_16">
+     <g id="line2d_67">
+      <path d="M 250.5 360  L 250.5 240  " clip-path="url(#p657f0b462a)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+     </g>
+     <g id="line2d_68">
+      <g>
+       <use xlink:href="#m0470316a28" x="250.5" y="360" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+      </g>
+     </g>
+     <g id="text_47">
+      <text style="font-size: 7.4px; text-anchor: middle; fill: currentColor" x="250.5" y="370.42" transform="rotate(-0 250.5 370.42)">1</text>
+     </g>
+    </g>
+    <g id="xtick_17">
      <g id="line2d_69">
-      <path d="M 193 344  L 193 230  " clip-path="url(#pa9f6fbb742)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+      <path d="M 280.5 360  L 280.5 240  " clip-path="url(#p657f0b462a)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
      </g>
      <g id="line2d_70">
       <g>
-       <use xlink:href="#m92f36b26e2" x="193" y="344" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+       <use xlink:href="#m0470316a28" x="280.5" y="360" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
-     <g id="text_53">
-      <text style="font-size: 6.4px; text-anchor: middle; fill: currentColor" x="193" y="353.66" transform="rotate(-0 193 353.66)">0</text>
+     <g id="text_48">
+      <text style="font-size: 7.4px; text-anchor: middle; fill: currentColor" x="280.5" y="370.42" transform="rotate(-0 280.5 370.42)">1.5</text>
      </g>
     </g>
-    <g id="xtick_21">
+    <g id="xtick_18">
      <g id="line2d_71">
-      <path d="M 241 344  L 241 230  " clip-path="url(#pa9f6fbb742)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+      <path d="M 310.5 360  L 310.5 240  " clip-path="url(#p657f0b462a)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
      </g>
      <g id="line2d_72">
       <g>
-       <use xlink:href="#m92f36b26e2" x="241" y="344" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+       <use xlink:href="#m0470316a28" x="310.5" y="360" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
-     <g id="text_54">
-      <text style="font-size: 6.4px; text-anchor: middle; fill: currentColor" x="241" y="353.66" transform="rotate(-0 241 353.66)">0.5</text>
+     <g id="text_49">
+      <text style="font-size: 7.4px; text-anchor: middle; fill: currentColor" x="310.5" y="370.42" transform="rotate(-0 310.5 370.42)">2</text>
      </g>
     </g>
-    <g id="xtick_22">
+    <g id="text_50">
+     <text style="font-size: 8.6px; text-anchor: middle; fill: currentColor" x="250.5" y="380.73" transform="rotate(-0 250.5 380.73)">Growth rate λ (per hour)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_10">
+    <g id="ytick_14">
      <g id="line2d_73">
-      <path d="M 289 344  L 289 230  " clip-path="url(#pa9f6fbb742)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+      <path d="M 190.5 360  L 310.5 360  " clip-path="url(#p657f0b462a)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
      </g>
      <g id="line2d_74">
       <g>
-       <use xlink:href="#m92f36b26e2" x="289" y="344" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+       <use xlink:href="#m79f2f1c7d3" x="190.5" y="360" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
-     <g id="text_55">
-      <text style="font-size: 6.4px; text-anchor: middle; fill: currentColor" x="289" y="353.66" transform="rotate(-0 289 353.66)">1</text>
-     </g>
-    </g>
-    <g id="xtick_23">
-     <g id="line2d_75">
-      <path d="M 337 344  L 337 230  " clip-path="url(#pa9f6fbb742)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
-     </g>
-     <g id="line2d_76">
-      <g>
-       <use xlink:href="#m92f36b26e2" x="337" y="344" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_56">
-      <text style="font-size: 6.4px; text-anchor: middle; fill: currentColor" x="337" y="353.66" transform="rotate(-0 337 353.66)">1.5</text>
-     </g>
-    </g>
-    <g id="xtick_24">
-     <g id="line2d_77">
-      <path d="M 385 344  L 385 230  " clip-path="url(#pa9f6fbb742)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
-     </g>
-     <g id="line2d_78">
-      <g>
-       <use xlink:href="#m92f36b26e2" x="385" y="344" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_57">
-      <text style="font-size: 6.4px; text-anchor: middle; fill: currentColor" x="385" y="353.66" transform="rotate(-0 385 353.66)">2</text>
-     </g>
-    </g>
-    <g id="text_58">
-     <text style="font-size: 7.4px; text-anchor: middle; fill: currentColor" x="289" y="362.82" transform="rotate(-0 289 362.82)">Growth rate λ (per hour)</text>
-    </g>
-   </g>
-   <g id="matplotlib.axis_14">
-    <g id="ytick_14">
-     <g id="line2d_79">
-      <path d="M 193 344  L 385 344  " clip-path="url(#pa9f6fbb742)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
-     </g>
-     <g id="line2d_80">
-      <g>
-       <use xlink:href="#m205f2b6cc9" x="193" y="344" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
-      </g>
-     </g>
-     <g id="text_59">
-      <text style="font-size: 6.4px; text-anchor: end; fill: currentColor" x="188.2" y="346.43" transform="rotate(-0 188.2 346.43)">0</text>
+     <g id="text_51">
+      <text style="font-size: 7.4px; text-anchor: end; fill: currentColor" x="185.7" y="362.81" transform="rotate(-0 185.7 362.81)">0</text>
      </g>
     </g>
     <g id="ytick_15">
-     <g id="line2d_81">
-      <path d="M 193 316.6  L 385 316.6  " clip-path="url(#pa9f6fbb742)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+     <g id="line2d_75">
+      <path d="M 190.5 330  L 310.5 330  " clip-path="url(#p657f0b462a)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
      </g>
-     <g id="line2d_82">
+     <g id="line2d_76">
       <g>
-       <use xlink:href="#m205f2b6cc9" x="193" y="316.6" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+       <use xlink:href="#m79f2f1c7d3" x="190.5" y="330" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
-     <g id="text_60">
-      <text style="font-size: 6.4px; text-anchor: end; fill: currentColor" x="188.2" y="319.03" transform="rotate(-0 188.2 319.03)">0.25</text>
+     <g id="text_52">
+      <text style="font-size: 7.4px; text-anchor: end; fill: currentColor" x="185.7" y="332.81" transform="rotate(-0 185.7 332.81)">0.25</text>
      </g>
     </g>
     <g id="ytick_16">
-     <g id="line2d_83">
-      <path d="M 193 289.19  L 385 289.19  " clip-path="url(#pa9f6fbb742)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+     <g id="line2d_77">
+      <path d="M 190.5 300  L 310.5 300  " clip-path="url(#p657f0b462a)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
      </g>
-     <g id="line2d_84">
+     <g id="line2d_78">
       <g>
-       <use xlink:href="#m205f2b6cc9" x="193" y="289.19" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+       <use xlink:href="#m79f2f1c7d3" x="190.5" y="300" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
-     <g id="text_61">
-      <text style="font-size: 6.4px; text-anchor: end; fill: currentColor" x="188.2" y="291.62" transform="rotate(-0 188.2 291.62)">0.5</text>
+     <g id="text_53">
+      <text style="font-size: 7.4px; text-anchor: end; fill: currentColor" x="185.7" y="302.81" transform="rotate(-0 185.7 302.81)">0.5</text>
      </g>
     </g>
     <g id="ytick_17">
-     <g id="line2d_85">
-      <path d="M 193 261.79  L 385 261.79  " clip-path="url(#pa9f6fbb742)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+     <g id="line2d_79">
+      <path d="M 190.5 270  L 310.5 270  " clip-path="url(#p657f0b462a)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
      </g>
-     <g id="line2d_86">
+     <g id="line2d_80">
       <g>
-       <use xlink:href="#m205f2b6cc9" x="193" y="261.79" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+       <use xlink:href="#m79f2f1c7d3" x="190.5" y="270" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
-     <g id="text_62">
-      <text style="font-size: 6.4px; text-anchor: end; fill: currentColor" x="188.2" y="264.22" transform="rotate(-0 188.2 264.22)">0.75</text>
+     <g id="text_54">
+      <text style="font-size: 7.4px; text-anchor: end; fill: currentColor" x="185.7" y="272.81" transform="rotate(-0 185.7 272.81)">0.75</text>
      </g>
     </g>
     <g id="ytick_18">
-     <g id="line2d_87">
-      <path d="M 193 234.38  L 385 234.38  " clip-path="url(#pa9f6fbb742)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
+     <g id="line2d_81">
+      <path d="M 190.5 240  L 310.5 240  " clip-path="url(#p657f0b462a)" style="fill: none; stroke: var(--rule); stroke-opacity: 0.55; stroke-width: 0.5; stroke-linecap: square" />
      </g>
-     <g id="line2d_88">
+     <g id="line2d_82">
       <g>
-       <use xlink:href="#m205f2b6cc9" x="193" y="234.38" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
+       <use xlink:href="#m79f2f1c7d3" x="190.5" y="240" style="fill: var(--rule); stroke: var(--rule); stroke-width: 0.8" />
       </g>
      </g>
-     <g id="text_63">
-      <text style="font-size: 6.4px; text-anchor: end; fill: currentColor" x="188.2" y="236.82" transform="rotate(-0 188.2 236.82)">1</text>
+     <g id="text_55">
+      <text style="font-size: 7.4px; text-anchor: end; fill: currentColor" x="185.7" y="242.81" transform="rotate(-0 185.7 242.81)">1</text>
      </g>
     </g>
-    <g id="text_64">
-     <text style="font-size: 7.4px; text-anchor: middle; fill: currentColor" x="170.17" y="287" transform="rotate(-90 170.17 287)">Yield, relative to zero growth</text>
+    <g id="text_56">
+     <text style="font-size: 8.6px; text-anchor: middle; fill: currentColor" x="165.16" y="300" transform="rotate(-90 165.16 300)">Yield, relative to zero growth</text>
     </g>
+   </g>
+   <g id="line2d_83">
+    <path d="M 193.5 241.84  L 310.5 313.43  L 310.5 313.43  " clip-path="url(#p657f0b462a)" style="fill: none; stroke: var(--fig-traj); stroke-width: 1.5; stroke-linecap: square" />
+   </g>
+   <g id="line2d_84">
+    <defs>
+     <path id="maa58b419d8" d="M 0 2.1  C 0.56 2.1 1.09 1.88 1.48 1.48  C 1.88 1.09 2.1 0.56 2.1 0  C 2.1 -0.56 1.88 -1.09 1.48 -1.48  C 1.09 -1.88 0.56 -2.1 0 -2.1  C -0.56 -2.1 -1.09 -1.88 -1.48 -1.48  C -1.88 -1.09 -2.1 -0.56 -2.1 0  C -2.1 0.56 -1.88 1.09 -1.48 1.48  C -1.09 1.88 -0.56 2.1 0 2.1  z " style="" />
+    </defs>
+    <g clip-path="url(#p657f0b462a)">
+     <use xlink:href="#maa58b419d8" x="267.3" y="247.2" style="fill: var(--faint);" />
+    </g>
+   </g>
+   <g id="line2d_85">
+    <g clip-path="url(#p657f0b462a)">
+     <use xlink:href="#mae034a322d" x="267.3" y="260.4" style="fill: var(--link);" />
+    </g>
+   </g>
+   <g id="patch_13">
+    <path d="M 190.5 360  L 190.5 240  " style="fill: none; stroke: var(--rule); stroke-width: 0.9; stroke-linejoin: miter; stroke-linecap: square" />
+   </g>
+   <g id="patch_14">
+    <path d="M 190.5 360  L 310.5 360  " style="fill: none; stroke: var(--rule); stroke-width: 0.9; stroke-linejoin: miter; stroke-linecap: square" />
+   </g>
+   <g id="line2d_86">
+    <path d="M 230.69 338.4  L 252.13 338.4  " clip-path="url(#p657f0b462a)" style="fill: none; stroke: var(--faint); stroke-linecap: square" />
+   </g>
+   <g id="line2d_87">
+    <path d="M 230.69 341.52  L 230.69 335.28  " clip-path="url(#p657f0b462a)" style="fill: none; stroke: var(--faint); stroke-linecap: square" />
+   </g>
+   <g id="line2d_88">
+    <path d="M 252.13 341.52  L 252.13 335.28  " clip-path="url(#p657f0b462a)" style="fill: none; stroke: var(--faint); stroke-linecap: square" />
+   </g>
+   <g id="text_57">
+    <text style="font-size: 7.4px; text-anchor: start; fill: currentColor" x="256.33" y="340.32" transform="rotate(-0 256.33 340.32)">Spread 0.36</text>
    </g>
    <g id="line2d_89">
-    <path d="M 197.8 236.06  L 385 301.46  L 385 301.46  " clip-path="url(#pa9f6fbb742)" style="fill: none; stroke: var(--fig-traj); stroke-width: 1.5; stroke-linecap: square" />
+    <path d="M 208.48 351.6  L 298.44 351.6  " clip-path="url(#p657f0b462a)" style="fill: none; stroke: var(--link); stroke-linecap: square" />
    </g>
    <g id="line2d_90">
-    <defs>
-     <path id="mfb4b665d0f" d="M 0 2.1  C 0.56 2.1 1.09 1.88 1.48 1.48  C 1.88 1.09 2.1 0.56 2.1 0  C 2.1 -0.56 1.88 -1.09 1.48 -1.48  C 1.09 -1.88 0.56 -2.1 0 -2.1  C -0.56 -2.1 -1.09 -1.88 -1.48 -1.48  C -1.88 -1.09 -2.1 -0.56 -2.1 0  C -2.1 0.56 -1.88 1.09 -1.48 1.48  C -1.09 1.88 -0.56 2.1 0 2.1  z " style="" />
-    </defs>
-    <g clip-path="url(#pa9f6fbb742)">
-     <use xlink:href="#mfb4b665d0f" x="315.88" y="236.58" style="fill: var(--faint);" />
-    </g>
+    <path d="M 208.48 354.72  L 208.48 348.48  " clip-path="url(#p657f0b462a)" style="fill: none; stroke: var(--link); stroke-linecap: square" />
    </g>
    <g id="line2d_91">
-    <g clip-path="url(#pa9f6fbb742)">
-     <use xlink:href="#m8494510bac" x="315.88" y="248.63" style="fill: var(--link);" />
-    </g>
+    <path d="M 298.44 354.72  L 298.44 348.48  " clip-path="url(#p657f0b462a)" style="fill: none; stroke: var(--link); stroke-linecap: square" />
    </g>
-   <g id="patch_17">
-    <path d="M 193 344  L 193 230  " style="fill: none; stroke: var(--rule); stroke-width: 0.9; stroke-linejoin: miter; stroke-linecap: square" />
+   <g id="text_58">
+    <text style="font-size: 7.4px; text-anchor: start; fill: currentColor" x="302.64" y="353.52" transform="rotate(-0 302.64 353.52)">Spread 1.50</text>
    </g>
-   <g id="patch_18">
-    <path d="M 193 344  L 385 344  " style="fill: none; stroke: var(--rule); stroke-width: 0.9; stroke-linejoin: miter; stroke-linecap: square" />
+   <g id="text_59">
+    <text style="font-size: 7.8px; text-anchor: start; fill: currentColor" x="273.3" y="249.23" transform="rotate(-0 273.3 249.23)">Narrow pool</text>
+   </g>
+   <g id="text_60">
+    <text style="font-size: 7.8px; text-anchor: start; fill: currentColor" x="273.3" y="262.43" transform="rotate(-0 273.3 262.43)">Wide pool</text>
+   </g>
+   <g id="text_61">
+    <text style="font-weight: 600; font-size: 11px; text-anchor: start; fill: currentColor" x="162.5" y="206" transform="rotate(-0 162.5 206)">C</text>
+   </g>
+   <g id="text_62">
+    <text style="font-size: 10px; text-anchor: start; fill: currentColor" x="190.5" y="206" transform="rotate(-0 190.5 206)">The tradeoff it implies</text>
    </g>
    <g id="line2d_92">
-    <path d="M 257.3 324.27  L 291.61 324.27  " clip-path="url(#pa9f6fbb742)" style="fill: none; stroke: var(--faint); stroke-linecap: square" />
-   </g>
-   <g id="line2d_93">
-    <path d="M 257.3 327.12  L 257.3 321.42  " clip-path="url(#pa9f6fbb742)" style="fill: none; stroke: var(--faint); stroke-linecap: square" />
-   </g>
-   <g id="line2d_94">
-    <path d="M 291.61 327.12  L 291.61 321.42  " clip-path="url(#pa9f6fbb742)" style="fill: none; stroke: var(--faint); stroke-linecap: square" />
-   </g>
-   <g id="text_65">
-    <text style="font-size: 6.4px; text-anchor: start; fill: currentColor" x="298.33" y="325.93" transform="rotate(-0 298.33 325.93)">Spread 0.36</text>
-   </g>
-   <g id="line2d_95">
-    <path d="M 221.77 336.33  L 365.7 336.33  " clip-path="url(#pa9f6fbb742)" style="fill: none; stroke: var(--link); stroke-linecap: square" />
-   </g>
-   <g id="line2d_96">
-    <path d="M 221.77 339.18  L 221.77 333.48  " clip-path="url(#pa9f6fbb742)" style="fill: none; stroke: var(--link); stroke-linecap: square" />
-   </g>
-   <g id="line2d_97">
-    <path d="M 365.7 339.18  L 365.7 333.48  " clip-path="url(#pa9f6fbb742)" style="fill: none; stroke: var(--link); stroke-linecap: square" />
-   </g>
-   <g id="text_66">
-    <text style="font-size: 6.4px; text-anchor: start; fill: currentColor" x="372.42" y="337.99" transform="rotate(-0 372.42 337.99)">Spread 1.50</text>
-   </g>
-   <g id="text_67">
-    <text style="font-size: 6.8px; text-anchor: start; fill: currentColor" x="325.48" y="238.34" transform="rotate(-0 325.48 238.34)">Narrow pool</text>
-   </g>
-   <g id="text_68">
-    <text style="font-size: 6.8px; text-anchor: start; fill: currentColor" x="325.48" y="250.4" transform="rotate(-0 325.48 250.4)">Wide pool</text>
-   </g>
-   <g id="text_69">
-    <text style="font-weight: 600; font-size: 9.8px; text-anchor: start; fill: currentColor" x="167" y="194" transform="rotate(-0 167 194)">C</text>
-   </g>
-   <g id="text_70">
-    <text style="font-size: 8.6px; text-anchor: start; fill: currentColor" x="193" y="194" transform="rotate(-0 193 194)">The tradeoff it implies</text>
-   </g>
-   <g id="line2d_98">
-    <g clip-path="url(#pa9f6fbb742)">
-     <use xlink:href="#mfb4b665d0f" x="257.3" y="256.85" style="fill: var(--faint);" />
-     <use xlink:href="#mfb4b665d0f" x="263.09" y="258.87" style="fill: var(--faint);" />
-     <use xlink:href="#mfb4b665d0f" x="267.45" y="260.39" style="fill: var(--faint);" />
-     <use xlink:href="#mfb4b665d0f" x="270.24" y="261.37" style="fill: var(--faint);" />
-     <use xlink:href="#mfb4b665d0f" x="275.31" y="263.14" style="fill: var(--faint);" />
-     <use xlink:href="#mfb4b665d0f" x="282.2" y="265.55" style="fill: var(--faint);" />
-     <use xlink:href="#mfb4b665d0f" x="283.84" y="266.12" style="fill: var(--faint);" />
-     <use xlink:href="#mfb4b665d0f" x="291.61" y="268.83" style="fill: var(--faint);" />
+    <g clip-path="url(#p657f0b462a)">
+     <use xlink:href="#maa58b419d8" x="230.69" y="264.59" style="fill: var(--faint);" />
+     <use xlink:href="#maa58b419d8" x="234.31" y="266.81" style="fill: var(--faint);" />
+     <use xlink:href="#maa58b419d8" x="237.03" y="268.47" style="fill: var(--faint);" />
+     <use xlink:href="#maa58b419d8" x="238.77" y="269.54" style="fill: var(--faint);" />
+     <use xlink:href="#maa58b419d8" x="241.94" y="271.48" style="fill: var(--faint);" />
+     <use xlink:href="#maa58b419d8" x="246.25" y="274.12" style="fill: var(--faint);" />
+     <use xlink:href="#maa58b419d8" x="247.27" y="274.74" style="fill: var(--faint);" />
+     <use xlink:href="#maa58b419d8" x="252.13" y="277.71" style="fill: var(--faint);" />
     </g>
    </g>
-   <g id="line2d_99">
-    <g clip-path="url(#pa9f6fbb742)">
-     <use xlink:href="#m8494510bac" x="221.77" y="244.43" style="fill: var(--link);" />
-     <use xlink:href="#m8494510bac" x="237.61" y="249.97" style="fill: var(--link);" />
-     <use xlink:href="#m8494510bac" x="256.08" y="256.42" style="fill: var(--link);" />
-     <use xlink:href="#m8494510bac" x="276.8" y="263.66" style="fill: var(--link);" />
-     <use xlink:href="#m8494510bac" x="297.55" y="270.91" style="fill: var(--link);" />
-     <use xlink:href="#m8494510bac" x="321.72" y="279.35" style="fill: var(--link);" />
-     <use xlink:href="#m8494510bac" x="343.79" y="287.06" style="fill: var(--link);" />
-     <use xlink:href="#m8494510bac" x="365.7" y="294.72" style="fill: var(--link);" />
+   <g id="line2d_93">
+    <g clip-path="url(#p657f0b462a)">
+     <use xlink:href="#mae034a322d" x="208.48" y="251" style="fill: var(--link);" />
+     <use xlink:href="#mae034a322d" x="218.38" y="257.06" style="fill: var(--link);" />
+     <use xlink:href="#mae034a322d" x="229.92" y="264.12" style="fill: var(--link);" />
+     <use xlink:href="#mae034a322d" x="242.88" y="272.05" style="fill: var(--link);" />
+     <use xlink:href="#mae034a322d" x="255.84" y="279.98" style="fill: var(--link);" />
+     <use xlink:href="#mae034a322d" x="270.95" y="289.23" style="fill: var(--link);" />
+     <use xlink:href="#mae034a322d" x="284.75" y="297.67" style="fill: var(--link);" />
+     <use xlink:href="#mae034a322d" x="298.44" y="306.05" style="fill: var(--link);" />
     </g>
    </g>
   </g>
  </g>
  <defs>
-  <clipPath id="pc117d54e43">
-   <rect x="50" y="48" width="192" height="114" />
+  <clipPath id="p18211f7210">
+   <rect x="52" y="48" width="120" height="120" />
   </clipPath>
-  <clipPath id="pc4866db671">
-   <rect x="336" y="48" width="192" height="114" />
+  <clipPath id="pb124218aa0">
+   <rect x="329" y="48" width="120" height="120" />
   </clipPath>
-  <clipPath id="pa9f6fbb742">
-   <rect x="193" y="230" width="192" height="114" />
+  <clipPath id="p657f0b462a">
+   <rect x="190.5" y="240" width="120" height="120" />
   </clipPath>
  </defs>
 </svg>

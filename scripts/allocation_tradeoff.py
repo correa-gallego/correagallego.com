@@ -59,13 +59,35 @@ LAM_MAX = 2.0
 
 # Canvas, in user units. The panels are placed by hand rather than by a grid,
 # so that the third can be centred under the first two.
-W, H = 552.0, 372.0
-PW = 192.0            # panel width
-PH = 114.0            # panel height
-A_L, B_L, C_L = 50.0, 336.0, 193.0
-TOP = 48.0            # figure top to the top of the upper axes
-GAP = 68.0            # between the two rows
-LETTER_UP = 36.0      # panel letter and title, above the axes
+#
+# **The plot area is square.** Every panel carries four intervals on each axis,
+# so a square panel makes the grid cells square too, which is what makes these
+# read as plots rather than as sketches. The canvas is derived from the panel
+# rather than the other way round, so changing S is the only knob.
+S = 120.0             # the side of the square plot area
+
+LEFT = 52.0           # figure left to the plot area, for the y label and ticks
+RIGHT_AX = 40.0       # panel A's second y axis, drawn outside it on the right
+GUTTER = 65.0         # clear space between that axis and panel B's y label. It is
+                      # wide on purpose. Two square panels stacked over one make
+                      # an almost square figure, and an almost square figure is
+                      # far too tall for the width the page gives it, so the
+                      # gutter is what buys the aspect back. Panel C sits under
+                      # it, so the space reads as composition rather than waste.
+RIGHT = 16.0          # figure right margin
+TOP = 48.0            # figure top to the upper plot areas, holding the title
+                      # and, on panel A only, the doubling-rate scale
+GAP = 72.0            # upper x label down to the lower title. It has to clear
+                      # the upper x label block and then LETTER_UP again, or the
+                      # lower title lands on top of the upper axis.
+BOTTOM = 26.0         # lower x label to the figure edge
+
+W = LEFT + S + RIGHT_AX + GUTTER + LEFT + S + RIGHT
+H = TOP + S + GAP + S + BOTTOM
+A_L = LEFT
+B_L = LEFT + S + RIGHT_AX + GUTTER + LEFT
+C_L = (A_L + B_L + S) / 2 - S / 2      # centred under the two above
+LETTER_UP = 34.0      # panel letter and title, above the plot area
 
 C_NUT, C_CM, C_LINE = "#1b4b9c", "#c5ccd4", "#a3abb4"
 C_AXIS, C_TEXT, C_NARROW, C_WIDE = "#d6dadf", "#2b323b", "#8b929b", "#1b4b9c"
@@ -78,8 +100,11 @@ CSS = {
     C_NARROW: "var(--faint)",
 }
 
-FS_TICK, FS_LABEL, FS_SEC, FS_SECTICK = 6.4, 7.4, 7.0, 6.2
-FS_TITLE, FS_NOTE, FS_MATH, FS_LETTER = 8.6, 6.8, 7.4, 9.8
+# Type sizes are in user units, so the rendered size is these times W over the
+# width the figure is given on the page. The canvas shrank with the square
+# panels, so the same numbers already render larger; these are larger again.
+FS_TICK, FS_LABEL, FS_SEC, FS_SECTICK = 7.4, 8.6, 8.0, 7.2
+FS_TITLE, FS_NOTE, FS_MATH, FS_LETTER = 10.0, 7.8, 8.6, 11.0
 
 TITLE = "The bacterial growth laws, the proteome partition, and the tradeoff it implies"
 DESC = (
@@ -214,12 +239,12 @@ def draw_tradeoff(ax):
     for k, (colour, label) in enumerate(
         ((C_NARROW, "Narrow pool"), (C_WIDE, "Wide pool"))
     ):
-        y = 0.98 - k * 0.11
+        y = 0.94 - k * 0.11
         ax.plot([1.28], [y], marker="o", ms=4.2, ls="none", mfc=colour, mec="none")
         ax.text(1.38, y, label, color=C_TEXT, fontsize=FS_NOTE, va="center", ha="left")
 
     ax.set_xlim(0, LAM_MAX)
-    ax.set_ylim(0, 1.04)
+    ax.set_ylim(0, 1.0)
     ax.set_xticks([0, 0.5, 1.0, 1.5, 2.0])
     ax.set_yticks([0, 0.25, 0.5, 0.75, 1.0])
     ax.set_yticklabels(["0", "0.25", "0.5", "0.75", "1"])
@@ -232,9 +257,9 @@ def doubling_axis(ax):
         "top", functions=(lambda lam: lam / np.log(2), lambda d: d * np.log(2))
     )
     sec.set_xticks([0, 1, 2])
-    sec.set_xlabel("Doublings per hour", color=C_TEXT, fontsize=FS_SEC, labelpad=2)
+    sec.set_xlabel("Doublings per hour", color=C_TEXT, fontsize=FS_SEC, labelpad=4)
     sec.tick_params(direction="out", length=2.6, width=0.8, color=C_AXIS,
-                    labelcolor=C_TEXT, labelsize=FS_SECTICK, pad=1.5)
+                    labelcolor=C_TEXT, labelsize=FS_SECTICK, pad=2.5)
     sec.spines["top"].set_color(C_AXIS)
     sec.spines["top"].set_linewidth(0.9)
 
@@ -254,8 +279,8 @@ def style(ax, letter, title):
     ax.set_xlabel("Growth rate λ (per hour)", color=C_TEXT, fontsize=FS_LABEL, labelpad=2)
     # Letter and title share a baseline above the panel, and the title is set
     # from the left, as a journal sets it.
-    y = 1.0 + LETTER_UP / PH
-    ax.text(-26.0 / PW, y, letter, transform=ax.transAxes, color=C_TEXT,
+    y = 1.0 + LETTER_UP / S
+    ax.text(-28.0 / S, y, letter, transform=ax.transAxes, color=C_TEXT,
             fontsize=FS_LETTER, fontweight=600, va="baseline", ha="left")
     ax.text(0.0, y, title, transform=ax.transAxes, color=C_TEXT,
             fontsize=FS_TITLE, va="baseline", ha="left")
@@ -266,11 +291,11 @@ def build(out_path: Path) -> None:
     fig = plt.figure(figsize=(W / 72.0, H / 72.0))
 
     def place(left, top):
-        return fig.add_axes([left / W, (H - top - PH) / H, PW / W, PH / H])
+        return fig.add_axes([left / W, (H - top - S) / H, S / W, S / H])
 
     axA = place(A_L, TOP)
     axB = place(B_L, TOP)
-    axC = place(C_L, TOP + PH + GAP)
+    axC = place(C_L, TOP + S + GAP)
 
     draw_growth_laws(axA)
     draw_partition(axB)
@@ -281,7 +306,10 @@ def build(out_path: Path) -> None:
         (axC, "C", "The tradeoff it implies"),
     ):
         style(ax, letter, title)
-        doubling_axis(ax)
+    # The doubling-rate scale is a relabelling of the same x axis, so it is
+    # drawn once, on the panel about growth rate, which is where Scott et al.
+    # put it in their Fig. 1A. Three copies were furniture, not information.
+    doubling_axis(axA)
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(out_path, format="svg", transparent=True, metadata={"Date": None})

@@ -34,3 +34,13 @@ for (const w of WIDTHS) {
     .toFile(file);
   console.log(`  ${w}px  ${(info.size / 1024).toFixed(1)} KB`);
 }
+
+/* The portrait in the introduction band. The original stays untouched at
+   public/assets/profile.webp, since that URL may be circulating; this is the
+   size the band actually needs at two times density. */
+const P_OUT = 'public/assets/portrait-256.webp';
+const p = await sharp('public/assets/profile.webp')
+  .resize({ width: 256, height: 256, fit: 'cover' })
+  .webp({ quality: 82, effort: 6 })
+  .toFile(P_OUT);
+console.log(`portrait  ${(p.size / 1024).toFixed(1)} KB`);

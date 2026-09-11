@@ -125,11 +125,21 @@
 
 /* ========= CV BUTTON (fixed, top-right) ========= */
 @layer components {
-    .cv-link {
+    /* The fixed top-right pair. The Stanford BPP committee pointed out that a
+       visitor who never scrolls never sees the footer, so an advisor could read
+       the whole argument and leave without the contact address. Email therefore
+       sits beside the CV, in the same glass style, visible from the first
+       paint. The mailto is wrapped in Cloudflare's email_off markers in the
+       layout, without which the edge rewrites it and the policy blocks the
+       decoder. */
+    .topbar {
         position: fixed;
         top: clamp(0.85rem, 2vw, 1.4rem);
         right: clamp(0.85rem, 4vw, 2.2rem);
         z-index: 20;
+        display: flex; align-items: center; gap: 0.45rem;
+    }
+    .top-link {
         display: inline-flex; align-items: center; gap: 0.5rem;
         padding: 0.5rem 0.95rem;
         font-family: var(--sans); font-weight: 500;
@@ -142,16 +152,52 @@
         backdrop-filter: blur(12px) saturate(140%);
         transition: background 0.18s var(--ease), border-color 0.18s var(--ease);
     }
-    .cv-link:hover {
+    .top-link:hover {
         color: #fff; text-decoration: none;
         background: rgba(18, 22, 28, 0.85);
         border-color: rgba(255, 255, 255, 0.32);
     }
-    .cv-link svg { width: 15px; height: 15px; flex-shrink: 0; }
-    .cv-link__short { display: none; }
+    .top-link svg { width: 15px; height: 15px; flex-shrink: 0; }
+    .top-link__short { display: none; }
     @media (max-width: 560px) {
-        .cv-link__full { display: none; }
-        .cv-link__short { display: inline; }
+        .top-link__full { display: none; }
+        .top-link__short { display: inline; }
+    }
+    @media (max-width: 400px) {
+        .top-link span { display: none; }
+        .top-link { padding: 0.5rem 0.6rem; }
+    }
+
+    /* Introduction. A band, not a screen: the two research sections stay the
+       page, and this is the threshold into them. Sebastian asked for it after
+       the same committee noted that the site opened straight onto two research
+       questions with nothing about who was asking them. */
+    .intro {
+        padding-block: clamp(3rem, 8vh, 5.5rem);
+        border-bottom: 1px solid var(--rule-soft);
+    }
+    .intro__inner {
+        display: flex; align-items: center;
+        gap: clamp(1.4rem, 3.5vw, 2.6rem);
+    }
+    .intro__portrait {
+        width: clamp(5rem, 9vw, 7.5rem);
+        height: auto;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        object-fit: cover;
+        flex-shrink: 0;
+        border: 1px solid var(--rule);
+    }
+    .intro__text {
+        font-family: var(--sans); font-weight: 300;
+        font-size: clamp(1rem, 1.5vw, 1.1rem);
+        line-height: 1.62; color: var(--body);
+        max-width: 46ch; text-wrap: pretty;
+    }
+    @media (max-width: 620px) {
+        .intro__inner { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+        .intro__text { max-width: 100%; }
     }
 }
 
@@ -430,7 +476,7 @@
     @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
 
     @media print {
-        .hero__scrim, .hero__cue, .skip-link, .foot__links, .cv-link { display: none !important; }
+        .hero__scrim, .hero__cue, .skip-link, .foot__links, .topbar { display: none !important; }
         .hero { min-height: auto; }
         .focus { min-height: auto; display: block; padding-block: 1.5rem; }
         body { background: #fff; color: #000; }

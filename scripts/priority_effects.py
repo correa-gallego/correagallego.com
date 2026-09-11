@@ -49,7 +49,10 @@ from pathlib import Path
 
 W, H = 552, 374
 LABEL_X = 76                       # right edge of the row labels
-LABEL_DY = 10.4                    # leading of the two-line row labels
+LABEL_DY = 12.4                    # leading of the two-line row labels. The label is set
+                                   # at 9.6px and a text run's box is about 1.2 times its
+                                   # size, so anything under about 11.6 makes the two lines
+                                   # collide, which is what 10.4 was doing.
 COL_X = [118, 192, 266, 356, 430, 504]
 PANEL_Y = (14, 202)                # top of each panel
 

@@ -14,19 +14,28 @@ precision, and restraint. No self-promotion.
 
 ## What the site is
 
-A single, static, one-page academic homepage — **three full-viewport screens and a footer**: a
-photo hero, then `#question` (the open problem) and `#approach` (the proposal). **The site is deliberately NOT a copy of the CV**: the
-CV lives in the PDF, linked from the one visible button. No blog, no multi-page routing, no
-analytics, no third-party scripts, **no JavaScript at all**.
+A single, static, one-page academic homepage: a photo hero, a short introduction band, then
+**two full-viewport screens**, `#question` (the open problem) and `#approach` (the proposal), and
+a footer. **The site is deliberately NOT a copy of the CV.** The CV lives in the PDF, linked from
+the top-right pair. No blog, no multi-page routing, no analytics, no third-party scripts,
+**no JavaScript at all**.
 
-**The site carries exactly three facts about Sebastian**: his name, his degree (hero line and
-footer), and the research argument. Everything else — thesis, manuscript, presentations, service,
-honours, training — is in the CV, and the CV button is the route to it. A full standing block
-(status + thesis link + manuscript + presentations + BPP) was built in the footer after an outside
-review argued the site showed no evidence of work; Sebastian removed it the same day —
-*"no me parece presentable… con eso queda claro el tema de la educación, y para el resto de
-contexto ir a CV."* **Do not rebuild it.** If a future request asks the site to show more of the
-record, the answer is the CV button, not a new section.
+**The site carries four things about Sebastian**: his name, his degree, four sentences of
+background in the introduction band, and the research argument. Everything else, thesis,
+manuscript, presentations, service, honours, training, is in the CV, and the CV button is the
+route to it.
+
+**On the introduction band, because this has moved twice and the reasoning matters.** A full
+standing block (status, thesis link, manuscript, presentations, BPP) was once built in the footer
+after an outside review argued the site showed no evidence of work, and Sebastian removed it the
+same day: *"no me parece presentable… con eso queda claro el tema de la educación, y para el resto
+de contexto ir a CV."* **That block stays gone.** What replaced it, at Sebastian's own request
+after feedback from Stanford's Biology Preview Program committee, is much smaller and does a
+different job: the committee's point was that the page opened straight onto two research questions
+with nothing about who was asking them. So the band says who he is and where he graduated in four
+sentences, with a portrait, and stops. **Its size is the whole point.** Sebastian: *"que sea lo
+suficientemente conciso para que el contenido principal de la web sigan siendo las dos preguntas
+de investigación."* Do not let it grow back into a record of the CV.
 
 ## Stack & tooling
 
@@ -178,7 +187,17 @@ take some out or move it to the other, and re-measure.
   - Both carry quantitative axes with ticks, numerals, units and panel letters, and true
     subscripts via `tspan`. **Do not strip those.** Sebastian's test is whether the authors of
     those papers would read it as a figure, and unlabelled axes are what fails that test.
-  - Figure 1 is 552x396, figure 2 is 552x372. **Both are near 3:2 on purpose.** They were
+  - Figure 1 is 552x374, figure 2 is 465x386. **Figure 2's plot areas are square**, 120 units a
+    side, and every axis carries four intervals, so the grid cells are square too. That is what
+    Sebastian meant by "plots formales con relaciones adecuadas en las gradillas". Square panels
+    stacked two over one make an almost square figure, which is far too tall for the width the page
+    gives it, so `GUTTER` is wide on purpose; it is the knob that buys the aspect back, and panel C
+    sits under it so the space reads as composition. **The doubling-rate scale is drawn once, on
+    panel A**, where Scott et al. put it; three copies were furniture.
+    **Row labels in figure 1 need `LABEL_DY` of at least about 11.6.** They are set at 9.6px and a
+    text run's box is roughly 1.2 times its size, so a tighter leading makes the two lines collide,
+    which is what 10.4 was doing across all four labels in both panels.
+  - Figure 1 was 552x396, figure 2 was 552x372. **Both are near 3:2 on purpose.** They were
     664x404 and 655.2x237.6, which stretched wide and flat across the page and left the marks
     small. Figure 1 was narrowed by clustering the pool into three triads, wrapping the row
     labels to two lines and closing the columns up, and its marks were drawn larger. Figure 2
@@ -241,12 +260,20 @@ take some out or move it to the other, and re-measure.
 - **Light, elegant cool-gray body** (`--paper: #eef0f2` — NOT blue, NOT dark: Sebastian tried a
   light-blue and a dark theme and rejected both). Dark text, sober **navy** (`#1b4b9c`).
   `--wrap: 62rem`. **No ALL-CAPS, no interpunct `·` anywhere.**
-- **CV button** (`.cv-link`, in `Base.astro`): the *only* visible button, `position: fixed`
-  top-right, on every page. A dark translucent glass pill — deliberately the **same** style over
-  the dark hero and the light body, so it needs no JS to re-theme. Opens
-  `/assets/Sebastian-Correa-Gallego-CV.pdf` in a new tab, straight into the browser's own PDF
-  viewer (Sebastian: "el CV abierto en Google, tal cómo está" — **never** an embedded subpage).
-  Label "Curriculum Vitae", collapsing to "CV" under 560px.
+- **Introduction band** (`.intro`, in `index.astro`): the portrait at
+  `/assets/portrait-256.webp` beside four sentences. **A band, not a screen**, so the two research
+  sections remain the page; it has no `min-height` and ends on a hairline rule. The hero cue points
+  at it. See the reasoning under "What the site is" before changing its length.
+- **Top-right pair** (`.topbar` with two `.top-link` pills, in `Base.astro`): **Email** then
+  **Curriculum Vitae**, on every page, `position: fixed`. Dark translucent glass pills,
+  deliberately the **same** style over the dark hero and the light body, so they need no JS to
+  re-theme. The CV opens `/assets/CV.pdf` in a new tab, straight into the browser's own PDF viewer
+  (Sebastian: "el CV abierto en Google, tal cómo está", **never** an embedded subpage). Labels
+  collapse to "CV" under 560px and to icons alone under 400px.
+  **Email is up here because of the same BPP feedback**: a visitor who never scrolls never sees
+  the footer, so an advisor could read the whole argument and leave without the address. It is
+  still in the footer too. **Its `mailto` must stay wrapped in `<!--email_off-->`**, like the
+  footer's, or Cloudflare rewrites it at the edge and the policy blocks the decoder.
 - **Footer:** three parts — `.foot__degree` (the navy EAFIT mark at `height: 1.45em` beside
   "B.Sc. in Biology, Universidad EAFIT, 2026", the logo/text lockup from the old `.entry__inst`
   style Sebastian asked to bring back), then the icon links (email, ORCID green, Google Scholar,
@@ -586,3 +613,20 @@ and the 404, not just the research prose.
    claims, the check changed the figure. Entry 18 caught a growth-law slope at nearly twice the
    published value and a whole wrong representation; this one caught an inverted encoding. Reading
    the caption of the figure being adapted is what did it, not reading the prose.
+27. **Current - square plots, and a face on the page (Sep 2026).** Three things, two of them from
+   outside review.
+   **Figure 1** had its two-line row labels overlapping by about a pixel each, all four of them, in
+   both panels. Caught by walking the rendered bounding boxes rather than by looking.
+   **Figure 2** went to square plot areas with square grid cells, which is what makes a plot read
+   as a plot. The cost is real and worth knowing: two square panels over one is an almost square
+   figure, the page gives the figure 560px of width, and an almost square figure at that width is
+   about 500px tall against a budget near 460. The gutter absorbs part of it and **the caption paid
+   the rest**, coming down from seven lines to four. Panels went from 195x116 to 144x144 and the
+   type is about 37 per cent larger.
+   **The introduction band** came from the Stanford BPP committee, via Sebastian. Two points, both
+   fair. The page opened on two research questions with nothing about who was asking them, and the
+   contact address sat in a footer a visitor might never scroll to. So there is now a short band
+   with a portrait and four sentences, and Email sits beside the CV in the fixed top-right.
+   **This is the third position the site has taken on how much of the record to show**, and it is
+   not a drift back to the CV copy of entry 10. The footer standing block stays deleted. What is
+   new is small, biographical rather than evidentiary, and its brevity is the instruction.

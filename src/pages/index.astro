@@ -37,8 +37,28 @@ const fukami2010 = 'https://web.stanford.edu/~fukamit/fukami-2010.pdf';
         </p>
       </div>
     </div>
-    <a class="hero__cue" href="#question" aria-label="Continue to the question"><span aria-hidden="true"></span></a>
+    <a class="hero__cue" href="#intro" aria-label="Continue"><span aria-hidden="true"></span></a>
   </header>
+
+  <section class="intro" id="intro">
+    <div class="wrap intro__inner">
+      <img
+        class="intro__portrait"
+        src="/assets/portrait-256.webp"
+        width="128"
+        height="128"
+        alt="Sebastian Correa-Gallego."
+        loading="lazy"
+        decoding="async"
+      />
+      <p class="intro__text">
+        I am a biologist. I finished my B.Sc. at Universidad EAFIT in Medellín, Colombia, where my
+        thesis followed microbial communities along a light gradient in a tropical cave. At Purdue
+        I worked on how yeasts allocate their proteome under carbon limitation. I am applying to
+        doctoral programmes now, and the two questions below are the ones I would like to work on.
+      </p>
+    </div>
+  </section>
 
   <section class="focus" id="question">
     <div class="wrap focus__inner">
@@ -120,13 +140,10 @@ const fukami2010 = 'https://web.stanford.edu/~fukamit/fukami-2010.pdf';
         <figure class="focus__figure reveal">
           <div class="fig-wrap"><Fragment set:html={allocationTradeoff} /></div>
           <figcaption class="fig__caption">
-            In panel A, nutrient quality moves a culture along the rising line and translational
-            inhibition along a falling one, so each drug-free culture sits where its medium's two
-            lines cross. Those crossings fix the parameters, which is why the partition can be
-            measured rather than assumed. Panel B converts the ratio into mass fractions against a
-            fixed housekeeping sector, and panel C is the rate and yield tradeoff that partition
-            implies, drawn over two pools of strains. Panels A and B follow
-            <a href={scott} rel="noopener" target="_blank">Scott et al. 2010</a>. Panel C is an
+            Panel A, the two growth laws, with each medium's drug-free culture at the crossing
+            that fixes its parameters. Panel B, the partition that implies. Panel C, the rate and
+            yield tradeoff. A and B after
+            <a href={scott} rel="noopener" target="_blank">Scott et al. 2010</a>. C is an
             inference, since yield is not measured there.
           </figcaption>
         </figure>
