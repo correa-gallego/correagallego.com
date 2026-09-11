@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Generate the proteome-allocation figure for correagallego.com.
 
-Three panels built on the relations of Scott et al. 2010 (Science 330, 1099).
+Three panels built on the relations of Scott et al. 2010 (Science 330, 1099),
+laid out two above and one below, centred, so that each panel is wide enough to
+read on a page rather than squeezed into a third of the width.
 
 Panel A reproduces the structure of their Figs. 1A and 2A. Two independent
 perturbations move a cell along two different lines in the plane of growth rate
@@ -55,6 +57,16 @@ PHI_Q = 0.45          # fixed housekeeping sector
 KAPPA_N = (1.0, 1.6, 2.4, 3.4, 4.6, 6.2)   # nutritional capacity, poor to rich
 LAM_MAX = 2.0
 
+# Canvas, in user units. The panels are placed by hand rather than by a grid,
+# so that the third can be centred under the first two.
+W, H = 552.0, 372.0
+PW = 192.0            # panel width
+PH = 114.0            # panel height
+A_L, B_L, C_L = 50.0, 336.0, 193.0
+TOP = 48.0            # figure top to the top of the upper axes
+GAP = 68.0            # between the two rows
+LETTER_UP = 36.0      # panel letter and title, above the axes
+
 C_NUT, C_CM, C_LINE = "#1b4b9c", "#c5ccd4", "#a3abb4"
 C_AXIS, C_TEXT, C_NARROW, C_WIDE = "#d6dadf", "#2b323b", "#8b929b", "#1b4b9c"
 CSS = {
@@ -65,6 +77,9 @@ CSS = {
     C_TEXT: "currentColor",
     C_NARROW: "var(--faint)",
 }
+
+FS_TICK, FS_LABEL, FS_SEC, FS_SECTICK = 6.4, 7.4, 7.0, 6.2
+FS_TITLE, FS_NOTE, FS_MATH, FS_LETTER = 8.6, 6.8, 7.4, 9.8
 
 TITLE = "The bacterial growth laws, the proteome partition, and the tradeoff it implies"
 DESC = (
@@ -79,8 +94,18 @@ DESC = (
 )
 
 _rng = np.random.default_rng(7)
-NARROW = np.sort(_rng.uniform(0.66, 1.02, 8))
-WIDE = np.sort(_rng.uniform(0.15, 1.88, 8))
+
+
+def pool(lo, hi, n=8):
+    """A pool of n strains spanning lo to hi. One strain per stratum, jittered
+    inside it, so the drawn spread is the stated spread and not whatever eight
+    free draws happened to give."""
+    edges = np.linspace(lo, hi, n + 1)
+    return edges[:-1] + _rng.uniform(0.12, 0.88, n) * np.diff(edges)
+
+
+NARROW = np.sort(pool(0.64, 1.04))
+WIDE = np.sort(pool(0.14, 1.90))
 
 
 def r_nutrient(lam):
@@ -109,36 +134,37 @@ def yield_from_allocation(lam):
     return phi_metabolic(lam) / phi_metabolic(0.0)
 
 
-def math_text(ax, x, y, s, size=5.8, **kw):
+def math_text(ax, x, y, s, size=FS_MATH, **kw):
     return ax.text(x, y, s, color=C_TEXT, fontsize=size, style="italic", **kw)
 
 
 def draw_growth_laws(ax):
     lam = np.linspace(0, LAM_MAX, 200)
-    ax.plot(lam, r_nutrient(lam), color=C_NUT, lw=1.3, zorder=4)
+    ax.plot(lam, r_nutrient(lam), color=C_NUT, lw=1.5, zorder=4)
 
     for kn in KAPPA_N:
         lx = lam_crossing(kn)
         seg = np.linspace(0, min(lx * 1.06, LAM_MAX), 60)
-        ax.plot(seg, r_inhibited(seg, kn), color=C_CM, lw=0.9, zorder=2)
-        ax.plot([lx], [r_nutrient(lx)], marker="o", ms=3.4, ls="none",
+        ax.plot(seg, r_inhibited(seg, kn), color=C_CM, lw=1.0, zorder=2)
+        ax.plot([lx], [r_nutrient(lx)], marker="o", ms=4.2, ls="none",
                 mfc=C_NUT, mec="none", zorder=5)
 
-    math_text(ax, 1.36, 0.20, "r = r₀ + λ/κ_t", ha="center")
-    math_text(ax, 0.42, 0.66, "r = r_max − λ/κ_n", ha="left")
+    math_text(ax, 1.42, 0.18, "r = r₀ + λ/κ_t", ha="center")
+    math_text(ax, 0.32, 0.755, "r = r_max − λ/κ_n", ha="left", va="center")
 
     ax.set_xlim(0, LAM_MAX)
     ax.set_ylim(0, 0.8)
     ax.set_xticks([0, 0.5, 1.0, 1.5, 2.0])
     ax.set_yticks([0, 0.2, 0.4, 0.6, 0.8])
-    ax.set_ylabel("RNA / protein, r", color=C_TEXT, fontsize=6.4, labelpad=2)
-    ax.set_title("two growth laws", color=C_TEXT, fontsize=7.2, pad=22)
+    ax.set_yticklabels(["0", "0.2", "0.4", "0.6", "0.8"])
+    ax.set_ylabel("RNA / protein, r", color=C_TEXT, fontsize=FS_LABEL, labelpad=2)
 
     sec = ax.secondary_yaxis("right", functions=(lambda r: RHO * r, lambda p: p / RHO))
     sec.set_yticks([0, 0.2, 0.4])
-    sec.set_ylabel("ribosomal fraction", color=C_TEXT, fontsize=6.2, labelpad=2)
-    sec.tick_params(direction="out", length=2.4, width=0.8, color=C_AXIS,
-                    labelcolor=C_TEXT, labelsize=5.4, pad=1.5)
+    sec.set_yticklabels(["0", "0.2", "0.4"])
+    sec.set_ylabel("Ribosomal fraction", color=C_TEXT, fontsize=FS_SEC, labelpad=3)
+    sec.tick_params(direction="out", length=2.6, width=0.8, color=C_AXIS,
+                    labelcolor=C_TEXT, labelsize=FS_SECTICK, pad=1.5)
     sec.spines["right"].set_color(C_AXIS)
     sec.spines["right"].set_linewidth(0.9)
 
@@ -147,58 +173,58 @@ def draw_partition(ax):
     lam = np.linspace(0, LAM_MAX, 200)
     top_of_r = PHI_Q + phi_ribosomal(lam)
 
-    ax.fill_between(lam, 0, PHI_Q, color=C_CM, alpha=0.32, lw=0)
+    ax.fill_between(lam, 0, PHI_Q, color=C_CM, alpha=0.45, lw=0)
     ax.fill_between(lam, PHI_Q, top_of_r, color=C_NUT, alpha=0.22, lw=0)
-    ax.fill_between(lam, top_of_r, 1.0, color=C_CM, alpha=0.68, lw=0)
-    ax.plot(lam, top_of_r, color=C_NUT, lw=1.3, zorder=3)
+    ax.fill_between(lam, top_of_r, 1.0, color=C_LINE, alpha=0.55, lw=0)
+    ax.plot(lam, top_of_r, color=C_NUT, lw=1.5, zorder=3)
 
     for xs, colour in ((NARROW, C_NARROW), (WIDE, C_WIDE)):
-        ax.plot(xs, PHI_Q + phi_ribosomal(xs), marker="o", ms=2.6, ls="none",
+        ax.plot(xs, PHI_Q + phi_ribosomal(xs), marker="o", ms=3.0, ls="none",
                 mfc=colour, mec="none", zorder=4)
 
-    math_text(ax, 1.0, 0.21, "φ_Q", size=6.4, ha="right", va="center")
-    ax.text(1.05, 0.21, "housekeeping", color=C_TEXT, fontsize=5.8, ha="left", va="center")
-    math_text(ax, 1.42, 0.585, "φ_R", size=6.4, ha="right", va="center")
-    ax.text(1.47, 0.585, "ribosomal", color=C_TEXT, fontsize=5.8, ha="left", va="center")
-    math_text(ax, 0.62, 0.87, "φ_P", size=6.4, ha="right", va="center")
-    ax.text(0.67, 0.87, "metabolic", color=C_TEXT, fontsize=5.8, ha="left", va="center")
+    for y, sym, name in ((0.21, "φ_Q", "Housekeeping"),
+                         (0.585, "φ_R", "Ribosomal"),
+                         (0.88, "φ_P", "Metabolic")):
+        math_text(ax, 0.94, y, sym, size=FS_MATH + 0.8, ha="right", va="center")
+        ax.text(1.02, y, name, color=C_TEXT, fontsize=FS_NOTE, ha="left", va="center")
 
     ax.set_xlim(0, LAM_MAX)
     ax.set_ylim(0, 1.0)
     ax.set_xticks([0, 0.5, 1.0, 1.5, 2.0])
     ax.set_yticks([0, 0.25, 0.5, 0.75, 1.0])
-    ax.set_ylabel("proteome mass fraction", color=C_TEXT, fontsize=6.4, labelpad=2)
-    ax.set_title("the partition it fixes", color=C_TEXT, fontsize=7.2, pad=22)
+    ax.set_yticklabels(["0", "0.25", "0.5", "0.75", "1"])
+    ax.set_ylabel("Proteome mass fraction", color=C_TEXT, fontsize=FS_LABEL, labelpad=2)
 
 
 def draw_tradeoff(ax):
     lam = np.linspace(0.05, LAM_MAX, 200)
-    ax.plot(lam, yield_from_allocation(lam), color=C_LINE, lw=1.3, zorder=2)
+    ax.plot(lam, yield_from_allocation(lam), color=C_LINE, lw=1.5, zorder=2)
 
     for xs, colour in ((NARROW, C_NARROW), (WIDE, C_WIDE)):
-        ax.plot(xs, yield_from_allocation(xs), marker="o", ms=3.6, ls="none",
+        ax.plot(xs, yield_from_allocation(xs), marker="o", ms=4.2, ls="none",
                 mfc=colour, mec="none", zorder=4)
 
-    for xs, colour, y in ((NARROW, C_NARROW, 0.17), (WIDE, C_WIDE, 0.06)):
-        ax.plot([xs[0], xs[-1]], [y, y], color=colour, lw=0.9, zorder=3)
+    for xs, colour, y in ((NARROW, C_NARROW, 0.18), (WIDE, C_WIDE, 0.07)):
+        ax.plot([xs[0], xs[-1]], [y, y], color=colour, lw=1.0, zorder=3)
         for x in (xs[0], xs[-1]):
-            ax.plot([x, x], [y - 0.024, y + 0.024], color=colour, lw=0.9, zorder=3)
-        ax.text(xs[-1] + 0.06, y, f"spread {xs[-1] - xs[0]:.2f}",
-                color=C_TEXT, fontsize=5.4, va="center", ha="left")
+            ax.plot([x, x], [y - 0.026, y + 0.026], color=colour, lw=1.0, zorder=3)
+        ax.text(xs[-1] + 0.07, y, f"Spread {xs[-1] - xs[0]:.2f}",
+                color=C_TEXT, fontsize=FS_NOTE - 0.4, va="center", ha="left")
 
     for k, (colour, label) in enumerate(
-        ((C_NARROW, "narrow pool"), (C_WIDE, "wide pool"))
+        ((C_NARROW, "Narrow pool"), (C_WIDE, "Wide pool"))
     ):
-        y = 0.96 - k * 0.1
-        ax.plot([1.04], [y], marker="o", ms=3.6, ls="none", mfc=colour, mec="none")
-        ax.text(1.12, y, label, color=C_TEXT, fontsize=5.8, va="center", ha="left")
+        y = 0.98 - k * 0.11
+        ax.plot([1.28], [y], marker="o", ms=4.2, ls="none", mfc=colour, mec="none")
+        ax.text(1.38, y, label, color=C_TEXT, fontsize=FS_NOTE, va="center", ha="left")
 
     ax.set_xlim(0, LAM_MAX)
     ax.set_ylim(0, 1.04)
     ax.set_xticks([0, 0.5, 1.0, 1.5, 2.0])
     ax.set_yticks([0, 0.25, 0.5, 0.75, 1.0])
-    ax.set_ylabel("yield, relative to zero growth", color=C_TEXT, fontsize=6.4, labelpad=2)
-    ax.set_title("the tradeoff it implies", color=C_TEXT, fontsize=7.2, pad=22)
+    ax.set_yticklabels(["0", "0.25", "0.5", "0.75", "1"])
+    ax.set_ylabel("Yield, relative to zero growth", color=C_TEXT,
+                  fontsize=FS_LABEL, labelpad=2)
 
 
 def doubling_axis(ax):
@@ -206,39 +232,56 @@ def doubling_axis(ax):
         "top", functions=(lambda lam: lam / np.log(2), lambda d: d * np.log(2))
     )
     sec.set_xticks([0, 1, 2])
-    sec.set_xlabel("doublings per hour", color=C_TEXT, fontsize=6.0, labelpad=2)
-    sec.tick_params(direction="out", length=2.4, width=0.8, color=C_AXIS,
-                    labelcolor=C_TEXT, labelsize=5.4, pad=1.5)
+    sec.set_xlabel("Doublings per hour", color=C_TEXT, fontsize=FS_SEC, labelpad=2)
+    sec.tick_params(direction="out", length=2.6, width=0.8, color=C_AXIS,
+                    labelcolor=C_TEXT, labelsize=FS_SECTICK, pad=1.5)
     sec.spines["top"].set_color(C_AXIS)
     sec.spines["top"].set_linewidth(0.9)
 
 
-def style(ax, letter):
+def style(ax, letter, title):
     for side in ("top", "right"):
         ax.spines[side].set_visible(False)
     for side in ("left", "bottom"):
         ax.spines[side].set_color(C_AXIS)
         ax.spines[side].set_linewidth(0.9)
-    ax.tick_params(which="both", direction="out", length=2.6, width=0.8,
-                   color=C_AXIS, labelcolor=C_TEXT, labelsize=5.6, pad=2)
+    ax.tick_params(which="both", direction="out", length=2.8, width=0.8,
+                   color=C_AXIS, labelcolor=C_TEXT, labelsize=FS_TICK, pad=2)
     ax.patch.set_alpha(0)
     ax.grid(True, which="major", color=C_AXIS, lw=0.5, alpha=0.55, zorder=0)
     ax.set_axisbelow(True)
-    ax.set_xlabel("growth rate λ (per hour)", color=C_TEXT, fontsize=6.4, labelpad=2)
-    ax.text(-0.19, 1.30, letter, transform=ax.transAxes, color=C_TEXT,
-            fontsize=8.2, fontweight=500, va="top", ha="left")
+    ax.set_xticklabels(["0", "0.5", "1", "1.5", "2"])
+    ax.set_xlabel("Growth rate λ (per hour)", color=C_TEXT, fontsize=FS_LABEL, labelpad=2)
+    # Letter and title share a baseline above the panel, and the title is set
+    # from the left, as a journal sets it.
+    y = 1.0 + LETTER_UP / PH
+    ax.text(-26.0 / PW, y, letter, transform=ax.transAxes, color=C_TEXT,
+            fontsize=FS_LETTER, fontweight=600, va="baseline", ha="left")
+    ax.text(0.0, y, title, transform=ax.transAxes, color=C_TEXT,
+            fontsize=FS_TITLE, va="baseline", ha="left")
 
 
 def build(out_path: Path) -> None:
     plt.rcParams["svg.fonttype"] = "none"
-    fig, axes = plt.subplots(1, 3, figsize=(9.1, 3.3))
-    draw_growth_laws(axes[0])
-    draw_partition(axes[1])
-    draw_tradeoff(axes[2])
-    for ax, letter in zip(axes, "ABC"):
-        style(ax, letter)
+    fig = plt.figure(figsize=(W / 72.0, H / 72.0))
+
+    def place(left, top):
+        return fig.add_axes([left / W, (H - top - PH) / H, PW / W, PH / H])
+
+    axA = place(A_L, TOP)
+    axB = place(B_L, TOP)
+    axC = place(C_L, TOP + PH + GAP)
+
+    draw_growth_laws(axA)
+    draw_partition(axB)
+    draw_tradeoff(axC)
+    for ax, letter, title in (
+        (axA, "A", "Two growth laws"),
+        (axB, "B", "The partition it fixes"),
+        (axC, "C", "The tradeoff it implies"),
+    ):
+        style(ax, letter, title)
         doubling_axis(ax)
-    fig.subplots_adjust(left=0.062, right=0.955, top=0.7, bottom=0.135, wspace=0.42)
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(out_path, format="svg", transparent=True, metadata={"Date": None})

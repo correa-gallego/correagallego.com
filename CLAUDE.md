@@ -125,18 +125,29 @@ take some out or move it to the other, and re-measure.
     `r` 0.18 to 0.43. **`phi_Q = 0.45` is the reported housekeeping fraction**, with
     `phi_C + phi_R + phi_E = 1 - phi_Q` fixing the rest at 0.55. Do not alter these without a
     source.
+  - **Panel titles are left-aligned and start with a capital, and so does every axis label,
+    legend entry and row label.** Sentence case with an initial capital is the journal
+    convention and Sebastian asked for it; centred panel titles were his first correction.
   - Both carry quantitative axes with ticks, numerals, units and panel letters, and true
     subscripts via `tspan`. **Do not strip those.** Sebastian's test is whether the authors of
     those papers would read it as a figure, and unlabelled axes are what fails that test.
-  - Figure 1 is 664x404, figure 2 is 655.2x237.6. Figure 1 is taller because it stacks two
-    panels of four rows; figure 2 is wide and short because it runs three panels in a row.
+  - Figure 1 is 552x396, figure 2 is 552x372. **Both are near 3:2 on purpose.** They were
+    664x404 and 655.2x237.6, which stretched wide and flat across the page and left the marks
+    small. Figure 1 was narrowed by clustering the pool into three triads, wrapping the row
+    labels to two lines and closing the columns up, and its marks were drawn larger. Figure 2
+    went from three panels in a row to **two above and one centred below**, which is Sebastian's
+    layout ("de manera triangular"). Its panels are placed by hand with `fig.add_axes`, not by a
+    grid, because a gridspec cannot centre the third one.
   - **Each figure sits in a `.fig-wrap`.** Below 860px that box scrolls horizontally and the SVG
-    keeps a 30rem minimum, because three panels at phone width are unreadable. The page itself
-    never scrolls sideways; only the figure box does.
-  - **The figures run into the right margin.** `.focus__figure` carries a negative right margin,
-    `clamp(0rem, (100vw - var(--wrap)) / 2 - 2.2rem, 11rem)`, so a figure is about 650px at 1512
-    and falls back to the column width below 1100. A 25rem box read as too small next to the
-    journals this is measured against. The margin collapses to zero under 860px.
+    keeps a 28rem minimum, because axis numerals at phone width are unreadable. **The grid track
+    must be `minmax(0, 1fr)` and not `1fr`.** A bare `1fr` takes its automatic minimum from that
+    28rem and widens the whole page, which is what put a horizontal scrollbar on the page itself
+    and pushed the text out of the margin.
+  - **The figures run a little into the right margin.** `.focus__figure` carries a negative right
+    margin, `clamp(0rem, (100vw - var(--wrap)) / 2 - 2.2rem, 5.75rem)`, so a figure is about
+    560px at 1512 and falls back to the column width below 1100. The bleed was 11rem and is held
+    shorter now; a wider box forces a flatter canvas, and the canvas was the problem. On a short
+    screen (`max-height: 780px`) the bleed goes to zero, because there height is what binds.
   - **`--fig-alt` (#a8762e) is the second functional colour.** Blue and amber is the safest pair
     for colour-blind readers. In the schematic, shape is the guild and colour separates the two
     competitors within a guild, which is the whole point of the two rows; with fill-versus-outline
@@ -448,3 +459,22 @@ and the 404, not just the research prose.
    figure bullet above. It came out wider and shorter than the two-panel version, so every section
    gained headroom rather than losing it.
    Also added `.fig-wrap`, since three panels at phone width were illegible.
+24. **Current - the figures were reshaped to fit the page (Sep 2026).** Sebastian: the figures run
+   too far along the horizontal, so they cannot be read on a laptop and on a phone they "ocupan
+   mas del margen de la pagina web desplazando contenido". **He was right about the phone, and
+   entry 23's verification missed it.** The `.fig-wrap` from that entry did scroll, but the grid
+   track was `1fr`, whose automatic minimum came from the SVG's own 30rem floor, so the track
+   widened to 480px and carried the whole page with it. At 375 the document scrolled sideways by
+   126px. It is `minmax(0, 1fr)` now, and the page measures 375 of 375.
+   The shape problem was real too, and the fix is the one he specified. Figure 1 is narrower and
+   its marks are bigger. Figure 2 is two panels above and one centred below. Both land near 3:2,
+   the margin bleed was cut from 11rem to 5.75rem so the canvas is not stretched wide again, and
+   figure 2's panels are about 60 per cent wider than they were in a row of three.
+   Two things changed on their own merits while the figures were open. The pools in figure 2's
+   panel C were eight free uniform draws, and the "wide" one had come out spanning 0.94/h against
+   the narrow one's 0.32, which undersold the contrast the panel exists to show; they are drawn
+   one per stratum now, so the plotted spread is the stated spread, 1.50 against 0.36. And the
+   housekeeping and metabolic sectors in panel B were two alphas of the same grey and did not
+   read apart, so the metabolic sector took `--fig-traj`.
+   Both sections still fit one screen at 1512x830, 1440x900, 1366x768, 1366x700, 1280x720 and
+   1024x640; the last two needed a further trim, so a `max-height: 680px` branch was added.

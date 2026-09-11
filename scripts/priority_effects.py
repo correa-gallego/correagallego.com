@@ -17,6 +17,10 @@ is visible before any numeral is read; the numerals identify species within a
 group. Two habitat conditions by three immigration histories gives six columns
 per panel.
 
+The canvas is deliberately narrow. The species marks carry the figure, so the
+columns sit close together and the marks are drawn large, rather than the
+reverse. Row labels wrap to two lines to keep the left margin off the drawing.
+
 It is deliberately a diagram, not a model output. The companion figure,
 allocation-tradeoff.svg, is the computed one.
 
@@ -28,18 +32,28 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-W, H = 664, 404
-LABEL_X = 112                      # right edge of the row labels
-COL_X = [166, 250, 334, 424, 508, 592]
-PANEL_Y = (8, 218)                 # top of each panel
-POOL_Y, POOL_H = 30, 30
+W, H = 552, 396
+LABEL_X = 76                       # right edge of the row labels
+LABEL_DY = 10.4                    # leading of the two-line row labels
+COL_X = [118, 192, 266, 356, 430, 504]
+PANEL_Y = (14, 216)                # top of each panel
+POOL_Y, POOL_H = 26, 32
 HIST_Y = 80
-COMM_Y, COMM_R = 128, 27
-HAB_Y = 172
+COMM_Y, COMM_R = 126, 30
+HAB_Y = 168
+POOL_PAD = 32                      # the pool rounds off this far past the end columns
+POOL_STEP = 34                     # between species within a group
+POOL_GAP = 84                      # between the three groups
 
 GROUPS = ("var(--link)", "var(--fig-alt)", "var(--fig-sep)")
 HISTORIES = ("A", "B", "C", "A", "B", "C")
 HABITATS = ("I", "I", "I", "II", "II", "II")
+ROWS = (
+    ("Species", "pool"),
+    ("Immigration", "history"),
+    ("Local", "community"),
+    ("Habitat", "condition"),
+)
 
 # Which group of three species ends up in each column.
 DETERMINISTIC = (0, 0, 0, 1, 1, 1)      # follows the habitat condition
@@ -49,15 +63,15 @@ TITLE = "Two regimes of community assembly from one species pool"
 DESC = (
     "Two panels over the same pool of nine species, arranged in three groups of three. "
     "Each panel crosses three immigration histories against two habitat conditions, giving "
-    "six local communities. In the upper panel assembly is deterministic: the community "
-    "that forms follows the habitat condition, and changing the immigration history makes "
-    "no difference. In the lower panel assembly is historically contingent: the community "
-    "follows the immigration history instead, and changing the habitat condition makes no "
+    "six local communities. In the upper panel assembly is deterministic and the community "
+    "that forms follows the habitat condition, so changing the immigration history makes "
+    "no difference. In the lower panel assembly is historically contingent and the community "
+    "follows the immigration history instead, so changing the habitat condition makes no "
     "difference."
 )
 
 
-def species(n, cx, cy, r=9.0):
+def species(n, cx, cy, r):
     """A numbered species mark. Colour is the group, the numeral the identity."""
     fill = GROUPS[(n - 1) // 3]
     return (
@@ -70,32 +84,42 @@ def species(n, cx, cy, r=9.0):
 def arrow(x, y1, y2):
     return (
         f'<path class="fk__arrow" d="M{x:.1f},{y1:.1f} V{y2:.1f} '
-        f'M{x - 3.2:.1f},{y2 - 4.6:.1f} L{x:.1f},{y2:.1f} L{x + 3.2:.1f},{y2 - 4.6:.1f}" />'
+        f'M{x - 3.4:.1f},{y2 - 5.0:.1f} L{x:.1f},{y2:.1f} L{x + 3.4:.1f},{y2 - 5.0:.1f}" />'
     )
 
 
-def panel(top, assignment, title, first):
-    o = [f'<text class="fk__title" x="{(LABEL_X + COL_X[-1]) / 2:.0f}" y="{top:.0f}" '
-         f'text-anchor="middle">{title}</text>']
+def row_label(y, words):
+    """Two lines, right-anchored, centred on the row."""
+    top = y - LABEL_DY / 2 + 3.4
+    return "".join(
+        f'<text class="fk__row" x="{LABEL_X}" y="{top + k * LABEL_DY:.1f}" '
+        f'text-anchor="end">{w}</text>'
+        for k, w in enumerate(words)
+    )
+
+
+def panel(top, assignment, title):
+    o = [f'<text class="fk__title" x="0" y="{top:.0f}">{title}</text>']
 
     # Row labels, once per panel so each panel reads on its own.
-    for y, text in (
-        (top + POOL_Y + POOL_H / 2 + 3, "species pool"),
-        (top + HIST_Y + 3, "immigration history"),
-        (top + COMM_Y + 3, "local community"),
-        (top + HAB_Y + 3, "habitat condition"),
+    for y, words in zip(
+        (top + POOL_Y + POOL_H / 2, top + HIST_Y, top + COMM_Y, top + HAB_Y), ROWS
     ):
-        o.append(f'<text class="fk__row" x="{LABEL_X}" y="{y:.1f}" text-anchor="end">{text}</text>')
+        o.append(row_label(y, words))
 
     # The species pool, shared by every column of the panel.
     o.append(
-        f'<rect class="fk__pool" x="{COL_X[0] - 36}" y="{top + POOL_Y}" '
-        f'width="{COL_X[-1] - COL_X[0] + 72}" height="{POOL_H}" rx="{POOL_H / 2}" />'
+        f'<rect class="fk__pool" x="{COL_X[0] - POOL_PAD}" y="{top + POOL_Y}" '
+        f'width="{COL_X[-1] - COL_X[0] + 2 * POOL_PAD}" height="{POOL_H}" '
+        f'rx="{POOL_H / 2}" />'
     )
-    span = COL_X[-1] - COL_X[0] + 40
+    # The nine sit as three triads, so the grouping reads off the pool itself
+    # and not only off the colour.
+    mid = (COL_X[0] + COL_X[-1]) / 2
+    left = mid - (3 * 2 * POOL_STEP + 2 * POOL_GAP) / 2
     for k in range(9):
-        cx = COL_X[0] - 20 + span * k / 8
-        o.append(species(k + 1, cx, top + POOL_Y + POOL_H / 2))
+        cx = left + (k // 3) * (2 * POOL_STEP + POOL_GAP) + (k % 3) * POOL_STEP
+        o.append(species(k + 1, cx, top + POOL_Y + POOL_H / 2, r=10.4))
 
     for col, x in enumerate(COL_X):
         o.append(arrow(x, top + POOL_Y + POOL_H + 4, top + COMM_Y - COMM_R - 4))
@@ -103,12 +127,10 @@ def panel(top, assignment, title, first):
             f'<text class="fk__hist" x="{x + 9:.0f}" y="{top + HIST_Y + 4:.0f}">'
             f'{HISTORIES[col]}</text>'
         )
-        o.append(
-            f'<circle class="fk__comm" cx="{x}" cy="{top + COMM_Y}" r="{COMM_R}" />'
-        )
+        o.append(f'<circle class="fk__comm" cx="{x}" cy="{top + COMM_Y}" r="{COMM_R}" />')
         base = assignment[col] * 3 + 1
-        for k, (dx, dy) in enumerate(((-10, 5), (0, -9), (10, 6))):
-            o.append(species(base + k, x + dx, top + COMM_Y + dy, r=8.4))
+        for k, (dx, dy) in enumerate(((-11, 6), (0, -10), (11, 7))):
+            o.append(species(base + k, x + dx, top + COMM_Y + dy, r=9.4))
         o.append(
             f'<text class="fk__hab" x="{x}" y="{top + HAB_Y + 4:.0f}" '
             f'text-anchor="middle">{HABITATS[col]}</text>'
@@ -123,8 +145,8 @@ def build() -> str:
         f'<title id="fk-title">{TITLE}</title>',
         f'<desc id="fk-desc">{DESC}</desc>',
     ]
-    out += panel(PANEL_Y[0], DETERMINISTIC, "deterministic assembly", True)
-    out += panel(PANEL_Y[1], CONTINGENT, "historically contingent assembly", False)
+    out += panel(PANEL_Y[0], DETERMINISTIC, "Deterministic assembly")
+    out += panel(PANEL_Y[1], CONTINGENT, "Historically contingent assembly")
     out.append("</svg>")
     return "".join(out)
 
