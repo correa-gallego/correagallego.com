@@ -68,6 +68,10 @@
     --math:  "Pagella", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
 
     --wrap:    62rem;
+    /* The two research sections run wider than the rest of the page. At 62rem
+       the content used 1077px of a 1512px window and the sections read as
+       mostly margin. The hero and the footer keep the narrower measure. */
+    --focus-wrap: 70rem;
     --measure: 47rem;
     --gutter:  clamp(1.3rem, 4vw, 2.2rem);
     --ease:    cubic-bezier(0.22, 1, 0.36, 1);
@@ -189,12 +193,14 @@
         flex-shrink: 0;
         border: 1px solid var(--rule);
     }
+    .intro__body { display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; }
     .intro__text {
         font-family: var(--sans); font-weight: 300;
         font-size: clamp(1rem, 1.5vw, 1.1rem);
         line-height: 1.62; color: var(--body);
-        max-width: 46ch; text-wrap: pretty;
+        max-width: 52ch; text-wrap: pretty;
     }
+    .intro .plinks { margin-left: -0.5rem; }
     @media (max-width: 620px) {
         .intro__inner { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
         .intro__text { max-width: 100%; }
@@ -278,7 +284,7 @@
         align-items: center;
         padding-block: clamp(3rem, 7vh, 5rem);
     }
-    .focus__inner { width: 100%; }
+    .focus__inner { width: 100%; max-width: var(--focus-wrap); }
 
     .focus__lead {
         font-family: var(--sans); font-weight: 600;
@@ -321,7 +327,7 @@
            for it. A journal gives a figure the width of a column; a 25rem box
            does not. The bleed is held short so the figures stay near a 3:2
            canvas rather than stretching wide and flat. */
-        margin-right: calc(-1 * clamp(0rem, (100vw - var(--wrap)) / 2 - 2.2rem, 5.75rem));
+        margin-right: calc(-1 * clamp(0rem, (100vw - var(--focus-wrap)) / 2 - 2.2rem, 5.75rem));
     }
     .fig-wrap { width: 100%; }
     .fig { width: 100%; height: auto; font-family: var(--fig-type); }
@@ -441,14 +447,14 @@
     }
     .foot__degree span { text-wrap: balance; }
     .foot__logo { height: 1.45em; width: auto; flex-shrink: 0; }
-    .foot__links { display: flex; align-items: center; gap: 0.4rem; margin-left: -0.5rem; }
-    .foot__links a {
+    .plinks { display: flex; align-items: center; gap: 0.4rem; margin-left: -0.5rem; }
+    .plinks a {
         display: inline-flex; align-items: center; justify-content: center;
         width: 40px; height: 40px; color: var(--muted); border-radius: 8px;
         transition: color 0.15s var(--ease), background 0.15s var(--ease);
     }
-    .foot__links a:hover { color: var(--ink); background: #dde1e7; }
-    .foot__links svg { width: 21px; height: 21px; }
+    .plinks a:hover { color: var(--ink); background: #dde1e7; }
+    .plinks svg { width: 21px; height: 21px; }
     .foot__note { font-size: 0.86rem; color: var(--faint); }
 }
 
@@ -476,7 +482,7 @@
     @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
 
     @media print {
-        .hero__scrim, .hero__cue, .skip-link, .foot__links, .topbar { display: none !important; }
+        .hero__scrim, .hero__cue, .skip-link, .plinks, .topbar { display: none !important; }
         .hero { min-height: auto; }
         .focus { min-height: auto; display: block; padding-block: 1.5rem; }
         body { background: #fff; color: #000; }

@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import priorityEffects from '../figures/priority-effects.svg?raw';
 import allocationTradeoff from '../figures/allocation-tradeoff.svg?raw';
 import { heroSrcset } from '../lib/hero.ts';
+import ProfileLinks from '../components/ProfileLinks.astro';
 
 const fukami = 'https://doi.org/10.1146/annurev-ecolsys-110411-160340';
 const goldford = 'https://doi.org/10.1126/science.aat1168';
@@ -51,12 +52,16 @@ const fukami2010 = 'https://web.stanford.edu/~fukamit/fukami-2010.pdf';
         loading="lazy"
         decoding="async"
       />
-      <p class="intro__text">
-        I am a biologist. I finished my B.Sc. at Universidad EAFIT in Medellín, Colombia, where my
-        thesis followed microbial communities along a light gradient in a tropical cave. At Purdue
-        I worked on how yeasts allocate their proteome under carbon limitation. I am applying to
-        doctoral programmes now, and the two questions below are the ones I would like to work on.
-      </p>
+      <div class="intro__body">
+        <p class="intro__text">
+          I am a biologist. I finished my B.Sc. at Universidad EAFIT in Medellín, Colombia, where
+          my thesis followed microbial communities along a light gradient in a tropical cave. At
+          Purdue I worked on how yeasts allocate their proteome under carbon limitation. I am
+          applying to doctoral programmes now, and the two questions below are the ones I would
+          like to work on.
+        </p>
+        <ProfileLinks size={20} label="Contact and profiles" />
+      </div>
     </div>
   </section>
 

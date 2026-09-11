@@ -47,13 +47,16 @@ import math
 import sys
 from pathlib import Path
 
-W, H = 552, 374
-LABEL_X = 76                       # right edge of the row labels
+W, H = 568, 374
+LABEL_X = 66                       # right edge of the row labels
 LABEL_DY = 12.4                    # leading of the two-line row labels. The label is set
                                    # at 9.6px and a text run's box is about 1.2 times its
                                    # size, so anything under about 11.6 makes the two lines
                                    # collide, which is what 10.4 was doing.
-COL_X = [118, 192, 266, 356, 430, 504]
+# Column spacing is set by the community box, not the other way round. At 74
+# the boxes were 4 units wider than the space between their centres, so every
+# neighbouring pair overlapped. Keep COMM_W + 8 <= the within-group step.
+COL_X = [108, 188, 268, 362, 442, 522]
 PANEL_Y = (14, 202)                # top of each panel
 
 POOL_Y, POOL_H = 22, 38            # the shared pool capsule
@@ -65,13 +68,16 @@ POOL_PAD = 30                      # the capsule rounds off this far past the ma
 
 HIST_Y = 82                        # the immigration-history letter
 COMM_Y = 120                       # centre of the local-community box
-COMM_W, COMM_UP, COMM_DOWN = 78, 25, 23
+COMM_W, COMM_UP, COMM_DOWN = 72, 25, 23
 COMM_MARK_Y = -11                  # marks, relative to the box centre
 COMM_SET_Y = 16                    # set notation, relative to the box centre
 COMM_STEP = 21                     # between marks inside a community
 HAB_Y = 158                        # the habitat-condition numeral
 
-R_POOL, R_COMM = 9.6, 8.6          # mark radius in each row
+R_POOL, R_COMM = 9.6, 8.0          # mark radius in each row. The community marks
+                                   # came down so the three inside a box clear each
+                                   # other by about five units instead of three,
+                                   # which was reading as contact.
 
 # Tol muted. Nine species, ordered so the triads read as colour families.
 SPECIES = (

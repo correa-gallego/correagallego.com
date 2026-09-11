@@ -184,10 +184,15 @@ take some out or move it to the other, and re-measure.
   - **Panel titles are left-aligned and start with a capital, and so does every axis label,
     legend entry and row label.** Sentence case with an initial capital is the journal
     convention and Sebastian asked for it; centred panel titles were his first correction.
+  - **When checking a figure for collisions, include the container rects, not just the text.**
+    Two rounds of "no overlaps" were reported from a text-only sweep while every neighbouring
+    `.fk__comm` box in figure 1 overlapped its neighbour by 4px, because `COMM_W` was wider than
+    the space between column centres. The rule the layout has to keep is `COMM_W + 8 <= the
+    within-group column step`.
   - Both carry quantitative axes with ticks, numerals, units and panel letters, and true
     subscripts via `tspan`. **Do not strip those.** Sebastian's test is whether the authors of
     those papers would read it as a figure, and unlabelled axes are what fails that test.
-  - Figure 1 is 552x374, figure 2 is 465x386. **Figure 2's plot areas are square**, 120 units a
+  - Figure 1 is 568x374, figure 2 is 472x370. **Figure 2's plot areas are square**, 120 units a
     side, and every axis carries four intervals, so the grid cells are square too. That is what
     Sebastian meant by "plots formales con relaciones adecuadas en las gradillas". Square panels
     stacked two over one make an almost square figure, which is far too tall for the width the page
@@ -209,7 +214,12 @@ take some out or move it to the other, and re-measure.
     must be `minmax(0, 1fr)` and not `1fr`.** A bare `1fr` takes its automatic minimum from that
     28rem and widens the whole page, which is what put a horizontal scrollbar on the page itself
     and pushed the text out of the margin.
-  - **The figures run a little into the right margin.** `.focus__figure` carries a negative right
+  - **The two research sections run wider than the rest of the page**, `--focus-wrap: 70rem` against
+  `--wrap: 62rem`, applied through `.focus__inner`. At 62rem the content used 1077px of a 1512px
+  window and Sebastian read the sections as mostly margin. Widening also *shortens* the text
+  column, since a wider measure takes fewer lines, which is what paid for the larger figures. The
+  hero and the footer keep 62rem; widening those would move the hero text off the scrim.
+- **The figures run a little into the right margin.** `.focus__figure` carries a negative right
     margin, `clamp(0rem, (100vw - var(--wrap)) / 2 - 2.2rem, 5.75rem)`, so a figure is about
     560px at 1512 and falls back to the column width below 1100. The bleed was 11rem and is held
     shorter now; a wider box forces a flatter canvas, and the canvas was the problem. On a short
@@ -261,9 +271,17 @@ take some out or move it to the other, and re-measure.
   light-blue and a dark theme and rejected both). Dark text, sober **navy** (`#1b4b9c`).
   `--wrap: 62rem`. **No ALL-CAPS, no interpunct `·` anywhere.**
 - **Introduction band** (`.intro`, in `index.astro`): the portrait at
-  `/assets/portrait-256.webp` beside four sentences. **A band, not a screen**, so the two research
-  sections remain the page; it has no `min-height` and ends on a hairline rule. The hero cue points
-  at it. See the reasoning under "What the site is" before changing its length.
+  `/assets/portrait-256.webp` beside four sentences and the profile links. **A band, not a
+  screen**, so the two research sections remain the page; it has no `min-height` and ends on a
+  hairline rule. The hero cue points at it. See the reasoning under "What the site is" before
+  changing its length.
+- **`src/components/ProfileLinks.astro` is used twice**, in the band and in the footer: email,
+  ORCID, Google Scholar, GitHub, Bluesky. **Email repeats in three places on purpose** (here,
+  the footer, and the top-right pair); an address that is easy to find is the whole point of the
+  BPP note. Sebastian asked whether all five should move to the top bar instead. They did not,
+  because five pills over the hero photograph compete with his name, and because ORCID, Scholar,
+  GitHub and Bluesky are identifiers rather than contact, so they belong beside the person. Email
+  and the CV, which are what an advisor actually needs, are the two that sit up top.
 - **Top-right pair** (`.topbar` with two `.top-link` pills, in `Base.astro`): **Email** then
   **Curriculum Vitae**, on every page, `position: fixed`. Dark translucent glass pills,
   deliberately the **same** style over the dark hero and the light body, so they need no JS to
@@ -630,3 +648,14 @@ and the 404, not just the research prose.
    **This is the third position the site has taken on how much of the record to show**, and it is
    not a drift back to the CV copy of entry 10. The footer standing block stays deleted. What is
    new is small, biographical rather than evidentiary, and its brevity is the instruction.
+28. **Current - width, and a collision that two checks missed (Sep 2026).** Sebastian reported the
+   sections feeling empty and figure 1 still overlapping. Both were right and the second was mine.
+   **The overlap was the community boxes, not the text.** `COMM_W` was 78 against a column step of
+   74, so every neighbouring box overlapped by 4px, in both panels, on every build since the boxes
+   were introduced. Two rounds of automated checking reported it clean because the sweep compared
+   `<text>` elements and explicitly skipped the container rects. The rule is in the figure bullet
+   above; the lesson is that an exclusion added to make a check readable is where the bug hides.
+   **The emptiness was horizontal.** The content used 1077px of a 1512px window. The two research
+   sections now run at `--focus-wrap: 70rem`, which widened the figures from 558 to 626px and, by
+   widening the text measure, shortened the text column enough to pay for it. Figure 2's panels
+   went to 149px square. Nothing had to be cut.
