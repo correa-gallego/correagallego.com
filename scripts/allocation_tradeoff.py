@@ -64,11 +64,11 @@ LAM_MAX = 2.0
 # so a square panel makes the grid cells square too, which is what makes these
 # read as plots rather than as sketches. The canvas is derived from the panel
 # rather than the other way round, so changing S is the only knob.
-S = 112.0             # the side of the square plot area
+S = 153.0             # the side of the square plot area
 
 LEFT = 52.0           # figure left to the plot area, for the y label and ticks
 RIGHT_AX = 40.0       # panel A's second y axis, drawn outside it on the right
-GUTTER = 88.0         # clear space between that axis and panel B's y label. It is
+GUTTER = 58.0         # clear space between that axis and panel B's y label. It is
                       # wide on purpose. Two square panels stacked over one make
                       # an almost square figure, and an almost square figure is
                       # far too tall for the width the page gives it, so the

@@ -192,7 +192,7 @@ take some out or move it to the other, and re-measure.
   - Both carry quantitative axes with ticks, numerals, units and panel letters, and true
     subscripts via `tspan`. **Do not strip those.** Sebastian's test is whether the authors of
     those papers would read it as a figure, and unlabelled axes are what fails that test.
-  - Figure 1 is 568x374, figure 2 is 472x370. **Figure 2's plot areas are square**, 120 units a
+  - Figure 1 is 568x428, figure 2 is 524x452. **Figure 2's plot areas are square**, 120 units a
     side, and every axis carries four intervals, so the grid cells are square too. That is what
     Sebastian meant by "plots formales con relaciones adecuadas en las gradillas". Square panels
     stacked two over one make an almost square figure, which is far too tall for the width the page
@@ -292,14 +292,23 @@ take some out or move it to the other, and re-measure.
   the footer, so an advisor could read the whole argument and leave without the address. It is
   still in the footer too. **Its `mailto` must stay wrapped in `<!--email_off-->`**, like the
   footer's, or Cloudflare rewrites it at the edge and the policy blocks the decoder.
-- **Footer:** three parts — `.foot__degree` (the navy EAFIT mark at `height: 1.45em` beside
-  "B.Sc. in Biology, Universidad EAFIT, 2026", the logo/text lockup from the old `.entry__inst`
-  style Sebastian asked to bring back), then the icon links (email, ORCID green, Google Scholar,
-  GitHub, Bluesky), then the © note. The text sits in its own `<span>` with `text-wrap: balance`
-  so it breaks evenly at phone width instead of orphaning "2026". The logo takes **`alt=""`** —
-  correct here, unlike the hero photo, because the words beside it already say Universidad EAFIT.
-  No profile photo, **no CV icon**. **Never list the fellowship here** — the sensitive-material
-  rule below still holds.
+- **The white space between sections is `(100svh - content) / 2` on each side, not padding.**
+  While the content is shorter than the space left, padding changes nothing a reader can see; it
+  only moves white from inside the section to between them. So the way to close the gap is to make
+  the content taller, which is why the figures are sized to nearly fill their sections. Sebastian
+  asked for this twice before it was diagnosed correctly.
+  **The two halves of `.focus`'s padding are deliberately unequal**, much more above than below.
+  A centred block sits optically high when its lower right corner is a figure caption, which is
+  small grey text carrying little weight. Moving the same total to the top drops the block by half
+  the difference and costs no height. This is Sebastian's instruction, not a flourish.
+- **Footer:** two parts, the `ProfileLinks` row and the copyright note. **The degree line was
+  removed** once the introduction band and the hero both stated it; Sebastian: it "podría ser
+  removido de el pie de página". The EAFIT mark went with it.
+  **The profile links stay, and that was a judgement call Sebastian left open.** They are kept
+  because the end of the page is where someone who has just read both sections acts, and making
+  them scroll back up to the band is friction; because the fixed pair carries only email and the
+  CV, so ORCID, Scholar and GitHub would otherwise exist in one place; and because a footer of a
+  lone copyright line reads unfinished. Easy to reverse if he disagrees.
 - Subtle `.reveal` on scroll (`view()` timeline), hero entrance, reduced-motion-safe. Print → B/W.
 
 **Not on the site (by choice):** no education, experience, service, presentations, honours,
@@ -659,3 +668,13 @@ and the 404, not just the research prose.
    sections now run at `--focus-wrap: 70rem`, which widened the figures from 558 to 626px and, by
    widening the text measure, shortened the text column enough to pay for it. Figure 2's panels
    went to 149px square. Nothing had to be cut.
+29. **Current - filling the screen instead of padding it (Sep 2026).** Sebastian, a third time, on
+   white space, and this time the diagnosis was right. **The gap between two sections is
+   `(100svh - content) / 2` on each side.** Padding does nothing while the content is shorter than
+   the space left, which is why the two earlier attempts at trimming padding changed nothing he
+   could see. The fix is taller content, so both figures grew into the room: figure 1 to 568x428
+   and figure 2 to square panels of 183px, up from 149. The gap at 1512x830 went from 141px to 87.
+   He then asked for the block to sit lower to balance the caption, which is the optical-centring
+   correction recorded in the layout section above.
+   The footer lost the degree line, now that the hero and the band both carry it, and was tightened
+   to match; it went from 193px to 152.

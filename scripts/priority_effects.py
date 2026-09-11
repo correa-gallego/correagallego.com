@@ -47,7 +47,7 @@ import math
 import sys
 from pathlib import Path
 
-W, H = 568, 374
+W, H = 568, 428
 LABEL_X = 66                       # right edge of the row labels
 LABEL_DY = 12.4                    # leading of the two-line row labels. The label is set
                                    # at 9.6px and a text run's box is about 1.2 times its
@@ -57,24 +57,24 @@ LABEL_DY = 12.4                    # leading of the two-line row labels. The lab
 # the boxes were 4 units wider than the space between their centres, so every
 # neighbouring pair overlapped. Keep COMM_W + 8 <= the within-group step.
 COL_X = [108, 188, 268, 362, 442, 522]
-PANEL_Y = (14, 202)                # top of each panel
+PANEL_Y = (14, 226)                # top of each panel
 
-POOL_Y, POOL_H = 22, 38            # the shared pool capsule
-POOL_MARK_Y = 15                   # mark centre, from the top of the capsule
-POOL_KEY_Y = 33                    # numeral baseline, from the top of the capsule
+POOL_Y, POOL_H = 26, 44            # the shared pool capsule
+POOL_MARK_Y = 18                   # mark centre, from the top of the capsule
+POOL_KEY_Y = 38                    # numeral baseline, from the top of the capsule
 POOL_STEP = 30                     # between species within a triad
 POOL_GAP = 58                      # between triads
 POOL_PAD = 30                      # the capsule rounds off this far past the marks
 
-HIST_Y = 82                        # the immigration-history letter
-COMM_Y = 120                       # centre of the local-community box
-COMM_W, COMM_UP, COMM_DOWN = 72, 25, 23
-COMM_MARK_Y = -11                  # marks, relative to the box centre
-COMM_SET_Y = 16                    # set notation, relative to the box centre
+HIST_Y = 96                        # the immigration-history letter
+COMM_Y = 146                       # centre of the local-community box
+COMM_W, COMM_UP, COMM_DOWN = 72, 30, 28
+COMM_MARK_Y = -13                  # marks, relative to the box centre
+COMM_SET_Y = 19                    # set notation, relative to the box centre
 COMM_STEP = 21                     # between marks inside a community
-HAB_Y = 158                        # the habitat-condition numeral
+HAB_Y = 190                        # the habitat-condition numeral
 
-R_POOL, R_COMM = 9.6, 8.0          # mark radius in each row. The community marks
+R_POOL, R_COMM = 10.4, 8.0          # mark radius in each row. The community marks
                                    # came down so the three inside a box clear each
                                    # other by about five units instead of three,
                                    # which was reading as contact.
