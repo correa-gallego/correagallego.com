@@ -30,7 +30,18 @@ record, the answer is the CV button, not a new section.
 
 ## Stack & tooling
 
-- **Astro 5**, static output (`output: 'static'`), `@astrojs/sitemap`.
+- **Astro 7**, static output (`output: 'static'`), `@astrojs/sitemap`. **Node 22 is pinned by
+  `.nvmrc`**, which Cloudflare Pages reads ahead of the `NODE_VERSION` dashboard variable; that
+  variable still says 20 and is now ignored, and 20 went end of life in April 2026.
+- **`compressHTML: true` and `inlineStylesheets: 'always'` are both deliberate.** The stylesheet
+  is small enough that inlining it removes the last render-blocking request, and the site has two
+  pages, so nothing is lost by not caching it separately.
+- **Astro 7 minifies CSS with Lightning CSS, which folds longhands into shorthands.** That is a
+  trap here: written next to an `animation` shorthand, `animation-timeline: view()` gets folded
+  into it, no browser parses `view()` inside the shorthand, and the whole declaration is dropped,
+  so the scroll reveal silently stops working. `.reveal` therefore uses animation longhands and
+  keeps `animation-timeline` in its own `@supports` block. **Do not tidy that back into a
+  shorthand**, and check the emitted CSS, not the source, after any animation edit.
 - One page: `src/pages/index.astro` (+ `src/pages/404.astro`).
 - Layout `src/layouts/Base.astro` (SEO meta + `og:image`, JSON-LD Person schema, footer).
 - `src/components/Footer.astro` — the degree line (EAFIT logo + text), then left-aligned
@@ -50,8 +61,30 @@ record, the answer is the CV button, not a new section.
   `<img>`); sharp also rasterizes SVGs. **Delete `multimedia/` when done** (Sebastian's instruction).
   Keep shipped files small; **Cloudflare Pages rejects any file > 25 MiB** (the thesis deck had to be
   compressed 27 MB → 4.2 MB before hosting).
-- `public/assets/fonts/` holds the three Pagella WOFF2 files and `GUST-FONT-LICENSE.txt`. They are
-  third-party binaries under a free licence; **keep the licence file beside them**.
+- `public/assets/fonts/` holds `inter-variable.woff2` and `pagella-italic.woff2` with their two
+  licences, `INTER-OFL.txt` and `GUST-FONT-LICENSE.txt`. They are third-party binaries under free
+  licences; **keep the licence files beside them**.
+  **Inter is self-hosted and must stay that way.** The page used to pull four static weights from
+  Google, latin and greek for each, 270 KB over two third-party origins, on a site whose whole
+  claim is that it runs no third-party code. It is now one variable file, `wght` 300 to 600 with
+  Inter's `opsz` axis kept, subset to Latin-1 plus Greek plus the maths signs the figures use,
+  58 KB, preloaded from the same origin. Rebuild it by instancing `wght=300:600` off
+  `InterVariable.ttf` from rsms/inter and running `pyftsubset`; the exact repertoire is in the
+  entry-25 note below. A second `@font-face`, **`Inter Fallback`**, carries Inter's own metrics
+  (`size-adjust: 108.32%`, `ascent-override: 89.43%`, `descent-override: 22.27%`) so the text does
+  not reflow when the real face swaps in. Recompute those if the face ever changes.
+- **`public/_headers` is the Cloudflare Pages header file.** It sets `default-src 'none'`, which
+  the site can state honestly because it runs no JavaScript, and holds the two generated
+  directories for a year. `style-src` needs `'unsafe-inline'` for the inlined stylesheet and for
+  the style attributes inside the generated figures. **`Cross-Origin-Resource-Policy` is left out
+  on purpose**; it would stop another origin's browser context from loading the hero photograph,
+  and that photograph is the og:image behind every link preview of this site.
+- **The hero photograph is a `srcset`.** `scripts/hero_images.mjs` emits 640, 960, 1280 and 1600
+  WebP into `public/assets/hero/`; the 1920 entry is the untouched original, which is also the
+  og:image and must not be re-encoded. A phone takes 90 KB where it used to take 247. The list
+  lives in `src/lib/hero.ts` so the page and the preload in the layout cannot drift apart.
+  **AVIF was measured and rejected**, coming out larger at every width on a dark grainy photograph
+  that is already a WebP.
 - Content is inlined directly in `index.astro`. **No content collections**, no `src/content/`.
 
 Commands: `npm run dev`, `npm run build` (must pass, no console errors).
@@ -478,3 +511,24 @@ and the 404, not just the research prose.
    read apart, so the metabolic sector took `--fig-traj`.
    Both sections still fit one screen at 1512x830, 1440x900, 1366x768, 1366x700, 1280x720 and
    1024x640; the last two needed a further trim, so a `max-height: 680px` branch was added.
+25. **Current - the platform pass (Sep 2026).** Sebastian asked for research into current practice
+   and left the choices open. Four things came out of it, all measured rather than assumed.
+   **Fonts.** The head carried a render-blocking Google stylesheet pulling four static weights of
+   Inter, latin and greek each, **270 KB from two third-party origins**, which is both the largest
+   thing on the page and a contradiction of the site's own no-third-party premise. One
+   self-hosted variable file replaces it at **58 KB**, and it brings the optical-size axis the
+   static weights never had, which slightly tightened the prose and gave `#approach` more
+   headroom rather than less. The subset is Latin-1, Greek letters, and the punctuation and maths
+   signs a scientific page needs, deliberately wider than the 92 characters the page happens to
+   use today so an edit cannot land on a missing glyph.
+   **The photograph.** One 1920 file was going to every visitor. A phone now takes 90 KB.
+   **Headers.** `public/_headers` states a policy the site can actually keep.
+   **The framework.** Astro 5.18.1 carried ten advisories, one of them critical against Astro
+   itself, and the Cloudflare build was on Node 20, which is end of life. Upgrading to **Astro 7
+   on Node 22** clears all ten. The critical one never applied here, since the site uses no
+   `define:vars` and no server islands, but the version it was filed against was the one running.
+   **One regression the upgrade caused, and it would have been invisible.** Astro 7 minifies with
+   Lightning CSS, which folded `animation-timeline: view()` into the neighbouring `animation`
+   shorthand and killed the scroll reveal outright. It is recorded in the stack section above
+   because nothing about the source file looks wrong; only the built CSS shows it.
+   Total on a phone went from about 573 KB across three origins to about 199 KB from one.
