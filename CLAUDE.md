@@ -136,9 +136,9 @@ take some out or move it to the other, and re-measure.
     Fukami 2010, Fig. 4.1** (*Community assembly dynamics in space*, in Verhoef and Morin, eds.,
     OUP, pp. 45-54), which sets the deterministic and the historically contingent cases over one
     species pool and crosses immigration history against habitat condition. Original artwork on
-    that conceptual layout, and **the caption credits it**. Nine species in three groups of three;
-    colour carries the group so the pattern reads before any numeral does. Two habitat conditions
-    by three immigration histories per panel. **The whole point is which axis each panel follows**:
+    that conceptual layout, and **the caption credits it**. Nine species in three guilds of three;
+    colour is the species and shape the guild, in the convention Fukami 2015 states. Two habitat
+    conditions by three immigration histories per panel. **The whole point is which axis each panel follows**:
     deterministic follows the habitat, contingent follows the history. Do not collapse it to one
     panel; the contrast is the figure.
   - `scripts/allocation_tradeoff.py` emits `src/figures/allocation-tradeoff.svg`, the **computed**
@@ -182,9 +182,33 @@ take some out or move it to the other, and re-measure.
     shorter now; a wider box forces a flatter canvas, and the canvas was the problem. On a short
     screen (`max-height: 780px`) the bleed goes to zero, because there height is what binds.
   - **`--fig-alt` (#a8762e) is the second functional colour.** Blue and amber is the safest pair
-    for colour-blind readers. In the schematic, shape is the guild and colour separates the two
-    competitors within a guild, which is the whole point of the two rows; with fill-versus-outline
-    the difference was invisible at figure size.
+    for colour-blind readers. It earns its place in figure 2, where the narrow and the wide pool
+    must separate; fill-versus-outline was invisible at figure size.
+  - **Figure 1 encodes colour and shape the way this field does, and that mapping is fixed.**
+    **Colour is the species, shape is the guild.** It is not a house choice; it is the sentence
+    Fukami 2015, Fig. 2 puts in its own caption, "different symbol colors indicate different
+    species... symbol shapes denote the guilds or functional groups". Triangle, circle and star are
+    his three shapes. **Do not invert it** to put a group on colour, which is what an earlier
+    version did.
+    Species are numbered **down** the guilds, so 1, 4 and 7 are triangles, 2, 5 and 8 circles,
+    3, 6 and 9 stars. That is what makes each community, being a consecutive triad, hold one
+    species of every guild, the filled-niche structure of Fukami 2015, while keeping the literal
+    sets {1, 2, 3}, {4, 5, 6} and {7, 8, 9} of Fukami 2010.
+    **The set notation under each community is Fukami 2010's own**, and it doubles as the text
+    backup for colour; keep it.
+    **The nine colours are `--sp1` to `--sp9`, Paul Tol's muted qualitative scheme**, ordered so
+    the three triads fall into three colour families, which is what makes same-versus-different
+    readable at a glance. Two of them, the sand and the cyan, sit near 1.5:1 against this paper,
+    well under the 3:1 a graphical object needs, so **every mark carries a hairline dark edge**
+    (`.fk__sp`) and the fill is left to carry identity. Do not remove that edge.
+    **What the figure adds to Fukami 2010, and what the caption must keep admitting.** The chapter
+    figure is black and white, has three columns, and holds the environment constant. The habitat
+    row here crosses history against habitat, which draws his prose sentence that deterministic
+    assembly is the case where composition "is determined by environmental conditions". The caption
+    therefore credits the two sources separately, "Layout after Fukami 2010, Fig. 4.1, in the
+    notation of Fukami 2015, Fig. 2". **Do not collapse that into a single claim of reproduction.**
+    Fukami is one of the three advisors named in the SOP, so a reader who knows the convention is
+    the likely reader.
   - Other colours are `--fig-flow`, `--fig-traj`, `--fig-sep`, `--rule`, `--link`, `--paper`,
     `--faint` and `currentColor`, so both follow the theme. Label sizes are tuned so the two
     render at a comparable scale; re-check if you resize either canvas.
@@ -532,3 +556,19 @@ and the 404, not just the research prose.
    shorthand and killed the scroll reveal outright. It is recorded in the stack section above
    because nothing about the source file looks wrong; only the built CSS shows it.
    Total on a phone went from about 573 KB across three origins to about 199 KB from one.
+26. **Current - figure 1 put into the field's own notation (Sep 2026).** Sebastian asked whether
+   its colours were faithful to Fukami. **They were not, and neither was the encoding.** Checked
+   against both papers. Fukami 2010, Fig. 4.1 has no colour at all; its vector fills are
+   near-black (#231F20), white and a light grey, and it writes a community as set notation rather
+   than as marks. Fukami 2015, Fig. 2 does use colour, and its caption states the convention
+   outright, colour for the species and shape for the guild. The figure had that inverted, putting
+   the triad on colour and the species on a numeral.
+   It now follows the convention, with the numbering arranged so the two sources agree rather than
+   compete; the details are in the figure bullet above. The set notation came back from the 2010
+   chapter as the text backup for colour, which makes the result more accessible than either
+   source on its own. The canvas came out shorter, 552x374 against 552x396, so the section gained
+   room, and the caption was trimmed to rebalance the two sections at 28 and 43 spare pixels.
+   **Worth keeping as a working rule.** Both times a figure here was checked against the paper it
+   claims, the check changed the figure. Entry 18 caught a growth-law slope at nearly twice the
+   published value and a whole wrong representation; this one caught an inverted encoding. Reading
+   the caption of the figure being adapted is what did it, not reading the prose.

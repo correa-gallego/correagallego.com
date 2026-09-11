@@ -52,7 +52,15 @@
     --fig-flow: #c5ccd4;
     --fig-traj: #a3abb4;
     --fig-sep:  #6d7883;
-    --fig-alt:  #a8762e;   /* the second functional colour in the figures */
+    --fig-alt:  #a8762e;   /* the second functional colour in figure 2 */
+    /* Figure 1 puts the species on colour and the guild on shape, which is the
+       convention Fukami 2015 Fig. 2 states in its caption. Nine species need
+       nine colours, so this is Paul Tol's muted qualitative scheme, built to
+       stay separable for colour-blind readers, ordered so the three triads a
+       community can take fall into three colour families. */
+    --sp1: #332288;  --sp2: #88ccee;  --sp3: #44aa99;
+    --sp4: #117733;  --sp5: #999933;  --sp6: #ddcc77;
+    --sp7: #cc6677;  --sp8: #882255;  --sp9: #aa4499;
     /* Figures are labelled in the sans; only the mathematics takes the serif. */
     --fig-type: var(--sans);
 
@@ -279,10 +287,22 @@
         fill: none; stroke: var(--fig-traj); stroke-width: 0.9;
         stroke-linecap: round; stroke-linejoin: round;
     }
-    .fk__sp { stroke: none; }
-    .fk__num {
-        font-family: var(--fig-type); font-size: 8.4px; font-weight: 500;
-        fill: #fff;
+    /* Every species mark takes a hairline edge. Two of Tol's nine, the sand and
+       the cyan, sit at about 1.5:1 against this paper, well under the 3:1 a
+       graphical object needs, and the star is thin enough to disappear at
+       figure size. The edge carries the contrast so the fill can stay the
+       species cue. */
+    .fk__sp { stroke: var(--ink); stroke-opacity: 0.5; stroke-width: 0.9; }
+    /* The numeral keying each species in the pool, and the set notation under
+       each community, which is how Fukami 2010 writes a community out. Both are
+       the text backup for colour. */
+    .fk__key {
+        font-family: var(--fig-type); font-size: 8.4px; font-weight: 400;
+        fill: var(--muted);
+    }
+    .fk__set {
+        font-family: var(--fig-type); font-size: 9.6px; font-weight: 500;
+        fill: var(--head); font-variant-numeric: tabular-nums;
     }
     .fk__title {
         font-family: var(--fig-type); font-size: 11.4px; font-weight: 600;
