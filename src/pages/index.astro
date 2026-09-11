@@ -66,7 +66,7 @@ const fukami2010 = 'https://web.stanford.edu/~fukamit/fukami-2010.pdf';
         </div>
 
         <figure class="focus__figure reveal">
-          <Fragment set:html={priorityEffects} />
+          <div class="fig-wrap"><Fragment set:html={priorityEffects} /></div>
           <figcaption class="fig__caption">
             Two regimes over one species pool of nine, in three groups of three, with colour
             carrying the group. Each panel crosses three immigration histories against two habitat
@@ -111,14 +111,16 @@ const fukami2010 = 'https://web.stanford.edu/~fukamit/fukami-2010.pdf';
         </div>
 
         <figure class="focus__figure reveal">
-          <Fragment set:html={allocationTradeoff} />
+          <div class="fig-wrap"><Fragment set:html={allocationTradeoff} /></div>
           <figcaption class="fig__caption">
-            The growth law on the left. The ribosomal share of the proteome rises in a straight
-            line with growth rate and the metabolic share falls by the same amount, against a fixed
-            housekeeping sector. On the right, the rate and yield tradeoff that partition implies.
-            The same eight strains per pool are marked in both panels, and the bars give the range
-            of growth rate each pool covers. The left panel follows the parameterisation of
-            <a href={scott} rel="noopener" target="_blank">Scott et al. 2010</a>; the right is an
+            Panel A, the two growth laws. Changing nutrient quality moves a culture along the
+            rising line, inhibiting translation moves it along a falling one, and each medium's
+            drug-free culture sits where its two lines cross. Those crossings are what fix the
+            parameters, which is why the partition can be measured rather than assumed. Panel B
+            converts the ratio into mass fractions against a fixed housekeeping sector. Panel C is
+            the rate and yield tradeoff the partition implies, with two pools marked and the bars
+            giving the range of growth rate each covers. Panels A and B follow
+            <a href={scott} rel="noopener" target="_blank">Scott et al. 2010</a>; panel C is an
             inference from it, since yield is not measured there.
           </figcaption>
         </figure>

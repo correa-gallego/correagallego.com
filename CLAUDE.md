@@ -109,22 +109,30 @@ take some out or move it to the other, and re-measure.
     deterministic follows the habitat, contingent follows the history. Do not collapse it to one
     panel; the contrast is the figure.
   - `scripts/allocation_tradeoff.py` emits `src/figures/allocation-tradeoff.svg`, the **computed**
-    one. Panel A is the growth law with parameters read off Scott et al. 2010 Fig. 1A,
-    `phi_R = 0.05 + lambda / 7.0`, so the ribosomal fraction runs 0.05 to 0.336 over 0 to 2 per
-    hour. **An earlier draft used a slope of 1/4.5 and reached 0.46, nearly double the published
-    value; the error was caught only by opening the paper and looking at the figure.** Sectors
-    follow their Q/R/P scheme. Panel B is the rate-yield line the partition implies, an inference,
-    since Scott et al. do not measure yield, and the caption says so. Both panels carry a
-    **doublings-per-hour scale above the growth-rate axis**, as Scott's Fig. 1A does; one doubling
-    per hour is ln(2) per hour. **`PHI_Q = 0.45` is checked
-    against the literature**, not guessed: the housekeeping sector is reported as a growth-rate
-    independent 0.45 of the E. coli proteome, with the constraint `phi_C + phi_R + phi_E = 1 -
-    phi_Q` fixing the growth-dependent sectors at 0.55. Do not alter it without a source.
+    one, in three panels on the relations of Scott et al. 2010.
+    **Panel A is their Figs. 1A and 2A**: two perturbations move a culture along two different
+    lines in the plane of growth rate against RNA/protein ratio, `r = r0 + lambda/kappa_t` for
+    nutrient quality and `r = rmax - lambda/kappa_n` for translational inhibition, one line per
+    medium. Each drug-free culture sits where its two lines cross, and **those crossings are what
+    fix the parameters**. That is why the page can say the partition is measurable rather than
+    assumed, so do not drop this panel as decoration; it carries the claim.
+    **Panel B** converts with `phi_R = rho * r` and adds the fixed sector, giving their Q/R/P
+    partition. **Panel C** is the rate-yield line the partition implies, an inference, since Scott
+    et al. do not measure yield, and the caption says so.
+    Values, read off the published figures since the paper reports them graphically:
+    `r0 = 0.07`, `kappa_t = 5.0/h`, `rmax = 0.72`, `rho = 0.76`, `phi_Q = 0.45`, and six
+    `kappa_n` from 1.0 to 6.2/h. They reproduce the plotted crossings, `lambda` 0.54 to 1.80/h at
+    `r` 0.18 to 0.43. **`phi_Q = 0.45` is the reported housekeeping fraction**, with
+    `phi_C + phi_R + phi_E = 1 - phi_Q` fixing the rest at 0.55. Do not alter these without a
+    source.
   - Both carry quantitative axes with ticks, numerals, units and panel letters, and true
     subscripts via `tspan`. **Do not strip those.** Sebastian's test is whether the authors of
     those papers would read it as a figure, and unlabelled axes are what fails that test.
-  - Figure 1 is 664x404 and figure 2 is 374.4x212.4. Figure 1 is deliberately taller, since it
-    carries two panels of four rows each.
+  - Figure 1 is 664x404, figure 2 is 655.2x237.6. Figure 1 is taller because it stacks two
+    panels of four rows; figure 2 is wide and short because it runs three panels in a row.
+  - **Each figure sits in a `.fig-wrap`.** Below 860px that box scrolls horizontally and the SVG
+    keeps a 30rem minimum, because three panels at phone width are unreadable. The page itself
+    never scrolls sideways; only the figure box does.
   - **The figures run into the right margin.** `.focus__figure` carries a negative right margin,
     `clamp(0rem, (100vw - var(--wrap)) / 2 - 2.2rem, 11rem)`, so a figure is about 650px at 1512
     and falls back to the column width below 1100. A 25rem box read as too small next to the
@@ -429,3 +437,14 @@ and the 404, not just the research prose.
    doublings-per-hour scale that Scott's Fig. 1A carries. Figure 2 was otherwise checked and left
    alone; adding the translational-inhibition family of lines from Scott's Fig. 2A was considered
    and rejected as tangential to the argument on the page.
+23. **Current — figure 2 rebuilt on Scott's own mathematics (Sep 2026).** Sebastian: "Scott es
+   mas especifico y preciso en sus figuras... tienes el paper y la matematica". He was right, and
+   **entry 22 was wrong to call the translational-inhibition lines tangential.** They are not a
+   side result: the crossing of the nutrient line with a medium's inhibition line is what pins the
+   parameters, which is exactly why the page can claim the partition is measurable. Leaving them
+   out weakened the claim the figure exists to support.
+   Figure 2 is now three panels, A the two growth laws with the six inhibition lines and their
+   crossings, B the Q/R/P partition, C the tradeoff with the two pools. Parameters are in the
+   figure bullet above. It came out wider and shorter than the two-panel version, so every section
+   gained headroom rather than losing it.
+   Also added `.fig-wrap`, since three panels at phone width were illegible.

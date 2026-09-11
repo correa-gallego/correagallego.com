@@ -244,6 +244,7 @@
            A journal gives a figure the width of a column; a 25rem box does not. */
         margin-right: calc(-1 * clamp(0rem, (100vw - var(--wrap)) / 2 - 2.2rem, 11rem));
     }
+    .fig-wrap { width: 100%; }
     .fig { width: 100%; height: auto; font-family: var(--fig-type); }
     /* Mathematics keeps the serif italic, as it is set in a paper. */
     .fig__math { font-family: var(--math); font-style: italic; }
@@ -297,6 +298,13 @@
         .focus__lead { max-width: 26ch; }
         .focus__figure { order: -1; margin-top: 0; }
         .focus__figure { margin-right: 0; align-items: center; }
+        /* Three panels at phone width would be unreadable, so the figure keeps a
+           legible minimum and pans inside its own box. */
+        .fig-wrap {
+            overflow-x: auto; overscroll-behavior-x: contain;
+            -webkit-overflow-scrolling: touch;
+        }
+        .fig { min-width: 30rem; }
         .fig__caption { font-size: 0.83rem; max-width: 100%; }
     }
 }
