@@ -1,5 +1,23 @@
 @layer reset, base, layout, components, utilities;
 
+/* TeX Gyre Pagella, the free Palatino that mathpazo uses, self-hosted and subset
+   to Latin plus Greek. GUST Font License; see assets/fonts/GUST-FONT-LICENSE.txt. */
+@font-face {
+    font-family: "Pagella";
+    src: url("/assets/fonts/pagella-regular.woff2") format("woff2");
+    font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+    font-family: "Pagella";
+    src: url("/assets/fonts/pagella-italic.woff2") format("woff2");
+    font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+    font-family: "Pagella";
+    src: url("/assets/fonts/pagella-bold.woff2") format("woff2");
+    font-weight: 700; font-style: normal; font-display: swap;
+}
+
 :root {
     /* Light, elegant cool-gray */
     --paper:      #eef0f2;
@@ -21,11 +39,11 @@
     --fig-flow: #c5ccd4;
     --fig-traj: #a3abb4;
     --fig-sep:  #6d7883;
-    /* One editorial family for the whole page, figures included. */
-    --fig-type: var(--serif);
+    /* Figures are labelled in the sans; only the mathematics takes the serif. */
+    --fig-type: var(--sans);
 
-    --sans:  "Source Sans 3", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-    --serif: "Source Serif 4", Charter, "Iowan Old Style", Georgia, serif;
+    --sans:  "Inter", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    --serif: "Pagella", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
 
     --wrap:    62rem;
     --measure: 47rem;
@@ -65,7 +83,7 @@
     a:hover { color: var(--link-hover); text-decoration: underline; text-underline-offset: 2px; }
     :focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; }
     ::selection { background: #d7dde6; color: var(--ink); }
-    strong, b { font-weight: 600; color: var(--ink); }
+    strong, b { font-weight: 700; color: var(--ink); }
     em, i { font-style: italic; }
 }
 
@@ -144,17 +162,16 @@
     .hero__content { max-width: 46rem; }
     .hero__name {
         font-family: var(--serif);
-        font-style: italic;
-        font-weight: 500;
+        font-weight: 400;
         font-size: clamp(2rem, 4.9vw, 2.9rem);
         line-height: 1.12;
         color: #fff;
     }
     .hero__degree {
-        margin-top: 0.9rem;
-        font-family: var(--sans); font-weight: 500;
-        font-size: clamp(0.95rem, 1.6vw, 1.05rem);
-        letter-spacing: 0.04em; color: rgba(255,255,255,0.82);
+        margin-top: 0.85rem;
+        font-family: var(--serif); font-weight: 400;
+        font-size: clamp(0.98rem, 1.65vw, 1.1rem);
+        letter-spacing: 0.012em; color: rgba(255,255,255,0.84);
     }
     .hero__phrase {
         margin-top: 1.5rem;
@@ -195,8 +212,8 @@
     .focus__inner { width: 100%; }
 
     .focus__lead {
-        font-family: var(--serif); font-weight: 600;
-        font-size: clamp(1.32rem, 2.5vw, 1.74rem);
+        font-family: var(--serif); font-weight: 700;
+        font-size: clamp(1.3rem, 2.45vw, 1.7rem);
         line-height: 1.32; color: var(--head);
         text-wrap: balance;
     }
@@ -211,8 +228,8 @@
 
     .focus__text p {
         font-family: var(--serif); font-weight: 400;
-        font-size: clamp(1rem, 1.45vw, 1.05rem);
-        line-height: 1.62; color: #2f363f;
+        font-size: clamp(1.02rem, 1.5vw, 1.08rem);
+        line-height: 1.6; color: #2f363f;
     }
     .focus__text p + p { margin-top: 0.95rem; }
     /* Citations — an affordance, but quieter than a full underline */
@@ -231,6 +248,8 @@
         display: flex; flex-direction: column; align-items: center; gap: 1.1rem;
     }
     .fig { width: 100%; max-width: 25.5rem; height: auto; font-family: var(--fig-type); }
+    /* Mathematics keeps the serif italic, as it is set in a paper. */
+    .fig__math { font-family: var(--serif); font-style: italic; }
     /* Priority-effects schematic */
     .pe__pool, .pe__box { fill: none; stroke: var(--rule); stroke-width: 1; }
     .pe__mark { stroke: var(--fig-sep); stroke-width: 1.1; }
@@ -239,7 +258,7 @@
         stroke-linecap: round; stroke-linejoin: round;
     }
     .pe__head {
-        font-family: var(--fig-type); font-size: 9.6px; font-weight: 600;
+        font-family: var(--fig-type); font-size: 9.6px; font-weight: 500;
         letter-spacing: 0.03em; fill: var(--head);
     }
     .pe__row {
@@ -255,7 +274,7 @@
     .fig__caption {
         width: 100%; max-width: 25.5rem;
         font-family: var(--serif); font-weight: 400;
-        font-size: 0.88rem; line-height: 1.5; color: var(--muted);
+        font-size: 0.9rem; line-height: 1.5; color: var(--muted);
         text-wrap: pretty;
     }
 
@@ -286,7 +305,7 @@
 @layer components {
     .head { margin-bottom: 1.2rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--rule); }
     .head__title {
-        font-family: var(--serif); font-weight: 600;
+        font-family: var(--serif); font-weight: 700;
         font-size: 1.34rem; color: var(--head);
     }
     .prose { max-width: var(--measure); }

@@ -91,6 +91,13 @@ def yield_from_allocation(lam):
     return phi_metabolic(lam) / phi_metabolic(0.0)
 
 
+def math_label(ax, x, y, symbol, word):
+    """The symbol in italic, which the page renders in the serif, then the word
+    in the figure sans, which is how a paper sets a labelled quantity."""
+    ax.text(x, y, symbol, color=C_TEXT, fontsize=6.4, ha="right", va="center", style="italic")
+    ax.text(x + 0.035, y, "  " + word, color=C_TEXT, fontsize=6.0, ha="left", va="center")
+
+
 def draw_growth_law(ax):
     lam = np.linspace(0, LAM_MAX, 200)
     top_of_r = PHI_Q + phi_ribosomal(lam)
@@ -100,9 +107,9 @@ def draw_growth_law(ax):
     ax.fill_between(lam, top_of_r, 1.0, color=C_CATA, alpha=0.68, lw=0)
     ax.plot(lam, top_of_r, color=C_RIBO, lw=1.3, zorder=3)
 
-    ax.text(1.0, 0.20, "\u03c6_Q  housekeeping", color=C_TEXT, fontsize=6.0, ha="center")
-    ax.text(1.44, 0.585, "\u03c6_R  ribosomal", color=C_TEXT, fontsize=6.0, ha="center")
-    ax.text(0.66, 0.86, "\u03c6_P  metabolic", color=C_TEXT, fontsize=6.0, ha="center")
+    math_label(ax, 1.0, 0.20, "\u03c6_Q", "housekeeping")
+    math_label(ax, 1.44, 0.585, "\u03c6_R", "ribosomal")
+    math_label(ax, 0.66, 0.86, "\u03c6_P", "metabolic")
     ax.text(
         0.06, 0.055, "\u03c6_R = 0.05 + \u03bb / 7.0",
         color=C_TEXT, fontsize=5.9, ha="left", style="italic",
@@ -204,6 +211,17 @@ def postprocess(path: Path) -> None:
         svg = svg.replace(placeholder, token).replace(placeholder.upper(), token)
     svg = re.sub(r"\s*stroke:\s*#000000;\s*stroke-opacity:\s*0;?", "", svg)
     svg = re.sub(r"\s*font-family:[^;\"]*;?", "", svg)
+    # Italic text is mathematics. Tag it so the page can set it in the serif.
+    svg = re.sub(
+        r'(<g style="[^"]*font-style:\s*italic[^"]*")',
+        r'\1 class="fig__math"',
+        svg,
+    )
+    svg = re.sub(
+        r'(<text [^>]*?)style="([^"]*font-style:\s*italic[^"]*)"',
+        r'\1class="fig__math" style="\2"',
+        svg,
+    )
     # Real subscripts for the sector symbols, which ASCII underscores only approximate.
     svg = re.sub(
         "\u03c6_([A-Za-z])",

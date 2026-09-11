@@ -50,6 +50,8 @@ record, the answer is the CV button, not a new section.
   `<img>`); sharp also rasterizes SVGs. **Delete `multimedia/` when done** (Sebastian's instruction).
   Keep shipped files small; **Cloudflare Pages rejects any file > 25 MiB** (the thesis deck had to be
   compressed 27 MB → 4.2 MB before hosting).
+- `public/assets/fonts/` holds the three Pagella WOFF2 files and `GUST-FONT-LICENSE.txt`. They are
+  third-party binaries under a free licence; **keep the licence file beside them**.
 - Content is inlined directly in `index.astro`. **No content collections**, no `src/content/`.
 
 Commands: `npm run dev`, `npm run build` (must pass, no console errors).
@@ -62,15 +64,23 @@ section back inside one screen after entry 17 made it overflow. **Both sections 
 1512x830, 1440x900, 1366x700, 1280x720 and 1024x640. Keep them balanced: if you add text to one,
 take some out or move it to the other, and re-measure.
 
-- **One editorial family, and a sans only for chrome.** `Source Serif 4` sets everything that
-  carries meaning: the hero name, both section mastheads, the running prose, the figure labels and
-  the captions. `Source Sans 3` (the designed companion) sets only the CV button and the hero
-  degree line. **`--fig-type` is an alias for `--serif`**, so the figures cannot drift onto a third
-  family. Four faces are downloaded: Source Sans 3 at 400 and 500, Source Serif 4 roman at 400 and
-  600, italic at 500. If you add a weight to the CSS, add it to the `<link>` in `Base.astro` too.
-- **Italic is reserved for the name.** Mastheads are **roman semibold**, the way a paper sets a
-  heading; italic in this register means emphasis and taxon names, not headings. The hero name in
-  italic works because it is a nameplate. Do not put the section leads back into italic.
+- **Palatino, self-hosted.** `TeX Gyre Pagella` is the free Palatino that `mathpazo` uses, subset
+  to Latin plus Greek and served from `public/assets/fonts/` as three WOFF2 files, about 103 KB
+  together, with the GUST Font License beside them. **Self-hosting is what made Palatino viable**:
+  the earlier audits ruled it out because Linotype Palatino has no web licence and the system
+  fallbacks are absent on Linux and Android. That objection is gone; every visitor gets the real
+  face. It also matches his CV, LOI, SOP and thesis, which are all `mathpazo`.
+  It sets the name, the hero degree line, both mastheads, the prose and the figure captions.
+- **`Inter` (Google, 400 and 500) sets only the CV button and the labels inside the figures.**
+  `--fig-type` is an alias for `--sans` for that reason. Nothing editorial is in the sans.
+- **Mathematics keeps the serif italic.** Inside the figures, `phi_Q`, `phi_R`, `phi_P` and the
+  growth-law equation carry `.fig__math`, which switches them to Pagella italic. Everything else in
+  a figure is sans. This is the journal convention, and it is Sebastian's instruction: "volver a
+  usar sin serifas, excepto para las ecuaciones". The tagging is automatic, since the generator
+  marks those texts italic and the postprocessor turns any italic text into `.fig__math`.
+- **Nothing on the page is italic except mathematics.** Sebastian asked for the name in roman too,
+  so italic now appears only inside the figures, on `phi` and the equation. Mastheads are roman
+  bold, the way a paper sets a heading. Do not reintroduce italic for the name or the section leads.
 - **Hero** (`.hero`, 100svh, full-bleed) — unchanged and not to be redesigned: `field.webp`
   (Sebastian sampling in the cave), a dark scrim (heavier left, where the text sits; person is on
   the right), bottom fades to `--paper`. Content: **name on two lines** (`Sebastian` /
@@ -112,8 +122,8 @@ take some out or move it to the other, and re-measure.
   - Both carry quantitative axes with ticks, numerals, units and panel letters, and true
     subscripts via `tspan`. **Do not strip those.** Sebastian's test is whether the authors of
     those papers would read it as a figure, and unlabelled axes are what fails that test.
-  - Figure type is `--fig-type`, which is an alias for the page serif, so a figure never
-    introduces a family the page does not already use.
+  - **Both figures are 2:1**, 452x226 and 374.4x188.64, so they sit consistently in the column.
+    If you resize one, match the other.
   - Other colours are `--fig-flow`, `--fig-traj`, `--fig-sep`, `--rule`, `--link`, `--paper`,
     `--faint` and `currentColor`, so both follow the theme. Label sizes are tuned so the two
     render at a comparable scale; re-check if you resize either canvas.
@@ -370,3 +380,15 @@ and the 404, not just the research prose.
    print face at body sizes). What changed is that the honest caveat recorded there, that Inter and
    Roboto Serif were legible but generic, was worth acting on once the page had become a short
    paper rather than a photograph with a caption.
+20. **Current — Palatino, properly (Sep 2026).** Sebastian rejected the Source Serif 4 of entry 19
+   outright ("esa tan fea") and gave two acceptable paths, Palatino or an all-Inter page with light
+   body and heavy titles. Took Palatino, but only by removing the reason it had been refused twice:
+   **TeX Gyre Pagella is now self-hosted**, subset, about 103 KB for three faces, so the Linux and
+   Android fallback problem disappears. Inter stays, for chrome and figure labels only.
+   **Figure typography follows his instruction**: sans for everything except the mathematics, which
+   takes Pagella italic through `.fig__math`. Both figures were brought to a common 2:1 aspect and
+   the schematic given more vertical air.
+   **What this reverses, and why it is not a contradiction:** entries 13 and 19 argued against
+   Palatino on availability and on it being a print face. The availability half is solved by
+   self-hosting. The screen half is a real but modest cost, accepted knowingly, and it buys a page
+   set in the same face as every other document he submits.

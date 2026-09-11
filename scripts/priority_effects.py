@@ -21,9 +21,9 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-W, H = 452, 196
-POOL_C, POOL_R = (54, 104), 40
-ROW_Y = (78, 146)
+W, H = 452, 226
+POOL_C, POOL_R = (54, 120), 42
+ROW_Y = (88, 168)
 SEQ_X = (136, 163, 190)
 BOX_X, BOX_W = 252, 78
 MARK = 7.0
@@ -77,9 +77,9 @@ def build() -> str:
         f'aria-labelledby="pe-title pe-desc" preserveAspectRatio="xMidYMid meet">',
         f'<title id="pe-title">{TITLE}</title>',
         f'<desc id="pe-desc">{DESC}</desc>',
-        '<text class="pe__head" x="54" y="46" text-anchor="middle">species pool</text>',
-        '<text class="pe__head" x="163" y="46" text-anchor="middle">arrival order</text>',
-        f'<text class="pe__head" x="{BOX_X + BOX_W / 2:.0f}" y="46" text-anchor="middle">community</text>',
+        '<text class="pe__head" x="54" y="50" text-anchor="middle">species pool</text>',
+        '<text class="pe__head" x="163" y="50" text-anchor="middle">arrival order</text>',
+        f'<text class="pe__head" x="{BOX_X + BOX_W / 2:.0f}" y="50" text-anchor="middle">community</text>',
         f'<circle class="pe__pool" cx="{POOL_C[0]}" cy="{POOL_C[1]}" r="{POOL_R}" />',
     ]
     for i, (dx, dy) in enumerate(POOL_AT):
@@ -93,8 +93,8 @@ def build() -> str:
                 out.append(arrow(SEQ_X[k] + 6, y, SEQ_X[k + 1] - 6))
         out.append(arrow(SEQ_X[-1] + 10, y, BOX_X - 8))
         out.append(
-            f'<rect class="pe__box" x="{BOX_X}" y="{y - 19:.1f}" '
-            f'width="{BOX_W}" height="38" rx="3" />'
+            f'<rect class="pe__box" x="{BOX_X}" y="{y - 20:.1f}" '
+            f'width="{BOX_W}" height="40" rx="3" />'
         )
         for k, strain in enumerate(outcome):
             out.append(mark(strain, BOX_X + BOX_W * (k + 1) / (len(outcome) + 1), y))
