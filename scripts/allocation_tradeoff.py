@@ -128,7 +128,7 @@ def draw_growth_law(ax):
     ax.set_yticks([0, 0.25, 0.5, 0.75, 1.0])
     ax.set_xlabel("growth rate \u03bb (per hour)", color=C_TEXT, fontsize=6.4, labelpad=2)
     ax.set_ylabel("proteome mass fraction", color=C_TEXT, fontsize=6.4, labelpad=2)
-    ax.set_title("the growth law", color=C_TEXT, fontsize=7.2, pad=7)
+    ax.set_title("the growth law", color=C_TEXT, fontsize=7.2, pad=24)
 
 
 def draw_tradeoff(ax):
@@ -165,7 +165,24 @@ def draw_tradeoff(ax):
     ax.set_yticks([0, 0.25, 0.5, 0.75, 1.0])
     ax.set_xlabel("growth rate \u03bb (per hour)", color=C_TEXT, fontsize=6.4, labelpad=2)
     ax.set_ylabel("yield, relative to \u03bb = 0", color=C_TEXT, fontsize=6.4, labelpad=2)
-    ax.set_title("the tradeoff it implies", color=C_TEXT, fontsize=7.2, pad=7)
+    ax.set_title("the tradeoff it implies", color=C_TEXT, fontsize=7.2, pad=24)
+
+
+def doubling_axis(ax):
+    """Scott et al. carry a doubling-rate scale above the growth-rate axis.
+    One doubling per hour is ln(2) per hour of exponential growth."""
+    sec = ax.secondary_xaxis(
+        "top",
+        functions=(lambda lam: lam / np.log(2), lambda d: d * np.log(2)),
+    )
+    sec.set_xticks([0, 1, 2])
+    sec.set_xlabel("doublings per hour", color=C_TEXT, fontsize=6.2, labelpad=2)
+    sec.tick_params(
+        direction="out", length=2.4, width=0.8,
+        color=C_AXIS, labelcolor=C_TEXT, labelsize=5.4, pad=1.5,
+    )
+    sec.spines["top"].set_color(C_AXIS)
+    sec.spines["top"].set_linewidth(0.9)
 
 
 def style(ax, letter):
@@ -182,19 +199,20 @@ def style(ax, letter):
     ax.grid(True, which="major", color=C_AXIS, lw=0.5, alpha=0.55, zorder=0)
     ax.set_axisbelow(True)
     ax.text(
-        -0.155, 1.10, letter, transform=ax.transAxes,
+        -0.155, 1.26, letter, transform=ax.transAxes,
         color=C_TEXT, fontsize=8.2, fontweight=500, va="top", ha="left",
     )
 
 
 def build(out_path: Path) -> None:
     plt.rcParams["svg.fonttype"] = "none"
-    fig, axes = plt.subplots(1, 2, figsize=(5.2, 2.62))
+    fig, axes = plt.subplots(1, 2, figsize=(5.2, 2.95))
     draw_growth_law(axes[0])
     draw_tradeoff(axes[1])
     for ax, letter in zip(axes, "AB"):
         style(ax, letter)
-    fig.subplots_adjust(left=0.088, right=0.985, top=0.82, bottom=0.135, wspace=0.30)
+        doubling_axis(ax)
+    fig.subplots_adjust(left=0.088, right=0.985, top=0.7, bottom=0.135, wspace=0.30)
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(out_path, format="svg", transparent=True, metadata={"Date": None})

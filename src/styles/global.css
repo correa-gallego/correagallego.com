@@ -247,34 +247,33 @@
     .fig { width: 100%; height: auto; font-family: var(--fig-type); }
     /* Mathematics keeps the serif italic, as it is set in a paper. */
     .fig__math { font-family: var(--math); font-style: italic; }
-    /* Priority-effects schematic */
-    .pe__pool, .pe__box { fill: none; stroke: var(--rule); stroke-width: 1; }
-    .pe__niche {
-        fill: none; stroke: var(--faint); stroke-width: 1;
-        stroke-dasharray: 2.6 2.4;
-    }
-    .pe__mark { stroke: none; }
-    .pe__mark--faded { opacity: 0.3; }
-    .pe__note {
-        font-family: var(--fig-type); font-size: 8.6px; font-weight: 300;
-        fill: var(--faint);
-    }
-    .pe__arrow {
+    /* Two-regimes schematic */
+    .fk__pool, .fk__comm { fill: none; stroke: var(--rule); stroke-width: 1; }
+    .fk__arrow {
         fill: none; stroke: var(--fig-traj); stroke-width: 0.9;
         stroke-linecap: round; stroke-linejoin: round;
     }
-    .pe__head {
-        font-family: var(--fig-type); font-size: 9.6px; font-weight: 500;
-        letter-spacing: 0.03em; fill: var(--head);
+    .fk__sp { stroke: none; }
+    .fk__num {
+        font-family: var(--fig-type); font-size: 8.4px; font-weight: 500;
+        fill: #fff;
+    }
+    .fk__title {
+        font-family: var(--fig-type); font-size: 11.4px; font-weight: 600;
+        letter-spacing: -0.01em; fill: var(--head);
+    }
+    .fk__row {
+        font-family: var(--fig-type); font-size: 9.6px; font-weight: 400;
+        fill: var(--muted);
+    }
+    .fk__hist, .fk__hab {
+        font-family: var(--fig-type); font-size: 10px; font-weight: 500;
+        fill: var(--head);
     }
 
-    .fig__source {
-        display: block; margin-top: 0.6rem;
-        font-size: 0.78rem; line-height: 1.5; color: var(--faint);
-    }
     /* Figure caption — left-aligned on the figure's own measure, as in a journal */
     .fig__caption {
-        width: 100%; max-width: 27rem;
+        width: 100%;
         font-family: var(--sans); font-weight: 300;
         font-size: 0.87rem; line-height: 1.56; color: var(--muted);
         text-wrap: pretty;
@@ -286,11 +285,11 @@
         .focus { padding-block: clamp(2rem, 4.6vh, 3.2rem); }
         .focus__lead { font-size: clamp(1.2rem, 2.4vw, 1.62rem); }
         .focus__grid { margin-top: 1.3rem; }
-        .focus__text p { font-size: 0.94rem; line-height: 1.58; }
-        .focus__text p + p { margin-top: 0.8rem; }
-        .fig__caption { font-size: 0.81rem; line-height: 1.5; }
-        .fig__source { margin-top: 0.45rem; font-size: 0.74rem; }
-    }
+        .focus__text p { font-size: 0.93rem; line-height: 1.56; }
+        .focus__text p + p { margin-top: 0.75rem; }
+        .focus__figure { gap: 0.75rem; }
+        .fig__caption { font-size: 0.8rem; line-height: 1.46; }
+        }
 
     @media (max-width: 860px) {
         .focus { padding-block: clamp(3.5rem, 10vh, 5rem); }

@@ -10,6 +10,7 @@ const scott = 'https://doi.org/10.1126/science.1192588';
 const manhart = 'https://doi.org/10.1038/s41467-018-05703-6';
 const vannette = 'https://doi.org/10.1111/ele.12204';
 const blount = 'https://doi.org/10.1073/pnas.0803151105';
+const fukami2010 = 'https://web.stanford.edu/~fukamit/fukami-2010.pdf';
 ---
 
 <Base title="Sebastian Correa-Gallego">
@@ -67,15 +68,12 @@ const blount = 'https://doi.org/10.1073/pnas.0803151105';
         <figure class="focus__figure reveal">
           <Fragment set:html={priorityEffects} />
           <figcaption class="fig__caption">
-            A schematic, in the representation this literature uses for priority effects. Shape
-            marks the guild whose niche a strain can occupy, and dashed outlines are niches still
-            vacant. The same three strains arrive in one order above and in another below. The
-            first strain of a guild to arrive takes its niche, so the later competitor is excluded
-            and the two communities differ. The square niche stays vacant in both, since no strain
-            of that guild arrived.
-            <span class="fig__source">
-              Diagram, not a model output. Source in scripts/priority_effects.py.
-            </span>
+            Two regimes over one species pool of nine, in three groups of three, with colour
+            carrying the group. Each panel crosses three immigration histories against two habitat
+            conditions. Above, assembly is deterministic and the community follows the habitat, so
+            changing the history makes no difference. Below, it is historically contingent and the
+            community follows the history instead, so changing the habitat makes none. After
+            <a href={fukami2010} rel="noopener" target="_blank">Fukami 2010</a>, Fig. 4.1.
           </figcaption>
         </figure>
       </div>
@@ -116,15 +114,12 @@ const blount = 'https://doi.org/10.1073/pnas.0803151105';
           <Fragment set:html={allocationTradeoff} />
           <figcaption class="fig__caption">
             The growth law on the left. The ribosomal share of the proteome rises in a straight
-            line with growth rate and the metabolic share falls by the same amount, against a
-            fixed housekeeping sector. On the right, the rate and yield tradeoff that partition
-            implies. The same eight strains per pool are marked in both panels, and the bars give
-            the range of growth rate each pool covers, which is the spread the hypothesis is
-            about.
-            <span class="fig__source">
-              Left panel computed from Scott et al. 2010. Right panel is an inference from it,
-              since yield is not measured there. Source in scripts/allocation_tradeoff.py.
-            </span>
+            line with growth rate and the metabolic share falls by the same amount, against a fixed
+            housekeeping sector. On the right, the rate and yield tradeoff that partition implies.
+            The same eight strains per pool are marked in both panels, and the bars give the range
+            of growth rate each pool covers. The left panel follows the parameterisation of
+            <a href={scott} rel="noopener" target="_blank">Scott et al. 2010</a>; the right is an
+            inference from it, since yield is not measured there.
           </figcaption>
         </figure>
       </div>

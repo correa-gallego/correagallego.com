@@ -99,31 +99,32 @@ take some out or move it to the other, and re-measure.
   **The two-line lead is load-bearing** — it replaces the deleted rule as the section's top edge; if
   the wording changes, re-check the line count before shipping.
 - **Two figures, and they are different kinds of object. The caption must say which is which.**
-  - `scripts/priority_effects.py` emits `src/figures/priority-effects.svg`, a **schematic** in the
-    representation this literature uses for priority effects. Fukami 2015 Fig. 2 draws a species
-    pool, **the initial niches**, the arrival order above an arrow, and the niches that end up
-    filled. This follows that grammar and is original artwork, not a reproduction. **The niche
-    layer is load-bearing and was missing from the first version.** The mechanism drawn is niche
-    preemption: three niches, one per guild, six strains, two per guild, and the first of a guild
-    to arrive takes its niche. The two rows hold the arriving strains constant and change only
-    their order, so the single difference between the communities is attributable to order alone.
-    The square niche stays vacant in both, since no strain of that guild arrived, which is honest
-    and worth keeping. The excluded third arrival is drawn faded.
+  - `scripts/priority_effects.py` emits `src/figures/priority-effects.svg`, a **schematic after
+    Fukami 2010, Fig. 4.1** (*Community assembly dynamics in space*, in Verhoef and Morin, eds.,
+    OUP, pp. 45-54), which sets the deterministic and the historically contingent cases over one
+    species pool and crosses immigration history against habitat condition. Original artwork on
+    that conceptual layout, and **the caption credits it**. Nine species in three groups of three;
+    colour carries the group so the pattern reads before any numeral does. Two habitat conditions
+    by three immigration histories per panel. **The whole point is which axis each panel follows**:
+    deterministic follows the habitat, contingent follows the history. Do not collapse it to one
+    panel; the contrast is the figure.
   - `scripts/allocation_tradeoff.py` emits `src/figures/allocation-tradeoff.svg`, the **computed**
     one. Panel A is the growth law with parameters read off Scott et al. 2010 Fig. 1A,
     `phi_R = 0.05 + lambda / 7.0`, so the ribosomal fraction runs 0.05 to 0.336 over 0 to 2 per
     hour. **An earlier draft used a slope of 1/4.5 and reached 0.46, nearly double the published
     value; the error was caught only by opening the paper and looking at the figure.** Sectors
     follow their Q/R/P scheme. Panel B is the rate-yield line the partition implies, an inference,
-    since Scott et al. do not measure yield, and the caption says so. **`PHI_Q = 0.45` is checked
+    since Scott et al. do not measure yield, and the caption says so. Both panels carry a
+    **doublings-per-hour scale above the growth-rate axis**, as Scott's Fig. 1A does; one doubling
+    per hour is ln(2) per hour. **`PHI_Q = 0.45` is checked
     against the literature**, not guessed: the housekeeping sector is reported as a growth-rate
     independent 0.45 of the E. coli proteome, with the constraint `phi_C + phi_R + phi_E = 1 -
     phi_Q` fixing the growth-dependent sectors at 0.55. Do not alter it without a source.
   - Both carry quantitative axes with ticks, numerals, units and panel letters, and true
     subscripts via `tspan`. **Do not strip those.** Sebastian's test is whether the authors of
     those papers would read it as a figure, and unlabelled axes are what fails that test.
-  - **Both figures are 2:1**, 566x283 and 374.4x188.64, so they sit consistently in the column.
-    If you resize one, match the other.
+  - Figure 1 is 664x404 and figure 2 is 374.4x212.4. Figure 1 is deliberately taller, since it
+    carries two panels of four rows each.
   - **The figures run into the right margin.** `.focus__figure` carries a negative right margin,
     `clamp(0rem, (100vw - var(--wrap)) / 2 - 2.2rem, 11rem)`, so a figure is about 650px at 1512
     and falls back to the column width below 1100. A 25rem box read as too small next to the
@@ -138,6 +139,11 @@ take some out or move it to the other, and re-measure.
   - Both need numpy and matplotlib, absent from the system Python under PEP 668, so use a venv.
     `index.astro` inlines both with Astro's `?raw` import, which is what lets the custom properties
     resolve. **Never hand-edit the SVGs**; re-run the scripts.
+- **Captions carry the citation and nothing about the repository.** Sebastian removed the
+  `.fig__source` line that named the generating script: "solo deja el caption, de manera objetiva".
+  A caption states what is drawn and credits its source, and that is all. Figure 1 ends "After
+  Fukami 2010, Fig. 4.1"; figure 2 attributes the left panel to Scott et al. 2010 and marks the
+  right as an inference. The caption runs the full width of the figure, not a narrower measure.
 - **Captions are figure captions, not prose** (his instruction: "que sea muy objetivo en su
   descripción"). Each names what is drawn first and only then the reading, and each ends with a
   `.fig__source` line giving the script and, where it matters, what is computed and what is
@@ -412,3 +418,14 @@ and the 404, not just the research prose.
    two communities is visible rather than a solid-versus-outline distinction lost at figure size.
    **Figure 2 validated rather than changed**: `phi_Q = 0.45` is the reported housekeeping fraction
    and the sectors sum correctly, so the proportions stand.
+22. **Current — figure 1 rebuilt on Fukami's own layout (Sep 2026).** Sebastian sent the figure
+   from Fukami's website and the 2010 chapter behind it. The niche-preemption version from entry 21
+   was communicating vaguely and leaned on a faded-circle device that confused more than it showed.
+   Replaced with the layout of **Fukami 2010, Fig. 4.1**: one species pool, immigration history
+   crossed against habitat condition, deterministic above and historically contingent below. That
+   figure says exactly what the masthead asks, which the previous one did not.
+   Also: the caption now runs the full figure width rather than a narrower measure, the
+   `.fig__source` script-path lines are gone from both captions, and figure 2 gained the
+   doublings-per-hour scale that Scott's Fig. 1A carries. Figure 2 was otherwise checked and left
+   alone; adding the translational-inhibition family of lines from Scott's Fig. 2A was considered
+   and rejected as tangential to the argument on the page.
