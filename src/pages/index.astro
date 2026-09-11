@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import priorityEffects from '../figures/priority-effects.svg?raw';
 import allocationTradeoff from '../figures/allocation-tradeoff.svg?raw';
+import { heroSrcset } from '../lib/hero.ts';
 
 const fukami = 'https://doi.org/10.1146/annurev-ecolsys-110411-160340';
 const goldford = 'https://doi.org/10.1126/science.aat1168';
@@ -13,11 +14,15 @@ const blount = 'https://doi.org/10.1073/pnas.0803151105';
 const fukami2010 = 'https://web.stanford.edu/~fukamit/fukami-2010.pdf';
 ---
 
-<Base title="Sebastian Correa-Gallego">
+<Base title="Sebastian Correa-Gallego" preloadHero>
   <header class="hero">
     <img
       class="hero__img"
       src="/assets/field.webp"
+      srcset={heroSrcset}
+      sizes="100vw"
+      width="1920"
+      height="1081"
       alt="Sebastian Correa-Gallego taking samples by headlamp in the Organal San Antonio, a volcaniclastic cave in Támesis, Colombia."
       fetchpriority="high"
     />

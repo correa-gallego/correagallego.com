@@ -1,0 +1,30 @@
+# Cloudflare Pages reads this file from the root of the published directory.
+# The site is static HTML, CSS, one photograph, two fonts and two inline SVGs.
+# It runs no JavaScript at all, so the policy can simply say so.
+#
+# style-src carries 'unsafe-inline' because the stylesheet is inlined into the
+# document and because the generated figures carry style attributes on their own
+# elements. Nothing can be driven from injected style here, since there is no
+# script anywhere to drive.
+#
+# Cross-Origin-Resource-Policy is deliberately absent. It would stop another
+# origin's browser context from loading the hero photograph, and that photograph
+# is the og:image behind every link preview of this site.
+
+/*
+  Content-Security-Policy: default-src 'none'; img-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Cross-Origin-Opener-Policy: same-origin
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+
+# These two directories hold generated files that are never replaced in place,
+# so they can be held for a year. Everything else keeps the Pages default, which
+# revalidates against an ETag, because the CV and the photograph do get replaced
+# under the names already in circulation.
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/hero/*
+  Cache-Control: public, max-age=31536000, immutable

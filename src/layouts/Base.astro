@@ -1,18 +1,25 @@
 ---
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import { heroSrcset } from '../lib/hero.ts';
 
 interface Props {
   title: string;
   description?: string;
   ogType?: 'website' | 'profile' | 'article';
+  /* Only the homepage carries the hero photograph, and only it should ask for
+     the image ahead of time. */
+  preloadHero?: boolean;
 }
 
 const {
   title,
   description = 'Sebastian Correa-Gallego, biologist (B.Sc., Universidad EAFIT). Microbial community assembly, and whether the state a community reaches can be predicted from the organisms that build it.',
   ogType = 'profile',
+  preloadHero = false,
 } = Astro.props;
+
+
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 const ogImage = new URL('/assets/field.webp', Astro.site).toString();
@@ -66,9 +73,11 @@ const personSchema = {
   <link rel="apple-touch-icon" href="/assets/favicon.svg">
   <link rel="sitemap" href="/sitemap-index.xml">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap">
+  <link rel="preload" href="/assets/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
+  {preloadHero && (
+    <link rel="preload" as="image" href="/assets/field.webp"
+          imagesrcset={heroSrcset} imagesizes="100vw" fetchpriority="high" />
+  )}
 
   <meta property="og:type" content={ogType}>
   <meta property="og:title" content={title}>

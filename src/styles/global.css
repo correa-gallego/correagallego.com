@@ -1,5 +1,27 @@
 @layer reset, base, layout, components, utilities;
 
+/* Inter, self-hosted. One variable file carrying the weights the page uses and
+   Inter's optical-size axis, subset to Latin-1 plus the Greek and the few maths
+   signs the figures need. It replaces four static weights fetched from Google,
+   which cost 270 KB across two third-party origins and told Google the IP of
+   every visitor. SIL Open Font License; see assets/fonts/INTER-OFL.txt. */
+@font-face {
+    font-family: "Inter";
+    src: url("/assets/fonts/inter-variable.woff2") format("woff2-variations");
+    font-weight: 300 600; font-style: normal; font-display: swap;
+}
+
+/* The fallback shown while Inter loads, scaled to Inter's own metrics so the
+   line breaks and the block height do not move when the real face arrives. */
+@font-face {
+    font-family: "Inter Fallback";
+    src: local("Helvetica Neue"), local("HelveticaNeue"), local("Arial"), local("Roboto");
+    size-adjust: 108.32%;
+    ascent-override: 89.43%;
+    descent-override: 22.27%;
+    line-gap-override: 0%;
+}
+
 /* TeX Gyre Pagella italic, the free Palatino that mathpazo uses, self-hosted and
    subset. It sets the mathematics inside the figures and nothing else.
    GUST Font License; see assets/fonts/GUST-FONT-LICENSE.txt. */
@@ -34,7 +56,7 @@
     /* Figures are labelled in the sans; only the mathematics takes the serif. */
     --fig-type: var(--sans);
 
-    --sans:  "Inter", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    --sans:  "Inter", "Inter Fallback", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
     --math:  "Pagella", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
 
     --wrap:    62rem;
