@@ -54,7 +54,7 @@ de investigación."* Do not let it grow back into a record of the CV.
 - One page: `src/pages/index.astro` (+ `src/pages/404.astro`).
 - Layout `src/layouts/Base.astro` (SEO meta + `og:image`, JSON-LD Person schema, footer).
 - `src/components/Footer.astro` — the degree line (EAFIT logo + text), then left-aligned
-  inline-SVG icon links (email, ORCID brand-green mark, Google Scholar, GitHub, Bluesky), then
+  inline-SVG icon links (email, ORCID, Google Scholar, GitHub, Bluesky, all monochrome), then
   copyright. **No LinkedIn**, **no profile photo**, **no CV icon** (the CV moved to the fixed
   top-right button in `Base.astro`).
 - `src/styles/global.css` — the entire design system.
@@ -220,19 +220,23 @@ take some out or move it to the other, and re-measure.
     must be `minmax(0, 1fr)` and not `1fr`.** A bare `1fr` takes its automatic minimum from that
     28rem and widens the whole page, which is what put a horizontal scrollbar on the page itself
     and pushed the text out of the margin.
-  - **The two research sections run wider than the rest of the page**, `--focus-wrap: 70rem` against
-  `--wrap: 62rem`, applied through `.focus__inner`. At 62rem the content used 1077px of a 1512px
-  window and Sebastian read the sections as mostly margin. Widening also *shortens* the text
-  column, since a wider measure takes fewer lines, which is what paid for the larger figures. The
-  hero and the footer keep 62rem; widening those would move the hero text off the scrim.
+  - **One measure, `--wrap: 70rem`, for the whole page.** It was 62rem everywhere, then 70rem for
+    the research sections alone, which left the hero, the band and the footer on one left edge and
+    the two sections 68px to the left of it. On a page this spare that step was the most visible
+    thing in it. Everything starts on the same line now. The width itself is what shortened the
+    text column, since a wider measure takes fewer lines, and that is what paid for the larger
+    figures. **The old warning that widening would push the hero text off the scrim was wrong**;
+    the scrim is heaviest at the left, so moving the name left puts it deeper into the dark.
 - **The figures run a little into the right margin.** `.focus__figure` carries a negative right
     margin, `clamp(0rem, (100vw - var(--wrap)) / 2 - 2.2rem, 5.75rem)`, so a figure is about
     560px at 1512 and falls back to the column width below 1100. The bleed was 11rem and is held
     shorter now; a wider box forces a flatter canvas, and the canvas was the problem. On a short
     screen (`max-height: 780px`) the bleed goes to zero, because there height is what binds.
-  - **`--fig-alt` (#a8762e) is the second functional colour.** Blue and amber is the safest pair
-    for colour-blind readers. It earns its place in figure 2, where the narrow and the wide pool
-    must separate; fill-versus-outline was invisible at figure size.
+  - **Figure 2 separates its two pools with grey against navy**, `--faint` and `--link`, which is
+    the safest pair there is for colour-blind readers and needs no third hue. An amber `--fig-alt`
+    once did that job and this file claimed for several revisions that it still did; it had been
+    dead since the pools went grey and navy, and it is deleted. **Do not reintroduce a third hue
+    here without a reason the figure actually needs.**
   - **Figure 1 encodes colour and shape the way this field does, and that mapping is fixed.**
     **Colour is the species, shape is the guild.** It is not a house choice; it is the sentence
     Fukami 2015, Fig. 2 puts in its own caption, "different symbol colors indicate different
@@ -273,9 +277,16 @@ take some out or move it to the other, and re-measure.
   descripción"). Each names what is drawn first and only then the reading, and each ends with a
   `.fig__source` line giving the script and, where it matters, what is computed and what is
   inferred. **Left-aligned on the figure's own measure**, never centred.
-- **Light, elegant cool-gray body** (`--paper: #eef0f2` — NOT blue, NOT dark: Sebastian tried a
-  light-blue and a dark theme and rejected both). Dark text, sober **navy** (`#1b4b9c`).
-  `--wrap: 62rem`. **No ALL-CAPS, no interpunct `·` anywhere.**
+- **A neutral grey ground, `--paper: #f0f0f0`, at zero saturation** (NOT blue, NOT dark, NOT warm:
+  Sebastian tried a light-blue and a dark theme and rejected both, and the ground was a blue-grey
+  until he asked for "algo gris"). **Every neutral token is hue-free**, and the lightness of each
+  one is unchanged from the blue-grey scale it replaced, so every contrast ratio is the same to
+  within 0.1. **Warm was considered and rejected**: the hero photograph is a cold cave and it fades
+  directly into `--paper`, so a warm ground would show a colour shift at that seam.
+  **The whole page carries exactly one chromatic accent**, the navy `--link` (`#1b4b9c`), plus the
+  nine species colours confined to figure 1, where colour carries data. Everything else is grey.
+  Keep it that way; a second accent is what this palette exists to avoid.
+  `--wrap: 70rem`. **No ALL-CAPS, no interpunct `·` anywhere.**
 - **Introduction band** (`.intro`, in `index.astro`): the portrait at
   `/assets/portrait-256.webp` beside four sentences and the profile links. **A band, not a
   screen**, so the two research sections remain the page; it has no `min-height` and ends on a
@@ -697,3 +708,19 @@ and the 404, not just the research prose.
    back to roughly 183.
    A fourth overlap surfaced while measuring, figure 1's habitat label against the lower panel's
    title, and the clearance rule is in the figure bullet above.
+31. **Current - the palette went neutral and the page found one left edge (Sep 2026).** Sebastian
+   asked for a review of the background and of order generally, with the choices left open. Three
+   things, each diagnosed before it was changed.
+   **The ground was a blue-grey and so was everything else.** Measured, every neutral token sat at
+   210 to 220 degrees with 7 to 16 per cent saturation, and the navy accent sat at 218. The accent
+   therefore had no hue contrast to work with, only saturation, and the page read cold rather than
+   restrained. The greys are hue-free now at identical lightness, so no contrast ratio moved by
+   more than 0.1 and nothing about the layout shifted.
+   **The page had three left edges**, 266 for the hero, the band and the footer, 198 for the two
+   research sections, and 258 for the footer icons, which is an intentional optical inset. One
+   measure fixed it.
+   **Two dead tokens and one false claim.** `--fig-alt` and `--fig-sep` were declared and never
+   referenced, and this file asserted that the amber separated figure 2's two pools when they had
+   gone grey and navy revisions earlier. Both deleted, the claim corrected. `--surface` was dead
+   too. The ORCID mark dropped its brand green, which on a neutral page was the only saturated
+   thing outside the figures and broke a row of five otherwise identical glyphs.

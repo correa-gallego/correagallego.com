@@ -32,32 +32,37 @@
 }
 
 :root {
-    /* Light, elegant cool-gray */
-    --paper:      #eef0f2;
-    --paper-2:    #e6e8ec;
-    --surface:    #ffffff;
+    /* A neutral grey ground, at 0 per cent saturation. Every token used to sit at
+       210 to 220 degrees, the same hue as the navy accent, so the accent had no
+       hue contrast to work with and the page read cold rather than restrained.
+       The lightness of each token is unchanged, so every contrast ratio is the
+       same to within 0.1; only the colour cast is gone. Navy stays the one
+       chromatic thing outside the figures. */
+    --paper:      #f0f0f0;
+    --paper-2:    #e8e8e8;
 
-    --ink:        #1a1e24;
-    --head:       #2b323b;
-    --body:       #333a43;
-    --muted:      #626a74;
-    --faint:      #8b929b;
-    --rule:       #d6dadf;
-    --rule-soft:  #e3e6ea;
+    --ink:        #1e1e1e;
+    --head:       #313131;
+    --body:       #393939;
+    --muted:      #696969;
+    --faint:      #919191;
+    --rule:       #dadada;
+    --rule-soft:  #e6e6e6;
 
     --link:       #1b4b9c;
     --link-hover: #123472;
 
-    /* Figure ink. The generated SVG references these, so it themes with the page. */
-    --fig-flow: #c5ccd4;
-    --fig-traj: #a3abb4;
-    --fig-sep:  #6d7883;
-    --fig-alt:  #a8762e;   /* the second functional colour in figure 2 */
-    /* Figure 1 puts the species on colour and the guild on shape, which is the
-       convention Fukami 2015 Fig. 2 states in its caption. Nine species need
-       nine colours, so this is Paul Tol's muted qualitative scheme, built to
-       stay separable for colour-blind readers, ordered so the three triads a
-       community can take fall into three colour families. */
+    /* Figure ink. The generated SVGs reference these, so they theme with the page. */
+    --fig-flow: #cbcbcb;
+    --fig-traj: #aaaaaa;
+    /* Figure 1 puts the species on colour and the guild on shape, the convention
+       Fukami 2015 Fig. 2 states in its caption. Nine species need nine colours,
+       so this is Paul Tol's muted qualitative scheme, built to stay separable
+       for colour-blind readers, ordered so the three triads a community can take
+       fall into three colour families. These are the only saturated colours on
+       the page besides the navy accent, and they are confined to figure 1, where
+       colour carries data. Figure 2 separates its two pools with grey against
+       navy, which needs no third hue. */
     --sp1: #332288;  --sp2: #88ccee;  --sp3: #44aa99;
     --sp4: #117733;  --sp5: #999933;  --sp6: #ddcc77;
     --sp7: #cc6677;  --sp8: #882255;  --sp9: #aa4499;
@@ -67,11 +72,12 @@
     --sans:  "Inter", "Inter Fallback", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
     --math:  "Pagella", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
 
-    --wrap:    62rem;
-    /* The two research sections run wider than the rest of the page. At 62rem
-       the content used 1077px of a 1512px window and the sections read as
-       mostly margin. The hero and the footer keep the narrower measure. */
-    --focus-wrap: 70rem;
+    /* One measure for the whole page. It was 62rem everywhere and then 70rem for
+       the research sections alone, which put the hero, the band and the footer
+       on one left edge and the two sections 68px to the left of it, on a page
+       spare enough that the step was the most visible thing in it. Everything
+       is 70rem now and everything starts on the same line. */
+    --wrap:    70rem;
     --measure: 47rem;
     --gutter:  clamp(1.3rem, 4vw, 2.2rem);
     --ease:    cubic-bezier(0.22, 1, 0.36, 1);
@@ -108,7 +114,7 @@
     a { color: var(--link); text-decoration: none; transition: color 0.15s var(--ease); }
     a:hover { color: var(--link-hover); text-decoration: underline; text-underline-offset: 2px; }
     :focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; }
-    ::selection { background: #d7dde6; color: var(--ink); }
+    ::selection { background: #dcdcdc; color: var(--ink); }
     strong, b { font-weight: 600; color: var(--ink); }
     em, i { font-style: italic; }
 }
@@ -226,8 +232,8 @@
     .hero__scrim {
         position: absolute; inset: 0; z-index: -1;
         background:
-            linear-gradient(90deg, rgba(10,12,16,0.72) 0%, rgba(10,12,16,0.42) 46%, rgba(10,12,16,0.20) 76%),
-            linear-gradient(180deg, rgba(10,12,16,0.28) 0%, rgba(10,12,16,0.10) 40%, rgba(10,12,16,0.28) 66%, var(--paper) 100%);
+            linear-gradient(90deg, rgba(12,12,12,0.72) 0%, rgba(12,12,12,0.42) 46%, rgba(12,12,12,0.20) 76%),
+            linear-gradient(180deg, rgba(12,12,12,0.28) 0%, rgba(12,12,12,0.10) 40%, rgba(12,12,12,0.28) 66%, var(--paper) 100%);
     }
     .hero__inner {
         width: 100%; max-width: var(--wrap); margin-inline: auto;
@@ -295,7 +301,7 @@
         padding-top: clamp(2.2rem, 6vh, 3.4rem);
         padding-bottom: clamp(0.7rem, 1vh, 1rem);
     }
-    .focus__inner { width: 100%; max-width: var(--focus-wrap); }
+    .focus__inner { width: 100%; }
 
     .focus__lead {
         font-family: var(--sans); font-weight: 600;
@@ -316,7 +322,7 @@
     .focus__text p {
         font-family: var(--sans); font-weight: 300;
         font-size: clamp(0.97rem, 1.42vw, 1.02rem);
-        line-height: 1.68; color: #2f363f;
+        line-height: 1.68; color: #373737;
     }
     .focus__text p + p { margin-top: 0.95rem; }
     /* Citations — an affordance, but quieter than a full underline */
@@ -338,7 +344,7 @@
            for it. A journal gives a figure the width of a column; a 25rem box
            does not. The bleed is held short so the figures stay near a 3:2
            canvas rather than stretching wide and flat. */
-        margin-right: calc(-1 * clamp(0rem, (100vw - var(--focus-wrap)) / 2 - 2.2rem, 5.75rem));
+        margin-right: calc(-1 * clamp(0rem, (100vw - var(--wrap)) / 2 - 2.2rem, 5.75rem));
     }
     .fig-wrap { width: 100%; }
     .fig { width: 100%; height: auto; font-family: var(--fig-type); }
@@ -459,7 +465,7 @@
         width: 40px; height: 40px; color: var(--muted); border-radius: 8px;
         transition: color 0.15s var(--ease), background 0.15s var(--ease);
     }
-    .plinks a:hover { color: var(--ink); background: #dde1e7; }
+    .plinks a:hover { color: var(--ink); background: #dfdfdf; }
     .plinks svg { width: 21px; height: 21px; }
     .foot__note { font-size: 0.86rem; color: var(--faint); }
 }
