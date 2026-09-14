@@ -8,7 +8,7 @@ Sebastian Correa-Gallego. Biologist, B.Sc. in Biology, Universidad EAFIT, Medell
 Colombia (2022–2026), GPA 4.44/5.00. Research: microbial community ecology along a light
 gradient in a tropical volcaniclastic cave (undergraduate thesis, EAFIT, sole author) and
 proteome allocation in osmotrophic yeasts under carbon limitation (ECSO Lab, Purdue, visiting
-intern 2025–2026, ongoing). Preparing doctoral applications in microbial ecology / evolutionary
+student intern, Aug 2025 to Jan 2026, finished; the manuscript is in preparation). Preparing doctoral applications in microbial ecology / evolutionary
 biology. Audience: PhD admissions committees and prospective advisors — they value substance,
 precision, and restraint. No self-promotion.
 
@@ -20,8 +20,10 @@ a footer. **The site is deliberately NOT a copy of the CV.** The CV lives in the
 the top-right pair. No blog, no multi-page routing, no analytics, no third-party scripts,
 **no JavaScript at all**.
 
-**The site carries four things about Sebastian**: his name, his degree, four sentences of
-background in the introduction band, and the research argument. Everything else, thesis,
+**The site carries three things about Sebastian, all of them below the photograph**: his name and
+four sentences of background in the introduction band, and the research argument. **The hero
+carries none of them.** It holds only the sentence about community assembly over the cave
+photograph; his name was taken out of it at his request, as ego (see the hero bullet). Everything else, thesis,
 manuscript, presentations, service, honours, training, is in the CV, and the CV button is the
 route to it.
 
@@ -53,15 +55,19 @@ de investigación."* Do not let it grow back into a record of the CV.
   shorthand**, and check the emitted CSS, not the source, after any animation edit.
 - One page: `src/pages/index.astro` (+ `src/pages/404.astro`).
 - Layout `src/layouts/Base.astro` (SEO meta + `og:image`, JSON-LD Person schema, footer).
-- `src/components/Footer.astro` — the degree line (EAFIT logo + text), then left-aligned
-  inline-SVG icon links (email, ORCID, Google Scholar, GitHub, Bluesky, all monochrome), then
-  copyright. **No LinkedIn**, **no profile photo**, **no CV icon** (the CV moved to the fixed
+- `src/components/Footer.astro` — the `ProfileLinks` row (email, ORCID, Google Scholar, GitHub,
+  Bluesky, all monochrome), then the copyright line. The degree line and the EAFIT mark are gone. **No LinkedIn**, **no profile photo**, **no CV icon** (the CV moved to the fixed
   top-right button in `Base.astro`).
 - `src/styles/global.css` — the entire design system.
-- Assets in `public/assets/`: **`CV.pdf` is the live CV**, and the button points at it. Sebastian
-  named the file and asked that it not be renamed ("lo dejas con el nombre que le puse"). A
-  byte-identical copy is kept at `Sebastian-Correa-Gallego-CV.pdf` because that URL was live for a
-  while and may be circulating; **when a new CV arrives, overwrite both**. Also `favicon.svg` (black serif "S"), `field.webp` (hero), `logos/EAFIT.svg` (navy
+- Assets in `public/assets/`: **`Correa-Gallego_CV.pdf` is the live CV**, and the only thing that
+  links it is `const cv` in `Base.astro`, which both pages use. **Sebastian names the file and it is
+  never renamed** ("no hay que renombrar el documento"). When a new CV arrives under a new name,
+  change `const cv` and add the outgoing name to `public/_redirects`.
+  **`public/_redirects` forwards the two earlier names**, `CV.pdf` and
+  `Sebastian-Correa-Gallego-CV.pdf`, which he deleted when he dropped in the new file. Those URLs
+  may be sitting in submitted applications, so they must keep resolving rather than 404. They are
+  302 on purpose; a 301 is cached by browsers indefinitely and this file has been renamed twice.
+  The local Python test server does not apply `_redirects`, so check them on the live site. Also `favicon.svg` (black serif "S"), `field.webp` (hero), `logos/EAFIT.svg` (navy
   `#000066`, in the footer). Kept but **unreferenced**: `Sebastian-Correa-Gallego-Thesis.pdf`
   (4.2 MB defense deck), `logos/Purdue.svg`, `profile.webp` — retained because their URLs may
   already be circulating. Asset files are mode `644`; the logos shipped as `700` and were fixed.
@@ -131,12 +137,18 @@ take some out or move it to the other, and re-measure.
   journal convention and it is his instruction. The roman and bold cuts were deleted once nothing
   used them.
 - **Nothing on the page is italic except that mathematics.** Mastheads and the name are roman.
-- **Hero** (`.hero`, 100svh, full-bleed) — unchanged and not to be redesigned: `field.webp`
-  (Sebastian sampling in the cave), a dark scrim (heavier left, where the text sits; person is on
-  the right), bottom fades to `--paper`. Content: **name on two lines** (`Sebastian` /
-  `Correa-Gallego`), **"B.Sc. in Biology, Universidad EAFIT"** (the institution was added so a
-  cold visitor gets the affiliation immediately), and the phrase. `.hero__cue` is an anchor →
-  `#question`.
+- **Hero** (`.hero`, 100svh, full-bleed): `field.webp` (Sebastian sampling in the cave), a dark
+  scrim (heavier left, where the text sits; person is on the right), bottom fades to `--paper`.
+  **It carries one line of text and no name.** The sentence about community assembly is the
+  page's only `h1`, set large and light (`clamp(1.4rem, 2.9vw, 1.95rem)`, weight 300) so it can
+  hold the photograph without shouting. **His name and the degree line were removed at his
+  request**: *"Quiero que mi nombre desaparezca de ese sitio. Que desaparezca el ego que de allí se
+  emana. Quiero solo dejar el texto sobre el ensamble, con la foto."* **Do not put the name back in
+  the hero**, and do not add a kicker, a degree line or any other text above the sentence.
+  `.hero__cue` is an anchor to `#intro`.
+  The `<title>`, the meta description and the JSON-LD still carry his name. That is deliberate:
+  they are what search engines index, a person searching his name has to be able to find the page,
+  and none of it is visible on the page itself.
   **`field.webp` carries real `alt` text and no `aria-hidden` — do not "fix" it back to `alt=""`.**
   It looks like a background but it is the page's only evidence of fieldwork (Sebastian sampling in
   the Organal San Antonio, Támesis — he confirmed the location); the same sentence is the
@@ -288,7 +300,11 @@ take some out or move it to the other, and re-measure.
   Keep it that way; a second accent is what this palette exists to avoid.
   `--wrap: 70rem`. **No ALL-CAPS, no interpunct `·` anywhere.**
 - **Introduction band** (`.intro`, in `index.astro`): the portrait at
-  `/assets/portrait-256.webp` beside four sentences and the profile links. **A band, not a
+  `/assets/portrait-256.webp` beside **his name**, four sentences and the profile links.
+  **The name is a byline, not a heading.** `.intro__name` is a plain paragraph in weight 600 at
+  about one pixel above the bio text beside it, and well below the section mastheads, so the
+  research questions outrank the person. Sebastian: *"Mi nombre va en la Bio, con un bold, pero no
+  tan grande como en el hero. Humildad."* Do not enlarge it or promote it to a heading. **A band, not a
   screen**, so the two research sections remain the page; it has no `min-height` and ends on a
   hairline rule. The hero cue points at it. See the reasoning under "What the site is" before
   changing its length.
@@ -302,7 +318,7 @@ take some out or move it to the other, and re-measure.
 - **Top-right pair** (`.topbar` with two `.top-link` pills, in `Base.astro`): **Email** then
   **Curriculum Vitae**, on every page, `position: fixed`. Dark translucent glass pills,
   deliberately the **same** style over the dark hero and the light body, so they need no JS to
-  re-theme. The CV opens `/assets/CV.pdf` in a new tab, straight into the browser's own PDF viewer
+  re-theme. The CV opens `/assets/Correa-Gallego_CV.pdf` in a new tab, straight into the browser's own PDF viewer
   (Sebastian: "el CV abierto en Google, tal cómo está", **never** an embedded subpage). Labels
   collapse to "CV" under 560px and to icons alone under 400px.
   **Email is up here because of the same BPP feedback**: a visitor who never scrolls never sees
@@ -724,3 +740,15 @@ and the 404, not just the research prose.
    gone grey and navy revisions earlier. Both deleted, the claim corrected. `--surface` was dead
    too. The ORCID mark dropped its brand green, which on a neutral page was the only saturated
    thing outside the figures and broke a row of five otherwise identical glyphs.
+32. **Current - the name left the hero (Sep 2026).** Sebastian dropped in a new CV and asked for two
+   things. **The CV**: he deleted `CV.pdf` and `Sebastian-Correa-Gallego-CV.pdf` and added
+   `Correa-Gallego_CV.pdf`, unrenamed. The one constant that links it now points there, and
+   `public/_redirects` forwards both old names so links already sent in applications do not break.
+   **The hero**: *"Quiero que mi nombre desaparezca de ese sitio. Que desaparezca el ego que de allí
+   se emana."* His name and the degree line came out of the photograph, which now carries only the
+   sentence about assembly, promoted to the page's `h1` and set larger and light so it holds the
+   space. The name moved into the introduction band as a bold byline barely larger than the text
+   beside it. Read "ese sitio" as the hero, not the whole website, since he placed the name in the
+   bio in the same message; the page title and structured data keep it for search.
+   The new CV also corrected this file: the Purdue internship ran August 2025 to January 2026 and is
+   finished, not ongoing. The bio's past tense was already right.

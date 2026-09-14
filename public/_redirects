@@ -1,0 +1,9 @@
+# Cloudflare Pages reads this file from the root of the published directory.
+#
+# The CV has now lived under three names. Links to the older two may still be
+# sitting in applications and emails, so they forward to the current file
+# instead of returning 404. These are 302, not 301, on purpose: browsers cache a
+# permanent redirect indefinitely, and this file has been renamed twice already.
+
+/assets/CV.pdf                           /assets/Correa-Gallego_CV.pdf  302
+/assets/Sebastian-Correa-Gallego-CV.pdf  /assets/Correa-Gallego_CV.pdf  302
