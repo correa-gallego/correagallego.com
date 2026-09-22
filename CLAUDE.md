@@ -67,9 +67,8 @@ de investigación."* Do not let it grow back into a record of the CV.
   `Sebastian-Correa-Gallego-CV.pdf`, which he deleted when he dropped in the new file. Those URLs
   may be sitting in submitted applications, so they must keep resolving rather than 404. They are
   302 on purpose; a 301 is cached by browsers indefinitely and this file has been renamed twice.
-  The local Python test server does not apply `_redirects`, so check them on the live site. Also `favicon.svg` (black serif "S"), `field.webp` (hero), `logos/EAFIT.svg` (navy
-  `#000066`, in the footer). Kept but **unreferenced**: `Sebastian-Correa-Gallego-Thesis.pdf`
-  (4.2 MB defense deck), `logos/Purdue.svg`, `profile.webp` — retained because their URLs may
+  The local Python test server does not apply `_redirects`, so check them on the live site. Also `favicon.svg` (black serif "S"), `field.webp` (hero). Kept but **unreferenced**: `Sebastian-Correa-Gallego-Thesis.pdf`
+  (4.2 MB defense deck), `logos/EAFIT.svg`, `logos/Purdue.svg`, `profile.webp` — retained because their URLs may
   already be circulating. Asset files are mode `644`; the logos shipped as `700` and were fixed.
 - **Image pipeline:** Sebastian drops originals into a `multimedia/` staging folder, then Claude
   optimizes with **sharp** (bundled via Astro) → WebP into `public/assets/` (referenced by plain
@@ -116,7 +115,10 @@ de investigación."* Do not let it grow back into a record of the CV.
   that is already a WebP.
 - Content is inlined directly in `index.astro`. **No content collections**, no `src/content/`.
 
-Commands: `npm run dev`, `npm run build` (must pass, no console errors).
+Commands: `npm run dev`, `npm run build` (must pass, no console errors). **`build` ends with a
+`find dist -name .DS_Store -delete`.** Astro copies `public/` verbatim, so Finder's `.DS_Store`
+files rode into `dist/`. They never reached production, because git ignores them and Cloudflare
+builds from the repo, but a manual upload of `dist/` would have published a directory listing.
 
 ## Design language (current) — "Two screens"
 
@@ -274,7 +276,7 @@ take some out or move it to the other, and re-measure.
     notation of Fukami 2015, Fig. 2". **Do not collapse that into a single claim of reproduction.**
     Fukami is one of the three advisors named in the SOP, so a reader who knows the convention is
     the likely reader.
-  - Other colours are `--fig-flow`, `--fig-traj`, `--fig-sep`, `--rule`, `--link`, `--paper`,
+  - Other colours are `--fig-flow`, `--fig-traj`, `--rule`, `--link`, `--paper`,
     `--faint` and `currentColor`, so both follow the theme. Label sizes are tuned so the two
     render at a comparable scale; re-check if you resize either canvas.
   - Both need numpy and matplotlib, absent from the system Python under PEP 668, so use a venv.
@@ -342,7 +344,21 @@ take some out or move it to the other, and re-measure.
   them scroll back up to the band is friction; because the fixed pair carries only email and the
   CV, so ORCID, Scholar and GitHub would otherwise exist in one place; and because a footer of a
   lone copyright line reads unfinished. Easy to reverse if he disagrees.
-- Subtle `.reveal` on scroll (`view()` timeline), hero entrance, reduced-motion-safe. Print → B/W.
+- Subtle `.reveal` on scroll (`view()` timeline), hero entrance, reduced-motion-safe.
+  **The reveal degrades correctly and this was verified, not assumed**: without a view timeline the
+  longhands leave `animation-duration` at its initial `0s`, and `animation-fill-mode: both` snaps
+  the element to the end keyframe, so the content is fully visible in a browser with no
+  scroll-driven animation support.
+- **`color-scheme: light` is declared on `html` and is load-bearing.** The page is light by design
+  and has no dark variant; without the declaration Chrome on Android may auto-darken a page that
+  never opted in, which would invert a neutral palette calibrated by measurement.
+- **Print → B/W, and the hero photograph is hidden there.** Print used to hide `.hero__scrim` while
+  leaving `.hero__phrase` white, so the page's single statement printed white on the bare
+  photograph, and white on white wherever images are not printed. Print now drops `.hero__img` too
+  and sets the heading black.
+- **The skip link is `position: fixed`.** It was `absolute`, so it was pinned to the top of the
+  document rather than the viewport; a visitor who pressed Tab after the browser restored a
+  scrolled position would have focused an element parked a thousand pixels above the screen.
 
 **Not on the site (by choice):** no education, experience, service, presentations, honours,
 certifications or skills — that is what the CV PDF is for. No References (privacy). `eeb.jpg`
@@ -752,3 +768,27 @@ and the 404, not just the research prose.
    bio in the same message; the page title and structured data keep it for search.
    The new CV also corrected this file: the Purdue internship ran August 2025 to January 2026 and is
    finished, not ongoing. The bio's past tense was already right.
+33. **Current - an audit pass, with the answer to a broad brief (Sep 2026).** Sebastian gave full
+   control and suggested a background video, animations and transitions. **The video was declined
+   and the reasoning is worth keeping**: it would break `default-src 'none'`, which the site can
+   only claim because it ships no JavaScript, and it contradicts the restraint he had asked for the
+   week before when he took his own name off the hero as ego. Decoration was not the gap; defects
+   were. Five were found by measuring rather than looking.
+   **The 404 page had no `h1` at all**, only an `h2`. **`color-scheme` was never declared**, leaving
+   the palette open to Chrome's auto-darkening on Android. **Printing hid the hero scrim but left
+   the heading white**, so the page's one statement printed white on the bare photograph, or white
+   on white where images are not printed. **The skip link was `absolute`**, pinned to the document
+   rather than the viewport. **`.DS_Store` was riding into `dist/`**, harmless on Cloudflare but a
+   directory listing waiting for any manual upload.
+   Two checks came back clean and are worth not repeating: the reveal's degradation without scroll
+   timelines is correct, and at 320px there is no horizontal scrolling, so WCAG reflow passes.
+   **One apparent bug was a measurement artifact.** The skip link looked like it never appeared on
+   focus, but `:focus` does not match while the browser pane lacks system focus; `activeElement` was
+   right all along. Checked before changing anything.
+   **Deliberately not done**: `forced-color-adjust: none` on the figure marks. It would preserve the
+   nine species colours in Windows High Contrast Mode, but that mode is a user's explicit request
+   and the figure already degrades to shape plus set notation. Overriding the preference is the
+   wrong trade.
+   Also: Astro 7.3.2 to 7.3.4, `og:image` dimensions so a social card can lay out before the image
+   arrives, and the portrait in the band top-aligned to the name now that the name is its first
+   line.

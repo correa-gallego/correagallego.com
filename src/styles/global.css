@@ -87,6 +87,10 @@
 @layer reset {
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html {
+        /* The page is light by design and has no dark variant. Declaring it stops
+           Chrome on Android from auto-darkening a page that never opted in, which
+           would invert a neutral palette that was calibrated by measurement. */
+        color-scheme: light;
         font-size: 17px;
         -webkit-text-size-adjust: 100%;
         text-rendering: optimizeLegibility;
@@ -126,7 +130,7 @@
     .section { padding-block: clamp(2.4rem, 4.5vw, 3.6rem); }
 
     .skip-link {
-        position: absolute; top: 0; left: 1rem; transform: translateY(-120%);
+        position: fixed; top: 0; left: 1rem; transform: translateY(-120%);
         padding: 0.5rem 1rem; background: var(--ink); color: var(--paper); font-size: 0.85rem;
         border-radius: 0 0 4px 4px; z-index: 30; transition: transform 0.15s ease;
     }
@@ -187,10 +191,17 @@
         border-bottom: 1px solid var(--rule-soft);
     }
     .intro__inner {
-        display: flex; align-items: center;
+        display: flex;
+        /* Top-aligned, not centred. Once the name became the first line of the
+           block, a centred portrait sat beside the middle of the paragraph and
+           read as detached from it; aligning the two couples the face to the
+           name the way a byline does. */
+        align-items: flex-start;
         gap: clamp(1.4rem, 3.5vw, 2.6rem);
     }
     .intro__portrait {
+        /* Nudged to sit on the name's cap height rather than its line box. */
+        margin-top: 0.2rem;
         width: clamp(5rem, 9vw, 7.5rem);
         height: auto;
         aspect-ratio: 1;
@@ -491,8 +502,14 @@
     @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
 
     @media print {
-        .hero__scrim, .hero__cue, .skip-link, .plinks, .topbar { display: none !important; }
+        /* The photograph goes with the scrim. Print hid the scrim but left the
+           heading white, so the page's one statement printed white on the bare
+           image, and white on white wherever images are not printed. */
+        .hero__scrim, .hero__cue, .skip-link, .plinks, .topbar,
+        .hero__img { display: none !important; }
         .hero { min-height: auto; }
+        .hero__inner { padding: 0; }
+        .hero__phrase { color: #000; }
         .focus { min-height: auto; display: block; padding-block: 1.5rem; }
         body { background: #fff; color: #000; }
         .focus__lead, .focus__text p, .head__title { color: #000; }
